@@ -1,0 +1,25 @@
+.backGround {
+    background-image: url("placeholderBackground.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title {
+    height: 200px;
+}
+.box {
+    width: 80%;
+    height: 1000px;
+    background: red;
+    margin: auto;
+}
+
+.section-1 {
+    height: 2000vh;
+}
