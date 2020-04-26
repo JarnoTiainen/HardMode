@@ -3,6 +3,36 @@
     background-attachment: fixed;
     background-size: cover;
 }
+.logo{
+    font-size: 30px;
+}
+.title {
+
+}
+nav{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    position: fixed;
+    width: 100%;
+    min-height: 6vh;
+    font-family: "poppins", Impact, monospace;
+}
+.navButtonList {
+    display: flex;
+    justify-content: space-around;
+    width: 25%;
+}
+.navButtonList li{
+    list-style: none;
+}
+
+.navButtonList a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
 
 *{
     margin: 0;
