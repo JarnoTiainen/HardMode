@@ -14,8 +14,9 @@ html {
 }
 main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
+    justify-content: center;
 }
 main header {
     min-height: 15vh;
@@ -27,12 +28,13 @@ nav{
     justify-content: space-between;
     display: flex;
     align-items: center;
-    background-color: black;
+    background: #1c1f22 linear-gradient(to right, black 60%, rgb(56, 52, 113) 100%);
     position: fixed;
     width: 100%;
     min-height: 6vh;
     font-family: "poppins", Impact, monospace;
     z-index: 10;
+    border-bottom: solid rgb(106, 93, 49) 2px;
 }
 ul{
     list-style: none;
@@ -49,12 +51,12 @@ ul{
 
 
 
-/*========================= Nav Bar ==========================*/
+/*================================ Nav Bar =================================*/
 
 .navButtonList {
     display: flex;
     justify-content: space-around;
-    width: 25%;
+    width: 20%;
 }
 .navButtonList li{
     list-style: none;
@@ -77,22 +79,25 @@ ul{
 #navigationDiv {
     width: 60%;
     display: flex;
-    transform: translateX(-3rem);
+    transform: translateX(-9.5rem);
 }
 #cornerPiece {
-    width: 12rem;
+    transform: translateX(2rem);
 }
-#infoLink {
-    transform: translate(-30%, -50%);
-    padding: 1rem 2.5rem 1rem 2.5rem;
+#cornerPieceColor {
+    background: #1c1f22;
+}
+#infoButton {
+    margin-left: 0;
+    width: 9rem;
 }
 
 
-    /*=========================================================================*/
+    /*=============================================================================*/
 
 
 .color {
-    background: #1c1f22
+    background: rgb(19, 34, 37)
 }
 
 .title {
@@ -120,7 +125,7 @@ ul{
 #grayBox {
     display: flex;
     flex-direction: column;
-    padding: 4rem;
+    width: 1200px;
 }
 
 .interactiveContainer {
@@ -128,15 +133,14 @@ ul{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    background: rgba(255, 255, 255 , .2);
     padding-top: 2rem;
     padding-bottom: 2rem;
     margin: auto;
-    min-width: 800px;
+    width: 1150px;
 }
 .boxInContainer {
-    width: 90%;
-    background: rgba(255, 255, 255 , .3);
+    width: 1100px;
+    background: rgba(255,255,255,.2);
     margin: 2rem auto 2rem;
 }
 
@@ -203,6 +207,7 @@ ul{
     margin: 0;
     display: inline-block;
     position: relative;
+
 }
 .skewed-btn-text {
     -ms-transform: skewX(20deg); /* IE 9 */
@@ -216,19 +221,20 @@ ul{
 
 .color-btn {
     color: white;
-    background-image: linear-gradient(to right, darkblue 0%, black 100%);
+    background-image: linear-gradient(to right, rgb(19, 60, 37) 0%, rgb(28 ,40, 34) 100%);
     outline: none;
     padding: 5px 10px;
+    border-color: rgb(106, 93, 49);
 }
 .color-btn:hover {
     background-position: right center;
 }
 .color-btn:active {
-    border-color: darkred;
+    border-color: rgb(106, 93, 49);
     transition: 50ms;
 }
 .color-link {
-    background-image: linear-gradient(to right, darkblue 0%, black 100%);
+    background-image: linear-gradient(to right, #1c1f22 0%, #121212 100%);
     outline: none;
     padding: 5px 10px;
     height: 100%;
@@ -241,8 +247,6 @@ ul{
 }
 
 .link-button {
-    border: none;
-    margin: auto 2px auto 2px;
     display: block;
     font-size: 20px;
     outline: none;
@@ -266,7 +270,6 @@ ul{
 }
 .link-button:hover:before {
     border-bottom: 4px solid rgb(0,191,255);
-
     width: 100%;
     padding: 0;
 }
@@ -290,12 +293,14 @@ div button:hover {
 }
 
 .loginButtons {
-    background: rgba(255, 255, 255, .2);
+    background: rgb(14, 56, 107);
     border-radius: 0.75em;
+    border-color: rgb(32, 181, 252);
     color: rgba(255, 255, 255, .9);
     padding: 1rem;
     outline: none;
 }
+
 
 
 /*=================================== Champion List ==================================*/
@@ -311,23 +316,223 @@ div button:hover {
     margin: auto;
     transform: scale(0.9);
 }
-.championList {
 
+
+
+/*=============================== Build Box ==================================*/
+
+#buildBox {
+    background: rgba(255,255,255,.2);
+    padding: 1rem 0;
+}
+#buildMainColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#buildNameDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#buildNameBackground {
+    border: solid rgb(106, 93, 49) 3px;
+    background: rgb(19, 34, 37);
+    padding: 1rem 2rem;
 }
 
+#buildSecondDiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#buildSelectedChampionDiv {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem 1rem 0;
+}
+.selected-champion-background {
+    border: solid rgb(80, 72, 38) 3px;
+    background: rgb(19, 34, 37);
+    padding: 10px;
+}
+#buildLoadoutDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem;
+}
+#buildLoadoutFirstRowDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 3rem 1rem;
+    padding: 0 6rem;
+}
+#buildItemRowDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border: solid rgb(80, 72, 38) 4px;
+    background: rgb(19, 34, 37);
+}
+.items-item-background {
+    border: solid rgb(106, 93, 49) 3px;
+    background: black;
+    padding: 2px;
+}
+#buildLoadoutSecondRowDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#buildRuneDiv {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: solid rgb(80, 72, 38) 4px;
+    padding: 0 1rem;
+    background: rgb(19, 34, 37);
 
+}
+.buildRuneSecondDiv {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#buildRuneKeystoneDiv {
+    width: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem 0 0.5rem;
+}
 
+#buildRuneKeystoneImage {
+    transform: scale(0.5);
+}
 
+#buildRuneMainRuneDiv {
+    margin: 0 0.5rem;
+}
+#buildRuneSecondaryRuneDiv {
+    margin: 0 0.5rem;
+}
+#buildRuneStatBuffDiv {
+    margin: 0 0.5rem;
+}
+.keystone-background {
+    border: solid rgb(106, 93, 49) 3px;
+    border-radius: 10em;
+    background: black;
+    padding: 1rem;
+}
 
+.runes-background {
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px;
+    padding: 4px;
+    border-radius: 4em;
+    background: rgb(10, 25, 25);
+}
+.runes-item-background {
+    border: solid rgb(106, 93, 49) 3px;
+    border-radius: 4em;
+    background: black;
+    padding: 2px;
+    margin: 2px;
+}
+.stat-buff-background {
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px;
+    padding: 6px;
+    border-radius: 2em;
+    background: rgb(10, 25, 25);
+}
+.stat-buff-item-background {
+    border: solid rgb(106, 93, 49) 2px;
+    border-radius: 4em;
+    background: black;
+    margin: 2px;
+}
+#buildSummonerSpellsDiv {
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+#buildSummonerSpellsSecondDiv {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid rgb(80, 72, 38) 4px;
+    background: rgb(19, 34, 37);
 
+}
+#buildSummonerSpellsThirdDiv {
+    width: 108px;
+    height: 116px;
+    position: absolute;
+}
+#buildFirstSummonerSpell {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#buildSecondSummonerSpell {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.summoner-spells-item-background {
+    border: solid rgb(106, 93, 49) 3px;
+    background: black;
+    padding: 2px;
+}
+#buildSkillsDiv {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
+}
+#buildSkillsSecondDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid rgb(80, 72, 38) 4px;
+    padding: 2rem 1rem;
+    background: rgb(19, 34, 37);
 
+}
+.skills-item-background {
+    border: solid rgb(106, 93, 49) 3px;
+    background: black;
+    padding: 2px;
+}
 
-
-
-
-
-
+.build-arrow-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2px;
+}
 
 
 

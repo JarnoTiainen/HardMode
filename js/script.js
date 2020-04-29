@@ -370,3 +370,47 @@ function printRunes(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes,
   document.getElementById("statBonus3").src = "images/runes/rune6"+"3"+statBonuses[2].toString()+".png";
 }
 
+
+
+
+/*
+let directory = [];
+directory = /images/;
+console.log(directory);
+
+
+function printChampionIcons() {
+
+  const fileList = ret.split('\n');
+  for (let i = 0; i < fileList.length; i++) {
+    const fileinfo = fileList[i].split(' ');
+    if (fileinfo[0] === '201:') {
+      console.log(fileinfo[1] + "<br>");
+      console.log('<img src=\"' + directory + fileinfo[1] + '\"/>')
+    }
+  }
+  console.log(fileList);
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,7 +10,11 @@
     <div>
         <nav>
             <div id="navigationDiv">
-                <div id="cornerPiece" class="skewed-btn nav-links-size">
+                <div id="cornerPiece" class="nav-links-size">
+                    <div id="cornerPieceColor" class=" color-link">
+                    </div>
+                </div>
+                <div id="infoButton" class="skewed-btn nav-links-size">
                     <div class="link-button color-link">
                         <a id="infoLink" href="#end" class="center-link"><span class="skewed-btn-text">Info</span></a>
                     </div>
@@ -40,7 +44,7 @@
                 </div>
                 <div class="skewed-btn nav-links-size">
                     <div class="link-button color-link">
-                        <a id="endLink" href="#end" class="center-link"><span class="skewed-btn-text">End</span></a>
+                        <a id="endLink" href="#buildBox" class="center-link"><span class="skewed-btn-text">Build</span></a>
                     </div>
 
                 </div>
@@ -95,7 +99,7 @@
 
 
                     <div class="boxInContainer" id="championDiv">                                                 <!-- Champion List -->
-                        <ul class="championList" id="championList">
+                        <ul id="championList">
                             <li>
                                 <img src="images/champion/Draven.png" id="draven" alt="champ image">
                             </li>
@@ -280,26 +284,117 @@
                         </ul>
                     </div>
 
-                    <div class="boxInContainer">                                                 <!-- Build Window -->
+                    <div id="buildBox" class="boxInContainer">                                                 <!-- Build Window -->
+                        <div id="buildMainColumn">
+                            <div id="buildNameDiv">
+                                <div id="buildNameBackground">
+                                    <h2 id="buildName">Build Name</h2>
+                                </div>
+                            </div>
+                            <div id="buildSecondDiv">
+                                <div id="buildLoadoutDiv">
+                                    <div id="buildLoadoutFirstRowDiv">
+                                        <div id="buildSelectedChampionDiv">
+                                            <div id="buildSelectedChampionSecondDiv">
+                                                <img id="buildSelectedChampion" src="images/champion/Jhin.png" class="selected-champion-background">
+                                            </div>
+                                        </div>
+                                        <div id="buildItemRowDiv">
+                                            <img id="buildFirstItem" src="images/items/1400.png" class="items-item-background">
+                                            <img id="buildSecondItem" src="images/items/1401.png" class="items-item-background">
+                                            <img id="buildThirdItem" src="images/items/1402.png" class="items-item-background">
+                                            <img id="buildFourthItem" src="images/items/1412.png" class="items-item-background">
+                                            <img id="buildFifthItem" src="images/items/1413.png" class="items-item-background">
+                                            <img id="buildSixthItem" src="images/items/1414.png" class="items-item-background">
+                                        </div>
+                                    </div>
+                                    <div id="buildLoadoutSecondRowDiv">
+                                        <div id="buildRuneDiv">
+                                            <div id="buildRuneKeystoneDiv">
+                                                <div id="buildRuneKeystoneCenter">
+                                                    <img id="buildRuneKeystoneImage" src="images/runes/keyStone12.png" class="keystone-background">
+                                                </div>
+                                            </div>
+                                            <div id="buildRuneMainRuneDiv" class="buildRuneSecondDiv">
+                                                <div class="runes-background">
+                                                    <img id="buildRuneFirstMainRuneImage" src="images/runes/rune111.png" class="runes-item-background">
+                                                    <img id="buildRuneSecondMainRuneImage" src="images/runes/rune112.png" class="runes-item-background">
+                                                    <img id="buildRuneThirdMainRuneImage" src="images/runes/rune113.png" class="runes-item-background">
+                                                </div>
+                                            </div>
+                                            <div id="buildRuneSecondaryRuneDiv" class="buildRuneSecondDiv">
+                                                <div class="runes-background">
+                                                    <img id="buildRuneFirstSecondaryRuneImage" src="images/runes/rune211.png" class="runes-item-background">
+                                                    <img id="buildRuneSecondSecondaryRuneImage" src="images/runes/rune212.png" class="runes-item-background">
+                                                </div>
+                                            </div>
+                                            <div id="buildRuneStatBuffDiv" class="buildRuneSecondDiv">
+                                                <div class="stat-buff-background">
+                                                    <img id="buildRuneFirstStatBuff" src="images/runes/rune611.png" class="stat-buff-item-background">
+                                                    <img id="buildRuneSecondStatBuff" src="images/runes/rune612.png" class="stat-buff-item-background">
+                                                    <img id="buildRuneThirdStatBuff" src="images/runes/rune613.png" class="stat-buff-item-background">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="buildSummonerSpellsDiv">
+                                            <div id="buildSummonerSpellsSecondDiv">
+                                                <div id="buildSummonerSpellsThirdDiv">
+                                                    <img id="buildFirstSummonerSpell" src="images/spell/SummonerFlash.png" class="summoner-spells-item-background">
+                                                    <img id="buildSecondSummonerSpell" src="images/spell/SummonerHeal.png" class="summoner-spells-item-background">
+                                                </div>
 
-                        <img id="item1">
-                        <img id="item2">
-                        <img id="item3">
-                        <img id="item4">
-                        <img id="item5">
-                        <img id="item6">
-                        <img id="keyStone">
-                        <img id="mainRune1">
-                        <img id="mainRune2">
-                        <img id="mainRune3">
-                        <img id="secondaryRune1">
-                        <img id="secondaryRune2">
-                        <img id="statBonus1">
-                        <img id="statBonus2">
-                        <img id="statBonus3">
+                                            </div>
 
+                                        </div>
+                                        <div id="buildSkillsDiv">
+                                            <div id="buildSkillsSecondDiv">
+
+                                                <img id="buildSkillsQ" src="images/spell/JhinQ.png" class="skills-item-background">
+
+                                                <div id="buildArrow1" class="build-arrow-div">
+                                                    <img src="images/graphics/arrow.png">
+                                                </div>
+
+                                                <img id="buildSkillsW" src="images/spell/JhinW.png" class="skills-item-background">
+
+                                                <div id="buildArrow2" class="build-arrow-div">
+                                                    <img src="images/graphics/arrow.png">
+                                                </div>
+
+                                                <img id="buildSkillsE" src="images/spell/JhinE.png" class="skills-item-background">
+
+                                                <div id="buildArrow3" class="build-arrow-div">
+                                                    <img src="images/graphics/arrow.png">
+                                                </div>
+
+                                                <img id="buildSkillsR" src="images/spell/JhinR.png" class="skills-item-background">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <div>
+                        <img id="item1" src="">
+                        <img id="item2" src="">
+                        <img id="item3" src="">
+                        <img id="item4" src="">
+                        <img id="item5" src="">
+                        <img id="item6" src="">
+                        <img id="keyStone" src="">
+                        <img id="mainRune1" src="">
+                        <img id="mainRune2" src="">
+                        <img id="mainRune3" src="">
+                        <img id="secondaryRune1" src="">
+                        <img id="secondaryRune2" src="">
+                        <img id="statBonus1" src="">
+                        <img id="statBonus2" src="">
+                        <img id="statBonus3" src="">
+
+                    </div>
 
 
                     <div id="end" class="section-1">
