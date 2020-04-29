@@ -1,3 +1,4 @@
+var itemSetForJSON = [];
 let itemClasses = [
   {
     name: "AP",
@@ -182,46 +183,38 @@ let itemClasses = [
   }];
 console.log(itemClasses[3].boots);
 console.log("images/items/"+itemClasses[0].boots[0]+".png");
-randomize();
-function randomize() {
+getNewRandomBuild();
+formJSONforItemSet();
+function getNewRandomBuild() {
   const jungler = false;
   const support = true;
   const buildNumber = getRandomBuild("Aatrox");
-  console.log(buildNumber);
-  const allPossibleItems = buildAllPossibleItemsList(buildNumber,true, true, false, true, false);
+  const allPossibleItems = buildAllPossibleItemsList
+  (
+      buildNumber,
+      true,
+      true,
+      false,
+      true,
+      false
+  );
   let remainingItems = 6;
+  const boots = itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))];
+  const jungleItem = itemClasses[buildNumber].jgItems[Math.floor(Math.random()*(itemClasses[buildNumber].jgItems.length-1))];
+  const supportItem = itemClasses[buildNumber].spItems[Math.floor(Math.random() * (itemClasses[buildNumber].spItems.length-1))];
   if (jungler) {
-    document.getElementById("item1").src = "images/items/"+itemClasses[buildNumber].jgItems[Math.floor(Math.random() * (itemClasses[buildNumber].jgItems.length-1))]+".png";
     remainingItems--;
-    document.getElementById("item"+(6-remainingItems+1).toString()).src = "images/items/"+itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))]+".png";
+    itemSetForJSON.push(jungleItem);
+    itemSetForJSON.push(boots);
   }
-  if (support) {
-    document.getElementById("item"+ (6-remainingItems+1).toString()).src = "images/items/"+itemClasses[buildNumber].spItems[Math.floor(Math.random() * (itemClasses[buildNumber].spItems.length-1))]+".png";
+  else if(support) {
     remainingItems--;
-    document.getElementById("item"+(6-remainingItems+1).toString()).src = "images/items/"+itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))]+".png";
+    itemSetForJSON.push(supportItem);
+    itemSetForJSON.push(boots);
   }
-  const mainItems = randomizeRestOfTheItems(allPossibleItems,(remainingItems-1));
-  console.log(mainItems);
-  let i = 0;
-  let mainItemIndex = 0;
-  while (remainingItems > 0) {
-    if (jungler || support) {
-      if (i===0) {
-        remainingItems--;
-      }
-    }
-    document.getElementById("item"+(6-remainingItems+1).toString()).src = "images/items/"+mainItems[mainItemIndex]+".png";
-    remainingItems--;
-    i++;
-
-    if(i === 1 && !jungler && !support) {
-      console.log("not support or jg");
-      document.getElementById("item"+(6-remainingItems+1).toString()).src = "images/items/"+itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))]+".png";
-      i++;
-      remainingItems--;
-    }
-    mainItemIndex++;
-  }
+  randomizeRestOfTheItems(allPossibleItems,(remainingItems-1),boots);
+  console.log(itemSetForJSON);
+  printSelectedItems();
   const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
   buildRunes(keyStone);
 
@@ -229,16 +222,24 @@ function randomize() {
 function randomizeKeyStone(possibleKeyStones) {
   return possibleKeyStones[Math.floor(Math.random() * possibleKeyStones.length)];
 }
-function randomizeRestOfTheItems(allPossibleItems,numberOfItems) {
+function randomizeRestOfTheItems(allPossibleItems,numberOfItems,boots) {
   {
-    let pickedItems = [];
     for(let i = 0; i < numberOfItems; i++) {
       const randomItemID = Math.floor(Math.random() * (allPossibleItems.length - 1));
-      pickedItems.push(allPossibleItems[randomItemID]);
+      if (numberOfItems === 5 && i === 1) {
+        itemSetForJSON.push(boots);
+      }
+      itemSetForJSON.push(allPossibleItems[randomItemID]);
       allPossibleItems.splice(randomItemID, 1);
     }
-    return pickedItems;
   }
+}
+function printSelectedItems() {
+  for(let i = 0; i < 6; i++) {
+    console.log("item"+(i+1).toString()+"   images/items/"+itemSetForJSON[i]+".png");
+    document.getElementById("item"+(i+1).toString()).src = "images/items/"+itemSetForJSON[i]+".png"
+  }
+
 }
 function getRandomBuild(championNumber) {
   let possibleBuilds = [];
@@ -345,7 +346,7 @@ function getRandomNumbersForRunes(numberOfNumbers) {
   }
 return listOfNumbers;
 }
-function  getSecondaryRunesType(mainRune) {
+function getSecondaryRunesType(mainRune) {
   let secondaryRunesType;
   let done = false
   while (done === false) {
@@ -368,6 +369,34 @@ function printRunes(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes,
   document.getElementById("statBonus1").src = "images/runes/rune6"+"1"+statBonuses[0].toString()+".png";
   document.getElementById("statBonus2").src = "images/runes/rune6"+"2"+statBonuses[1].toString()+".png";
   document.getElementById("statBonus3").src = "images/runes/rune6"+"3"+statBonuses[2].toString()+".png";
+}
+function formJSONforItemSet() {
+  console.log(itemSetForJSON);
+  const itemSets = [
+      {
+        title: "HARDMODE",
+        type: "custom",
+        map: "SR",
+        mode: "any",
+        sortrank: 1,
+        associatedMaps: [11],
+      associatedChampions: [
+  ],
+      blocks: [
+    {
+      type: "",
+      items: [
+      ]
+    }
+  ]
+  }]
+  for(let i = 0; i < 6; i++) {
+    itemSets[0].blocks[0].items.push({id: itemSetForJSON[i], count:1})
+  }
+  console.log(JSON.stringify(itemSets[0]));
+  document.getElementById("itemSet").innerHTML = JSON.stringify(itemSets[0]);
+  console.log()
+  return itemSets[0].toString();
 }
 
 
