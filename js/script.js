@@ -21,7 +21,7 @@ let itemClasses = [
     manaItems: [],
     apItems: [],
     healItems: [],
-    mainItems: ["3046","3078","3087","3087","3091","3094","3095","3115","3124","3153","3181"],
+    mainItems: ["3046","3078","3087","3091","3094","3095","3115","3124","3153","3181"],
     keyStones: [2,8]
   },
   {
@@ -138,7 +138,7 @@ let itemClasses = [
     manaItems: [],
     apItems: [],
     healItems: [],
-    mainItems: ["3001","3020","3041","3089","3124","3135","3165"],
+    mainItems: ["3001","3041","3089","3124","3135","3165"],
     keyStones: [5,7,6]
   },
   {
@@ -184,8 +184,8 @@ console.log(itemClasses[3].boots);
 console.log("images/items/"+itemClasses[0].boots[0]+".png");
 randomize();
 function randomize() {
-  const jungler = true;
-  const support = false;
+  const jungler = false;
+  const support = true;
   const buildNumber = getRandomBuild("Aatrox");
   console.log(buildNumber);
   const allPossibleItems = buildAllPossibleItemsList(buildNumber,true, true, false, true, false);
@@ -201,16 +201,19 @@ function randomize() {
     document.getElementById("item"+(6-remainingItems+1).toString()).src = "images/items/"+itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))]+".png";
   }
   const mainItems = randomizeRestOfTheItems(allPossibleItems,(remainingItems-1));
+  console.log(mainItems);
   let i = 0;
   let mainItemIndex = 0;
-  console.log(mainItems);
   while (remainingItems > 0) {
-    if ((!jungler || !support)&&i === 0) {
-      remainingItems--;
+    if (jungler || support) {
+      if (i===0) {
+        remainingItems--;
+      }
     }
     document.getElementById("item"+(6-remainingItems+1).toString()).src = "images/items/"+mainItems[mainItemIndex]+".png";
     remainingItems--;
     i++;
+
     if(i === 1 && !jungler && !support) {
       console.log("not support or jg");
       document.getElementById("item"+(6-remainingItems+1).toString()).src = "images/items/"+itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))]+".png";
@@ -219,7 +222,12 @@ function randomize() {
     }
     mainItemIndex++;
   }
+  const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
+  buildRunes(keyStone);
 
+}
+function randomizeKeyStone(possibleKeyStones) {
+  return possibleKeyStones[Math.floor(Math.random() * possibleKeyStones.length)];
 }
 function randomizeRestOfTheItems(allPossibleItems,numberOfItems) {
   {
@@ -277,7 +285,8 @@ function getRandomBuild(championNumber) {
   }if (res) {
     possibleBuilds.push(14);
   }
-  return Math.floor(Math.random() * (possibleBuilds.length-1));
+  console.log(possibleBuilds);
+  return Math.floor(Math.random() * (possibleBuilds.length));
 }
 function buildAllPossibleItemsList(buildSetNumber, isMana, isMelee, isRanged, isAp, isHealer) {
   let allPossibleItems = [];
@@ -326,27 +335,38 @@ function buildRunes(keyStoneNumber) {
   const secondaryRunesType = getSecondaryRunesType(mainRune);
   const mainLowerRunes = getRandomNumbersForRunes(3);
   const secondaryRunes = getRandomNumbersForRunes(2);
-
+  const statBonuses = getRandomNumbersForRunes(3);
+  printRunes(mainRune, mainLowerRunes, secondaryRunesType, secondaryRunes, statBonuses,keyStoneNumber);
 }
 function getRandomNumbersForRunes(numberOfNumbers) {
   const listOfNumbers = [];
   for (let i = 0; i < numberOfNumbers; i++) {
-    listOfNumbers.push(Math.floor(Math.random() * 4));
+    listOfNumbers.push((Math.floor(Math.random() * 3))+1);
   }
 return listOfNumbers;
 }
 function  getSecondaryRunesType(mainRune) {
-  let secondaryRunesType = Math.floor(Math.random() * 6);
-  if (secondaryRunesType === mainRune) {
-    getSecondaryRunesType(mainRune);
+  let secondaryRunesType;
+  let done = false
+  while (done === false) {
+    secondaryRunesType = Math.floor((Math.random() * 5)+1);
+    if (secondaryRunesType !== mainRune) {
+      done = true;
+      return secondaryRunesType;
+    }
   }
-  else {
-    return secondaryRunesType;
-  }
-
 }
-function printRunes(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes) {
-
-
+function printRunes(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes, statBonuses, keyStoneNumber) {
+  console.log(secondaryRunes+"  "+secondaryRuneType);
+  document.getElementById("keyStone").src = "images/runes/keyStone"+keyStoneNumber.toString()+".png";
+  document.getElementById("mainRune1").src = "images/runes/rune"+mainRune.toString()+"1"+mainLowerRunes[0].toString()+".png";
+  document.getElementById("mainRune2").src = "images/runes/rune"+mainRune.toString()+"2"+mainLowerRunes[1].toString()+".png";
+  document.getElementById("mainRune3").src = "images/runes/rune"+mainRune.toString()+"3"+mainLowerRunes[2].toString()+".png";
+  console.log("images/runes/rune"+secondaryRuneType.toString()+"1"+secondaryRunes[0].toString()+".png");
+  document.getElementById("secondaryRune1").src = "images/runes/rune"+secondaryRuneType.toString()+"1"+secondaryRunes[0].toString()+".png";
+  document.getElementById("secondaryRune2").src = "images/runes/rune"+secondaryRuneType.toString()+"2"+secondaryRunes[1].toString()+".png";
+  document.getElementById("statBonus1").src = "images/runes/rune6"+"1"+statBonuses[0].toString()+".png";
+  document.getElementById("statBonus2").src = "images/runes/rune6"+"2"+statBonuses[1].toString()+".png";
+  document.getElementById("statBonus3").src = "images/runes/rune6"+"3"+statBonuses[2].toString()+".png";
 }
 
