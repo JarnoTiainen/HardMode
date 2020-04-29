@@ -1,9 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     background: #1c1f22 linear-gradient(to bottom, black 0, #1c1f22 200px) no-repeat;
     color: rgba(255, 255, 255, .8);
     min-height: 200px;
     scroll-behavior: smooth;
+    scroll-padding-top: 6vh;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+main header {
+    min-height: 15vh;
+    text-align: center;
+
+}
+
+nav{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    min-height: 6vh;
+    font-family: "poppins", Impact, monospace;
+    z-index: 10;
+}
+ul{
+    list-style: none;
 }
 
 .backGround {
@@ -13,90 +45,172 @@ html {
     background-position: center center;
     background-repeat: no-repeat;
 }
-.logo{
-    font-size: 30px;
-}
-.title {
 
-}
-nav{
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-    background-color: blue;
-    position: fixed;
-    width: 100%;
-    min-height: 6vh;
-    font-family: "poppins", Impact, monospace;
-}
+
+
+
+/*========================= Nav Bar ==========================*/
+
 .navButtonList {
     display: flex;
     justify-content: space-around;
     width: 25%;
 }
-.navButtonListWithMoreButtons {
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
-}
 .navButtonList li{
     list-style: none;
 }
-.navButtonListWithMoreButtons li {
-    list-style: none;
-}
-
 .navButtonList a {
     font-size: 20px;
-    color: white;
+    color: rgba(255, 255, 255, .9);
     text-decoration: none;
 }
-.navButtonListWithMoreButtons a {
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
+.nav-links-size {
+    height: 6vh;
+    width: 10rem;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+#siteNavigation {
+    width: 50%;
+    height: 6vh;
+    justify-content: center;
+}
+#navigationDiv {
+    width: 60%;
+    display: flex;
+    transform: translateX(-3rem);
+}
+#cornerPiece {
+    width: 12rem;
+}
+#infoLink {
+    transform: translate(-30%, -50%);
+    padding: 1rem 2.5rem 1rem 2.5rem;
+}
+
+
+    /*=========================================================================*/
+
+
+.color {
+    background: #1c1f22
 }
 
 .title {
     height: 200px;
 }
+.logo{
+    font-size: 30px;
+    text-align: center;
+    margin: 4rem;
+}
 .box {
     width: 80%;
     height: 1000px;
-    background: #1c1f22;
     margin: auto;
+    min-width: 800px;
 }
 
 .section-1 {
     height: 500vh;
 }
 
+
+/*=================================== Interactive Container =====================================*/
+
+#grayBox {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem;
+}
+
+.interactiveContainer {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background: rgba(255, 255, 255 , .2);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: auto;
+    min-width: 800px;
+}
+.boxInContainer {
+    width: 90%;
+    background: rgba(255, 255, 255 , .3);
+    margin: 2rem auto 2rem;
+}
+
+/*============================Buttons in Interactive Container ===============================*/
+
+.buttonsInContainer {
+    width: 90%;
+    margin: 2rem auto 2rem;
+    display: flex;
+    flex-direction: row;
+}
+#resetDiv {
+    width: 40%;
+    display: flex;
+    position: relative;
+}
+#resetDivRow {
+    width: 100%;
+    position: absolute;
+    align-self: flex-end;
+}
+#resetButton {
+    border-radius: 0.75em;
+    align-self: center;
+    padding: 1rem;
+    white-space: normal;
+    width: 100px;
+}
+#goDiv {
+    width: 20%;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+#goButton {
+    border-radius: 0.5em;
+    font-size: 4rem;
+    padding: 2rem 4rem;
+}
+
+#roleDiv {
+    width: 40%;
+    white-space: nowrap;
+    display: flex;
+    position: relative;
+}
+#roleButtonRow {
+    width: 100%;
+    position: absolute;
+    align-self: flex-end;
+    text-align: center;
+}
+
+
+
+
 /*=========================== Button Styling ===========================*/
 
-.btn {
+.skewed-btn {
     -ms-transform: skewX(-20deg); /* IE 9 */
     -webkit-transform: skewX(-20deg); /* Safari */
     transform: skewX(-20deg);
     text-align: center;
     text-transform: uppercase;
-    padding: 5px 5px;
     margin: 0;
     display: inline-block;
     position: relative;
 }
-.btn-text {
+.skewed-btn-text {
     -ms-transform: skewX(20deg); /* IE 9 */
     -webkit-transform: skewX(20deg); /* Safari */
     transform: skewX(20deg);
-    padding: 20px;
     background: transparent;
     display: inline-block;
+    color: rgba(255, 255, 255, .9);
 
 }
 
@@ -113,6 +227,54 @@ nav{
     border-color: darkred;
     transition: 50ms;
 }
+.color-link {
+    background-image: linear-gradient(to right, darkblue 0%, black 100%);
+    outline: none;
+    padding: 5px 10px;
+    height: 100%;
+}
+.center-link {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.5rem 1.5rem;
+}
+
+.link-button {
+    border: none;
+    margin: auto 2px auto 2px;
+    display: block;
+    font-size: 20px;
+    outline: none;
+    position: relative;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    padding: 5px;
+}
+.link-button:before {
+    content: '';
+    border-bottom: 4px solid rgba(0, 0, 0, 0);
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+.link-button:hover:before {
+    border-bottom: 4px solid rgb(0,191,255);
+
+    width: 100%;
+    padding: 0;
+}
+.link-button:active {
+    color: rgba(255, 255, 255, 1);
+    -webkit-transition: none;
+    transition: none;
+}
 
 div button {
     -webkit-transform: scale(1.0);
@@ -127,53 +289,59 @@ div button:hover {
     -webkit-transition-delay: 0s;
 }
 
-.underline:hover {
-    text-decoration: underline;
-}
-
-
-
-#newLink {
-    border: none;
-    margin: 10px auto 0;
-    display: block;
-    font-size: 20px;
+.loginButtons {
+    background: rgba(255, 255, 255, .2);
+    border-radius: 0.75em;
+    color: rgba(255, 255, 255, .9);
+    padding: 1rem;
     outline: none;
-    position: relative;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-    padding: 5px;
-}
-#newLink:before {
-    content: '';
-    border-bottom: 4px solid rgba(0, 0, 0, 0);
-    padding: 0 10px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 0;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-}
-#newLink:hover:before {
-    border-bottom: 4px solid rgba(255, 0, 255, 0.7);
-    width: 100%;
-    padding: 0;
-}
-#newLink:active {
-    color: rgba(255, 255, 255, 0.6);
-    -webkit-transition: none;
-    transition: none;
 }
 
-#newLink span {
-    padding: 10px 10px;
+
+/*=================================== Champion List ==================================*/
+
+#championList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+#championList li {
+    display: block;
+    margin: auto;
+    transform: scale(0.9);
+}
+.championList {
+
 }
 
 
 
-/*=====================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
