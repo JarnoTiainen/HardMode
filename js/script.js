@@ -8,7 +8,8 @@ let itemClasses = [
     manaItems: ["3003"],
     apItems: [],
     healItems: [],
-    mainItems: ["3027","3041","3089","3100","3157","3285","3907"]
+    mainItems: ["3027","3041","3089","3100","3157","3285","3907"],
+    keyStones: [5,6,7,9,10,15]
   },
   {
     name: "AS",
@@ -20,7 +21,8 @@ let itemClasses = [
     manaItems: [],
     apItems: [],
     healItems: [],
-    mainItems: ["3046","3078","3087","3087","3091","3094","3095","3115","3124","3153","3181"]
+    mainItems: ["3046","3078","3087","3087","3091","3094","3095","3115","3124","3153","3181"],
+    keyStones: [2,8]
   },
   {
     name: "Crit",
@@ -33,6 +35,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3031","3046","3087","3094","3095","3508"],
+    keyStones: [1,2,3,4,8]
   },
   {
     name: "FS",
@@ -45,6 +48,7 @@ let itemClasses = [
     apItems: [],
     healItems: ["3174","3504"],
     mainItems: ["2065","3050","3107","3109","3190","3222","3905"],
+    keyStones: [9,15,16,17]
   },
   {
     name: "Hb",
@@ -57,6 +61,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3025","3089","3100","3115","3124","3146","3153","3157","3812"],
+    keyStones: [1,3,4,5,7,9,11,12]
   },
   {
     name: "HP",
@@ -69,6 +74,7 @@ let itemClasses = [
     apItems: ["3027"],
     healItems: [],
     mainItems: ["3001","3022","3026","3027","3053","3065","3071","3078","3083","3143","3193","3194","3742"],
+    keyStones: [12]
   },
   {
     name: "HPAP",
@@ -81,6 +87,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3001","3022","3027","3030","3083","3102","3116","3151","3152","3157","3165"],
+    keyStones: [5,12,9,11,15]
   },
   {
     name: "LS",
@@ -93,6 +100,7 @@ let itemClasses = [
     apItems: ["3146"],
     healItems: [],
     mainItems: ["3065","3072","3139","3153","3156","3181","3812"],
+    keyStones: [3]
   },
   {
     name: "Lt",
@@ -105,6 +113,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3033","3071","3036","3124","3142","3147","3179","3181","3814"],
+    keyStones: [6,7,8]
   },
   {
     name: "Mana",
@@ -117,6 +126,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3003","3004","3025","3027","3030","3100","3110","3285"],
+    keyStones: [4,10,5,11,15]
   },
   {
     name: "MP",
@@ -129,6 +139,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3001","3020","3041","3089","3124","3135","3165"],
+    keyStones: [5,7,6]
   },
   {
     name: "MS",
@@ -141,6 +152,7 @@ let itemClasses = [
     apItems: ["3905","3907"],
     healItems: [],
     mainItems: ["2065","3078","3139","3142","3800"],
+    keyStones: [6]
   },
   {
     name: "OH",
@@ -153,6 +165,7 @@ let itemClasses = [
     apItems: ["3115"],
     healItems: [],
     mainItems: ["3022","3033","3071","3091","3115","3124","3153"],
+    keyStones: [2,8,17]
   },
   {
     name: "Res",
@@ -165,6 +178,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3025","3065","3068","3075","3110","3143","3190","3193","3194","3742","3800"],
+    keyStones: [4,11,12,16,17]
   }];
 console.log(itemClasses[3].boots);
 console.log("images/items/"+itemClasses[0].boots[0]+".png");
@@ -218,7 +232,7 @@ function randomizeRestOfTheItems(allPossibleItems,numberOfItems) {
     return pickedItems;
   }
 }
-function getRandomBuild(champion) {
+function getRandomBuild(championNumber) {
   let possibleBuilds = [];
   const ap = true;
   const as = true;
@@ -291,5 +305,48 @@ function buildAllPossibleItemsList(buildSetNumber, isMana, isMelee, isRanged, is
     combiner = allPossibleItems;
   }
   return allPossibleItems;
+}
+function buildRunes(keyStoneNumber) {
+  let mainRune;
+  if(keyStoneNumber <= 4) {
+    mainRune = 1;
+  }
+  else if(keyStoneNumber <= 8) {
+    mainRune = 2;
+  }
+  else if(keyStoneNumber <= 11) {
+    mainRune = 3;
+  }
+  else if(keyStoneNumber <= 14) {
+    mainRune = 4;
+  }
+  else if(keyStoneNumber <=17) {
+    mainRune = 5;
+  }
+  const secondaryRunesType = getSecondaryRunesType(mainRune);
+  const mainLowerRunes = getRandomNumbersForRunes(3);
+  const secondaryRunes = getRandomNumbersForRunes(2);
+
+}
+function getRandomNumbersForRunes(numberOfNumbers) {
+  const listOfNumbers = [];
+  for (let i = 0; i < numberOfNumbers; i++) {
+    listOfNumbers.push(Math.floor(Math.random() * 4));
+  }
+return listOfNumbers;
+}
+function  getSecondaryRunesType(mainRune) {
+  let secondaryRunesType = Math.floor(Math.random() * 6);
+  if (secondaryRunesType === mainRune) {
+    getSecondaryRunesType(mainRune);
+  }
+  else {
+    return secondaryRunesType;
+  }
+
+}
+function printRunes(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes) {
+
+
 }
 
