@@ -53,7 +53,7 @@ nav{
     justify-content: space-between;
     display: flex;
     align-items: center;
-    background: linear-gradient(to bottom right, var(--nav-bar-color1) 40%, var(--nav-bar-color2) 100%);
+    background: linear-gradient(to right, var(--nav-bar-color1) 60%, var(--nav-bar-color2) 100%);
     position: fixed;
     width: 100%;
     min-height: 6vh;
@@ -94,7 +94,7 @@ ul{
 }
 .nav-links-size {
     height: 6vh;
-    width: 9rem;
+    width: 9.5rem;
     min-width: 8rem;
 }
 
@@ -131,6 +131,9 @@ ul{
 }
 
 .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 2rem;
     height: 200px;
 }
@@ -146,13 +149,8 @@ ul{
 }
 .box {
     width: 80%;
-    height: 1000px;
     margin: auto;
     min-width: 800px;
-}
-
-.section-1 {
-    height: 500vh;
 }
 
 
@@ -182,31 +180,22 @@ ul{
 
 /*============================Buttons in Interactive Container ===============================*/
 
-.buttonsInContainer {
+.build-options {
     width: 90%;
+    height: 400px;
     margin: 2rem auto 2rem;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
-#resetDiv {
-    width: 40%;
+#optionButtons {
+    width: 50%;
     display: flex;
-    position: relative;
-}
-#resetDivRow {
-    width: 100%;
-    position: absolute;
-    align-self: flex-end;
-}
-#resetButton {
-    border-radius: 0.75em;
-    align-self: center;
-    padding: 1rem;
-    white-space: normal;
-    width: 100px;
+    flex-direction: column;
 }
 #goDiv {
-    width: 20%;
+    display: flex;
+    justify-content: center;
     margin-left: 3rem;
     margin-right: 3rem;
 }
@@ -215,19 +204,72 @@ ul{
     font-size: 4rem;
     padding: 2rem 4rem;
 }
+#selectionButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2rem 0 0 0;
+}
+#resetDiv {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#resetButton {
+    border-radius: 0.75em;
+    padding: 1rem;
+    width: 100px;
+}
 
 #roleDiv {
-    width: 40%;
-    white-space: nowrap;
+    width: 50%;
     display: flex;
-    position: relative;
 }
 #roleButtonRow {
-    width: 100%;
-    position: absolute;
+    display: flex;
     align-self: flex-end;
     text-align: center;
 }
+#roleButtonRow div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--button-color2);
+    border: solid var(--build-item-border) 2px;
+    margin: 2px;
+}
+#roleButtonRow img {
+    width: 34px;
+    height: 34px;
+}
+
+
+/*=================================== Champion List ==================================*/
+.champion-list-bg {
+    width: 500px;
+    background: var(--box-transparency);
+    margin: 1rem;
+    padding: 1rem;
+}
+#championList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#championList li {
+    display: block;
+    margin: 1px;
+}
+#championList img {
+    width: 34px;
+    height: 34px;
+    padding: 1px;
+    border: solid rgb(106, 93, 49) 1px;
+    background: rgb(19, 34, 37);
+}
+
+
 
 
 
@@ -317,13 +359,13 @@ ul{
 
 div button {
     -webkit-transform: scale(1.0);
-    -webkit-transition: 0.25s;
+    -webkit-transition: 0.15s;
     -webkit-transition-timing-function: ease;
     -webkit-transition-delay: 0.1s;
 }
 div button:hover {
-    -webkit-transform: scale(1.1);
-    -webkit-transition: 0.25s;
+    -webkit-transform: scale(1.05);
+    -webkit-transition: 0.15s;
     -webkit-transition-timing-function: ease;
     -webkit-transition-delay: 0s;
 }
@@ -337,34 +379,6 @@ div button:hover {
     outline: none;
 }
 
-
-
-/*=================================== Champion List ==================================*/
-
-#championList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 1rem;
-}
-#championList li {
-    display: block;
-    margin: 1px;
-}
-#championList img {
-    width: 34px;
-    height: 34px;
-    padding: 1px;
-    border: solid rgb(106, 93, 49) 1px;
-    background: rgb(19, 34, 37);
-}
-.champion-button-size {
-    width: 30px;
-    height: 30px;
-}
-
-
-
 /*=============================== Build Box ==================================*/
 
 #buildBox {
@@ -376,6 +390,9 @@ div button:hover {
     flex-direction: column;
     justify-content: center;
 }
+#buildFirstDiv {
+    position: relative;
+}
 #buildNameDiv {
     display: flex;
     flex-direction: column;
@@ -385,6 +402,19 @@ div button:hover {
     border: solid var(--build-border) 3px;
     background: var(--build-bg);
     padding: 1rem 2rem;
+}
+#buildCopyDiv {
+    position: absolute;
+    right: 10%;
+    margin: 1rem 2rem;
+}
+#buildCopyButton {
+    color: var(--text-lighter);
+    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
+    outline: none;
+    padding: 0.75rem 1.5rem;
+    border-color: var(--yellow);
+    border-radius: 0.75rem;
 }
 
 #buildSecondDiv {
