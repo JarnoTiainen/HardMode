@@ -359,16 +359,16 @@ function getSecondaryRunesType(mainRune) {
 }
 function printRunes(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes, statBonuses, keyStoneNumber) {
   console.log(secondaryRunes+"  "+secondaryRuneType);
-  document.getElementById("keyStone").src = "images/runes/keyStone"+keyStoneNumber.toString()+".png";
-  document.getElementById("mainRune1").src = "images/runes/rune"+mainRune.toString()+"1"+mainLowerRunes[0].toString()+".png";
-  document.getElementById("mainRune2").src = "images/runes/rune"+mainRune.toString()+"2"+mainLowerRunes[1].toString()+".png";
-  document.getElementById("mainRune3").src = "images/runes/rune"+mainRune.toString()+"3"+mainLowerRunes[2].toString()+".png";
+  document.getElementById("buildRuneKeystoneImage").src = "images/runes/keyStone"+keyStoneNumber.toString()+".png";
+  document.getElementById("buildRuneFirstMainRuneImage").src = "images/runes/rune"+mainRune.toString()+"1"+mainLowerRunes[0].toString()+".png";
+  document.getElementById("buildRuneSecondMainRuneImage").src = "images/runes/rune"+mainRune.toString()+"2"+mainLowerRunes[1].toString()+".png";
+  document.getElementById("buildRuneThirdMainRuneImage").src = "images/runes/rune"+mainRune.toString()+"3"+mainLowerRunes[2].toString()+".png";
   console.log("images/runes/rune"+secondaryRuneType.toString()+"1"+secondaryRunes[0].toString()+".png");
-  document.getElementById("secondaryRune1").src = "images/runes/rune"+secondaryRuneType.toString()+"1"+secondaryRunes[0].toString()+".png";
-  document.getElementById("secondaryRune2").src = "images/runes/rune"+secondaryRuneType.toString()+"2"+secondaryRunes[1].toString()+".png";
-  document.getElementById("statBonus1").src = "images/runes/rune6"+"1"+statBonuses[0].toString()+".png";
-  document.getElementById("statBonus2").src = "images/runes/rune6"+"2"+statBonuses[1].toString()+".png";
-  document.getElementById("statBonus3").src = "images/runes/rune6"+"3"+statBonuses[2].toString()+".png";
+  document.getElementById("buildRuneFirstSecondaryRuneImage").src = "images/runes/rune"+secondaryRuneType.toString()+"1"+secondaryRunes[0].toString()+".png";
+  document.getElementById("buildRuneSecondSecondaryRuneImage").src = "images/runes/rune"+secondaryRuneType.toString()+"2"+secondaryRunes[1].toString()+".png";
+  document.getElementById("buildRuneFirstStatBuff").src = "images/runes/rune6"+"1"+statBonuses[0].toString()+".png";
+  document.getElementById("buildRuneSecondStatBuff").src = "images/runes/rune6"+"2"+statBonuses[1].toString()+".png";
+  document.getElementById("buildRuneThirdStatBuff").src = "images/runes/rune6"+"3"+statBonuses[2].toString()+".png";
 }
 function formJSONforItemSet() {
   console.log(itemSetForJSON);
