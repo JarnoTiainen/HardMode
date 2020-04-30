@@ -1,0 +1,8 @@
+{
+  "name": "HardMode",
+  "version": "1.0.0",
+  "dependencies": {
+    "requirejs": "^2.3.6",
+    "sqlite3": "^4.2.0"
+  }
+}
