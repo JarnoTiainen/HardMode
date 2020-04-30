@@ -185,6 +185,16 @@ console.log(itemClasses[3].boots);
 console.log("images/items/"+itemClasses[0].boots[0]+".png");
 getNewRandomBuild();
 formJSONforItemSet();
+document.getElementById("goDiv").addEventListener("click", function() {
+  itemSetForJSON = [];
+  getNewRandomBuild();
+  formJSONforItemSet();
+})
+
+
+
+
+
 function getNewRandomBuild() {
   const jungler = true;
   const support = false;

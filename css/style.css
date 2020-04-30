@@ -182,11 +182,9 @@ ul{
 
 .build-options {
     width: 90%;
-    height: 400px;
     margin: 2rem auto 2rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 #optionButtons {
     width: 50%;
@@ -262,8 +260,8 @@ ul{
     margin: 1px;
 }
 #championList img {
-    width: 34px;
-    height: 34px;
+    width: 60px;
+    height: 60px;
     padding: 1px;
     border: solid rgb(106, 93, 49) 1px;
     background: rgb(19, 34, 37);
