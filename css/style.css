@@ -3,11 +3,36 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --green: rgb(19, 34, 37);
+    --yellow: rgb(106, 93, 49);
+    --gray: #1c1f22;
+    --purple: rgb(56, 52, 113);
+    --text: rgba(255, 255, 255, .8);
+    --text-lighter: rgba(255, 255, 255, .9);
+    --nav-bar-color1: black;
+    --nav-bar-color2: rgb(56, 52, 113);
+    --nav-bar-border: rgb(106, 93, 49);
+    --box-transparency: rgba(255,255,255,.2);
+    --button-color1: rgb(19, 60, 37);
+    --button-color2: rgb(28 ,40, 34);
+    --link-color1: #1c1f22;
+    --link-color2: #121212;
+    --link-highlight: rgb(0,191,255);
+    --login-btn-bg: rgb(14, 56, 107);
+    --login-btn-border: rgb(32, 181, 252);
+    --build-border: rgb(80, 72, 38);
+    --build-bg: rgb(19, 34, 37);
+    --build-item-border: rgb(106, 93, 49);
+    --build-item-bg: black;
+    --runes-bg: rgb(10, 25, 25);
+    --runes-border: black;
+}
 
 html {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    background: #161616 linear-gradient(to bottom, #050401, #303036 200px) no-repeat;
-    color: rgba(255, 255, 255, .8);
+    background: #1c1f22 linear-gradient(to bottom, black 0, #1c1f22 200px) no-repeat;
+    color: var(--text);
     min-height: 200px;
     scroll-behavior: smooth;
     scroll-padding-top: 6vh;
@@ -28,20 +53,21 @@ nav{
     justify-content: space-between;
     display: flex;
     align-items: center;
-    background: #161616 linear-gradient(to right, #050401 60%, #FC5130 100%);
+    background: linear-gradient(to bottom right, var(--nav-bar-color1) 40%, var(--nav-bar-color2) 100%);
     position: fixed;
     width: 100%;
     min-height: 6vh;
     font-family: "poppins", Impact, monospace;
+    letter-spacing: 1px;
     z-index: 10;
-    border-bottom: solid #161616 2px;
+    border-bottom: solid var(--nav-bar-border) 2px;
 }
 ul{
     list-style: none;
 }
 
 .backGround {
-    background-image: url("backgroundPlaceholder4.jpeg");
+    background-image: url("../images/graphics/urf_color.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
@@ -63,12 +89,13 @@ ul{
 }
 .navButtonList a {
     font-size: 20px;
-    color: rgba(255, 255, 255, .9);
+    color: var(--text-lighter);
     text-decoration: none;
 }
 .nav-links-size {
     height: 6vh;
-    width: 10rem;
+    width: 9rem;
+    min-width: 8rem;
 }
 
 #siteNavigation {
@@ -79,17 +106,20 @@ ul{
 #navigationDiv {
     width: 60%;
     display: flex;
-    transform: translateX(-9.5rem);
+    position: absolute;
+    left: 0;
 }
 #cornerPiece {
-    transform: translateX(2rem);
+    transform: translateX(0);
 }
 #cornerPieceColor {
-    background: #161616;
+    background: var(--link-color1);
+    height: 6vh;
+    width: 3rem;
 }
-#infoButton {
+#topButton {
     margin-left: 0;
-    width: 9rem;
+    width: 8rem;
 }
 
 
@@ -97,18 +127,22 @@ ul{
 
 
 .color {
-    background: #161616;
+    background: var(--green);
 }
 
-.title {
-    height: 1000px;
-}
-#HardModeLogo {
+.info {
+    margin: 2rem;
+    height: 200px;
 }
 .logo{
-    font-size: 30px;
     text-align: center;
-    margin: 4rem;
+    height: 100vh;
+}
+#logoDiv {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .box {
     width: 80%;
@@ -142,7 +176,7 @@ ul{
 }
 .boxInContainer {
     width: 1100px;
-    background: #303036;
+    background: var(--box-transparency);
     margin: 2rem auto 2rem;
 }
 
@@ -217,26 +251,26 @@ ul{
     transform: skewX(20deg);
     background: transparent;
     display: inline-block;
-    color: rgba(255, 255, 255, .9);
+    color: var(--text-lighter);
 
 }
 
 .color-btn {
-    color: white;
-    background-image: linear-gradient(to right, #050401 0%, #303036 100%);
+    color: var(--text-lighter);
+    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
     outline: none;
     padding: 5px 10px;
-    border-color: #FC5130;
+    border-color: var(--yellow);
 }
 .color-btn:hover {
     background-position: right center;
 }
 .color-btn:active {
-    border-color: #5F0805;
+    border-color: var(--yellow);
     transition: 50ms;
 }
 .color-link {
-    background-image: linear-gradient(to right, #303036 0%, #161616 100%);
+    background-image: linear-gradient(to right, var(--link-color1) 0%, var(--link-color2) 100%);
     outline: none;
     padding: 5px 10px;
     height: 100%;
@@ -271,7 +305,7 @@ ul{
     transition: 0.2s;
 }
 .link-button:hover:before {
-    border-bottom: 4px solid #30BCED;
+    border-bottom: 4px solid var(--link-highlight);
     width: 100%;
     padding: 0;
 }
@@ -295,10 +329,10 @@ div button:hover {
 }
 
 .loginButtons {
-    background: #161616;
+    background: var(--login-btn-bg);
     border-radius: 0.75em;
-    border-color: #303036;
-    color: rgba(255, 255, 255, .9);
+    border-color: var(--login-btn-border);
+    color: var(--text-lighter);
     padding: 1rem;
     outline: none;
 }
@@ -315,8 +349,18 @@ div button:hover {
 }
 #championList li {
     display: block;
-    margin: auto;
-    transform: scale(0.9);
+    margin: 1px;
+}
+#championList img {
+    width: 34px;
+    height: 34px;
+    padding: 1px;
+    border: solid rgb(106, 93, 49) 1px;
+    background: rgb(19, 34, 37);
+}
+.champion-button-size {
+    width: 30px;
+    height: 30px;
 }
 
 
@@ -324,7 +368,7 @@ div button:hover {
 /*=============================== Build Box ==================================*/
 
 #buildBox {
-    background: #303036;
+    background: rgba(255,255,255,.2);
     padding: 1rem 0;
 }
 #buildMainColumn {
@@ -338,8 +382,8 @@ div button:hover {
     align-items: center;
 }
 #buildNameBackground {
-    border: solid #FC5130 3px;
-    background: #161616;
+    border: solid var(--build-border) 3px;
+    background: var(--build-bg);
     padding: 1rem 2rem;
 }
 
@@ -359,8 +403,8 @@ div button:hover {
     width: 146px;
 }
 .selected-champion-background {
-    border: solid #FC5130 3px;
-    background: #161616;
+    border: solid var(--build-border) 3px;
+    background: var(--build-bg);
     padding: 10px;
 }
 #buildLoadoutDiv {
@@ -386,18 +430,25 @@ div button:hover {
     justify-content: space-evenly;
     margin: 1rem;
     padding: 1rem 2rem;
-    border: solid #FC5130 4px;
-    background: #161616;
+    border: solid var(--build-border) 4px;
+    background: var(--build-bg);
 }
 .square-icon-image-size {
     height: 74px;
     width: 74px;
 }
 .items-item-background {
-    border: solid #FC5130 3px;
-    background: #050401;
+    border: solid rgb(106, 93, 49) 3px;
+    background: var(--build-item-bg);
     padding: 2px;
 }
+.build-arrow-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2px;
+}
+
 #buildLoadoutSecondRowDiv {
     width: 100%;
     height: 100%;
@@ -410,9 +461,9 @@ div button:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border: solid #FC5130 4px;
-    padding: 0 1rem;
-    background: #161616;
+    border: solid var(--build-border) 4px;
+    padding: 1rem;
+    background: var(--build-bg);
 
 }
 .buildRuneSecondDiv {
@@ -449,62 +500,65 @@ div button:hover {
 }
 
 .keystone-background {
-    border: #FC5130 3px;
+    border: solid var(--build-border) 3px;
     border-radius: 10em;
-    background: #050401;
+    background: var(--build-item-bg);
     padding: 1rem;
 }
 
 .runes-background {
     display: flex;
     flex-direction: column;
-    border: solid #050401 2px;
+    border: solid var(--runes-border) 2px;
     padding: 4px;
     border-radius: 4em;
-    background: #161616;
+    background: var(--runes-bg);
 }
 .runes-item-background {
-    border: solid #FC5130 3px;
+    border: solid var(--build-item-border) 3px;
     border-radius: 4em;
-    background: #050401;
+    background: var(--build-item-bg);
     padding: 2px;
     margin: 2px;
 }
 .stat-buff-background {
     display: flex;
     flex-direction: column;
-    border: solid #050401 2px;
+    border: solid var(--runes-border) 2px;
     padding: 6px;
     border-radius: 2em;
-    background: #161616;
+    background: var(--runes-bg);
 }
 .stat-buff-item-background {
-    border: solid #FC5130 2px;
+    border: solid rgb(106, 93, 49) 2px;
     border-radius: 4em;
-    background: #161616;
+    background: var(--build-item-bg);
     margin: 2px;
 }
-#buildSummonerSpellsDiv {
+
+#buildSkillDiv {
     height: 100%;
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
 }
-#buildSummonerSpellsSecondDiv {
-    width: 160px;
-    height: 160px;
+#buildSkillSecondDiv {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    border: solid #FC5130 4px;
-    background: #161616;
+    border: solid var(--build-border) 4px;
+    background: var(--build-bg);
+    padding: 1rem;
 
 }
-#buildSummonerSpellsThirdDiv {
-    width: 108px;
-    height: 116px;
-    position: absolute;
+
+
+#buildSummonerSpellsDiv {
+    width: 94px;
+    height: 94px;
+    position: relative;
+    margin: 0 0 0 1rem;
 }
 #buildFirstSummonerSpell {
     position: absolute;
@@ -517,13 +571,15 @@ div button:hover {
     right: 0;
 }
 .summoner-spell-image-size {
-
+    width: 55px;
+    height: 55px;
 }
 .summoner-spells-item-background {
-    border: solid #FC5130 3px;
-    background: #161616;
+    border: solid var(--build-item-border) 3px;
+    background: var(--build-item-bg);
     padding: 2px;
 }
+/*
 #buildSkillsDiv {
     height: 100%;
     display: flex;
@@ -535,23 +591,19 @@ div button:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: solid #FC5130 4px;
+    border: solid rgb(80, 72, 38) 4px;
     padding: 2rem 1rem;
-    background: #161616;
+    background: rgb(19, 34, 37);
 
 }
+
+ */
 .skills-item-background {
-    border: solid #FC5130 3px;
-    background: #050401;
+    border: solid var(--build-item-border) 3px;
+    background: var(--build-item-bg);
     padding: 2px;
 }
 
-.build-arrow-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 2px;
-}
 
 
 
