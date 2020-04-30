@@ -415,7 +415,7 @@ div button:hover {
     border-radius: 0.75rem;
 }
 #buildInput {
-    visibility: hidden;
+    opacity: 0;
     position: absolute;
 
 }

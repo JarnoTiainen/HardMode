@@ -1,3 +1,4 @@
+"use strict";
 var itemSetForJSON = [];
 let itemClasses = [
   {
@@ -189,7 +190,19 @@ document.getElementById("goDiv").addEventListener("click", function() {
   itemSetForJSON = [];
   getNewRandomBuild();
   formJSONforItemSet();
-})
+});
+function copyText() {
+
+  alert("Copied the text: " + copyText.value);
+}
+
+const copyBuildButton = document.getElementById("buildCopyButton");
+copyBuildButton.onclick = function() {
+  var copyText = document.getElementById("buildInput");
+  copyText.select();
+  document.execCommand("copy");
+
+};
 
 
 
@@ -403,7 +416,8 @@ function formJSONforItemSet() {
     itemSets[0].blocks[0].items.push({id: itemSetForJSON[i], count:1})
   }
   console.log(JSON.stringify(itemSets[0]));
-  document.getElementById("itemSet").innerHTML = JSON.stringify(itemSets[0]);
+  document.getElementById("buildInput").value = JSON.stringify(itemSets[0]);
+  console.log(document.getElementById("buildInput").value);
   console.log()
   return itemSets[0].toString();
 }
