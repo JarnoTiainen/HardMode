@@ -201,6 +201,7 @@ copyBuildButton.onclick = function() {
   var copyText = document.getElementById("buildInput");
   copyText.select();
   document.execCommand("copy");
+  alert("Build copied to clipboard.");
 
 };
 
