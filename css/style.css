@@ -414,6 +414,11 @@ div button:hover {
     border-color: var(--yellow);
     border-radius: 0.75rem;
 }
+#buildInput {
+    visibility: hidden;
+    position: absolute;
+
+}
 
 #buildSecondDiv {
     display: flex;
