@@ -9,14 +9,30 @@
 <div class="backGround">
     <div>
         <nav>
+            <div id="cornerPiece">
+                <div id="cornerPieceColor" class=" color-link">
+                </div>
+            </div>
             <div id="navigationDiv">
-                <div id="cornerPiece" class="nav-links-size">
-                    <div id="cornerPieceColor" class=" color-link">
+
+                <div id="topButton" class="skewed-btn nav-links-size">
+                    <div class="link-button color-link">
+                        <a id="topLink" href="#" class="center-link"><span class="skewed-btn-text">Top</span></a>
                     </div>
                 </div>
                 <div id="infoButton" class="skewed-btn nav-links-size">
                     <div class="link-button color-link">
-                        <a id="infoLink" href="#end" class="center-link"><span class="skewed-btn-text">Info</span></a>
+                        <a id="infoLink" href="#info" class="center-link"><span class="skewed-btn-text">Info</span></a>
+                    </div>
+                </div>
+                <div class="skewed-btn nav-links-size">
+                    <div class="link-button color-link">
+                        <a id="dravenLink" href="#draven" class="center-link"><span class="skewed-btn-text">Draven</span></a>
+                    </div>
+                </div>
+                <div class="skewed-btn nav-links-size">
+                    <div class="link-button color-link">
+                        <a id="buildLink" href="#buildBox" class="center-link"><span class="skewed-btn-text">Build</span></a>
                     </div>
                 </div>
                 <div class="skewed-btn nav-links-size">
@@ -28,25 +44,6 @@
                     <div class="link-button color-link">
                         <a id="howlingAbyssLink" href="#howlingAbyss" class="center-link"><span class="skewed-btn-text">Howling Abyss</span></a>
                     </div>
-
-                </div>
-                <div class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
-                        <a id="topLink" href="#" class="center-link"><span class="skewed-btn-text">Top</span></a>
-                    </div>
-
-                </div>
-                <div class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
-                        <a id="dravenLink" href="#draven" class="center-link"><span class="skewed-btn-text">Draven</span></a>
-                    </div>
-
-                </div>
-                <div class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
-                        <a id="endLink" href="#buildBox" class="center-link"><span class="skewed-btn-text">Build</span></a>
-                    </div>
-
                 </div>
             </div>
 
@@ -62,15 +59,19 @@
         </nav>
 
 
-        <header class="title"></header>
+        <header id="logo" class="logo">
+            <div id="logoDiv">
+                <img src="images/champion/Jhin.png">
+            </div>
+        </header>
 
 
         <main class="box section-1">                                                    <!-- Main Content -->
 
             <div id="grayBox" class="color">
 
-                <div class="logo" id="logo">
-                    <h1>LOGO</h1>
+                <div class="info" id="info">
+                    <h1>Info</h1>
                 </div>
 
                 <div class="interactiveContainer" id="interactiveContainer">        <!-- Container for Interactive Portion -->
@@ -101,7 +102,7 @@
                     <div class="boxInContainer" id="championDiv">                                                 <!-- Champion List -->
                         <ul id="championList">
                             <li>
-                                <img src="images/champion/Draven.png" id="draven" alt="champ image">
+                                <img src="images/champion/Draven.png" id="draven" title="Draven">
                             </li>
                             <li>
                                 <img src="images/champion/Draven.png" alt="champ image">
@@ -301,10 +302,25 @@
                                         </div>
                                         <div id="buildItemRowDiv">
                                             <img id="item1" src="images/items/1400.png" class="items-item-background square-icon-image-size">
+                                            <div class="build-arrow-div">
+                                                <img src="images/graphics/arrow.png">
+                                            </div>
                                             <img id="item2" src="images/items/1401.png" class="items-item-background square-icon-image-size">
+                                            <div class="build-arrow-div">
+                                                <img src="images/graphics/arrow.png">
+                                            </div>
                                             <img id="item3" src="images/items/1402.png" class="items-item-background square-icon-image-size">
+                                            <div class="build-arrow-div">
+                                                <img src="images/graphics/arrow.png">
+                                            </div>
                                             <img id="item4" src="images/items/1413.png" class="items-item-background square-icon-image-size">
+                                            <div class="build-arrow-div">
+                                                <img src="images/graphics/arrow.png">
+                                            </div>
                                             <img id="item5" src="images/items/1414.png" class="items-item-background square-icon-image-size">
+                                            <div class="build-arrow-div">
+                                                <img src="images/graphics/arrow.png">
+                                            </div>
                                             <img id="item6" src="images/items/1414.png" class="items-item-background square-icon-image-size">
                                         </div>
                                     </div>
@@ -336,62 +352,28 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="buildSummonerSpellsDiv">
-                                            <div id="buildSummonerSpellsSecondDiv">
-                                                <div id="buildSummonerSpellsThirdDiv">
-                                                    <img id="buildFirstSummonerSpell" src="images/spell/SummonerFlash.png" class="summoner-spells-item-background square-icon-image-size">
-                                                    <img id="buildSecondSummonerSpell" src="images/spell/SummonerHeal.png" class="summoner-spells-item-background square-icon-image-size">
+                                        <div id="buildSkillDiv">
+                                            <div id="buildSkillSecondDiv">
+                                                <img id="buildSkill" src="images/spell/JhinQ.png" class="skills-item-background square-icon-image-size">
+                                                <div id="buildSummonerSpellsDiv">
+                                                    <img id="buildFirstSummonerSpell" src="images/spell/SummonerFlash.png" class="summoner-spells-item-background summoner-spell-image-size">
+                                                    <img id="buildSecondSummonerSpell" src="images/spell/SummonerHeal.png" class="summoner-spells-item-background summoner-spell-image-size">
                                                 </div>
-
-                                            </div>
-
-                                        </div>
-                                        <div id="buildSkillsDiv">
-                                            <div id="buildSkillsSecondDiv">
-
-                                                <img id="buildFirstSkill" src="images/spell/JhinQ.png" class="skills-item-background square-icon-image-size">
-
-                                                <div id="buildArrow1" class="build-arrow-div">
-                                                    <img src="images/graphics/arrow.png">
-                                                </div>
-
-                                                <img id="buildSecondSkill" src="images/spell/JhinW.png" class="skills-item-background square-icon-image-size">
-
-                                                <div id="buildArrow2" class="build-arrow-div">
-                                                    <img src="images/graphics/arrow.png">
-                                                </div>
-
-                                                <img id="buildThirdSkill" src="images/spell/JhinE.png" class="skills-item-background square-icon-image-size">
-
-                                                <div id="buildArrow3" class="build-arrow-div">
-                                                    <img src="images/graphics/arrow.png">
-                                                </div>
-
-                                                <img id="buildFourthSkill" src="images/spell/JhinR.png" class="skills-item-background square-icon-image-size">
-
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div>
-                        <p id ="itemSet">
-
-                        </p>
-
+                        <div>
+                            <p id ="itemSet"></p>
+                         </div>
                     </div>
-
-
                     <div id="end" class="section-1">
                         <h1>End</h1>
                     </div>
                 </div>
             </div>
-
-
 
         </main>
 
