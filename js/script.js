@@ -1,7 +1,7 @@
 var itemSetForJSON = [];
 let itemClasses = [
   {
-    name: "AP",
+    name: "Wannabe Mage",
     boots: ["3020"],
     meleeItems: [],
     jgItems: ["1402","1414"],
@@ -13,7 +13,7 @@ let itemClasses = [
     keyStones: [5,6,7,9,10,15]
   },
   {
-    name: "AS",
+    name: "Fast Hands",
     boots: ["3006",],
     meleeItems: [],
     rangerItems: ["3085"],
@@ -26,7 +26,7 @@ let itemClasses = [
     keyStones: [2,8]
   },
   {
-    name: "Crit",
+    name: "All Luck",
     boots: ["3006","3009","3158","3117"],
     meleeItems: [],
     rangerItems: ["3085"],
@@ -39,7 +39,7 @@ let itemClasses = [
     keyStones: [1,2,3,4,8]
   },
   {
-    name: "FS",
+    name: "Gamer Girl",
     boots: ["3111","3117"],
     meleeItems: [],
     rangerItems: [],
@@ -52,7 +52,7 @@ let itemClasses = [
     keyStones: [9,15,16,17]
   },
   {
-    name: "Hb",
+    name: "Unsure",
     boots: ["3006","3009","3020"],
     meleeItems: [],
     rangerItems: [],
@@ -65,7 +65,7 @@ let itemClasses = [
     keyStones: [1,3,4,5,7,9,11,12]
   },
   {
-    name: "HP",
+    name: "Fat",
     boots: ["3047","3111"],
     meleeItems: ["3748"],
     rangerItems: [],
@@ -78,7 +78,7 @@ let itemClasses = [
     keyStones: [12]
   },
   {
-    name: "HPAP",
+    name: "Fat Mage",
     boots: ["3047","3111"],
     meleeItems: [],
     rangerItems: [],
@@ -91,7 +91,7 @@ let itemClasses = [
     keyStones: [5,12,9,11,15]
   },
   {
-    name: "LS",
+    name: "S U C C",
     boots: ["3006"],
     meleeItems: ["3074"],
     rangerItems: [],
@@ -104,7 +104,7 @@ let itemClasses = [
     keyStones: [3]
   },
   {
-    name: "Lt",
+    name: "Pepega",
     boots: ["3006","3009","3117","3158"],
     meleeItems: [],
     rangerItems: [],
@@ -117,7 +117,7 @@ let itemClasses = [
     keyStones: [6,7,8]
   },
   {
-    name: "Mana",
+    name: "Worthless",
     boots: ["3009","3020"],
     meleeItems: [],
     rangerItems: [],
@@ -130,7 +130,7 @@ let itemClasses = [
     keyStones: [4,10,5,11,15]
   },
   {
-    name: "MP",
+    name: "Mobafire Mage",
     boots: ["3020"],
     meleeItems: [],
     rangerItems: [],
@@ -143,7 +143,7 @@ let itemClasses = [
     keyStones: [5,7,6]
   },
   {
-    name: "MS",
+    name: "Fast",
     boots: ["3009","3117"],
     meleeItems: [],
     rangerItems: [],
@@ -156,7 +156,7 @@ let itemClasses = [
     keyStones: [6]
   },
   {
-    name: "OH",
+    name: "Stonks",
     boots: ["3006"],
     meleeItems: ["3074","3748"],
     rangerItems: ["3085"],
@@ -169,7 +169,7 @@ let itemClasses = [
     keyStones: [2,8,17]
   },
   {
-    name: "Res",
+    name: "MeatBall",
     boots: ["3047"],
     meleeItems: [],
     rangerItems: [],
@@ -186,8 +186,8 @@ console.log("images/items/"+itemClasses[0].boots[0]+".png");
 getNewRandomBuild();
 formJSONforItemSet();
 function getNewRandomBuild() {
-  const jungler = false;
-  const support = true;
+  const jungler = true;
+  const support = false;
   const buildNumber = getRandomBuild("Aatrox");
   const allPossibleItems = buildAllPossibleItemsList
   (
@@ -208,15 +208,14 @@ function getNewRandomBuild() {
     itemSetForJSON.push(boots);
   }
   else if(support) {
-    remainingItems--;
     itemSetForJSON.push(supportItem);
-    itemSetForJSON.push(boots);
   }
   randomizeRestOfTheItems(allPossibleItems,(remainingItems-1),boots);
   console.log(itemSetForJSON);
   printSelectedItems();
   const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
   buildRunes(keyStone);
+  document.getElementById("buildName").innerHTML = itemClasses[buildNumber].name + " Jhin";
 
 }
 function randomizeKeyStone(possibleKeyStones) {
@@ -397,6 +396,10 @@ function formJSONforItemSet() {
   document.getElementById("itemSet").innerHTML = JSON.stringify(itemSets[0]);
   console.log()
   return itemSets[0].toString();
+}
+function printSpellIcons(championName) {
+
+
 }
 
 
