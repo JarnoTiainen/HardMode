@@ -409,7 +409,7 @@ div button:hover {
     flex-direction: row;
     justify-content: space-evenly;
     border: solid rgb(80, 72, 38) 4px;
-    padding: 0 1rem;
+    padding: 1rem;
     background: rgb(19, 34, 37);
 
 }
