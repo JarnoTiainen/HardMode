@@ -347,7 +347,6 @@ div button:hover {
     width: 100%;
 }
 #buildSelectedChampionDiv {
-    width: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -377,6 +376,7 @@ div button:hover {
     margin: 3rem 1rem;
     padding: 0 6rem;
 }
+
 #buildItemRowDiv {
     width: 100%;
     display: flex;
@@ -388,8 +388,8 @@ div button:hover {
     background: rgb(19, 34, 37);
 }
 .square-icon-image-size {
-    height: 36px;
-    width: 36px;
+    height: 74px;
+    width: 74px;
 }
 .items-item-background {
     border: solid rgb(106, 93, 49) 3px;
