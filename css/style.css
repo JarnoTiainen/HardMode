@@ -10,10 +10,13 @@
     --purple: rgb(56, 52, 113);
     --text: rgba(255, 255, 255, .8);
     --text-lighter: rgba(255, 255, 255, .9);
+    --box-bg: rgba(255,255,255,.15);
+    --box-border: rgb(80, 72, 38);
     --nav-bar-color1: black;
     --nav-bar-color2: rgb(56, 52, 113);
     --nav-bar-border: rgb(106, 93, 49);
     --box-transparency: rgba(255,255,255,.2);
+    --box-dark-bg: rgb(10, 25, 25);
     --button-color1: rgb(19, 60, 37);
     --button-color2: rgb(28 ,40, 34);
     --link-color1: #1c1f22;
@@ -31,42 +34,28 @@
 
 html {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    background: #1c1f22 linear-gradient(to bottom, black 0, #1c1f22 200px) no-repeat;
     color: var(--text);
-    min-height: 200px;
     scroll-behavior: smooth;
     scroll-padding-top: 6vh;
 }
-main {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-}
-main header {
-    min-height: 15vh;
-    text-align: center;
-
-}
-
 nav{
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, var(--nav-bar-color1) 60%, var(--nav-bar-color2) 100%);
-    position: fixed;
     width: 100%;
     min-height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
     font-family: "poppins", Impact, monospace;
     letter-spacing: 1px;
-    z-index: 10;
     border-bottom: solid var(--nav-bar-border) 2px;
+    background: linear-gradient(to right, var(--nav-bar-color1) 60%, var(--nav-bar-color2) 100%);
+
 }
 ul{
     list-style: none;
 }
-
-.backGround {
+.background {
     background-image: url("../images/graphics/urf_color.jpg");
     background-attachment: fixed;
     background-size: cover;
@@ -75,22 +64,18 @@ ul{
 }
 
 
-
-
 /*================================ Nav Bar =================================*/
 
-.navButtonList {
+.corner-piece-style {
+    background: var(--link-color1);
+    height: 6vh;
+    width: 3rem;
+}
+.navigation-div {
+    width: 60%;
     display: flex;
-    justify-content: space-around;
-    width: 20%;
-}
-.navButtonList li{
-    list-style: none;
-}
-.navButtonList a {
-    font-size: 20px;
-    color: var(--text-lighter);
-    text-decoration: none;
+    position: absolute;
+    left: 0;
 }
 .nav-links-size {
     height: 6vh;
@@ -98,104 +83,107 @@ ul{
     min-width: 8rem;
 }
 
-#siteNavigation {
-    width: 50%;
-    height: 6vh;
-    justify-content: center;
-}
-#navigationDiv {
-    width: 60%;
+.nav-button-list {
     display: flex;
-    position: absolute;
-    left: 0;
+    justify-content: space-around;
+    width: 20%;
 }
-#cornerPiece {
-    transform: translateX(0);
+.nav-button-list li{
+    list-style: none;
 }
-#cornerPieceColor {
-    background: var(--link-color1);
-    height: 6vh;
-    width: 3rem;
-}
-#topButton {
-    margin-left: 0;
-    width: 8rem;
+.nav-button-list a {
+    font-size: 20px;
+    color: var(--text-lighter);
+    text-decoration: none;
 }
 
 
     /*=============================================================================*/
 
-
-.color {
-    background: var(--green);
-}
-
-.info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem;
-    height: 200px;
-}
-.logo{
-    text-align: center;
-    height: 100vh;
-}
-#logoDiv {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .box {
     width: 80%;
     margin: auto;
     min-width: 800px;
 }
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fill-screen{
+    height: 100vh;
+}
+#logoDiv {
+    height: 100%;
+}
 
 
-/*=================================== Interactive Container =====================================*/
+/*========================================== Interactive Container =============================================*/
 
-#grayBox {
+.gray-box {
     display: flex;
     flex-direction: column;
     width: 1200px;
+    background: var(--green);
 }
-
-.interactiveContainer {
+.interactive-container {
     text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 2rem 0;
     margin: auto;
     width: 1150px;
 }
 .boxInContainer {
     width: 1100px;
-    background: var(--box-transparency);
+    background: var(--box-bg);
+    border: solid var(--box-border) 3px;
     margin: 2rem auto 2rem;
 }
+#info {
+    margin: 2rem;
+    height: 200px;
+}
 
-/*============================Buttons in Interactive Container ===============================*/
+
+/*=================================== Buttons in Interactive Container ======================================*/
 
 .build-options {
     width: 90%;
-    margin: 2rem auto 2rem;
-    display: flex;
-    flex-direction: row;
+    margin: 1rem auto 0;
+    align-items: center;
 }
-#optionButtons {
+.info-div {
+    width: 90%;
+    background: var(--box-bg);
+    margin: 2rem auto;
+}
+.info {
+    width: 100%;
+}
+.option-buttons {
     width: 50%;
-    display: flex;
-    flex-direction: column;
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+    border: solid var(--box-border) 3px;
+    background: var(--box-bg);
 }
-#goDiv {
-    display: flex;
-    justify-content: center;
-    margin-left: 3rem;
-    margin-right: 3rem;
+.role-button-bg {
+    background: var(--button-color2);
+    border: solid var(--build-item-border) 2px;
+    margin: 2px;
+}
+.role-button-image-size {
+    width: 34px;
+    height: 34px;
 }
 #goButton {
     border-radius: 0.5em;
@@ -203,68 +191,42 @@ ul{
     padding: 2rem 4rem;
 }
 #selectionButtons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     margin: 2rem 0 0 0;
 }
 #resetDiv {
     width: 50%;
-    display: flex;
-    justify-content: center;
 }
-
 #resetButton {
     border-radius: 0.75em;
     padding: 1rem;
     width: 100px;
 }
-
 #roleDiv {
     width: 50%;
-    display: flex;
-}
-#roleButtonRow {
-    display: flex;
-    align-self: flex-end;
-    text-align: center;
-}
-#roleButtonRow div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--button-color2);
-    border: solid var(--build-item-border) 2px;
-    margin: 2px;
-}
-#roleButtonRow img {
-    width: 34px;
-    height: 34px;
 }
 
 
-/*=================================== Champion List ==================================*/
+/*================================================= Champion List ================================================*/
+
 .champion-list-bg {
-    width: 500px;
-    background: var(--box-transparency);
+    background: var(--box-bg);
+    border: solid var(--box-border) 3px;
     margin: 1rem;
     padding: 1rem;
 }
 #championList {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
 }
 #championList li {
     display: block;
-    margin: 1px;
+    padding: 0 1px;
 }
 #championList img {
     width: 60px;
     height: 60px;
     padding: 1px;
-    border: solid rgb(106, 93, 49) 1px;
-    background: rgb(19, 34, 37);
+    border: solid var(--build-item-border) 1px;
+    background: black;
 }
 
 
@@ -272,7 +234,7 @@ ul{
 
 
 
-/*=========================== Button Styling ===========================*/
+/*============================================== Button Styling ==============================================*/
 
 .skewed-btn {
     -ms-transform: skewX(-20deg); /* IE 9 */
@@ -283,7 +245,6 @@ ul{
     margin: 0;
     display: inline-block;
     position: relative;
-
 }
 .skewed-btn-text {
     -ms-transform: skewX(20deg); /* IE 9 */
@@ -292,9 +253,7 @@ ul{
     background: transparent;
     display: inline-block;
     color: var(--text-lighter);
-
 }
-
 .color-btn {
     color: var(--text-lighter);
     background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
@@ -321,7 +280,6 @@ ul{
     transform: translate(-50%, -50%);
     padding: 0.5rem 1.5rem;
 }
-
 .link-button {
     display: block;
     font-size: 20px;
@@ -354,7 +312,14 @@ ul{
     -webkit-transition: none;
     transition: none;
 }
-
+.login-buttons {
+    background: var(--login-btn-bg);
+    border-radius: 0.75em;
+    border-color: var(--login-btn-border);
+    color: var(--text-lighter);
+    padding: 1rem;
+    outline: none;
+}
 div button {
     -webkit-transform: scale(1.0);
     -webkit-transition: 0.15s;
@@ -368,184 +333,60 @@ div button:hover {
     -webkit-transition-delay: 0s;
 }
 
-.loginButtons {
-    background: var(--login-btn-bg);
-    border-radius: 0.75em;
-    border-color: var(--login-btn-border);
-    color: var(--text-lighter);
-    padding: 1rem;
-    outline: none;
-}
 
-/*=============================== Build Box ==================================*/
+/*============================================ Build Box ===================================================*/
 
 #buildBox {
-    background: rgba(255,255,255,.2);
     padding: 1rem 0;
 }
-#buildMainColumn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-#buildFirstDiv {
-    position: relative;
-}
-#buildNameDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#buildNameBackground {
+.build-sub-box-style {
     border: solid var(--build-border) 3px;
     background: var(--build-bg);
-    padding: 1rem 2rem;
 }
-#buildCopyDiv {
-    position: absolute;
-    right: 10%;
-    margin: 1rem 2rem;
-}
-#buildCopyButton {
-    color: var(--text-lighter);
-    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
-    outline: none;
-    padding: 0.75rem 1.5rem;
-    border-color: var(--yellow);
-    border-radius: 0.75rem;
-}
-#buildInput {
-    visibility: hidden;
-    position: absolute;
-
-}
-
-#buildSecondDiv {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-#buildSelectedChampionDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 2rem 1rem 0;
-}
-.selected-champion-image-size {
-    height: 146px;
-    width: 146px;
-}
-.selected-champion-background {
-    border: solid var(--build-border) 3px;
-    background: var(--build-bg);
-    padding: 10px;
-}
-#buildLoadoutDiv {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0.5rem;
-}
-#buildLoadoutFirstRowDiv {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 3rem 1rem;
-    padding: 0 6rem;
-}
-
-#buildItemRowDiv {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 1rem;
-    padding: 1rem 2rem;
-    border: solid var(--build-border) 4px;
-    background: var(--build-bg);
-}
-.square-icon-image-size {
-    height: 74px;
-    width: 74px;
-}
-.items-item-background {
-    border: solid rgb(106, 93, 49) 3px;
+.build-square-background {
+    border: solid var(--build-item-border) 3px;
     background: var(--build-item-bg);
     padding: 2px;
 }
-.build-arrow-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 2px;
-}
-
-#buildLoadoutSecondRowDiv {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-#buildRuneDiv {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    border: solid var(--build-border) 4px;
-    padding: 1rem;
-    background: var(--build-bg);
-
-}
-.buildRuneSecondDiv {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-#buildRuneKeystoneDiv {
-    width: 128px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 1rem 0 0.5rem;
-}
-
-#buildRuneKeystoneImage {
-    height: 147px;
-    width: 147px;
-}
-
-#buildRuneMainRuneDiv {
-    margin: 0 0.5rem;
-}
-#buildRuneSecondaryRuneDiv {
-    margin: 0 0.5rem;
-}
-.rune-image-size {
-    height: 74px;
-    width: 74px
-}
-#buildRuneStatBuffDiv {
-    margin: 0 0.5rem;
-}
-
 .keystone-background {
     border: solid var(--build-border) 3px;
     border-radius: 10em;
     background: var(--build-item-bg);
     padding: 1rem;
 }
-
 .runes-background {
-    display: flex;
-    flex-direction: column;
     border: solid var(--runes-border) 2px;
-    padding: 4px;
     border-radius: 4em;
     background: var(--runes-bg);
+    padding: 4px;
+}
+.selected-champion-image-size {
+    height: 146px;
+    width: 146px;
+}
+.square-icon-image-size {
+    height: 74px;
+    width: 74px;
+}
+.keystone-image-size {
+    height: 147px;
+    width: 147px;
+}
+.rune-image-size {
+    height: 74px;
+    width: 74px
+}
+.summoner-spell-image-size {
+    width: 55px;
+    height: 55px;
+}
+.build-button {
+    color: var(--text-lighter);
+    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
+    outline: none;
+    padding: 0.75rem 1.5rem;
+    border-color: var(--yellow);
+    border-radius: 0.75rem;
 }
 .runes-item-background {
     border: solid var(--build-item-border) 3px;
@@ -555,12 +396,10 @@ div button:hover {
     margin: 2px;
 }
 .stat-buff-background {
-    display: flex;
-    flex-direction: column;
     border: solid var(--runes-border) 2px;
-    padding: 6px;
     border-radius: 2em;
     background: var(--runes-bg);
+    padding: 6px;
 }
 .stat-buff-item-background {
     border: solid rgb(106, 93, 49) 2px;
@@ -568,25 +407,73 @@ div button:hover {
     background: var(--build-item-bg);
     margin: 2px;
 }
-
+#buildFirstDiv {
+    position: relative;
+}
+#buildNameDiv {
+    align-items: center;
+}
+#buildNameBackground {
+    padding: 1rem 2rem;
+}
+#buildButtonDiv {
+    position: absolute;
+    right: 0;
+    margin: 1rem 2rem;
+}
+#buildInput {
+    visibility: hidden;
+    position: absolute;
+}
+#buildSecondDiv {
+    width: 100%;
+}
+#buildSelectedChampionDiv {
+    margin: 0 2rem 0 0;
+}
+#buildSelectedChampion {
+    padding: 10px;
+}
+#buildLoadoutDiv {
+    width: 100%;
+    padding: 0.5rem;
+}
+#buildLoadoutFirstRowDiv {
+    width: 100%;
+    margin: 2rem 1rem;
+    padding: 0 6rem;
+}
+#buildItemRowDiv {
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 1rem;
+    padding: 1rem 2rem;
+}
+#buildLoadoutSecondRowDiv {
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+}
+#buildRuneDiv {
+    height: 100%;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+#buildRuneMainRuneDiv, #buildRuneSecondaryRuneDiv, #buildRuneStatBuffDiv {
+    height: 100%;
+}
+#buildRuneKeystoneDiv {
+    margin: 0 1rem 0 0.5rem;
+}
+#buildRuneMainRuneDiv, #buildRuneSecondaryRuneDiv, #buildRuneStatBuffDiv {
+    margin: 0 0.5rem;
+}
 #buildSkillDiv {
     height: 100%;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
 }
 #buildSkillSecondDiv {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border: solid var(--build-border) 4px;
-    background: var(--build-bg);
     padding: 1rem;
-
 }
-
-
 #buildSummonerSpellsDiv {
     width: 94px;
     height: 94px;
@@ -603,40 +490,6 @@ div button:hover {
     bottom: 0;
     right: 0;
 }
-.summoner-spell-image-size {
-    width: 55px;
-    height: 55px;
-}
-.summoner-spells-item-background {
-    border: solid var(--build-item-border) 3px;
-    background: var(--build-item-bg);
-    padding: 2px;
-}
-/*
-#buildSkillsDiv {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-#buildSkillsSecondDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: solid rgb(80, 72, 38) 4px;
-    padding: 2rem 1rem;
-    background: rgb(19, 34, 37);
-
-}
-
- */
-.skills-item-background {
-    border: solid var(--build-item-border) 3px;
-    background: var(--build-item-bg);
-    padding: 2px;
-}
-
 
 
 
