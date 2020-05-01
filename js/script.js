@@ -1,4 +1,3 @@
-"use strict";
 var itemSetForJSON = [];
 let itemClasses = [
   {
@@ -439,6 +438,12 @@ function dbQuery() {
   const sqlite3 = require('sqlite3').verbose();
   console.log('require called');
 
+  let db = new sqlite3.Database('./hardmode.db', (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log('Connected to HardMode SQLite database.');
+  });
 
   db.serialize(() => {
     db.each(`SELECT username FROM Accounts WHERE login LIKE 'user1'`, (err, row) => {
