@@ -1,0 +1,9 @@
+<changelist name="Uncommitted_changes_before_Update_at_1_5_2020_1_35_[Default_Changelist]" date="1588286139082" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_5_2020_1_35_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 1.5.2020 1.35 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="db/HardModeDB.db" />
+    <option name="AFTER_PATH" value="js/hardmode.db" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_5_2020_1_35_[Default_Changelist]/hardmode.db" />
+  </binary>
+</changelist>

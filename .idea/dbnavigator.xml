@@ -23,15 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="9af20a51-993c-42ab-b1a6-defee5825a71">
-        <schema name="main" object-types="constraint, index, table, view, dataset trigger, column" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="9af20a51-993c-42ab-b1a6-defee5825a71">
-      <console name="HMDB" type="STANDARD" schema="main" session="Main">SELECT * FROM Accounts;</console>
+      <console name="HMDB" type="STANDARD" schema="main" session="Main"><![CDATA[SELECT * FROM Accounts;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

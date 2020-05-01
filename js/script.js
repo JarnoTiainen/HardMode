@@ -1,4 +1,3 @@
-"use strict";
 var itemSetForJSON = [];
 let itemClasses = [
   {
@@ -11,7 +10,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3027","3041","3089","3100","3157","3285","3907"],
-    keyStones: [5,6,7,9,10,15]
+    keyStones: [5, 6, 7, 9, 10, 15]
   },
   {
     name: "Fast Hands",
@@ -24,7 +23,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3046","3078","3087","3091","3094","3095","3115","3124","3153","3181"],
-    keyStones: [2,8]
+    keyStones: [2, 8]
   },
   {
     name: "All Luck",
@@ -37,7 +36,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3031","3046","3087","3094","3095","3508"],
-    keyStones: [1,2,3,4,8]
+    keyStones: [1, 2, 3, 4, 8]
   },
   {
     name: "Gamer Girl",
@@ -50,7 +49,7 @@ let itemClasses = [
     apItems: [],
     healItems: ["3174","3504"],
     mainItems: ["2065","3050","3107","3109","3190","3222","3905"],
-    keyStones: [9,15,16,17]
+    keyStones: [9, 15, 16, 17]
   },
   {
     name: "Unsure",
@@ -63,7 +62,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3025","3089","3100","3115","3124","3146","3153","3157","3812"],
-    keyStones: [1,3,4,5,7,9,11,12]
+    keyStones: [1, 3, 4, 5, 7, 9, 11, 12]
   },
   {
     name: "Fat",
@@ -89,7 +88,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3001","3022","3027","3030","3083","3102","3116","3151","3152","3157","3165"],
-    keyStones: [5,12,9,11,15]
+    keyStones: [5, 9, 11, 12, 15]
   },
   {
     name: "S U C C",
@@ -115,7 +114,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3033","3071","3036","3124","3142","3147","3179","3181","3814"],
-    keyStones: [6,7,8]
+    keyStones: [6, 7, 8]
   },
   {
     name: "Worthless",
@@ -128,7 +127,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3003","3004","3025","3027","3030","3100","3110","3285"],
-    keyStones: [4,10,5,11,15]
+    keyStones: [4, 10, 5, 11, 15]
   },
   {
     name: "Mobafire Mage",
@@ -141,7 +140,7 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3001","3041","3089","3124","3135","3165"],
-    keyStones: [5,7,6]
+    keyStones: [5, 6, 7]
   },
   {
     name: "Fast",
@@ -167,7 +166,7 @@ let itemClasses = [
     apItems: ["3115"],
     healItems: [],
     mainItems: ["3022","3033","3071","3091","3115","3124","3153"],
-    keyStones: [2,8,17]
+    keyStones: [2, 8, 17]
   },
   {
     name: "MeatBall",
@@ -180,10 +179,13 @@ let itemClasses = [
     apItems: [],
     healItems: [],
     mainItems: ["3025","3065","3068","3075","3110","3143","3190","3193","3194","3742","3800"],
-    keyStones: [4,11,12,16,17]
+    keyStones: [4, 11, 12, 16, 17]
   }];
 console.log(itemClasses[3].boots);
 console.log("images/items/"+itemClasses[0].boots[0]+".png");
+console.log('dbQuery begins');
+dbQuery();
+console.log('dbQuery ends');
 getNewRandomBuild();
 formJSONforItemSet();
 document.getElementById("goDiv").addEventListener("click", function() {
@@ -371,7 +373,7 @@ return listOfNumbers;
 }
 function getSecondaryRunesType(mainRune) {
   let secondaryRunesType;
-  let done = false
+  let done = false;
   while (done === false) {
     secondaryRunesType = Math.floor((Math.random() * 5)+1);
     if (secondaryRunesType !== mainRune) {
@@ -412,23 +414,53 @@ function formJSONforItemSet() {
       ]
     }
   ]
-  }]
+  }];
   for(let i = 0; i < 6; i++) {
     itemSets[0].blocks[0].items.push({id: itemSetForJSON[i], count:1})
   }
   console.log(JSON.stringify(itemSets[0]));
   document.getElementById("buildInput").value = JSON.stringify(itemSets[0]);
   console.log(document.getElementById("buildInput").value);
-  console.log()
+  console.log();
   return itemSets[0].toString();
 }
 function printSpellIcons(championName) {
 
-
+  let db = new sqlite3.Database('./hardmode.db', (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log('Connected to HardMode SQLite database.');
+  });
 }
 
+function dbQuery() {
+  const sqlite3 = require('sqlite3').verbose();
+  console.log('require called');
 
+  let db = new sqlite3.Database('./hardmode.db', (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log('Connected to HardMode SQLite database.');
+  });
 
+  db.serialize(() => {
+    db.each(`SELECT username FROM Accounts WHERE login LIKE 'user1'`, (err, row) => {
+      if (err) {
+        console.error(err.message);
+      }
+      console.log(row.username);
+    });
+  });
+
+  db.close((err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log('Closed the database connection.');
+  });
+}
 
 /*
 let directory = [];
