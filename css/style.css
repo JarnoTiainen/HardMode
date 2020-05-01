@@ -5,6 +5,8 @@
 }
 :root {
     --green: rgb(19, 34, 37);
+    --light-green: rgb(54, 67, 69);
+    --dark-green: rgb(10, 25, 25);
     --yellow: rgb(106, 93, 49);
     --gray: #1c1f22;
     --purple: rgb(56, 52, 113);
@@ -45,7 +47,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 10;
+    z-index: 99;
     font-family: "poppins", Impact, monospace;
     letter-spacing: 1px;
     border-bottom: solid var(--nav-bar-border) 2px;
@@ -95,6 +97,24 @@ ul{
     font-size: 20px;
     color: var(--text-lighter);
     text-decoration: none;
+}
+.pageTopButton {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    outline: none;
+    background-color: var(--green);
+    border: solid var(--yellow) 2px;
+    color: var(--text-lighter);
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 18px;
+}
+.pageTopButton:hover {
+    background-color: var(--light-green);
 }
 
 
@@ -176,6 +196,15 @@ ul{
     border: solid var(--box-border) 3px;
     background: var(--box-bg);
 }
+.build-button {
+    color: var(--text-lighter);
+    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
+    border-color: var(--yellow);
+    outline: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
 .role-button-bg {
     background: var(--button-color2);
     border: solid var(--build-item-border) 2px;
@@ -184,6 +213,36 @@ ul{
 .role-button-image-size {
     width: 34px;
     height: 34px;
+}
+.role-img {
+    width: 34px;
+    height: 34px;
+    padding: 1px;
+    background: var(--dark-green);
+    border: solid var(--build-item-border) 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.role-toggle {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin: 2px;
+}
+.role-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    cursor: pointer;
+}
+.role-checkbox:checked + .role-img {
+    opacity: 0.4;
 }
 #goButton {
     border-radius: 0.5em;
@@ -228,7 +287,54 @@ ul{
     border: solid var(--build-item-border) 1px;
     background: black;
 }
+.champion-img {
+    width: 60px;
+    height: 60px;
+    padding: 1px;
+    border: solid var(--build-item-border) 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.champion-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}
+.champion-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    cursor: pointer;
+}
+.champion-checkbox:checked + .champion-img {
+    opacity: 0.5;
+}
 
+/*
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0s;
+    transition: 0s;
+}
+
+.champion-checkbox:checked + .slider {
+    background-color: #2196F3;
+}
+
+ */
 
 
 
@@ -257,9 +363,10 @@ ul{
 .color-btn {
     color: var(--text-lighter);
     background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
+    border-color: var(--yellow);
     outline: none;
     padding: 5px 10px;
-    border-color: var(--yellow);
+    cursor: pointer;
 }
 .color-btn:hover {
     background-position: right center;
@@ -319,14 +426,15 @@ ul{
     color: var(--text-lighter);
     padding: 1rem;
     outline: none;
+    cursor: pointer;
 }
-div button {
+.btn-animation {
     -webkit-transform: scale(1.0);
     -webkit-transition: 0.15s;
     -webkit-transition-timing-function: ease;
     -webkit-transition-delay: 0.1s;
 }
-div button:hover {
+.btn-animation:hover {
     -webkit-transform: scale(1.05);
     -webkit-transition: 0.15s;
     -webkit-transition-timing-function: ease;
@@ -379,14 +487,6 @@ div button:hover {
 .summoner-spell-image-size {
     width: 55px;
     height: 55px;
-}
-.build-button {
-    color: var(--text-lighter);
-    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
-    outline: none;
-    padding: 0.75rem 1.5rem;
-    border-color: var(--yellow);
-    border-radius: 0.75rem;
 }
 .runes-item-background {
     border: solid var(--build-item-border) 3px;

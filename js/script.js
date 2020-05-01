@@ -451,7 +451,20 @@ function printChampionIcons() {
 
 */
 
+let pageTopButton = document.getElementById("pageTopButton");
+window.onscroll = function() {scrollFunction()};
 
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    pageTopButton.style.display = "block";
+  } else {
+    pageTopButton.style.display = "none";
+  }
+}
+function pageTopFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 
 

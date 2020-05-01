@@ -7,15 +7,12 @@
 </head>
 <body>
 <div class="background">
+    <button onclick="pageTopFunction()" id="pageTopButton" class="pageTopButton" title="Return to top">Top</button>
+
     <div>
         <nav>
             <div id="cornerPiece" class="corner-piece-style"></div>
             <div id="navigationDiv" class="navigation-div">
-                <div id="pageTopButton" class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
-                        <a id="topLink" href="#" class="center-link"><span class="skewed-btn-text">Top</span></a>
-                    </div>
-                </div>
                 <div id="infoButton" class="skewed-btn nav-links-size">
                     <div class="link-button color-link">
                         <a id="infoLink" href="#grayBox" class="center-link"><span class="skewed-btn-text">Info</span></a>
@@ -46,13 +43,14 @@
 
             <ul id="login" class="nav-button-list">
                 <li>
-                    <button id="signUpButton" class="login-buttons">Sign Up</button>
+                    <button id="signUpButton" class="login-buttons btn-animation">Sign Up</button>
                 </li>
                 <li>
-                    <button id="loginButton" class="login-buttons">Log In</button>
+                    <button id="loginButton" class="login-buttons btn-animation">Log In</button>
                 </li>
             </ul>
         </nav>
+
 
 
         <header id="logo" class="fill-screen">
@@ -75,481 +73,1019 @@
 
                 <div class="interactive-container flex-column" id="interactiveContainer">    <!-- Container for Interactive Portion -->
                     <div class="build-options flex-column">
-
                         <div class="champion-list-bg" id="championDiv">                    <!-- Champion List -->
                             <ul id="championList" class="flex-row">
                                 <li>
-                                    <img src="images/champion/Draven.png" id="draven" title="Draven">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" title="Draven">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                                 <li>
-                                    <img src="images/champion/Draven.png" alt="champ image">
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="champion-toggle">
+                                        <input type="checkbox" class="champion-checkbox">
+                                        <img src="images/champion/Draven.png" title="Draven" class="champion-img" alt="champion image">
+                                    </label>
                                 </li>
                             </ul>
                         </div>
 
                         <div id="optionButtons" class="option-buttons flex-column">
                             <div id="goDiv" class="btn">
-                                <button id="goButton" class="color-btn"><div class="btn-text">Go</div></button>
+                                <button id="goButton" class="color-btn btn-animation"><div class="btn-text">Go</div></button>
                             </div>
                             <div id="selectionButtons" class="selection-buttons flex-row">
                                 <div id="resetDiv" class="btn reset-div flex-row">
-                                    <button id="resetButton" class="color-btn reset-button"><div class="btn-text">Unselect All</div></button>
+                                    <button id="resetButton" class="color-btn btn-animation"><div class="btn-text">Unselect All</div></button>
                                 </div>
                                 <div id="roleDiv" class="role-div flex-row">
                                     <div id="roleButtonRow" class="flex-center">
-                                        <div id="topButton" class="flex-center role-button-bg">
-                                            <img id="top" src="images/graphics/top.png" class="role-button-image-size">
-                                        </div>
-                                        <div id="jungleButton" class="flex-center role-button-bg">
-                                            <img id="jungle" src="images/graphics/jungle.png" class="role-button-image-size">
-                                        </div>
-                                        <div id="midButton" class="flex-center role-button-bg">
-                                            <img id="mid" src="images/graphics/mid.png" class="role-button-image-size">
-                                        </div>
-                                        <div id="botButton" class="flex-center role-button-bg">
-                                            <img id="bot" src="images/graphics/bot.png" class="role-button-image-size">
-                                        </div>
-                                        <div id="supportButton" class="flex-center role-button-bg">
-                                            <img id="support" src="images/graphics/support.png" class="role-button-image-size">
-                                        </div>
+                                        <label id="topButton" class="role-toggle">
+                                            <input id="topInput" type="checkbox" class="role-checkbox">
+                                            <img src="images/graphics/top.png" title="Top" class="role-img" alt="top image">
+                                        </label>
+                                        <label id="jungleButton" class="role-toggle">
+                                            <input id="jungleInput" type="checkbox" class="role-checkbox">
+                                            <img src="images/graphics/jungle.png" title="Jungle" class="role-img" alt="jungle image">
+                                        </label>
+                                        <label id="midButton" class="role-toggle">
+                                            <input id="midInput" type="checkbox" class="role-checkbox">
+                                            <img src="images/graphics/mid.png" title="Mid" class="role-img" alt="mid image">
+                                        </label>
+                                        <label id="botButton" class="role-toggle">
+                                            <input id="botInput" type="checkbox" class="role-checkbox">
+                                            <img src="images/graphics/bot.png" title="Bot" class="role-img" alt="bot image">
+                                        </label>
+                                        <label id="supportButton" class="role-toggle">
+                                            <input id="supportInput" type="checkbox" class="role-checkbox">
+                                            <img src="images/graphics/support.png" title="Support" class="role-img" alt="support image">
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -563,8 +1099,8 @@
                         <div id="buildMainColumn" class="flex-column">
                             <div id="buildFirstDiv">
                                 <div id="buildButtonDiv">
-                                    <button id="buildCopyButton" class="build-button" title="Click to copy build to clipboard">Copy Build</button>
-                                    <button id="againButton" class="build-button">Placeholder</button>
+                                    <button id="buildCopyButton" class="build-button btn-animation" title="Click to copy build to clipboard">Copy Build</button>
+                                    <button id="againButton" class="build-button btn-animation">Placeholder</button>
                                     <label for="buildInput"></label>
                                     <input id="buildInput" type="text" readonly>
                                 </div>
