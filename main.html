@@ -1093,9 +1093,12 @@
                     </div>
 
 
+                    <div id="tabDiv" class="flex-row tab">
+                        <button id="defaultTab" class="tab-links" onclick="openTab(event, 'buildBox')">Tab 1</button>
+                        <button id="tab2" class="tab-links" onclick="openTab(event, 'teamBox')">Tab 2</button>
+                    </div>
 
-
-                    <div id="buildBox" class="boxInContainer">                                                 <!-- Build Window -->
+                    <div id="buildBox" class="boxInContainer tab-content">                                                 <!-- Build Window -->
                         <div id="buildMainColumn" class="flex-column">
                             <div id="buildFirstDiv">
                                 <div id="buildButtonDiv">
@@ -1188,6 +1191,11 @@
                             <p id ="itemSet"></p>
                         </div>
                     </div>
+
+                    <div id="teamBox" class="boxInContainer tab-content">
+                        <p>tab 2 content</p>
+                    </div>
+
                     <div id="end">
                         <h1>End</h1>
                     </div>
@@ -1201,7 +1209,7 @@
 
 
 </div>
-<script data-main="js/script" src="js/require.js"></script>
+<script data-main="js/script" src="js/script.js"></script>
 <script>
     require([''], function() {
 
