@@ -441,10 +441,43 @@ ul{
     -webkit-transition-delay: 0s;
 }
 
+/*============================================== Tabs ======================================================*/
+
+.tab {
+    overflow: hidden;
+    align-self: flex-start;
+    background-color: var(--dark-green);
+    margin: 2rem 3rem 0;
+    transform: translateY(3px);
+}
+.tab button {
+    float: left;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-lighter);
+    background-color: var(--dark-green);
+    border: solid var(--build-border) 3px;
+    padding: 1rem 2rem;
+    transition: 0.3s;
+}
+.tab button:hover {
+    background: linear-gradient(to bottom, var(--link-color1) 0%, var(--link-color2) 100%);
+}
+.tab button.active {
+    background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
+    border-bottom: none;
+}
+.tab-content {
+    display: none;
+}
+#defaultTab {
+    border-right: none;
+}
 
 /*============================================ Build Box ===================================================*/
 
 #buildBox {
+    margin: 0 auto;
     padding: 1rem 0;
 }
 .build-sub-box-style {
@@ -591,9 +624,13 @@ ul{
     right: 0;
 }
 
+/*========================================== Team Box =======================================*/
 
-
-
+#teamBox {
+    height: 600px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
 
 
 
