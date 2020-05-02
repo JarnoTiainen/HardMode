@@ -500,7 +500,7 @@ function pageTopFunction() {
 
 
 
-document.getElementById("defaultTab").click();
+document.getElementById("soloTab").click();
 
 function openTab(evt, tabName) {
   let i, tabcontent, tablinks;

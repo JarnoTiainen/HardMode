@@ -443,14 +443,14 @@ ul{
 
 /*============================================== Tabs ======================================================*/
 
-.tab {
+.tab-div {
     overflow: hidden;
     align-self: flex-start;
     background-color: var(--dark-green);
     margin: 2rem 3rem 0;
     transform: translateY(3px);
 }
-.tab button {
+.tab-div button {
     float: left;
     outline: none;
     cursor: pointer;
@@ -460,17 +460,25 @@ ul{
     padding: 1rem 2rem;
     transition: 0.3s;
 }
-.tab button:hover {
+.tab-div button:hover {
     background: linear-gradient(to bottom, var(--link-color1) 0%, var(--link-color2) 100%);
 }
-.tab button.active {
+.tab-div button.active {
     background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
     border-bottom: none;
+}
+.tab-text {
+    font-family: "poppins", Impact, monospace;
+    letter-spacing: 1px;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--text-lighter);
+    text-transform: uppercase;
 }
 .tab-content {
     display: none;
 }
-#defaultTab {
+#buildTab {
     border-right: none;
 }
 
@@ -544,7 +552,7 @@ ul{
     position: relative;
 }
 #buildNameDiv {
-    align-items: center;
+    height: 4rem;
 }
 #buildNameBackground {
     padding: 1rem 2rem;
@@ -627,15 +635,138 @@ ul{
 /*========================================== Team Box =======================================*/
 
 #teamBox {
-    height: 600px;
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: 0;
 }
+#build1Background, #build1Container {
+    border-top: none;
+}
+#build5Background, #build5Container {
+    border-bottom: none;
+}
+.team-build-container {
+    border-top: solid var(--build-item-border) 2px;
+    border-bottom: solid var(--build-item-border) 2px;
+    margin: 0 0 2px 0;
+}
+.team-build-container-background {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to right, var(--light-green) 0%, var(--dark-green) 50%, var(--light-green) 100%);
+    border-top: solid var(--box-border) 3px;
+    border-bottom: solid var(--box-border) 3px;
+}
+.team-build {
+    width: 100%;
+    margin: 1rem auto;
+}
+.team-champion-box-style {
+    border: solid var(--build-border) 2px;
+    background: var(--build-bg);
+    padding: 4px;
+}
+.team-skill-box-style {
+    border: solid var(--build-border) 2px;
+    background: var(--build-bg);
+    padding: 4px 8px;
+}
+.team-square-icon {
+    height: 56px;
+    width: 56px;
+    margin: 2px 0;
+    border: solid var(--build-item-border) 1px;
+    background: var(--build-item-bg);
+    padding: 2px;
+}
+.team-keystone-background {
+    border: solid var(--build-item-border) 2px;
+    border-radius: 10em;
+    background: var(--build-item-bg);
+    padding: 6px;
+    margin: 4px;
+}
+.team-role-div {
+    align-self: center;
+    border: solid var(--build-border) 2px;
+    background: var(--build-bg);
+}
+.team-role-image {
+    height: 50px;
+    width: 50px;
+}
+.team-skill-img {
+    align-self: center;
+    margin: 2px;
+}
+.team-summoner-spell-image {
+    width: 36px;
+    height: 36px;
+    margin: 2px 0;
+    border: solid var(--build-item-border) 1px;
+    background: var(--build-item-bg);
+    padding: 2px;
+}
+.team-keystone-image-size {
+    height: 100px;
+    width: 100px;
+}
+.team-rune-image {
+    height: 54px;
+    width: 54px;
+    border: solid var(--build-item-border) 1px;
+    border-radius: 4em;
+    background: var(--build-item-bg);
+    padding: 1px;
+    margin: 2px;
+}
+.team-stat-buff-image {
+    height: 28px;
+    width: 28px;
+    border: solid rgb(106, 93, 49) 1px;
+    border-radius: 4em;
+    background: var(--build-item-bg);
+    margin: 2px;
+}
+.team-champion-div {
+    margin: 0 1rem;
+}
+.team-skill-div {
+    margin: 1rem;
+}
+.team-rune-div {
+    margin: 1rem;
+}
+.team-item-div {
+    align-self: center;
+    margin: 1rem;
+    border: solid var(--build-border) 2px;
+    background: var(--build-bg);
+    padding: 8px;
+}
+.team-champion {
+    height: 146px;
+    width: 146px;
+    padding: 10px;
+}
+.team-summoner-spell-div {
+    margin: 2px;
+}
+.team-runes-background {
+    border: solid var(--build-border) 2px;
+    border-radius: 4em;
+    background: var(--runes-bg);
+    padding: 4px;
+    margin: 0 4px;
 
+}
+.team-stat-buff-background {
+    border: solid var(--build-border) 2px;
+    border-radius: 2em;
+    background: var(--runes-bg);
+    padding: 6px;
+    margin: 0 4px;
 
-
-
-
+}
 
 
 
