@@ -121,7 +121,6 @@ ul{
     /*=============================================================================*/
 
 .box {
-    width: 80%;
     margin: auto;
     min-width: 800px;
 }
@@ -150,11 +149,18 @@ ul{
 
 /*========================================== Interactive Container =============================================*/
 
-.gray-box {
+.green-box {
     display: flex;
     flex-direction: column;
     width: 1200px;
     background: var(--green);
+    border: solid var(--box-border) 1px;
+    border-bottom: none;
+
+}
+.green-box-borders {
+    border: solid var(--build-item-border) 3px;
+    border-bottom: none;
 }
 .interactive-container {
     text-align: center;
@@ -479,6 +485,18 @@ div.tab-div > button:first-child {
     background: var(--build-item-bg);
     padding: 2px;
 }
+.build-role-div {
+    position: absolute;
+    top: 0;
+    left: 18rem;
+    transform: translateY(-5px);
+    border: solid var(--build-border) 3px;
+    background: var(--build-bg);
+}
+.build-role-image {
+    height: 68px;
+    width: 68px;
+}
 .keystone-background {
     border: solid var(--build-border) 3px;
     border-radius: 10em;
@@ -531,6 +549,7 @@ div.tab-div > button:first-child {
     margin: 2px;
 }
 #buildFirstDiv {
+    width: 100%;
     position: relative;
 }
 #buildNameDiv {
@@ -705,8 +724,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     background: var(--build-bg);
 }
 .team-role-image {
-    height: 50px;
-    width: 50px;
+    height: 42px;
+    width: 42px;
 }
 .team-skill-img {
     align-self: center;
