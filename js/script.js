@@ -212,8 +212,36 @@ copyBuildButton.onclick = function() {
 
 
 function getNewRandomBuild() {
-  const jungler = true;
-  const support = false;
+  const roleList = soloRoleCheck();
+  const possibleRoles = [];
+  let jungler = false;
+  let support = false;
+  let top = false;
+  let mid = false;
+  let adc = false;
+  console.log(soloRoleCheck());
+  if (roleList[0] === false) {
+    jungler = true;
+    possibleRoles.push("jungler");
+  }
+  if (roleList[1] === false) {
+    support = true;
+    possibleRoles.push("support");
+  }
+  if (roleList[2] === false) {
+    top = true;
+    possibleRoles.push("top");
+  }
+  if (roleList[3] === false) {
+    mid = true;
+    possibleRoles.push("mid");
+  }
+  if (roleList[4] === false) {
+    adc = true;
+    possibleRoles.push("adc");
+  }
+  console.log(possibleRoles);
+  const selectedRole = possibleRoles[Math.floor(Math.random()*possibleRoles.length)];
   const buildNumber = getRandomBuild("Aatrox");
   const allPossibleItems = buildAllPossibleItemsList
   (
@@ -228,12 +256,13 @@ function getNewRandomBuild() {
   const boots = itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))];
   const jungleItem = itemClasses[buildNumber].jgItems[Math.floor(Math.random()*(itemClasses[buildNumber].jgItems.length-1))];
   const supportItem = itemClasses[buildNumber].spItems[Math.floor(Math.random() * (itemClasses[buildNumber].spItems.length-1))];
-  if (jungler) {
+  console.log(selectedRole);
+  if (selectedRole === "jungler") {
     remainingItems--;
     itemSetForJSON.push(jungleItem);
     itemSetForJSON.push(boots);
   }
-  else if(support) {
+  else if(selectedRole === "support") {
     itemSetForJSON.push(supportItem);
   }
   randomizeRestOfTheItems(allPossibleItems,(remainingItems-1),boots);
@@ -432,6 +461,17 @@ function printSpellIcons(championName) {
     }
     console.log('Connected to HardMode SQLite database.');
   });
+}
+
+function soloRoleCheck() {
+  const roleList = [];
+  console.log(document.getElementById("jungleInput").checked);
+  roleList.push(document.getElementById("jungleInput").checked);
+  roleList.push(document.getElementById("supportInput").checked);
+  roleList.push(document.getElementById("topInput").checked);
+  roleList.push(document.getElementById("midInput").checked);
+  roleList.push(document.getElementById("botInput").checked);
+  return roleList;
 }
 
 function dbQuery() {
