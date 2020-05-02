@@ -1105,7 +1105,7 @@
                                     <button id="buildCopyButton" class="build-button btn-animation" title="Click to copy build to clipboard">Copy Build</button>
                                     <button id="againButton" class="build-button btn-animation">Placeholder</button>
                                     <label for="buildInput"></label>
-                                    <input id="buildInput" type="text" readonly>
+                                    <input id="buildInput" type="text" class="build-input" readonly>
                                 </div>
                                 <div id="buildNameDiv" class="flex-center">
                                     <div id="buildNameBackground" class="build-sub-box-style">
@@ -1192,10 +1192,15 @@
                         </div>
                     </div>
 
-                    <div id="teamBox" class="boxInContainer tab-content flex-column">
+                    <div id="teamBox" class="boxInContainer tab-content flex-column team-box">
                         <div id="build1Container" class="team-build-container flex-center">
                             <div id="build1Background" class="team-build-container-background flex-center">
                                 <div id="build1" class="flex-row team-build">
+                                    <div id="build1ButtonDiv" class="team-button-div">
+                                        <button id="build1CopyButton" class="team-build-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <label for="build1Input"></label>
+                                        <input id="build1Input" type="text" class="build-input" readonly>
+                                    </div>
                                     <div class="team-role-div flex-center">
                                         <img id="build1Role" src="images/graphics/top.png" class="team-role-image">
                                     </div>
@@ -1204,12 +1209,19 @@
                                             <img id="champion1" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
                                         </div>
                                     </div>
-                                    <div class="flex-center team-skill-div">
-                                        <div class="flex-row team-skill-box-style">
-                                            <img id="teamSkill1" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
-                                            <div class="flex-column team-summoner-spell-div">
-                                                <img id="teamSummonerSpell11" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                <img id="teamSummonerSpell12" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                    <div class="flex-column name-skill-div">
+                                        <div id="build1NameDiv" class="team-build-name-div">
+                                            <div class="team-build-name">
+                                                <h4 id="build1Name">Build Nameeeeeeee</h4>
+                                            </div>
+                                        </div>
+                                        <div class="flex-center team-skill-div">
+                                            <div class="flex-row team-skill-box-style">
+                                                <img id="teamSkill1" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                <div class="flex-column team-summoner-spell-div">
+                                                    <img id="teamSummonerSpell11" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
+                                                    <img id="teamSummonerSpell12" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1277,6 +1289,11 @@
                         <div id="build2Container" class="team-build-container flex-center">
                             <div id="build2Background" class="team-build-container-background flex-center">
                                 <div id="build2" class="flex-row team-build">
+                                    <div id="build2ButtonDiv" class="team-button-div">
+                                        <button id="build2CopyButton" class="team-build-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <label for="build2Input"></label>
+                                        <input id="build2Input" type="text" class="build-input" readonly>
+                                    </div>
                                     <div class="team-role-div flex-center">
                                         <img id="build2Role" src="images/graphics/jungle.png" class="team-role-image">
                                     </div>
@@ -1285,12 +1302,19 @@
                                             <img id="champion2" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
                                         </div>
                                     </div>
-                                    <div class="flex-center team-skill-div">
-                                        <div class="flex-row team-skill-box-style">
-                                            <img id="teamSkill2" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
-                                            <div class="flex-column team-summoner-spell-div">
-                                                <img id="teamSummonerSpell21" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                <img id="teamSummonerSpell22" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                    <div class="flex-column name-skill-div">
+                                        <div id="build2NameDiv" class="team-build-name-div">
+                                            <div class="team-build-name">
+                                                <h4 id="build2Name">Build Nameeeeeeee</h4>
+                                            </div>
+                                        </div>
+                                        <div class="flex-center team-skill-div">
+                                            <div class="flex-row team-skill-box-style">
+                                                <img id="teamSkill2" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                <div class="flex-column team-summoner-spell-div">
+                                                    <img id="teamSummonerSpell21" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
+                                                    <img id="teamSummonerSpell22" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1357,6 +1381,11 @@
                         <div id="build3Container" class="team-build-container flex-center">
                             <div id="build3Background" class="team-build-container-background flex-center">
                                 <div id="build3" class="flex-row team-build">
+                                    <div id="build3ButtonDiv" class="team-button-div">
+                                        <button id="build3CopyButton" class="team-build-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <label for="build3Input"></label>
+                                        <input id="build3Input" type="text" class="build-input" readonly>
+                                    </div>
                                     <div class="team-role-div flex-center">
                                         <img id="build3Role" src="images/graphics/mid.png" class="team-role-image">
                                     </div>
@@ -1365,12 +1394,19 @@
                                             <img id="champion3" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
                                         </div>
                                     </div>
-                                    <div class="flex-center team-skill-div">
-                                        <div class="flex-row team-skill-box-style">
-                                            <img id="teamSkill3" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
-                                            <div class="flex-column team-summoner-spell-div">
-                                                <img id="teamSummonerSpell31" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                <img id="teamSummonerSpell32" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                    <div class="flex-column name-skill-div">
+                                        <div id="build3NameDiv" class="team-build-name-div">
+                                            <div class="team-build-name">
+                                                <h4 id="build3Name">Build Nameeeeeeee</h4>
+                                            </div>
+                                        </div>
+                                        <div class="flex-center team-skill-div">
+                                            <div class="flex-row team-skill-box-style">
+                                                <img id="teamSkill3" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                <div class="flex-column team-summoner-spell-div">
+                                                    <img id="teamSummonerSpell31" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
+                                                    <img id="teamSummonerSpell32" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1437,6 +1473,11 @@
                         <div id="build4Container" class="team-build-container flex-center">
                             <div id="build4Background" class="team-build-container-background flex-center">
                                 <div id="build4" class="flex-row team-build">
+                                    <div id="build4ButtonDiv" class="team-button-div">
+                                        <button id="build4CopyButton" class="team-build-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <label for="build4Input"></label>
+                                        <input id="build4Input" type="text" class="build-input" readonly>
+                                    </div>
                                     <div class="team-role-div flex-center">
                                         <img id="build4Role" src="images/graphics/bot.png" class="team-role-image">
                                     </div>
@@ -1445,12 +1486,19 @@
                                             <img id="champion4" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
                                         </div>
                                     </div>
-                                    <div class="flex-center team-skill-div">
-                                        <div class="flex-row team-skill-box-style">
-                                            <img id="teamSkill4" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
-                                            <div class="flex-column team-summoner-spell-div">
-                                                <img id="teamSummonerSpell41" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                <img id="teamSummonerSpell42" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                    <div class="flex-column name-skill-div">
+                                        <div id="build4NameDiv" class="team-build-name-div">
+                                            <div class="team-build-name">
+                                                <h4 id="build4Name">Build Nameeeeeeee</h4>
+                                            </div>
+                                        </div>
+                                        <div class="flex-center team-skill-div">
+                                            <div class="flex-row team-skill-box-style">
+                                                <img id="teamSkill4" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                <div class="flex-column team-summoner-spell-div">
+                                                    <img id="teamSummonerSpell41" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
+                                                    <img id="teamSummonerSpell42" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1517,6 +1565,11 @@
                         <div id="build5Container" class="team-build-container flex-center">
                             <div id="build5Background" class="team-build-container-background flex-center">
                                 <div id="build5" class="flex-row team-build">
+                                    <div id="build5ButtonDiv" class="team-button-div">
+                                        <button id="build5CopyButton" class="team-build-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <label for="build5Input"></label>
+                                        <input id="build5Input" type="text" class="build-input" readonly>
+                                    </div>
                                     <div class="team-role-div flex-center">
                                         <img id="build5Role" src="images/graphics/support.png" class="team-role-image">
                                     </div>
@@ -1525,12 +1578,19 @@
                                             <img id="champion5" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
                                         </div>
                                     </div>
-                                    <div class="flex-center team-skill-div">
-                                        <div class="flex-row team-skill-box-style">
-                                            <img id="teamSkill5" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
-                                            <div class="flex-column team-summoner-spell-div">
-                                                <img id="teamSummonerSpell51" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                <img id="teamSummonerSpell52" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                    <div class="flex-column name-skill-div">
+                                        <div id="build5NameDiv" class="team-build-name-div">
+                                            <div class="team-build-name">
+                                                <h4 id="build5Name">Build Nameeeeeeee</h4>
+                                            </div>
+                                        </div>
+                                        <div class="flex-center team-skill-div">
+                                            <div class="flex-row team-skill-box-style">
+                                                <img id="teamSkill5" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                <div class="flex-column team-summoner-spell-div">
+                                                    <img id="teamSummonerSpell51" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
+                                                    <img id="teamSummonerSpell52" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

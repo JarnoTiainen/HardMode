@@ -205,6 +205,10 @@ ul{
     border-radius: 0.75rem;
     cursor: pointer;
 }
+.build-input {
+    opacity: 0;
+    position: absolute;
+}
 .role-button-bg {
     background: var(--button-color2);
     border: solid var(--build-item-border) 2px;
@@ -428,6 +432,7 @@ ul{
     outline: none;
     cursor: pointer;
 }
+
 .btn-animation {
     -webkit-transform: scale(1.0);
     -webkit-transition: 0.15s;
@@ -478,13 +483,14 @@ ul{
 .tab-content {
     display: none;
 }
-#buildTab {
+div.tab-div > button:first-child {
     border-right: none;
 }
 
 /*============================================ Build Box ===================================================*/
 
 #buildBox {
+    background: linear-gradient(to right, var(--light-green) 0%, var(--dark-green) 40%, var(--dark-green) 60%, var(--light-green) 100%);
     margin: 0 auto;
     padding: 1rem 0;
 }
@@ -562,10 +568,6 @@ ul{
     right: 0;
     margin: 1rem 2rem;
 }
-#buildInput {
-    opacity: 0;
-    position: absolute;
-}
 #buildSecondDiv {
     width: 100%;
 }
@@ -634,15 +636,16 @@ ul{
 
 /*========================================== Team Box =======================================*/
 
-#teamBox {
+.team-box {
     margin: 0 auto;
     padding: 0;
 }
-#build1Background, #build1Container {
+div.team-box > div.team-build-container:first-child, div.team-build-container:first-child > div.team-build-container-background {
     border-top: none;
 }
-#build5Background, #build5Container {
+div.team-box > div.team-build-container:last-child, div.team-build-container:last-child > div.team-build-container-background {
     border-bottom: none;
+    margin: 0;
 }
 .team-build-container {
     border-top: solid var(--build-item-border) 2px;
@@ -659,11 +662,46 @@ ul{
 .team-build {
     width: 100%;
     margin: 1rem auto;
+    position: relative;
+}
+.team-button-div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 1.5rem 1.75rem;
+}
+.team-build-button {
+    width: 60px;
+    height: 50px;
+    color: var(--text-lighter);
+    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
+    border-color: var(--yellow);
+    outline: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
+.team-build-button:hover {
+    background: linear-gradient(to bottom, var(--link-color1) 0%, var(--link-color2) 100%);
 }
 .team-champion-box-style {
     border: solid var(--build-border) 2px;
     background: var(--build-bg);
     padding: 4px;
+}
+.name-skill-div {
+    position: relative;
+}
+.team-build-name-div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 20px 0;
+}
+.team-build-name {
+    border: solid var(--build-border) 2px;
+    background: var(--build-bg);
+    padding: 4px 8px;
+    white-space: nowrap;
 }
 .team-skill-box-style {
     border: solid var(--build-border) 2px;
