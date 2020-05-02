@@ -53,10 +53,8 @@
 
 
 
-        <header id="logo" class="fill-screen">
-            <div id="logoDiv" class="flex-center">
-                <img src="images/champion/Jhin.png">
-            </div>
+        <header class="fill-screen flex-center">
+            <img id="logo" src="images/champion/Jhin.png">
         </header>
 
 
@@ -1055,48 +1053,49 @@
                                 </li>
                             </ul>
                         </div>
+                    </div>
 
+                    <div class="flex-row tab-row">
+                        <div id="tabDiv" class="flex-row tab-div">
+                            <button id="soloTab" class="tab-links" onclick="openTab(event, 'buildBox')"><span class="tab-text">Solo Build</span></button>
+                            <button id="teamTab" class="tab-links" onclick="openTab(event, 'teamBox')"><span class="tab-text">Team Build</span></button>
+                        </div>
                         <div id="optionButtons" class="option-buttons flex-column">
-                            <div id="goDiv" class="btn">
-                                <button id="goButton" class="color-btn btn-animation"><div class="btn-text">Go</div></button>
-                            </div>
                             <div id="selectionButtons" class="selection-buttons flex-row">
-                                <div id="resetDiv" class="btn reset-div flex-row">
+                                <div id="goDiv" class="btn">
+                                    <button id="goButton" class="color-btn btn-animation"><div class="btn-text">Go</div></button>
+                                </div>
+                                <div id="resetDiv" class="btn reset-div flex-center">
                                     <button id="resetButton" class="color-btn btn-animation"><div class="btn-text">Unselect All</div></button>
                                 </div>
-                                <div id="roleDiv" class="role-div flex-row">
-                                    <div id="roleButtonRow" class="flex-center">
-                                        <label id="topButton" class="role-toggle">
-                                            <input id="topInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/top.png" title="Top" class="role-img" alt="top image">
-                                        </label>
-                                        <label id="jungleButton" class="role-toggle">
-                                            <input id="jungleInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/jungle.png" title="Jungle" class="role-img" alt="jungle image">
-                                        </label>
-                                        <label id="midButton" class="role-toggle">
-                                            <input id="midInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/mid.png" title="Mid" class="role-img" alt="mid image">
-                                        </label>
-                                        <label id="botButton" class="role-toggle">
-                                            <input id="botInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/bot.png" title="Bot" class="role-img" alt="bot image">
-                                        </label>
-                                        <label id="supportButton" class="role-toggle">
-                                            <input id="supportInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/support.png" title="Support" class="role-img" alt="support image">
-                                        </label>
-                                    </div>
+                            </div>
+                            <div id="roleDiv" class="role-div flex-row">
+                                <div id="roleButtonRow" class="flex-center">
+                                    <label id="topButton" class="role-toggle">
+                                        <input id="topInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/top.png" title="Top" class="role-img" alt="top image">
+                                    </label>
+                                    <label id="jungleButton" class="role-toggle">
+                                        <input id="jungleInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/jungle.png" title="Jungle" class="role-img" alt="jungle image">
+                                    </label>
+                                    <label id="midButton" class="role-toggle">
+                                        <input id="midInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/mid.png" title="Mid" class="role-img" alt="mid image">
+                                    </label>
+                                    <label id="botButton" class="role-toggle">
+                                        <input id="botInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/bot.png" title="Bot" class="role-img" alt="bot image">
+                                    </label>
+                                    <label id="supportButton" class="role-toggle">
+                                        <input id="supportInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/support.png" title="Support" class="role-img" alt="support image">
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
-                    <div id="tabDiv" class="flex-row tab-div">
-                        <button id="soloTab" class="tab-links" onclick="openTab(event, 'buildBox')"><span class="tab-text">Solo Build</span></button>
-                        <button id="teamTab" class="tab-links" onclick="openTab(event, 'teamBox')"><span class="tab-text">Team Build</span></button>
-                    </div>
 
                     <div id="buildBox" class="boxInContainer tab-content">                                                 <!-- Build Window -->
                         <div id="buildMainColumn" class="flex-column">

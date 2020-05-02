@@ -189,20 +189,13 @@ ul{
 .info {
     width: 100%;
 }
-.option-buttons {
-    width: 50%;
-    margin: 1rem 0 0 0;
-    padding: 1rem;
-    border: solid var(--box-border) 3px;
-    background: var(--box-bg);
-}
 .build-button {
     color: var(--text-lighter);
     background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
     border-color: var(--yellow);
     outline: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     cursor: pointer;
 }
 .build-input {
@@ -213,10 +206,6 @@ ul{
     background: var(--button-color2);
     border: solid var(--build-item-border) 2px;
     margin: 2px;
-}
-.role-button-image-size {
-    width: 34px;
-    height: 34px;
 }
 .role-img {
     width: 34px;
@@ -248,25 +237,31 @@ ul{
 .role-checkbox:checked + .role-img {
     opacity: 0.4;
 }
+.option-buttons {
+    align-self: flex-end;
+    margin: 0 3rem;
+    padding: 1rem;
+    border: solid var(--box-border) 3px;
+    border-bottom: none;
+    background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
+}
+.selection-buttons {
+    margin: 0 0 1rem 0;
+}
+.reset-div {
+    margin: 0 0 0 0.5rem;
+}
 #goButton {
-    border-radius: 0.5em;
-    font-size: 4rem;
-    padding: 2rem 4rem;
-}
-#selectionButtons {
-    margin: 2rem 0 0 0;
-}
-#resetDiv {
-    width: 50%;
+    border-radius: 0.25em;
+    font-size: 3rem;
+    padding: 1.5rem 3rem;
 }
 #resetButton {
     border-radius: 0.75em;
-    padding: 1rem;
-    width: 100px;
+    padding: 0.5rem;
+    width: 80px;
 }
-#roleDiv {
-    width: 50%;
-}
+
 
 
 /*================================================= Champion List ================================================*/
@@ -319,29 +314,6 @@ ul{
 .champion-checkbox:checked + .champion-img {
     opacity: 0.5;
 }
-
-/*
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0s;
-    transition: 0s;
-}
-
-.champion-checkbox:checked + .slider {
-    background-color: #2196F3;
-}
-
- */
-
-
-
 
 
 /*============================================== Button Styling ==============================================*/
@@ -448,9 +420,13 @@ ul{
 
 /*============================================== Tabs ======================================================*/
 
+
+.tab-row {
+    justify-content: space-between;
+}
 .tab-div {
     overflow: hidden;
-    align-self: flex-start;
+    align-self: flex-end;
     background-color: var(--dark-green);
     margin: 2rem 3rem 0;
     transform: translateY(3px);
@@ -648,8 +624,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     margin: 0;
 }
 .team-build-container {
-    border-top: solid var(--build-item-border) 2px;
-    border-bottom: solid var(--build-item-border) 2px;
+    border-top: solid var(--build-item-border) 1px;
+    border-bottom: solid var(--build-item-border) 1px;
     margin: 0 0 2px 0;
 }
 .team-build-container-background {
