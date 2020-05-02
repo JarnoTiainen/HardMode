@@ -181,37 +181,123 @@ let itemClasses = [
     mainItems: ["3025","3065","3068","3075","3110","3143","3190","3193","3194","3742","3800"],
     keyStones: [4, 11, 12, 16, 17]
   }];
-console.log(itemClasses[3].boots);
-console.log("images/items/"+itemClasses[0].boots[0]+".png");
-console.log('dbQuery begins');
+document.getElementById("soloTab").click();
 //dbQuery();
-console.log('dbQuery ends');
-getNewRandomBuild();
-formJSONforItemSet();
-document.getElementById("goDiv").addEventListener("click", function() {
-  itemSetForJSON = [];
-  getNewRandomBuild();
-  formJSONforItemSet();
+getNewSoloRandomBuild();
+
+
+let solo = true;
+let team = false;
+
+const copyBuildButton = document.getElementById("buildCopyButton");
+copyBuildButton.onclick = function() {
+  let copyText = document.getElementById("buildInput");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Build copied to clipboard.");
+};
+for (let i= 1; i < 6; i++) {
+  document.getElementById("build"+i.toString()+"CopyButton").onclick = function() {
+    let copyText = document.getElementById("build"+i.toString()+"Input");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Build copied to clipboard.");
+  };
+}
+
+
+document.getElementById("soloTab").addEventListener("click",function() {
+  solo = true;
+  team = false;
+  console.log("solo: " + solo);
+  console.log("team: " + team);
 });
+document.getElementById("teamTab").addEventListener("click",function() {
+  team = true;
+  solo = false;
+  console.log("team: "+team);
+  console.log("solo: " + solo);
+  getNewTeamBuilds();
+});
+
+document.getElementById("goDiv").addEventListener("click", function() {
+  if (solo === true) {
+    itemSetForJSON = [];
+    getNewSoloRandomBuild();
+    formJSONforItemSet();
+  }
+  if (team === true) {
+    getNewTeamBuilds();
+
+  }
+
+});
+
+
+
 function copyText() {
 
   alert("Copied the text: " + copyText.value);
 }
+function getNewTeamBuilds() {
+  for(let i = 0; i < 5; i++) {
+    itemSetForJSON = [];
+    const buildNumber = getRandomBuild("Aatrox");
+    const allPossibleItems = buildAllPossibleItemsList(buildNumber, true, true, false, true, false);
+    let remainingItems = 6;
+    const boots = itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))];
+    const jungleItem = itemClasses[buildNumber].jgItems[Math.floor(Math.random()*(itemClasses[buildNumber].jgItems.length-1))];
+    const supportItem = itemClasses[buildNumber].spItems[Math.floor(Math.random() * (itemClasses[buildNumber].spItems.length-1))];
+    if (i === 1) {
+      remainingItems--;
+      itemSetForJSON.push(jungleItem);
+      itemSetForJSON.push(boots);
+    }
+    else if(i === 4) {
+      itemSetForJSON.push(supportItem);
+    }
+    setTeamSummonerSpells(i, buildNumber);
+    randomizeRestOfTheItems(allPossibleItems,(remainingItems-1),boots);
+    printSelectedItemsForTeam(i);
+    const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
+    const runeList = buildRunes(keyStone);
+    printRunesForTeam(i, runeList[0],runeList[1],runeList[2],runeList[3],runeList[4],runeList[5]);
+    document.getElementById("build"+(i+1).toString()+"Name").innerHTML = itemClasses[buildNumber].name + " Jhin";
+    const itemSet = formJSONforItemSet();
+    document.getElementById("build"+(i+1).toString()+"Input").value = JSON.stringify(itemSet);
+    console.log("sadfsdgf"+document.getElementById("build1Input").value);
+  }
 
-const copyBuildButton = document.getElementById("buildCopyButton");
-copyBuildButton.onclick = function() {
-  var copyText = document.getElementById("buildInput");
-  copyText.select();
-  document.execCommand("copy");
-  alert("Build copied to clipboard.");
+  }
+function setTeamSummonerSpells(roleNumber, buildNumber) {
+  if (roleNumber === 0) {
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"1").src = "images/spell/summonerFlash.png";
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"2").src = "images/spell/summonerTeleport.png";
+  }
+  if (roleNumber === 1) {
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"1").src = "images/spell/summonerFlash.png";
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"2").src = "images/spell/summonerSmite.png";
+  }
+  if (roleNumber === 2) {
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"1").src = "images/spell/summonerFlash.png";
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"2").src = "images/spell/summonerIgnite.png";
+  }
 
-};
+  if (roleNumber === 3) {
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"1").src = "images/spell/summonerFlash.png";
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"2").src = "images/spell/summonerHeal.png";
+  }
+  if (roleNumber === 4) {
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"1").src = "images/spell/summonerFlash.png";
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"2").src = "images/spell/summonerIgnite.png";
+  }
+  if (buildNumber === 11) {
+    document.getElementById("teamSummonerSpell"+(roleNumber+1).toString()+"1").src = "images/spell/summonerGhost.png";
+  }
 
+}
 
-
-
-
-function getNewRandomBuild() {
+function getNewSoloRandomBuild() {
   const roleList = soloRoleCheck();
   const possibleRoles = [];
   let jungler = false;
@@ -219,7 +305,6 @@ function getNewRandomBuild() {
   let top = false;
   let mid = false;
   let adc = false;
-  console.log(soloRoleCheck());
   if (roleList[0] === false) {
     jungler = true;
     possibleRoles.push("jungler");
@@ -240,7 +325,6 @@ function getNewRandomBuild() {
     adc = true;
     possibleRoles.push("adc");
   }
-  console.log(possibleRoles);
   const selectedRole = possibleRoles[Math.floor(Math.random()*possibleRoles.length)];
   const buildNumber = getRandomBuild("Aatrox");
   const allPossibleItems = buildAllPossibleItemsList
@@ -256,7 +340,6 @@ function getNewRandomBuild() {
   const boots = itemClasses[buildNumber].boots[Math.floor(Math.random() * (itemClasses[buildNumber].boots.length-1))];
   const jungleItem = itemClasses[buildNumber].jgItems[Math.floor(Math.random()*(itemClasses[buildNumber].jgItems.length-1))];
   const supportItem = itemClasses[buildNumber].spItems[Math.floor(Math.random() * (itemClasses[buildNumber].spItems.length-1))];
-  console.log(selectedRole);
   if (selectedRole === "jungler") {
     remainingItems--;
     itemSetForJSON.push(jungleItem);
@@ -266,12 +349,14 @@ function getNewRandomBuild() {
     itemSetForJSON.push(supportItem);
   }
   randomizeRestOfTheItems(allPossibleItems,(remainingItems-1),boots);
-  console.log(itemSetForJSON);
   printSelectedItems();
   const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
-  buildRunes(keyStone);
+  const runeList = buildRunes(keyStone);
+  console.log(runeList);
+  printRunes(runeList[0],runeList[1],runeList[2],runeList[3],runeList[4],runeList[5]);
   document.getElementById("buildName").innerHTML = itemClasses[buildNumber].name + " Jhin";
-
+  const itemSet = formJSONforItemSet();
+  document.getElementById("buildInput").value = JSON.stringify(itemSet);
 }
 function randomizeKeyStone(possibleKeyStones) {
   return possibleKeyStones[Math.floor(Math.random() * possibleKeyStones.length)];
@@ -290,8 +375,13 @@ function randomizeRestOfTheItems(allPossibleItems,numberOfItems,boots) {
 }
 function printSelectedItems() {
   for(let i = 0; i < 6; i++) {
-    console.log("item"+(i+1).toString()+"   images/items/"+itemSetForJSON[i]+".png");
     document.getElementById("item"+(i+1).toString()).src = "images/items/"+itemSetForJSON[i]+".png"
+  }
+
+}
+function printSelectedItemsForTeam(roleNumber) {
+  for(let i = 0; i < 6; i++) {
+    document.getElementById("item"+(roleNumber+1).toString()+(i+1).toString()).src = "images/items/"+itemSetForJSON[i]+".png"
   }
 
 }
@@ -340,13 +430,11 @@ function getRandomBuild(championNumber) {
   }if (res) {
     possibleBuilds.push(14);
   }
-  console.log(possibleBuilds);
   return Math.floor(Math.random() * (possibleBuilds.length));
 }
 function buildAllPossibleItemsList(buildSetNumber, isMana, isMelee, isRanged, isAp, isHealer) {
   let allPossibleItems = [];
   let combiner = [];
-  console.log(buildSetNumber);
   combiner = itemClasses[buildSetNumber].mainItems;
   if (isMana) {
     allPossibleItems = combiner.concat(itemClasses[buildSetNumber].manaItems);
@@ -371,7 +459,8 @@ function buildAllPossibleItemsList(buildSetNumber, isMana, isMelee, isRanged, is
   return allPossibleItems;
 }
 function buildRunes(keyStoneNumber) {
-  let mainRune;
+  let runeList = [];
+  let mainRune = 0;
   if(keyStoneNumber <= 4) {
     mainRune = 1;
   }
@@ -391,7 +480,9 @@ function buildRunes(keyStoneNumber) {
   const mainLowerRunes = getRandomNumbersForRunes(3);
   const secondaryRunes = getRandomNumbersForRunes(2);
   const statBonuses = getRandomNumbersForRunes(3);
-  printRunes(mainRune, mainLowerRunes, secondaryRunesType, secondaryRunes, statBonuses,keyStoneNumber);
+  console.log(keyStoneNumber);
+  runeList.push(mainRune, mainLowerRunes,secondaryRunesType,secondaryRunes, statBonuses, keyStoneNumber);
+  return runeList;
 }
 function getRandomNumbersForRunes(numberOfNumbers) {
   const listOfNumbers = [];
@@ -412,20 +503,32 @@ function getSecondaryRunesType(mainRune) {
   }
 }
 function printRunes(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes, statBonuses, keyStoneNumber) {
-  console.log(secondaryRunes+"  "+secondaryRuneType);
+  console.log(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes, statBonuses, keyStoneNumber);
   document.getElementById("buildRuneKeystoneImage").src = "images/runes/keyStone"+keyStoneNumber.toString()+".png";
   document.getElementById("buildRuneFirstMainRuneImage").src = "images/runes/rune"+mainRune.toString()+"1"+mainLowerRunes[0].toString()+".png";
   document.getElementById("buildRuneSecondMainRuneImage").src = "images/runes/rune"+mainRune.toString()+"2"+mainLowerRunes[1].toString()+".png";
   document.getElementById("buildRuneThirdMainRuneImage").src = "images/runes/rune"+mainRune.toString()+"3"+mainLowerRunes[2].toString()+".png";
-  console.log("images/runes/rune"+secondaryRuneType.toString()+"1"+secondaryRunes[0].toString()+".png");
   document.getElementById("buildRuneFirstSecondaryRuneImage").src = "images/runes/rune"+secondaryRuneType.toString()+"1"+secondaryRunes[0].toString()+".png";
   document.getElementById("buildRuneSecondSecondaryRuneImage").src = "images/runes/rune"+secondaryRuneType.toString()+"2"+secondaryRunes[1].toString()+".png";
   document.getElementById("buildRuneFirstStatBuff").src = "images/runes/rune6"+"1"+statBonuses[0].toString()+".png";
   document.getElementById("buildRuneSecondStatBuff").src = "images/runes/rune6"+"2"+statBonuses[1].toString()+".png";
   document.getElementById("buildRuneThirdStatBuff").src = "images/runes/rune6"+"3"+statBonuses[2].toString()+".png";
 }
+function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes, statBonuses, keyStoneNumber) {
+  console.log("teamMainRune"+(roleNumber+1).toString()+"1");
+  document.getElementById("teamKeystone"+(roleNumber+1).toString()).src = "images/runes/keyStone"+keyStoneNumber.toString()+".png";
+  document.getElementById("teamMainRune"+(roleNumber+1).toString()+"1").src = "images/runes/rune"+mainRune.toString()+"1"+mainLowerRunes[0].toString()+".png";
+  document.getElementById("teamMainRune"+(roleNumber+1).toString()+"2").src = "images/runes/rune"+mainRune.toString()+"2"+mainLowerRunes[1].toString()+".png";
+  document.getElementById("teamMainRune"+(roleNumber+1).toString()+"1").src = "images/runes/rune"+mainRune.toString()+"3"+mainLowerRunes[2].toString()+".png";
+  document.getElementById("teamSecondaryRune"+(roleNumber+1).toString()+"1").src = "images/runes/rune"+secondaryRuneType.toString()+"1"+secondaryRunes[0].toString()+".png";
+  document.getElementById("teamSecondaryRune"+(roleNumber+1).toString()+"2").src = "images/runes/rune"+secondaryRuneType.toString()+"2"+secondaryRunes[1].toString()+".png";
+  document.getElementById("teamStatBuff"+(roleNumber+1).toString()+"1").src = "images/runes/rune6"+"1"+statBonuses[0].toString()+".png";
+  document.getElementById("teamStatBuff"+(roleNumber+1).toString()+"2").src = "images/runes/rune6"+"2"+statBonuses[1].toString()+".png";
+  document.getElementById("teamStatBuff"+(roleNumber+1).toString()+"3").src = "images/runes/rune6"+"3"+statBonuses[2].toString()+".png";
+}
+
 function formJSONforItemSet() {
-  console.log(itemSetForJSON);
+  console.log(itemSetForJSON)
   const itemSets = [
       {
         title: "HARDMODE",
@@ -445,13 +548,12 @@ function formJSONforItemSet() {
   ]
   }];
   for(let i = 0; i < 6; i++) {
+    console.log({id: itemSetForJSON[i], count:1});
     itemSets[0].blocks[0].items.push({id: itemSetForJSON[i], count:1})
   }
-  console.log(JSON.stringify(itemSets[0]));
-  document.getElementById("buildInput").value = JSON.stringify(itemSets[0]);
-  console.log(document.getElementById("buildInput").value);
-  console.log();
-  return itemSets[0].toString();
+  console.log(itemSets[0].toString);
+  console.log("itemset is "+itemSets);
+  return itemSets[0];
 }
 function printSpellIcons(championName) {
 
@@ -465,7 +567,6 @@ function printSpellIcons(championName) {
 
 function soloRoleCheck() {
   const roleList = [];
-  console.log(document.getElementById("jungleInput").checked);
   roleList.push(document.getElementById("jungleInput").checked);
   roleList.push(document.getElementById("supportInput").checked);
   roleList.push(document.getElementById("topInput").checked);
@@ -476,13 +577,11 @@ function soloRoleCheck() {
 
 function dbQuery() {
   const sqlite3 = require('sqlite3').verbose();
-  console.log('require called');
 
   let db = new sqlite3.Database('./hardmode.db', (err) => {
     if (err) {
       return console.error(err.message);
     }
-    console.log('Connected to HardMode SQLite database.');
   });
 
   db.serialize(() => {
@@ -490,7 +589,6 @@ function dbQuery() {
       if (err) {
         console.error(err.message);
       }
-      console.log(row.username);
     });
   });
 
@@ -498,7 +596,6 @@ function dbQuery() {
     if (err) {
       return console.error(err.message);
     }
-    console.log('Closed the database connection.');
   });
 }
 
@@ -538,9 +635,6 @@ function pageTopFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-
-
-document.getElementById("soloTab").click();
 
 function openTab(evt, tabName) {
   let i, tabcontent, tablinks;
