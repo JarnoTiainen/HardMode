@@ -1057,20 +1057,19 @@
                         </div>
 
                         <div class="flex-row tab-row">
-                            <div id="tabDiv" class="flex-row tab-div">
-                                <button id="soloTab" class="tab-links" onclick="openTab(event, 'buildBox')"><span class="tab-text">Solo Build</span></button>
-                                <button id="teamTab" class="tab-links" onclick="openTab(event, 'teamBox')"><span class="tab-text">Team Build</span></button>
-                            </div>
-                            <div id="optionButtons" class="option-buttons flex-column">
-                                <div id="selectionButtons" class="selection-buttons flex-row">
-                                    <div id="goDiv" class="btn">
-                                        <button id="goButton" class="color-btn btn-animation"><div class="btn-text">Go</div></button>
-                                    </div>
-                                    <div id="resetDiv" class="btn reset-div flex-center">
-                                        <button id="resetButton" class="color-btn btn-animation"><div class="btn-text">Unselect All</div></button>
-                                    </div>
+                            <div class="tab-container-1 flex-center">
+                                <div id="tabDiv" class="flex-row tab-div">
+                                    <button id="soloTab" class="tab-links" onclick="openTab(event, 'buildBox')"><span class="tab-text">Solo Build</span></button>
+                                    <button id="teamTab" class="tab-links" onclick="openTab(event, 'teamBox')"><span class="tab-text">Team Build</span></button>
                                 </div>
-                                <div id="roleDiv" class="role-div flex-row">
+                            </div>
+                            <div class="tab-container-2 flex-center">
+                                <div id="goDiv" class="btn go-div">
+                                    <button id="goButton" class="color-btn btn-animation"><div class="btn-text">Go</div></button>
+                                </div>
+                            </div>
+                            <div class="tab-container-1 flex-center">
+                                <div id="roleDiv" class="role-div flex-row role-buttons">
                                     <div id="roleButtonRow" class="flex-center">
                                         <label id="topButton" class="role-toggle">
                                             <input id="topInput" type="checkbox" class="role-checkbox">

@@ -243,10 +243,15 @@ ul{
 .role-checkbox:checked + .role-img {
     opacity: 0.4;
 }
-.option-buttons {
-    align-self: flex-end;
-    margin: 0 3rem;
+.role-buttons {
     padding: 1rem;
+    border: solid var(--box-border) 3px;
+    border-bottom: none;
+    background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
+}
+.go-div {
+    margin: 0 4rem;
+    padding: 1rem 2rem;
     border: solid var(--box-border) 3px;
     border-bottom: none;
     background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
@@ -259,7 +264,7 @@ ul{
 }
 #goButton {
     border-radius: 0.25em;
-    font-size: 3rem;
+    font-size: 2rem;
     padding: 1.5rem 3rem;
 }
 #resetButton {
@@ -428,13 +433,19 @@ ul{
 
 
 .tab-row {
-    justify-content: space-between;
+    justify-content: center;
+}
+.tab-container-1 {
+    width: 25%;
+    align-self: flex-end;
+
+}
+.tab-container-2 {
+    width: 40%;
+    align-self: flex-end;
 }
 .tab-div {
-    overflow: hidden;
-    align-self: flex-end;
     background-color: var(--dark-green);
-    margin: 2rem 3rem 0;
     transform: translateY(3px);
 }
 .tab-div button {
@@ -489,13 +500,12 @@ div.tab-div > button:first-child {
     position: absolute;
     top: 0;
     left: 18rem;
-    transform: translateY(-5px);
     border: solid var(--build-border) 3px;
     background: var(--build-bg);
 }
 .build-role-image {
-    height: 68px;
-    width: 68px;
+    height: 58px;
+    width: 58px;
 }
 .keystone-background {
     border: solid var(--build-border) 3px;
@@ -663,16 +673,16 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     position: absolute;
     left: 0;
     top: 0;
-    margin: 1.5rem 1.75rem;
+    margin: 1.5rem 0.75rem;
 }
 .team-build-button {
-    width: 60px;
+    width: 76px;
     height: 50px;
     color: var(--text-lighter);
     background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
     border-color: var(--yellow);
     outline: none;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     cursor: pointer;
 }
 .team-build-button:hover {
@@ -788,7 +798,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     border: solid var(--build-border) 2px;
     border-radius: 4em;
     background: var(--runes-bg);
-    padding: 4px;
+    padding: 3px;
     margin: 0 4px;
 
 }
@@ -796,7 +806,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     border: solid var(--build-border) 2px;
     border-radius: 2em;
     background: var(--runes-bg);
-    padding: 6px;
+    padding: 4px;
     margin: 0 4px;
 
 }
