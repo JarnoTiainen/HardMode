@@ -107,6 +107,7 @@ ul{
     outline: none;
     background-color: var(--green);
     border: solid var(--yellow) 2px;
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     color: var(--text-lighter);
     cursor: pointer;
     padding: 1rem 2rem;
@@ -141,11 +142,70 @@ ul{
 }
 .fill-screen{
     height: 100vh;
+    width: 100%;
 }
 #logoDiv {
     height: 100%;
 }
 
+/*============================================= Login Popup =====================================================*/
+
+.login-popup {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+}
+.register-popup {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+}
+.login-popup-content {
+    height: 300px;
+    width: 600px;
+    position: relative;
+    text-align: center;
+    z-index: 99;
+    padding: 2rem;
+    border-radius: 5px;
+    background: white;
+}
+.popup-input {
+    width: 50%;
+    display: block;
+    margin: 20px auto;
+    padding: 8px;
+    border: solid grey 1px;
+}
+.popup-button {
+    background: var(--login-btn-bg);
+    border-color: var(--login-btn-border);
+    border-radius: 5px;
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
+    color: var(--text-lighter);
+    padding: 10px 15px;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.popup-button:hover {
+    background: white;
+    color: var(--login-btn-bg);
+}
 
 /*========================================== Interactive Container =============================================*/
 
@@ -199,9 +259,10 @@ ul{
     color: var(--text-lighter);
     background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
     border-color: var(--yellow);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .6);
     outline: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: 5px;
     cursor: pointer;
 }
 .build-input {
@@ -263,12 +324,14 @@ ul{
     margin: 0 0 0 0.5rem;
 }
 #goButton {
-    border-radius: 0.25em;
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
+    border-radius: 8px;
     font-size: 2rem;
     padding: 1.5rem 3rem;
 }
 #resetButton {
-    border-radius: 0.75em;
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
+    border-radius: 5px;
     padding: 0.5rem;
     width: 80px;
 }
@@ -408,8 +471,9 @@ ul{
 }
 .login-buttons {
     background: var(--login-btn-bg);
-    border-radius: 0.75em;
     border-color: var(--login-btn-border);
+    border-radius: 5px;
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     color: var(--text-lighter);
     padding: 1rem;
     outline: none;
@@ -681,8 +745,9 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     color: var(--text-lighter);
     background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
     border-color: var(--yellow);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     outline: none;
-    border-radius: 0.5rem;
+    border-radius: 5px;
     cursor: pointer;
 }
 .team-build-button:hover {

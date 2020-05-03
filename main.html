@@ -41,21 +41,35 @@
             </div>
 
 
-            <ul id="login" class="nav-button-list">
+            <ul class="nav-button-list">
                 <li>
-                    <button id="signUpButton" class="login-buttons btn-animation">Sign Up</button>
+                    <button id="register" class="login-buttons btn-animation">Sign Up</button>
                 </li>
                 <li>
-                    <button id="loginButton" class="login-buttons btn-animation">Log In</button>
+                    <button id="login" class="login-buttons btn-animation">Log In</button>
                 </li>
             </ul>
         </nav>
 
+        <div id="loginPopup" class="login-popup">
+            <div class="login-popup-content">
+                <input type="text" id="loginUsernameInput" class="popup-input" placeholder="Username">
+                <input type="password" id="loginPasswordInput" class="popup-input" placeholder="Password">
+                <button id="loginPopupButton" class="popup-button">Log In</button>
+                <img src="/images/graphics/" alt="" id="loginClose" class="close-button">
+            </div>
+        </div>
+        <div id="registerPopup" class="register-popup">
+            <div class="login-popup-content">
+                <input type="text" id="registerInput" class="popup-input" placeholder="Username">
+                <input type="password" id="registerPasswordInput" class="popup-input" placeholder="Password">
+                <button id="registerPopupButton" class="popup-button">Register</button>
+            </div>
+        </div>
 
-
-        <header class="fill-screen flex-center">
+        <div class="fill-screen flex-center">
             <img id="logo" src="images/champion/Jhin.png">
-        </header>
+        </div>
 
 
         <main class="box flex-row">                                                  <!-- Main Content -->
@@ -1670,8 +1684,9 @@
 
 
 </div>
-<script data-main="js/script" src="js/script.js"></script>
 
+
+<script data-main="js/script" src="js/script.js"></script>
 
 
 </body>

@@ -822,12 +822,33 @@ function buildScrollFunction() {
 
 
 
+document.getElementById("login").addEventListener("click", function(){
+  loginPopupFunction();
+});
+document.getElementById("register").addEventListener("click", function() {
+  registerPopupFunction()
+});
+function loginPopupFunction() {
+  document.querySelector(".login-popup").style.display = "flex";
+}
+function registerPopupFunction() {
+  document.querySelector(".register-popup").style.display = "flex";
+}
 
 
 
-
-
-
+document.getElementById("loginPopup").addEventListener("click", function() {
+  closeLoginPopupFunction()
+});
+document.getElementById("registerPopup").addEventListener("click", function() {
+  closeRegisterPopupFunction()
+});
+function closeLoginPopupFunction() {
+  document.querySelector(".login-popup").style.display = "none";
+}
+function closeRegisterPopupFunction() {
+  document.querySelector(".register-popup").style.display = "none";
+}
 
 
 
