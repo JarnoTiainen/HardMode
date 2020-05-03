@@ -8,12 +8,12 @@ const Datastore = require('nedb');
 const app = express();
 
 //Starting server at port 3000
-app.listen(3000, () => {
-  console.log('Server listening at port 3000.');
+app.listen(4000, () => {
+  console.log('Server listening at port 4000.');
 });
 
 //Telling the server to use the directory 'public' in project files
-app.use(express.static('public'));
+app.use(express.static('./public'));
 
 //Telling the server to not accept JSON-strings larger than 1.0MB
 app.use(express.json({
