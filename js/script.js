@@ -798,22 +798,18 @@ document.getElementById('goButton').addEventListener('click', function() {
 });
 
 function buildScrollFunction() {
-  if (team === true) {
-    document.getElementById('build1Container').scrollIntoView();
-  }
-  else {
-    document.getElementById('buildBox').scrollIntoView();
-  }
+  document.getElementById('goDiv').scrollIntoView();
   console.log('scrolling to build');
 }
 
 
+// Open login popups
 
 document.getElementById("login").addEventListener("click", function(){
   loginPopupFunction();
 });
 document.getElementById("register").addEventListener("click", function() {
-  registerPopupFunction()
+  registerPopupFunction();
 });
 function loginPopupFunction() {
   document.querySelector(".login-popup").style.display = "flex";
@@ -824,10 +820,13 @@ function registerPopupFunction() {
 
 
 
-document.getElementById("loginPopup").addEventListener("click", function() {
+
+//Close login popups
+
+document.getElementById("loginClose").addEventListener("click", function() {
   closeLoginPopupFunction()
 });
-document.getElementById("registerPopup").addEventListener("click", function() {
+document.getElementById("registerClose").addEventListener("click", function() {
   closeRegisterPopupFunction()
 });
 function closeLoginPopupFunction() {
@@ -836,7 +835,5 @@ function closeLoginPopupFunction() {
 function closeRegisterPopupFunction() {
   document.querySelector(".register-popup").style.display = "none";
 }
-
-
 
 
