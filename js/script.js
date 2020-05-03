@@ -259,6 +259,43 @@ copyBuildButton.onclick = function() {
   document.execCommand('copy');
   alert('Build copied to clipboard.');
 };
+document.getElementById("jungleInput").addEventListener("click", function() {
+  console.log(soloRolesAllEmptyCheck());
+  if (soloRolesAllEmptyCheck()) {
+    console.log("it was true");
+    document.getElementById("jungleInput").checked = false;
+  }
+});
+document.getElementById("topInput").addEventListener("click", function() {
+  console.log(soloRolesAllEmptyCheck());
+  if (soloRolesAllEmptyCheck()) {
+    console.log("it was true");
+    document.getElementById("topInput").checked = false;
+  }
+});
+document.getElementById("botInput").addEventListener("click", function() {
+  console.log(soloRolesAllEmptyCheck());
+  if (soloRolesAllEmptyCheck()) {
+    console.log("it was true");
+    document.getElementById("botInput").checked = false;
+  }
+});
+document.getElementById("midInput").addEventListener("click", function() {
+  console.log(soloRolesAllEmptyCheck());
+  if (soloRolesAllEmptyCheck()) {
+    console.log("it was true");
+    document.getElementById("midInput").checked = false;
+  }
+});
+document.getElementById("supportInput").addEventListener("click", function() {
+  console.log(soloRolesAllEmptyCheck());
+  if (soloRolesAllEmptyCheck()) {
+    console.log("it was true");
+    document.getElementById("supportInput").checked = false;
+  }
+});
+
+
 for (let i = 1; i < 6; i++) {
   document.getElementById(
       'build' + i.toString() + 'CopyButton').onclick = function() {
@@ -710,6 +747,16 @@ function soloRoleCheck() {
   roleList.push(document.getElementById('midInput').checked);
   roleList.push(document.getElementById('botInput').checked);
   return roleList;
+}
+function  soloRolesAllEmptyCheck() {
+  const roleList = soloRoleCheck();
+  console.log(roleList);
+  for (let i = 0; i < 5; i++) {
+    if (roleList[i] === false) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function dbQuery() {
