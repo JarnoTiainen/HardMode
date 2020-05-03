@@ -247,6 +247,7 @@ let itemClasses = [
 document.getElementById('soloTab').click();
 //dbQuery();
 getNewSoloRandomBuild();
+getNewTeamBuilds();
 
 let solo = true;
 let team = false;
@@ -271,17 +272,11 @@ for (let i = 1; i < 6; i++) {
 document.getElementById('soloTab').addEventListener('click', function() {
   solo = true;
   team = false;
-  console.log('solo: ' + solo);
-  console.log('team: ' + team);
 });
 document.getElementById('teamTab').addEventListener('click', function() {
   team = true;
   solo = false;
-  console.log('team: ' + team);
-  console.log('solo: ' + solo);
-  getNewTeamBuilds();
 });
-
 document.getElementById('goButton').addEventListener('click', function() {
   if (solo === true) {
     itemSetForJSON = [];
@@ -332,7 +327,6 @@ function getNewTeamBuilds() {
     const itemSet = formJSONforItemSet();
     document.getElementById(
         'build' + (i + 1).toString() + 'Input').value = JSON.stringify(itemSet);
-    console.log('sadfsdgf' + document.getElementById('build1Input').value);
   }
 
 }
@@ -386,7 +380,7 @@ function getNewSoloRandomBuild() {
   let adc = false;
   if (roleList[0] === false) {
     jungler = true;
-    possibleRoles.push('jungler');
+    possibleRoles.push('jungle');
   }
   if (roleList[1] === false) {
     support = true;
@@ -402,7 +396,7 @@ function getNewSoloRandomBuild() {
   }
   if (roleList[4] === false) {
     adc = true;
-    possibleRoles.push('adc');
+    possibleRoles.push('bot');
   }
   const selectedRole = possibleRoles[Math.floor(
       Math.random() * possibleRoles.length)];
@@ -423,18 +417,19 @@ function getNewSoloRandomBuild() {
       Math.random() * (itemClasses[buildNumber].jgItems.length - 1))];
   const supportItem = itemClasses[buildNumber].spItems[Math.floor(
       Math.random() * (itemClasses[buildNumber].spItems.length - 1))];
-  if (selectedRole === 'jungler') {
+  console.log(selectedRole);
+  if (selectedRole === 'jungle') {
     remainingItems--;
     itemSetForJSON.push(jungleItem);
     itemSetForJSON.push(boots);
   } else if (selectedRole === 'support') {
     itemSetForJSON.push(supportItem);
   }
+  document.getElementById("buildRole").src = "images/graphics/"+selectedRole+".png";
   randomizeRestOfTheItems(allPossibleItems, (remainingItems - 1), boots);
   printSelectedItems();
   const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
   const runeList = buildRunes(keyStone);
-  console.log(runeList);
   printRunes(runeList[0], runeList[1], runeList[2], runeList[3], runeList[4],
       runeList[5]);
   document.getElementById(
@@ -585,7 +580,6 @@ function buildRunes(keyStoneNumber) {
   const mainLowerRunes = getRandomNumbersForRunes(3);
   const secondaryRunes = getRandomNumbersForRunes(2);
   const statBonuses = getRandomNumbersForRunes(3);
-  console.log(keyStoneNumber);
   runeList.push(mainRune, mainLowerRunes, secondaryRunesType, secondaryRunes,
       statBonuses, keyStoneNumber);
   return runeList;
@@ -614,8 +608,6 @@ function getSecondaryRunesType(mainRune) {
 function printRunes(
     mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes, statBonuses,
     keyStoneNumber) {
-  console.log(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes,
-      statBonuses, keyStoneNumber);
   document.getElementById(
       'buildRuneKeystoneImage').src = 'images/runes/keyStone' +
       keyStoneNumber.toString() + '.png';
@@ -648,7 +640,6 @@ function printRunes(
 function printRunesForTeam(
     roleNumber, mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes,
     statBonuses, keyStoneNumber) {
-  console.log('teamMainRune' + (roleNumber + 1).toString() + '1');
   document.getElementById('teamKeystone' +
       (roleNumber + 1).toString()).src = 'images/runes/keyStone' +
       keyStoneNumber.toString() + '.png';
@@ -679,7 +670,6 @@ function printRunesForTeam(
 }
 
 function formJSONforItemSet() {
-  console.log(itemSetForJSON);
   const itemSets = [
     {
       title: 'HARDMODE',
@@ -697,11 +687,8 @@ function formJSONforItemSet() {
       ],
     }];
   for (let i = 0; i < 6; i++) {
-    console.log({id: itemSetForJSON[i], count: 1});
     itemSets[0].blocks[0].items.push({id: itemSetForJSON[i], count: 1});
   }
-  console.log(itemSets[0].toString);
-  console.log('itemset is ' + itemSets);
   return itemSets[0];
 }
 
