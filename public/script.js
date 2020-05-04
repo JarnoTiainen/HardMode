@@ -1,3 +1,7 @@
+
+document.documentElement.scrollTop = 0;
+
+
 let itemSetForJSON = [];
 let itemClasses = [
   {
@@ -1072,5 +1076,4 @@ function closeBuild5() {
     build5.setAttribute("class", "team-build");
   }, 500);
 }
-
 
