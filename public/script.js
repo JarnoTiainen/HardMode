@@ -258,42 +258,41 @@ copyBuildButton.onclick = function() {
   document.execCommand('copy');
   alert('Build copied to clipboard.');
 };
-document.getElementById("jungleInput").addEventListener("click", function() {
+document.getElementById('jungleInput').addEventListener('click', function() {
   console.log(soloRolesAllEmptyCheck());
   if (soloRolesAllEmptyCheck()) {
-    console.log("it was true");
-    document.getElementById("jungleInput").checked = false;
+    console.log('it was true');
+    document.getElementById('jungleInput').checked = false;
   }
 });
-document.getElementById("topInput").addEventListener("click", function() {
+document.getElementById('topInput').addEventListener('click', function() {
   console.log(soloRolesAllEmptyCheck());
   if (soloRolesAllEmptyCheck()) {
-    console.log("it was true");
-    document.getElementById("topInput").checked = false;
+    console.log('it was true');
+    document.getElementById('topInput').checked = false;
   }
 });
-document.getElementById("botInput").addEventListener("click", function() {
+document.getElementById('botInput').addEventListener('click', function() {
   console.log(soloRolesAllEmptyCheck());
   if (soloRolesAllEmptyCheck()) {
-    console.log("it was true");
-    document.getElementById("botInput").checked = false;
+    console.log('it was true');
+    document.getElementById('botInput').checked = false;
   }
 });
-document.getElementById("midInput").addEventListener("click", function() {
+document.getElementById('midInput').addEventListener('click', function() {
   console.log(soloRolesAllEmptyCheck());
   if (soloRolesAllEmptyCheck()) {
-    console.log("it was true");
-    document.getElementById("midInput").checked = false;
+    console.log('it was true');
+    document.getElementById('midInput').checked = false;
   }
 });
-document.getElementById("supportInput").addEventListener("click", function() {
+document.getElementById('supportInput').addEventListener('click', function() {
   console.log(soloRolesAllEmptyCheck());
   if (soloRolesAllEmptyCheck()) {
-    console.log("it was true");
-    document.getElementById("supportInput").checked = false;
+    console.log('it was true');
+    document.getElementById('supportInput').checked = false;
   }
 });
-
 
 for (let i = 1; i < 6; i++) {
   document.getElementById(
@@ -463,7 +462,8 @@ async function getNewSoloRandomBuild() {
   } else if (selectedRole === 'support') {
     itemSetForJSON.push(supportItem);
   }
-  document.getElementById("buildRole").src = "images/graphics/"+selectedRole+".png";
+  document.getElementById('buildRole').src = 'images/graphics/' + selectedRole +
+      '.png';
   randomizeRestOfTheItems(allPossibleItems, (remainingItems - 1), boots);
   printSelectedItems();
   const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
@@ -774,7 +774,8 @@ function soloRoleCheck() {
   roleList.push(document.getElementById('botInput').checked);
   return roleList;
 }
-function  soloRolesAllEmptyCheck() {
+
+function soloRolesAllEmptyCheck() {
   const roleList = soloRoleCheck();
   console.log(roleList);
   for (let i = 0; i < 5; i++) {
@@ -784,12 +785,6 @@ function  soloRolesAllEmptyCheck() {
   }
   return true;
 }
-
-
-
-
-
-
 
 /*===================== Page Top Button ===========================*/
 
@@ -811,46 +806,47 @@ function pageTopFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-
-
 /*================================ Login Popups ================================*/
 
 // Open login popups
 
-document.getElementById("login").addEventListener("click", function(){
+document.getElementById('login').addEventListener('click', function() {
   loginPopupFunction();
 });
-document.getElementById("register").addEventListener("click", function() {
+document.getElementById('register').addEventListener('click', function() {
   registerPopupFunction();
 });
+
 function loginPopupFunction() {
-  document.querySelector(".login-popup").style.display = "flex";
-}
-function registerPopupFunction() {
-  document.querySelector(".register-popup").style.display = "flex";
+  document.querySelector('.login-popup').style.display = 'flex';
 }
 
+function registerPopupFunction() {
+  document.querySelector('.register-popup').style.display = 'flex';
+}
 
 //Close login popups
 
-document.getElementById("loginClose").addEventListener("click", function() {
-  closeLoginPopupFunction()
+document.getElementById('loginClose').addEventListener('click', function() {
+  closeLoginPopupFunction();
 });
-document.getElementById("registerClose").addEventListener("click", function() {
-  closeRegisterPopupFunction()
+document.getElementById('registerClose').addEventListener('click', function() {
+  closeRegisterPopupFunction();
 });
+
 function closeLoginPopupFunction() {
-  document.querySelector(".login-popup").style.display = "none";
+  document.querySelector('.login-popup').style.display = 'none';
 }
+
 function closeRegisterPopupFunction() {
-  document.querySelector(".register-popup").style.display = "none";
+  document.querySelector('.register-popup').style.display = 'none';
 }
-
-
 
 /*========================= Build Tabs =============================*/
 
 document.getElementById('soloTab').click();
+
+let teamTabClicked = false;
 
 function openTab(evt, tabName) {
   let i, tabcontent, tablinks;
@@ -867,6 +863,23 @@ function openTab(evt, tabName) {
 
   document.getElementById(tabName).style.display = 'block';
   evt.currentTarget.className += ' active';
+
+  document.getElementById("addBuildDiv1").className = "flex-column";
+  document.getElementById("addBuildDiv2").className = "flex-column";
+  document.getElementById("addBuildDiv3").className = "flex-column";
+  document.getElementById("addBuildDiv4").className = "flex-column";
+  document.getElementById("addBuildDiv5").className = "flex-column";
+
+  if (tabName === "teamBox") {
+    teamTabClicked = true;
+  }
+  if (tabName === "buildBox" && teamTabClicked === true) {
+    setBuild1Idle();
+    setBuild2Idle();
+    setBuild3Idle();
+    setBuild4Idle();
+    setBuild5Idle();
+  }
 }
 
 document.getElementById('goButton').addEventListener('click', function() {
@@ -876,148 +889,198 @@ function buildScrollFunction() {
   document.getElementById('goDiv').scrollIntoView();
 }
 
-
-
-
 /*============================== Team Builds ====================================*/
+
+let build1Visible = false;
+let build2Visible = false;
+let build3Visible = false;
+let build4Visible = false;
+let build5Visible = false;
+
+function setBuild1Idle() {
+  if(teamTabClicked === true && build1Visible === true) {
+    document.getElementById("build1").setAttribute("class", "team-build-idle")
+  }
+}
+function setBuild2Idle() {
+  if(teamTabClicked === true && build2Visible === true) {
+    document.getElementById("build2").setAttribute("class", "team-build-idle")
+  }
+}
+function setBuild3Idle() {
+  if(teamTabClicked === true && build3Visible === true) {
+    document.getElementById("build3").setAttribute("class", "team-build-idle")
+  }
+}
+function setBuild4Idle() {
+  if(teamTabClicked === true && build4Visible === true) {
+    document.getElementById("build4").setAttribute("class", "team-build-idle")
+  }
+}
+function setBuild5Idle() {
+  if(teamTabClicked === true && build1Visible === true) {
+    document.getElementById("build5").setAttribute("class", "team-build-idle")
+  }
+}
 
 
 // Build 1
 
-document.getElementById("addBuild1").addEventListener("click", function() {
+document.getElementById('addBuild1').addEventListener('click', function() {
   addBuild1();
 });
+
 function addBuild1() {
-  document.querySelector("#addBuildDiv1").style.display = "none";
-  let build1 = document.querySelector("#build1");
-  build1.style.display = "flex";
-  build1.setAttribute("class", "team-build slide-in")
+  document.querySelector('#addBuildDiv1').style.display = 'none';
+  let build1 = document.querySelector('#build1');
+  build1.style.display = 'flex';
+  build1.setAttribute('class', 'team-build slide-in');
+  build1Visible = true;
 }
 
-document.getElementById("closeBuild1").addEventListener("click", function() {
+document.getElementById('closeBuild1').addEventListener('click', function() {
   closeBuild1();
 });
-function closeBuild1() {
-  let addBuild1 = document.querySelector("#addBuildDiv1");
-  addBuild1.style.display = "flex";
-  addBuild1.setAttribute("class", "fade-in");
 
-  let build1 = document.querySelector("#build1");
-  build1.setAttribute("class", "team-build slide-out");
+function closeBuild1() {
+  let addBuild1 = document.querySelector('#addBuildDiv1');
+  addBuild1.style.display = 'flex';
+  addBuild1.setAttribute('class', 'flex-column fade-in');
+
+  let build1 = document.querySelector('#build1');
+  build1.setAttribute('class', 'team-build slide-out');
+  build1Visible = false;
   setTimeout(function() {
-    build1.style.display = "none";
+    build1.style.display = 'none';
+    build1.setAttribute("class", "team-build");
   }, 500);
 }
-
-
 
 // Build 2
 
-document.getElementById("addBuild2").addEventListener("click", function() {
+document.getElementById('addBuild2').addEventListener('click', function() {
   addBuild2();
 });
+
 function addBuild2() {
-  document.querySelector("#addBuildDiv2").style.display = "none";
-  let build2 = document.querySelector("#build2");
-  build2.style.display = "flex";
-  build2.setAttribute("class", "team-build slide-in")}
-
-document.getElementById("closeBuild2").addEventListener("click", function() {
-  closeBuild2();
-});
-function closeBuild2() {
-  let addBuild2 = document.querySelector("#addBuildDiv2");
-  addBuild2.style.display = "flex";
-  addBuild2.setAttribute("class", "fade-in");
-
-  let build2 = document.querySelector("#build2");
-  build2.setAttribute("class", "team-build slide-out");
-  setTimeout(function() {
-    build2.style.display = "none";
-  }, 500);
+  document.querySelector('#addBuildDiv2').style.display = 'none';
+  let build2 = document.querySelector('#build2');
+  build2.style.display = 'flex';
+  build2.setAttribute('class', 'team-build slide-in');
+  build2Visible = true;
 }
 
+document.getElementById('closeBuild2').addEventListener('click', function() {
+  closeBuild2();
+});
 
+function closeBuild2() {
+  let addBuild2 = document.querySelector('#addBuildDiv2');
+  addBuild2.style.display = 'flex';
+  addBuild2.setAttribute('class', 'flex-column fade-in');
+
+  let build2 = document.querySelector('#build2');
+  build2.setAttribute('class', 'team-build slide-out');
+  build2Visible = false;
+  setTimeout(function() {
+    build2.style.display = 'none';
+    build2.setAttribute("class", "team-build");
+  }, 500);
+}
 
 // Build 3
 
-document.getElementById("addBuild3").addEventListener("click", function() {
+document.getElementById('addBuild3').addEventListener('click', function() {
   addBuild3();
 });
+
 function addBuild3() {
-  document.querySelector("#addBuildDiv3").style.display = "none";
-  let build3 = document.querySelector("#build3");
-  build3.style.display = "flex";
-  build3.setAttribute("class", "team-build slide-in")}
-
-document.getElementById("closeBuild3").addEventListener("click", function() {
-  closeBuild3();
-});
-function closeBuild3() {
-  let addBuild3 = document.querySelector("#addBuildDiv3");
-  addBuild3.style.display = "flex";
-  addBuild3.setAttribute("class", "fade-in");
-
-  let build3 = document.querySelector("#build3");
-  build3.setAttribute("class", "team-build slide-out");
-  setTimeout(function() {
-    build3.style.display = "none";
-  }, 500);
+  document.querySelector('#addBuildDiv3').style.display = 'none';
+  let build3 = document.querySelector('#build3');
+  build3.style.display = 'flex';
+  build3.setAttribute('class', 'team-build slide-in');
+  build3Visible = true;
 }
 
+document.getElementById('closeBuild3').addEventListener('click', function() {
+  closeBuild3();
+});
 
+function closeBuild3() {
+  let addBuild3 = document.querySelector('#addBuildDiv3');
+  addBuild3.style.display = 'flex';
+  addBuild3.setAttribute('class', 'flex-column fade-in');
+
+  let build3 = document.querySelector('#build3');
+  build3.setAttribute('class', 'team-build slide-out');
+  build3Visible = false;
+  setTimeout(function() {
+    build3.style.display = 'none';
+    build3.setAttribute("class", "team-build");
+  }, 500);
+}
 
 // Build 4
 
-document.getElementById("addBuild4").addEventListener("click", function() {
+document.getElementById('addBuild4').addEventListener('click', function() {
   addBuild4();
 });
-function addBuild4() {
-  document.querySelector("#addBuildDiv4").style.display = "none";
-  let build4 = document.querySelector("#build4");
-  build4.style.display = "flex";
-  build4.setAttribute("class", "team-build slide-in")}
 
-document.getElementById("closeBuild4").addEventListener("click", function() {
+function addBuild4() {
+  document.querySelector('#addBuildDiv4').style.display = 'none';
+  let build4 = document.querySelector('#build4');
+  build4.style.display = 'flex';
+  build4.setAttribute('class', 'team-build slide-in');
+  build4Visible = true;
+}
+
+document.getElementById('closeBuild4').addEventListener('click', function() {
   closeBuild4();
 });
-function closeBuild4() {
-  let addBuild4 = document.querySelector("#addBuildDiv4");
-  addBuild4.style.display = "flex";
-  addBuild4.setAttribute("class", "fade-in");
 
-  let build4 = document.querySelector("#build4");
-  build4.setAttribute("class", "team-build slide-out");
+function closeBuild4() {
+  let addBuild4 = document.querySelector('#addBuildDiv4');
+  addBuild4.style.display = 'flex';
+  addBuild4.setAttribute('class', 'flex-column fade-in');
+
+  let build4 = document.querySelector('#build4');
+  build4.setAttribute('class', 'team-build slide-out');
+  build4Visible = false;
   setTimeout(function() {
-    build4.style.display = "none";
+    build4.style.display = 'none';
+    build4.setAttribute("class", "team-build");
   }, 500);
 }
 
-
-
 // Build 5
 
-document.getElementById("addBuild5").addEventListener("click", function() {
+document.getElementById('addBuild5').addEventListener('click', function() {
   addBuild5();
 });
-function addBuild5() {
-  document.querySelector("#addBuildDiv5").style.display = "none";
-  let build5 = document.querySelector("#build5");
-  build5.style.display = "flex";
-  build5.setAttribute("class", "team-build slide-in")}
 
-document.getElementById("closeBuild5").addEventListener("click", function() {
+function addBuild5() {
+  document.querySelector('#addBuildDiv5').style.display = 'none';
+  let build5 = document.querySelector('#build5');
+  build5.style.display = 'flex';
+  build5.setAttribute('class', 'team-build slide-in');
+  build5Visible = true;
+}
+
+document.getElementById('closeBuild5').addEventListener('click', function() {
   closeBuild5();
 });
-function closeBuild5() {
-  let addBuild5 = document.querySelector("#addBuildDiv5");
-  addBuild5.style.display = "flex";
-  addBuild5.setAttribute("class", "fade-in");
 
-  let build5 = document.querySelector("#build5");
-  build5.setAttribute("class", "team-build slide-out");
+function closeBuild5() {
+  let addBuild5 = document.querySelector('#addBuildDiv5');
+  addBuild5.style.display = 'flex';
+  addBuild5.setAttribute('class', 'flex-column fade-in');
+
+  let build5 = document.querySelector('#build5');
+  build5.setAttribute('class', 'team-build slide-out');
+  build5Visible = false;
   setTimeout(function() {
-    build5.style.display = "none";
+    build5.style.display = 'none';
+    build5.setAttribute("class", "team-build");
   }, 500);
 }
 async function getData() {
@@ -1027,5 +1090,7 @@ async function getData() {
   console.log(data);
 }
 
-
-
+x = document.getElementsByClassName('champion-tooltip');
+for (let i = 0; i < x.length; i++) {
+  x[i].innerText = 'draven';
+}

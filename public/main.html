@@ -91,6 +91,10 @@
 
                     <div class="interactive-container flex-column" id="interactiveContainer">    <!-- Container for Interactive Portion -->
                         <div class="build-options flex-column">
+                            <div class="champion-search-bg flex-center">
+                                <input type="text" id="championInput" class="champion-search" placeholder="Search for champions">
+                                <button id="championReset" class="champion-reset">Unselect All</button>
+                            </div>
                             <div class="champion-list-bg" id="championDiv">                    <!-- Champion List -->
                                 <ul id="championList" class="flex-row">
                                     <li>
@@ -1194,7 +1198,6 @@
                                 <div id="buildFirstDiv" class="flex-row">
                                     <div id="buildButtonDiv">
                                         <button id="buildCopyButton" class="build-button btn-animation" title="Click to copy build to clipboard">Copy Build</button>
-                                        <button id="againButton" class="build-button btn-animation">Placeholder</button>
                                         <label for="buildInput"></label>
                                         <input id="buildInput" type="text" class="build-input" readonly>
                                     </div>
@@ -1290,8 +1293,9 @@
                             <div id="build1Container" class="team-build-container flex-center">
                                 <div id="build1Background" class="team-build-container-background flex-center">
 
-                                    <div id="addBuildDiv1" class="add-build-div">
+                                    <div id="addBuildDiv1" class="flex-column">
                                         <button id="addBuild1" class="add-build-button">Add Player</button>
+                                        <input type="text" id="addBuildInput1" class="add-build-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build1" class="team-build">
@@ -1391,8 +1395,9 @@
                             <div id="build2Container" class="team-build-container flex-center">
                                 <div id="build2Background" class="team-build-container-background flex-center">
 
-                                    <div id="addBuildDiv2" class="add-build-div">
+                                    <div id="addBuildDiv2" class="flex-column">
                                         <button id="addBuild2" class="add-build-button">Add Player</button>
+                                        <input type="text" id="addBuildInput2" class="add-build-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build2" class="team-build build-animation">
@@ -1491,8 +1496,9 @@
                             <div id="build3Container" class="team-build-container flex-center">
                                 <div id="build3Background" class="team-build-container-background flex-center">
 
-                                    <div id="addBuildDiv3" class="add-build-div">
+                                    <div id="addBuildDiv3" class="flex-column">
                                         <button id="addBuild3" class="add-build-button">Add Player</button>
+                                        <input type="text" id="addBuildInput3" class="add-build-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build3" class="team-build build-animation">
@@ -1591,8 +1597,9 @@
                             <div id="build4Container" class="team-build-container flex-center">
                                 <div id="build4Background" class="team-build-container-background flex-center">
 
-                                    <div id="addBuildDiv4" class="add-build-div">
+                                    <div id="addBuildDiv4" class="flex-column">
                                         <button id="addBuild4" class="add-build-button">Add Player</button>
+                                        <input type="text" id="addBuildInput4" class="add-build-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build4" class="team-build build-animation">
@@ -1691,8 +1698,9 @@
                             <div id="build5Container" class="team-build-container flex-center">
                                 <div id="build5Background" class="team-build-container-background flex-center">
 
-                                    <div id="addBuildDiv5" class="add-build-div">
+                                    <div id="addBuildDiv5" class="flex-column">
                                         <button id="addBuild5" class="add-build-button">Add Player</button>
+                                        <input type="text" id="addBuildInput5" class="add-build-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build5" class="team-build build-animation">
