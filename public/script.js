@@ -1,4 +1,4 @@
-var itemSetForJSON = [];
+let itemSetForJSON = [];
 let itemClasses = [
   {
     name: 'Wannabe Mage',
@@ -244,6 +244,7 @@ let itemClasses = [
       '3800'],
     keyStones: [4, 11, 12, 16, 17],
   }];
+
 printChampionIcons();
 getNewSoloRandomBuild();
 getNewTeamBuilds();
@@ -432,7 +433,6 @@ async function getNewSoloRandomBuild() {
   const selectedRole = possibleRoles[Math.floor(
       Math.random() * possibleRoles.length)];
   const buildNumber = await getRandomBuild('Aatrox');
-  console.log(buildNumber);
 
   const allPossibleItems = buildAllPossibleItemsList
   (
@@ -450,7 +450,6 @@ async function getNewSoloRandomBuild() {
       Math.random() * (itemClasses[buildNumber].jgItems.length - 1))];
   const supportItem = itemClasses[buildNumber].spItems[Math.floor(
       Math.random() * (itemClasses[buildNumber].spItems.length - 1))];
-  console.log(selectedRole);
   if (selectedRole === 'jungle') {
     remainingItems--;
     itemSetForJSON.push(jungleItem);
@@ -511,14 +510,12 @@ async function printChampionIcons() {
   const res = await fetch('/api');
   const data = await res.json();
   const championList = [];
-  console.log(data);
   let index = 0;
   for (item in data) {
     championList.push(data[index].champion);
     index++;
   }
   championList.sort();
-  console.log(championList);
   for(let i = 0; i < championList.length; i++) {
     const toolTip = document.getElementsByClassName("champion-tooltip");
     const championIcon = document.getElementsByClassName("champion-img");
@@ -543,9 +540,6 @@ async function getRandomBuild(championName) {
   };
   const response = await fetch('/champ', options);
   const champion = await response.json();
-  console.log(response);
-  console.log(champion);
-
   let possibleBuilds = [];
   if (champion[0].AP === 0) {
     possibleBuilds.push(1);
@@ -589,14 +583,12 @@ async function getRandomBuild(championName) {
   if (champion[0].Res === 0) {
     possibleBuilds.push(14);
   }
-  const returnValue =Math.floor(Math.random() * (possibleBuilds.length));
-  return returnValue;
+  return Math.floor(Math.random() * (possibleBuilds.length));
 }
 
 function buildAllPossibleItemsList(buildSetNumber, isMana, isMelee, isRanged, isAp, isHealer) {
   let allPossibleItems = [];
   let combiner = [];
-  console.log(buildSetNumber);
   combiner = itemClasses[buildSetNumber].mainItems;
   if (isMana) {
     allPossibleItems = combiner.concat(itemClasses[buildSetNumber].manaItems);
@@ -751,7 +743,7 @@ function formJSONforItemSet() {
   return itemSets[0];
 }
 
-function printSpellIcons(championName) {
+function printSpellIcon(championName) {
 
   let db = new sqlite3.Database('./hardmode.db', (err) => {
     if (err) {
@@ -782,7 +774,9 @@ function soloRolesAllEmptyCheck() {
   return true;
 }
 
-/*======================== Page Top Button ===========================*/
+//Rainer section begins
+
+/*===================== Page Top Button ===========================*/
 
 let pageTopButton = document.getElementById('pageTopButton');
 window.onscroll = function() {
@@ -1078,10 +1072,5 @@ function closeBuild5() {
     build5.setAttribute("class", "team-build");
   }, 500);
 }
-async function getData() {
-  const res = await fetch('/api');
-  const data = await res.json();
-  console.log('From database:');
-  console.log(data);
-}
+
 
