@@ -244,7 +244,7 @@ let itemClasses = [
       '3800'],
     keyStones: [4, 11, 12, 16, 17],
   }];
-//dbQuery();
+printChampionIcons();
 getNewSoloRandomBuild();
 getNewTeamBuilds();
 
@@ -436,6 +436,8 @@ function getNewSoloRandomBuild() {
   const selectedRole = possibleRoles[Math.floor(
       Math.random() * possibleRoles.length)];
   const buildNumber = getRandomBuild('Aatrox');
+  console.log(buildNumber);
+
   const allPossibleItems = buildAllPossibleItemsList
   (
       buildNumber,
@@ -509,71 +511,98 @@ function printSelectedItemsForTeam(roleNumber) {
 
 }
 
-function getRandomBuild(championNumber) {
-  let possibleBuilds = [];
-  const ap = true;
-  const as = true;
-  const crit = true;
-  const fs = true;
-  const hb = true;
-  const hp = true;
-  const hpap = true;
-  const ls = true;
-  const lt = true;
-  const mana = true;
-  const mp = true;
-  const ms = true;
-  const oh = true;
-  const res = true;
-  if (ap) {
-    possibleBuilds.push(1);
+async function printChampionIcons() {
+  const res = await fetch('/api');
+  const data = await res.json();
+  const championList = [];
+  console.log(data);
+  let index = 0;
+  for (item in data) {
+    championList.push(data[index].champion);
+    index++;
   }
-  if (as) {
-    possibleBuilds.push(2);
+  championList.sort();
+  console.log(championList);
+  for(let i = 0; i < championList.length; i++) {
+    const toolTip = document.getElementsByClassName("champion-tooltip");
+    const championIcon = document.getElementsByClassName("champion-img");
+
+    for(let i = 0; i < toolTip.length; i++){
+      toolTip[i].innerText=championList[i];
+      championIcon[i].src = "images/champion/"+championList[i]+".png";
+    }
   }
-  if (crit) {
-    possibleBuilds.push(3);
-  }
-  if (fs) {
-    possibleBuilds.push(4);
-  }
-  if (hb) {
-    possibleBuilds.push(5);
-  }
-  if (hp) {
-    possibleBuilds.push(6);
-  }
-  if (hpap) {
-    possibleBuilds.push(7);
-  }
-  if (ls) {
-    possibleBuilds.push(8);
-  }
-  if (lt) {
-    possibleBuilds.push(9);
-  }
-  if (mana) {
-    possibleBuilds.push(10);
-  }
-  if (mp) {
-    possibleBuilds.push(11);
-  }
-  if (ms) {
-    possibleBuilds.push(12);
-  }
-  if (oh) {
-    possibleBuilds.push(13);
-  }
-  if (res) {
-    possibleBuilds.push(14);
-  }
-  return Math.floor(Math.random() * (possibleBuilds.length));
 }
 
-function buildAllPossibleItemsList(
-    buildSetNumber, isMana, isMelee, isRanged, isAp, isHealer) {
+async function getRandomBuild(championName) {
+  const data = {
+    champion: "Aatrox"
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  const response = await fetch('/champ', options).then(function() {
+    console.log("promise resolved")
+
+  });
+  const champion = await response.json();
+  console.log('From database:');
+
+  let possibleBuilds = [];
+  if (champion[0].AP === 0) {
+    possibleBuilds.push(1);
+  }
+  if (champion[0].AS === 0) {
+    possibleBuilds.push(2);
+  }
+  if (champion[0].Crit === 0) {
+    possibleBuilds.push(3);
+  }
+  if (champion[0].FS === 0) {
+    possibleBuilds.push(4);
+  }
+  if (champion[0].Hb === 0) {
+    possibleBuilds.push(5);
+  }
+  if (champion[0].HP === 0) {
+    possibleBuilds.push(6);
+  }
+  if (champion[0].HPAP === 0) {
+    possibleBuilds.push(7);
+  }
+  if (champion[0].LS === 0) {
+    possibleBuilds.push(8);
+  }
+  if (champion[0].Lt === 0) {
+    possibleBuilds.push(9);
+  }
+  if (champion[0].Mana === 0) {
+    possibleBuilds.push(10);
+  }
+  if (champion[0].MP === 0) {
+    possibleBuilds.push(11);
+  }
+  if (champion[0].MS === 0) {
+    possibleBuilds.push(12);
+  }
+  if (champion[0].OH === 0) {
+    possibleBuilds.push(13);
+  }
+  if (champion[0].Res === 0) {
+    possibleBuilds.push(14);
+  }
+  const returnValue =Math.floor(Math.random() * (possibleBuilds.length));
+  return returnValue;
+}
+
+function buildAllPossibleItemsList(buildSetNumber, isMana, isMelee, isRanged, isAp, isHealer) {
   let allPossibleItems = [];
   let combiner = [];
+  console.log(buildSetNumber);
   combiner = itemClasses[buildSetNumber].mainItems;
   if (isMana) {
     allPossibleItems = combiner.concat(itemClasses[buildSetNumber].manaItems);
@@ -1055,6 +1084,12 @@ function closeBuild5() {
     build5.style.display = 'none';
     build5.setAttribute("class", "team-build");
   }, 500);
+}
+async function getData() {
+  const res = await fetch('/api');
+  const data = await res.json();
+  console.log('From database:');
+  console.log(data);
 }
 
 x = document.getElementsByClassName('champion-tooltip');
