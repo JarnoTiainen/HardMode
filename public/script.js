@@ -331,10 +331,10 @@ function copyText() {
   alert('Copied the text: ' + copyText.value);
 }
 
-function getNewTeamBuilds() {
+async function getNewTeamBuilds() {
   for (let i = 0; i < 5; i++) {
     itemSetForJSON = [];
-    const buildNumber = getRandomBuild('Aatrox');
+    const buildNumber = await getRandomBuild('Aatrox');
     const allPossibleItems = buildAllPossibleItemsList(buildNumber, true, true,
         false, true, false);
     let remainingItems = 6;
@@ -406,7 +406,7 @@ function setTeamSummonerSpells(roleNumber, buildNumber) {
 
 }
 
-function getNewSoloRandomBuild() {
+async function getNewSoloRandomBuild() {
   const roleList = soloRoleCheck();
   const possibleRoles = [];
   let jungler = false;
@@ -436,7 +436,7 @@ function getNewSoloRandomBuild() {
   }
   const selectedRole = possibleRoles[Math.floor(
       Math.random() * possibleRoles.length)];
-  const buildNumber = getRandomBuild('Aatrox');
+  const buildNumber = await getRandomBuild('Aatrox');
   console.log(buildNumber);
 
   const allPossibleItems = buildAllPossibleItemsList
@@ -545,12 +545,10 @@ async function getRandomBuild(championName) {
     },
     body: JSON.stringify(data)
   };
-  const response = await fetch('/champ', options).then(function() {
-    console.log("promise resolved")
-
-  });
+  const response = await fetch('/champ', options);
   const champion = await response.json();
-  console.log('From database:');
+  console.log(response);
+  console.log(champion);
 
   let possibleBuilds = [];
   if (champion[0].AP === 0) {
