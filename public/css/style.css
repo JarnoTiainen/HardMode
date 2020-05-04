@@ -10,6 +10,7 @@
     --yellow: rgb(106, 93, 49);
     --gray: #1c1f22;
     --purple: rgb(56, 52, 113);
+    --red: rgb(112, 0, 6);
     --text: rgba(255, 255, 255, .8);
     --text-lighter: rgba(255, 255, 255, .9);
     --box-bg: rgba(255,255,255,.15);
@@ -107,7 +108,7 @@ ul{
     outline: none;
     background-color: var(--green);
     border: solid var(--yellow) 2px;
-    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
+    box-shadow: 6px 6px 20px -4px rgba(0, 0, 0, 1);
     color: var(--text-lighter);
     cursor: pointer;
     padding: 1rem 2rem;
@@ -176,8 +177,9 @@ ul{
     position: relative;
     text-align: center;
     padding: 3rem 0 0;
+    border: solid var(--box-border) 4px;
     border-radius: 5px;
-    background: white;
+    background: var(--gray);
 }
 .popup-input {
     width: 50%;
@@ -218,7 +220,7 @@ ul{
     top: -15px;
     border: solid black 2px;
     border-radius: 50%;
-    background: darkred;
+    background: var(--red);
 }
 
 /*========================================== Interactive Container =============================================*/
@@ -278,6 +280,7 @@ ul{
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bolder;
 }
 .build-input {
     opacity: 0;
@@ -341,6 +344,7 @@ ul{
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     border-radius: 8px;
     font-size: 2rem;
+    font-weight: bolder;
     padding: 1.5rem 3rem;
 }
 #resetButton {
@@ -391,18 +395,51 @@ ul{
     display: inline-block;
     width: 60px;
     height: 60px;
+    cursor: pointer;
 }
 .champion-checkbox {
     opacity: 0;
     width: 0;
     height: 0;
     position: absolute;
-    cursor: pointer;
 }
 .champion-checkbox:checked + .champion-img {
     opacity: 0.5;
 }
 
+
+
+/*============================================== Tooltips ====================================================*/
+
+.champion-toggle span {
+    position: absolute;
+    left: 50%;
+    top: -35px;
+    transform: translate(-50%);
+    background: black;
+    color: white;
+    padding: 5px 6px;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0;
+    transition: 0.6s opacity;
+    z-index: -1;
+}
+.champion-toggle span:before {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    background: black;
+    z-index: -1;
+    content: "";
+    transform: translateX(-50%) rotate(45deg);
+}
+.champion-toggle:hover > span {
+    opacity: 1;
+    z-index: 1;
+}
 
 /*============================================== Button Styling ==============================================*/
 
@@ -775,7 +812,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     right: 0;
     top: 0;
     transform: translate(-50%, 0);
-    background: darkred;
+    background: var(--red);
+    box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, .75);
 }
 .team-build {
     display: none;
@@ -784,7 +822,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     width: 100%;
     margin: auto;
     position: absolute;
-    transform: translateX(-15%);
+    transform: translateX(-10%);
     opacity: 0;
 }
 

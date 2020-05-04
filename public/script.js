@@ -244,7 +244,6 @@ let itemClasses = [
       '3800'],
     keyStones: [4, 11, 12, 16, 17],
   }];
-document.getElementById('soloTab').click();
 //dbQuery();
 getNewSoloRandomBuild();
 getNewTeamBuilds();
@@ -787,36 +786,6 @@ function pageTopFunction() {
 
 
 
-/*========================= Build Tabs =============================*/
-
-function openTab(evt, tabName) {
-  let i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName('tab-content');
-
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = 'none';
-  }
-
-  tablinks = document.getElementsByClassName('tab-links');
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(' active', '');
-  }
-
-  document.getElementById(tabName).style.display = 'block';
-  evt.currentTarget.className += ' active';
-}
-
-document.getElementById('goButton').addEventListener('click', function() {
-  buildScrollFunction();
-});
-
-function buildScrollFunction() {
-  document.getElementById('goDiv').scrollIntoView();
-  console.log('scrolling to build');
-}
-
-
-
 /*================================ Login Popups ================================*/
 
 // Open login popups
@@ -848,6 +817,36 @@ function closeLoginPopupFunction() {
 }
 function closeRegisterPopupFunction() {
   document.querySelector(".register-popup").style.display = "none";
+}
+
+
+
+/*========================= Build Tabs =============================*/
+
+document.getElementById('soloTab').click();
+
+function openTab(evt, tabName) {
+  let i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName('tab-content');
+
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = 'none';
+  }
+
+  tablinks = document.getElementsByClassName('tab-links');
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(' active', '');
+  }
+
+  document.getElementById(tabName).style.display = 'block';
+  evt.currentTarget.className += ' active';
+}
+
+document.getElementById('goButton').addEventListener('click', function() {
+  buildScrollFunction();
+});
+function buildScrollFunction() {
+  document.getElementById('goDiv').scrollIntoView();
 }
 
 
