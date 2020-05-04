@@ -298,7 +298,6 @@ document.getElementById('supportInput').addEventListener('click', function() {
     document.getElementById('supportInput').checked = false;
   }
 });
-
 for (let i = 1; i < 6; i++) {
   document.getElementById(
       'build' + i.toString() + 'CopyButton').onclick = function() {
@@ -308,7 +307,6 @@ for (let i = 1; i < 6; i++) {
     alert('Build copied to clipboard.');
   };
 }
-
 document.getElementById('soloTab').addEventListener('click', function() {
   solo = true;
   team = false;
@@ -329,8 +327,6 @@ document.getElementById('goButton').addEventListener('click', function() {
   }
 
 });
-
-
 async function getNewTeamBuilds() {
   for (let i = 0; i < 5; i++) {
     itemSetForJSON = [];
@@ -366,7 +362,6 @@ async function getNewTeamBuilds() {
   }
 
 }
-
 function setTeamSummonerSpells(roleNumber, buildNumber) {
   if (roleNumber === 0) {
     document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
@@ -405,8 +400,9 @@ function setTeamSummonerSpells(roleNumber, buildNumber) {
   }
 
 }
-
 async function getNewSoloRandomBuild() {
+  const playerChampionPool = ["Aatrox", "Ahri", "VelKoz"];
+  const championName = playerChampionPool[Math.floor(Math.random() * playerChampionPool.length)];
   const roleList = soloRoleCheck();
   const possibleRoles = [];
   let jungler = false;
@@ -436,7 +432,10 @@ async function getNewSoloRandomBuild() {
   }
   const selectedRole = possibleRoles[Math.floor(
       Math.random() * possibleRoles.length)];
-  const buildNumber = await getRandomBuild('Aatrox');
+  const buildNumber = await getRandomBuild(championName);
+  document.getElementById("buildSelectedChampion").src = "images/champion/"+championName+".png";
+  console.log(buildNumber);
+  console.log(itemClasses[buildNumber]);
 
   const allPossibleItems = buildAllPossibleItemsList
   (
@@ -470,16 +469,14 @@ async function getNewSoloRandomBuild() {
   printRunes(runeList[0], runeList[1], runeList[2], runeList[3], runeList[4],
       runeList[5]);
   document.getElementById(
-      'buildName').innerHTML = itemClasses[buildNumber].name + ' Jhin';
+      'buildName').innerHTML = itemClasses[buildNumber].name +" "+ championName;
   const itemSet = formJSONforItemSet();
   document.getElementById('buildInput').value = JSON.stringify(itemSet);
 }
-
 function randomizeKeyStone(possibleKeyStones) {
   return possibleKeyStones[Math.floor(
       Math.random() * possibleKeyStones.length)];
 }
-
 function randomizeRestOfTheItems(allPossibleItems, numberOfItems, boots) {
   {
     for (let i = 0; i < numberOfItems; i++) {
@@ -493,7 +490,6 @@ function randomizeRestOfTheItems(allPossibleItems, numberOfItems, boots) {
     }
   }
 }
-
 function printSelectedItems() {
   for (let i = 0; i < 6; i++) {
     document.getElementById('item' + (i + 1).toString()).src = 'images/items/' +
@@ -501,7 +497,6 @@ function printSelectedItems() {
   }
 
 }
-
 function printSelectedItemsForTeam(roleNumber) {
   for (let i = 0; i < 6; i++) {
     document.getElementById('item' + (roleNumber + 1).toString() +
@@ -509,7 +504,6 @@ function printSelectedItemsForTeam(roleNumber) {
   }
 
 }
-
 async function printChampionIcons() {
   const res = await fetch('/api');
   const data = await res.json();
@@ -530,7 +524,6 @@ async function printChampionIcons() {
     }
   }
 }
-
 async function getRandomBuild(championName) {
   const data = {
     champion: "Aatrox"
@@ -545,49 +538,50 @@ async function getRandomBuild(championName) {
   const response = await fetch('/champ', options);
   const champion = await response.json();
   let possibleBuilds = [];
-  if (champion[0].AP === 0) {
+  if (champion[0].AP === 1) {
+    possibleBuilds.push(0);
+  }
+  if (champion[0].AS === 1) {
     possibleBuilds.push(1);
   }
-  if (champion[0].AS === 0) {
+  if (champion[0].Crit === 1) {
     possibleBuilds.push(2);
   }
-  if (champion[0].Crit === 0) {
+  if (champion[0].FS === 1) {
     possibleBuilds.push(3);
   }
-  if (champion[0].FS === 0) {
+  if (champion[0].Hb === 1) {
     possibleBuilds.push(4);
   }
-  if (champion[0].Hb === 0) {
+  if (champion[0].HP === 1) {
     possibleBuilds.push(5);
   }
-  if (champion[0].HP === 0) {
+  if (champion[0].HPAP === 1) {
     possibleBuilds.push(6);
   }
-  if (champion[0].HPAP === 0) {
+  if (champion[0].LS === 1) {
     possibleBuilds.push(7);
   }
-  if (champion[0].LS === 0) {
+  if (champion[0].Lt === 1) {
     possibleBuilds.push(8);
   }
-  if (champion[0].Lt === 0) {
+  if (champion[0].Mana === 1) {
     possibleBuilds.push(9);
   }
-  if (champion[0].Mana === 0) {
+  if (champion[0].MP === 1) {
     possibleBuilds.push(10);
   }
-  if (champion[0].MP === 0) {
+  if (champion[0].MS === 1) {
     possibleBuilds.push(11);
   }
-  if (champion[0].MS === 0) {
+  if (champion[0].OH === 1) {
     possibleBuilds.push(12);
   }
-  if (champion[0].OH === 0) {
+  if (champion[0].Res === 1) {
     possibleBuilds.push(13);
   }
-  if (champion[0].Res === 0) {
-    possibleBuilds.push(14);
-  }
-  return Math.floor(Math.random() * (possibleBuilds.length));
+  console.log(possibleBuilds);
+  return possibleBuilds[Math.floor((Math.random() * (possibleBuilds.length)))];
 }
 
 function buildAllPossibleItemsList(buildSetNumber, isMana, isMelee, isRanged, isAp, isHealer) {
