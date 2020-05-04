@@ -48,7 +48,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 99;
+    z-index: 50;
     font-family: "poppins", Impact, monospace;
     letter-spacing: 1px;
     border-bottom: solid var(--nav-bar-border) 2px;
@@ -142,8 +142,11 @@ ul{
     align-items: center;
 }
 .fill-screen{
-    height: 100vh;
+    height: 106vh;
     width: 100%;
+}
+.spacer {
+    height: 500px;
 }
 #logoDiv {
     height: 100%;
@@ -404,7 +407,7 @@ ul{
     position: absolute;
 }
 .champion-checkbox:checked + .champion-img {
-    opacity: 0.5;
+    opacity: 0.2;
 }
 .champion-search-bg {
     border: solid var(--build-border) 3px;

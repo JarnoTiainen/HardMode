@@ -325,10 +325,6 @@ document.getElementById('goButton').addEventListener('click', function() {
 
 });
 
-function copyText() {
-
-  alert('Copied the text: ' + copyText.value);
-}
 
 async function getNewTeamBuilds() {
   for (let i = 0; i < 5; i++) {
@@ -786,13 +782,12 @@ function soloRolesAllEmptyCheck() {
   return true;
 }
 
-/*===================== Page Top Button ===========================*/
+/*======================== Page Top Button ===========================*/
 
 let pageTopButton = document.getElementById('pageTopButton');
 window.onscroll = function() {
   scrollFunction();
 };
-
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     pageTopButton.style.display = 'block';
@@ -844,9 +839,9 @@ function closeRegisterPopupFunction() {
 
 /*========================= Build Tabs =============================*/
 
-document.getElementById('soloTab').click();
-
 let teamTabClicked = false;
+
+document.getElementById('soloTab').click();
 
 function openTab(evt, tabName) {
   let i, tabcontent, tablinks;
@@ -1090,7 +1085,3 @@ async function getData() {
   console.log(data);
 }
 
-x = document.getElementsByClassName('champion-tooltip');
-for (let i = 0; i < x.length; i++) {
-  x[i].innerText = 'draven';
-}
