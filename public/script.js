@@ -306,6 +306,85 @@ document.getElementById('goButton').addEventListener('click', function() {
   }
 
 });
+document.getElementById("registerPopupButton").addEventListener("click",async function() {
+  var passwordOK = false;
+  var userNameOK = false;
+  var userInfoOK = false;
+  var userNameShort = true;
+  var userNameTaken = true;
+  var passwordShort = true;
+  var name;
+  var password;
+    name = document.getElementById("registerInput").value;
+    console.log(name);
+    password = document.getElementById("registerPasswordInput").value;
+    console.log(password);
+    if  (password.length >= 6) {
+      passwordOK = true;
+      passwordShort = false;
+    }
+    else {
+      passwordShort = true;
+      passwordOK = false;
+    }
+    if (name.length >= 3) {
+      userNameShort = false;
+      if (!await checkUsername(name)) {
+        console.log("name ok");
+        userNameTaken = false;
+        userNameOK = true;
+      }
+      else {
+        userNameTaken = true;
+        passwordOK = false;
+      }
+    }
+    else {
+      userNameTaken = false;
+      userNameShort = true;
+      passwordOK = false;
+    }
+    if (passwordOK && userNameOK) {
+      userInfoOK = true;
+    }
+    else {
+      let errorString = "";
+      if (userNameTaken) {
+        errorString += "Username taken.\n";
+      }
+      if (userNameShort) {
+        errorString += "Username too short.\n";
+      }
+      if (passwordShort) {
+        errorString += "Password too short.";
+      }
+      alert(errorString);
+    }
+    if (userInfoOK) {
+      await createNewUser(password, name);
+    }
+
+
+
+});
+
+async function checkUsername(usernameTry) {
+  const username = usernameTry;
+  const data = {
+    username
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  const res = await fetch('/userCheck', options);
+  const json = await res.json();
+  console.log(json);
+  return json.length > 0;
+}
 
 for (let i = 1; i < 6; i++) {
   document.getElementById(
@@ -317,6 +396,27 @@ for (let i = 1; i < 6; i++) {
   };
 }
 
+async function createNewUser(userPassword, name) {
+  const password = userPassword;
+  const username = name;
+  let championList = ["Tryndamere","KogMaw","Aphelios","TahmKench","Vayne","Thresh","Riven","Nunu","Corki","Fiddlesticks","Urgot","Kalista","ChoGath","Gnar","Kindred","Kayle","Lucian","Annie","KhaZix","Vladimir","Teemo","Morgana","Yuumi","Trundle","Ezreal","Karthus","Kayn","Olaf","Taliyah","Vi","Singed","MissFortune","Nocturne","Braum","Sejuani","Pantheon","Katarina","Jarvan","Diana","Evelynn","Zed","Nami","Mordekaiser","Xerath","Shyvana","Xayah","Sion","Udyr","Rakan","Taric","Nasus","Yorick","Kled","Heimerdinger","Akali","Caitlyn","XinZhao","Ornn","Neeko","Galio","Lissandra","Jax","Sivir","Malzahar","TwistedFate","Nidalee","VelKoz","Yasuo","Renekton","Soraka","Fiora","Ashe","Syndra","Irelia","Aatrox","Jinx","Janna","Draven","Garen","LeeSin","Kennen","Cassiopeia","Viktor","Talon","Senna","AurelionSol","Ekko","Poppy","Ivern","Fizz","Zoe","Gragas","Mundo","Jhin","Veigar","Orianna","Brand","RekSai","Camille","Rammus","Varus","Wukong","Hecarim","Zyra","Kaisa","Malphite","Rengar","Zilean","Pyke","Tristana","Zac","Sylas","Ziggs","Leona","MasterYi","Maokai","Warwick","Elise","Quinn","Blitzcrank","Volibear","Shaco","Lulu","Anivia","Azir","Swain","Gangplank","Karma","Amumu","Alistar","Jayce","Shen","Illaoi","Rumble","Sona","Sett","Kassadin","Qiyana","Graves","Ryze","Bard","Lux","Twitch","Darius","Nautilus","LeBlanc","Skarner","Ahri"];
+  const data = {
+    password,
+    username,
+    championList
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  const res = await fetch('/user', options);
+  const json = await res.json();
+  return json.length > 0;
+}
+
 async function printChampionIcons() {
   const res = await fetch('/api');
   const data = await res.json();
@@ -326,6 +426,7 @@ async function printChampionIcons() {
     championList.push(data[index].champion);
     index++;
   }
+  console.log(JSON.stringify(championList));
   championList.sort();
   for(let i = 0; i < championList.length; i++) {
     const toolTip = document.getElementsByClassName("champion-tooltip");

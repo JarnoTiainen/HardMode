@@ -22,9 +22,11 @@ app.use(express.json({
 
 //Telling the database what file to use as a Datastore or creating it if needed
 const db = new Datastore('database.db');
+const dbUsers = new Datastore('users.db');
 
 //Loading the database file's contents for use
 db.loadDatabase();
+dbUsers.loadDatabase();
 
 //Receives the fetch req in index.html by querying the database
 //Checking for errors and if none occur, sending the query results back
@@ -36,6 +38,20 @@ app.get('/api', (req, res) => {
     }
     res.json(data);
   });
+});
+app.get('/user', (req, res) => {
+  dbUsers.find({}, (err, data) => {
+    if(err) {
+      res.end();
+      return;
+    }
+    res.json(data);
+  });
+});
+app.post('/user', (req, res) => {
+  console.log('Request received! (User)');
+  dbUsers.insert(req.body);
+  res.json(req.body);
 });
 
 //Sends a res to the fetch in index.html and receiving its' req data
@@ -55,4 +71,15 @@ app.post('/champ', (req, res) => {
     }
     res.json(data);
   });
-});;
+});
+app.post('/userCheck', (req, res) => {
+  console.log(req.body.username);
+  dbUsers.find({username: req.body.username}, (err, data) => {
+    if(err) {
+      res.end();
+      return;
+    }
+    console.log(data);
+    res.json(data);
+  });
+});
