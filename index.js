@@ -47,3 +47,12 @@ app.post('/api', (req, res) => {
   db.insert(req.body);
   res.json(req.body);
 });
+app.post('/champ', (req, res) => {
+  db.find({champion: req.body.champion}, (err, data) => {
+    if(err) {
+      res.end();
+      return;
+    }
+    res.json(data);
+  });
+});;
