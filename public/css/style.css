@@ -174,22 +174,48 @@ ul{
     height: 100%;
     background: rgba(0, 0, 0, .6);
 }
-.login-popup-content {
+.login-popup-bg {
     height: 300px;
     width: 600px;
     position: relative;
-    text-align: center;
-    padding: 3rem 0 0;
     border: solid var(--box-border) 4px;
     border-radius: 5px;
     background: var(--gray);
 }
-.popup-input {
+.login-popup-content {
     width: 50%;
+    margin: 2rem 0 0;
+}
+.popup-input {
+    width: 100%;
     display: block;
-    margin: 20px auto;
+    margin: 5px auto;
     padding: 8px;
     border: solid grey 1px;
+}
+.password-div {
+    position: relative;
+}
+.password-div span img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.eye-cross {
+    display: none;
+    width: 3px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    background: black;
+    content: "";
+    cursor: pointer;
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 .popup-button {
     background: var(--login-btn-bg);
@@ -198,7 +224,7 @@ ul{
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     color: var(--text-lighter);
     padding: 10px 15px;
-    margin-top: 25px;
+    margin-top: 40px;
     font-size: 18px;
     font-weight: bolder;
     text-decoration: none;
@@ -221,9 +247,9 @@ ul{
     position: absolute;
     right: -15px;
     top: -15px;
-    border: solid var(--box-border) 4px;
+    border: solid var(--box-border) 5px;
     border-radius: 50%;
-    background: var(--red);
+    background: var(--link-highlight);
 }
 
 /*========================================== Interactive Container =============================================*/
@@ -644,13 +670,16 @@ div.tab-div > button:first-child {
 .build-role-div {
     position: absolute;
     top: 0;
-    left: 18rem;
+    left: -10px;
+    transform: translate(-100%, -1px);
+    height: 66px;
+    width: 66px;
     border: solid var(--build-border) 3px;
     background: var(--build-bg);
 }
 .build-role-image {
-    height: 58px;
-    width: 58px;
+    height: 50px;
+    width: 50px;
 }
 .keystone-background {
     border: solid var(--build-border) 3px;
@@ -708,10 +737,11 @@ div.tab-div > button:first-child {
     position: relative;
 }
 #buildNameDiv {
+    position: relative;
     height: 4rem;
 }
 #buildNameBackground {
-    padding: 1rem 2rem;
+    padding: 15px 2rem 16px;
 }
 #buildButtonDiv {
     position: absolute;
@@ -839,7 +869,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     position: absolute;
     right: 8px;
     top: 0;
-    background: var(--red);
+    background: var(--login-btn-bg);
     box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, .75);
 }
 .team-build {

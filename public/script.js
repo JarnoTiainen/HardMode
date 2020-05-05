@@ -787,11 +787,58 @@ document.getElementById('registerClose').addEventListener('click', function() {
 
 function closeLoginPopupFunction() {
   document.querySelector('.login-popup').style.display = 'none';
+  document.querySelectorAll(".password-input").forEach(item => {
+    item.value = "";
+  });
+  passwordVisible = true;
+  togglePassword()
 }
 
 function closeRegisterPopupFunction() {
   document.querySelector('.register-popup').style.display = 'none';
+  document.querySelectorAll(".password-input").forEach(item => {
+    item.value = "";
+  });
+  passwordVisible = true;
+  togglePassword()
 }
+
+
+
+
+document.getElementById("loginPasswordToggle").addEventListener('click', function() {
+  console.log("login togglePassword");
+  togglePassword();
+});
+document.getElementById("registerPasswordToggle").addEventListener('click', function() {
+  console.log("register togglePassword");
+  togglePassword();
+});
+
+let passwordVisible = false;
+function togglePassword() {
+  console.log("togglePassword");
+  if (passwordVisible === false) {
+    passwordVisible = true;
+    document.querySelectorAll(".eye-cross").forEach(item => {
+      item.setAttribute("style", "display: block")
+    });
+    document.querySelectorAll(".password-input").forEach(item => {
+      item.setAttribute("type", "text")
+    });
+  }
+  else {
+    passwordVisible = false;
+    document.querySelectorAll(".eye-cross").forEach(item => {
+      item.setAttribute("style", "display: none")
+    });
+    document.querySelectorAll(".password-input").forEach(item => {
+      item.setAttribute("type", "password")
+    });
+  }
+}
+
+
 
 /*========================= Build Tabs =============================*/
 
@@ -837,7 +884,9 @@ document.getElementById('goButton').addEventListener('click', function() {
   buildScrollFunction();
 });
 function buildScrollFunction() {
-  document.getElementById('goDiv').scrollIntoView();
+  if (team === true) {
+    document.getElementById('goDiv').scrollIntoView();
+  }
 }
 
 /*============================== Team Builds ====================================*/
