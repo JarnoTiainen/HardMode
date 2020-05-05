@@ -945,20 +945,54 @@ function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneTy
 
 //Rainer section begins
 
-/*===================== Page Top Button ===========================*/
+/*===================== Navigation Buttons ===========================*/
+
+// Info
+
+document.getElementById('cornerPiece').addEventListener("click", function() {
+  infoScroll()
+});
+document.getElementById('infoButton').addEventListener("click", function() {
+  infoScroll();
+});
+function infoScroll() {
+  document.getElementById("info").scrollIntoView(true);
+}
+
+
+// Champion select
+
+document.getElementById('infoButton').addEventListener("click", function() {
+  champListScroll();
+});
+function champListScroll() {
+  document.getElementById("championSearchDiv").scrollIntoView(true);
+}
+
+
+// Build
+
+document.getElementById('infoButton').addEventListener("click", function() {
+  buildScroll();
+});
+function buildScroll() {
+  document.getElementById("goDiv").scrollIntoView(true);
+}
+
+
+// Page top
 
 let pageTopButton = document.getElementById('pageTopButton');
 window.onscroll = function() {
-  scrollFunction();
+  toggleTopButton();
 };
-function scrollFunction() {
+function toggleTopButton() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     pageTopButton.style.display = 'block';
   } else {
     pageTopButton.style.display = 'none';
   }
 }
-
 function pageTopFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
@@ -982,6 +1016,7 @@ function loginPopupFunction() {
 function registerPopupFunction() {
   document.querySelector('.register-popup').style.display = 'flex';
 }
+
 
 //Close login popups
 
@@ -1011,7 +1046,7 @@ function closeRegisterPopupFunction() {
 }
 
 
-
+// Show password toggle
 
 document.getElementById("loginPasswordToggle").addEventListener('click', function() {
   togglePassword();
@@ -1106,27 +1141,27 @@ let build4Visible = false;
 let build5Visible = false;
 
 function setBuild1Idle() {
-  if(teamTabClicked === true && build1Visible === true) {
+  if(build1Visible === true) {
     document.getElementById("build1").setAttribute("class", "team-build-idle")
   }
 }
 function setBuild2Idle() {
-  if(teamTabClicked === true && build2Visible === true) {
+  if(build2Visible === true) {
     document.getElementById("build2").setAttribute("class", "team-build-idle")
   }
 }
 function setBuild3Idle() {
-  if(teamTabClicked === true && build3Visible === true) {
+  if(build3Visible === true) {
     document.getElementById("build3").setAttribute("class", "team-build-idle")
   }
 }
 function setBuild4Idle() {
-  if(teamTabClicked === true && build4Visible === true) {
+  if(build4Visible === true) {
     document.getElementById("build4").setAttribute("class", "team-build-idle")
   }
 }
 function setBuild5Idle() {
-  if(teamTabClicked === true && build1Visible === true) {
+  if(build5Visible === true) {
     document.getElementById("build5").setAttribute("class", "team-build-idle")
   }
 }
@@ -1137,7 +1172,6 @@ function setBuild5Idle() {
 document.getElementById('addBuild1').addEventListener('click', function() {
   addBuild1();
 });
-
 function addBuild1() {
   document.querySelector('#addBuildDiv1').style.display = 'none';
   let build1 = document.querySelector('#build1');
@@ -1149,7 +1183,6 @@ function addBuild1() {
 document.getElementById('closeBuild1').addEventListener('click', function() {
   closeBuild1();
 });
-
 function closeBuild1() {
   let addBuild1 = document.querySelector('#addBuildDiv1');
   addBuild1.style.display = 'flex';
@@ -1164,12 +1197,12 @@ function closeBuild1() {
   }, 500);
 }
 
+
 // Build 2
 
 document.getElementById('addBuild2').addEventListener('click', function() {
   addBuild2();
 });
-
 function addBuild2() {
   document.querySelector('#addBuildDiv2').style.display = 'none';
   let build2 = document.querySelector('#build2');
@@ -1181,7 +1214,6 @@ function addBuild2() {
 document.getElementById('closeBuild2').addEventListener('click', function() {
   closeBuild2();
 });
-
 function closeBuild2() {
   let addBuild2 = document.querySelector('#addBuildDiv2');
   addBuild2.style.display = 'flex';
@@ -1196,12 +1228,12 @@ function closeBuild2() {
   }, 500);
 }
 
+
 // Build 3
 
 document.getElementById('addBuild3').addEventListener('click', function() {
   addBuild3();
 });
-
 function addBuild3() {
   document.querySelector('#addBuildDiv3').style.display = 'none';
   let build3 = document.querySelector('#build3');
@@ -1213,7 +1245,6 @@ function addBuild3() {
 document.getElementById('closeBuild3').addEventListener('click', function() {
   closeBuild3();
 });
-
 function closeBuild3() {
   let addBuild3 = document.querySelector('#addBuildDiv3');
   addBuild3.style.display = 'flex';
@@ -1228,12 +1259,12 @@ function closeBuild3() {
   }, 500);
 }
 
+
 // Build 4
 
 document.getElementById('addBuild4').addEventListener('click', function() {
   addBuild4();
 });
-
 function addBuild4() {
   document.querySelector('#addBuildDiv4').style.display = 'none';
   let build4 = document.querySelector('#build4');
@@ -1245,7 +1276,6 @@ function addBuild4() {
 document.getElementById('closeBuild4').addEventListener('click', function() {
   closeBuild4();
 });
-
 function closeBuild4() {
   let addBuild4 = document.querySelector('#addBuildDiv4');
   addBuild4.style.display = 'flex';
@@ -1260,12 +1290,12 @@ function closeBuild4() {
   }, 500);
 }
 
+
 // Build 5
 
 document.getElementById('addBuild5').addEventListener('click', function() {
   addBuild5();
 });
-
 function addBuild5() {
   document.querySelector('#addBuildDiv5').style.display = 'none';
   let build5 = document.querySelector('#build5');
@@ -1277,7 +1307,6 @@ function addBuild5() {
 document.getElementById('closeBuild5').addEventListener('click', function() {
   closeBuild5();
 });
-
 function closeBuild5() {
   let addBuild5 = document.querySelector('#addBuildDiv5');
   addBuild5.style.display = 'flex';

@@ -8,37 +8,28 @@
     --light-green: rgb(54, 67, 69);
     --dark-green: rgb(10, 25, 25);
     --yellow: rgb(106, 93, 49);
-    --gray: #1c1f22;
+    --gray1: #1c1f22;
+    --gray2: #121212;
     --purple: rgb(56, 52, 113);
     --red: rgb(112, 0, 6);
-    --text: rgba(255, 255, 255, .8);
-    --text-lighter: rgba(255, 255, 255, .9);
-    --box-bg: rgba(255,255,255,.15);
-    --box-border: rgb(80, 72, 38);
-    --nav-bar-color1: black;
-    --nav-bar-color2: rgb(56, 52, 113);
-    --nav-bar-border: rgb(106, 93, 49);
-    --box-transparency: rgba(255,255,255,.2);
-    --box-dark-bg: rgb(10, 25, 25);
-    --button-color1: rgb(19, 60, 37);
-    --button-color2: rgb(28 ,40, 34);
-    --link-color1: #1c1f22;
-    --link-color2: #121212;
-    --link-highlight: rgb(0,191,255);
-    --login-btn-bg: rgb(14, 56, 107);
-    --login-btn-bg2: rgb(14, 40, 80);
-    --login-btn-border: rgb(32, 181, 252);
-    --build-border: rgb(80, 72, 38);
-    --build-bg: rgb(19, 34, 37);
-    --build-item-border: rgb(106, 93, 49);
-    --build-item-bg: black;
-    --runes-bg: rgb(10, 25, 25);
-    --runes-border: black;
+    --black: black;
+    --black60: rgba(0, 0, 0, .6);
+    --white80: rgba(255, 255, 255, .8);
+    --white90: rgba(255, 255, 255, .9);
+    --white15: rgba(255, 255, 255, .15);
+    --blue1: rgb(14, 56, 107);
+    --blue2: rgb(14, 40, 80);
+    --blue-border: rgb(32, 181, 252);
+    --highlight: rgb(0, 191, 255);
+    --border: rgb(80, 72, 38);
+    --light-border: rgb(106, 93, 49);
+    --button-bg1: rgb(19, 60, 37);
+    --button-bg2: rgb(28 ,40, 34);
 }
 
 html {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    color: var(--text);
+    color: var(--white80);
     scroll-behavior: smooth;
     scroll-padding-top: 6vh;
 }
@@ -52,8 +43,8 @@ nav{
     z-index: 50;
     font-family: "poppins", Impact, monospace;
     letter-spacing: 1px;
-    border-bottom: solid var(--nav-bar-border) 2px;
-    background: linear-gradient(to right, var(--nav-bar-color1) 60%, var(--nav-bar-color2) 100%);
+    border-bottom: solid var(--light-border) 2px;
+    background: linear-gradient(to right, var(--black) 60%, var(--purple) 100%);
 
 }
 ul{
@@ -71,9 +62,10 @@ ul{
 /*================================ Nav Bar =================================*/
 
 .corner-piece-style {
-    background: var(--link-color1);
+    background: var(--gray1);
     height: 6vh;
     width: 3rem;
+    cursor: pointer;
 }
 .navigation-div {
     width: 60%;
@@ -97,7 +89,7 @@ ul{
 }
 .nav-button-list a {
     font-size: 20px;
-    color: var(--text-lighter);
+    color: var(--white90);
     text-decoration: none;
 }
 .pageTopButton {
@@ -110,7 +102,7 @@ ul{
     background-color: var(--green);
     border: solid var(--yellow) 2px;
     box-shadow: 6px 6px 20px -4px rgba(0, 0, 0, 1);
-    color: var(--text-lighter);
+    color: var(--white90);
     cursor: pointer;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -163,7 +155,7 @@ ul{
     z-index: 99;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .6);
+    background: var(--black60);
 }
 .register-popup {
     display: none;
@@ -173,15 +165,15 @@ ul{
     z-index: 99;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .6);
+    background: var(--black60);
 }
 .login-popup-bg {
     height: 300px;
     width: 600px;
     position: relative;
-    border: solid var(--box-border) 4px;
+    border: solid var(--border) 4px;
     border-radius: 5px;
-    background: var(--gray);
+    background: var(--gray1);
 }
 .login-popup-content {
     width: 50%;
@@ -220,11 +212,11 @@ ul{
     transform: translate(-50%, -50%) rotate(45deg);
 }
 .popup-button {
-    background: var(--login-btn-bg);
-    border-color: var(--login-btn-border);
+    background: var(--blue1);
+    border-color: var(--blue-border);
     border-radius: 5px;
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
-    color: var(--text-lighter);
+    color: var(--white90);
     padding: 10px 15px;
     margin-top: 40px;
     font-size: 18px;
@@ -236,7 +228,7 @@ ul{
 }
 .popup-button:hover {
     background: white;
-    color: var(--login-btn-bg);
+    color: var(--blue1);
 }
 .close-button {
     width: 30px;
@@ -249,9 +241,9 @@ ul{
     position: absolute;
     right: -15px;
     top: -15px;
-    border: solid var(--box-border) 5px;
+    border: solid var(--border) 5px;
     border-radius: 50%;
-    background: var(--link-highlight);
+    background: var(--highlight);
 }
 
 /*========================================== Interactive Container =============================================*/
@@ -261,12 +253,12 @@ ul{
     flex-direction: column;
     width: 1200px;
     background: var(--green);
-    border: solid var(--box-border) 1px;
+    border: solid var(--border) 1px;
     border-bottom: none;
     padding-bottom: 200px;
 }
 .green-box-borders {
-    border: solid var(--build-item-border) 3px;
+    border: solid var(--light-border) 3px;
     border-bottom: none;
 }
 .interactive-container {
@@ -277,8 +269,8 @@ ul{
 }
 .boxInContainer {
     width: 1100px;
-    background: var(--box-bg);
-    border: solid var(--box-border) 3px;
+    background: var(--white15);
+    border: solid var(--border) 3px;
     margin: 2rem auto 2rem;
 }
 #info {
@@ -296,15 +288,15 @@ ul{
 }
 .info-div {
     width: 90%;
-    background: var(--box-bg);
+    background: var(--white15);
     margin: 2rem auto;
 }
 .info {
     width: 100%;
 }
 .build-button {
-    color: var(--text-lighter);
-    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
+    color: var(--white90);
+    background-image: linear-gradient(to right, var(--button-bg1) 0%, var(--button-bg2) 100%);
     border-color: var(--yellow);
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .6);
     outline: none;
@@ -318,8 +310,8 @@ ul{
     position: absolute;
 }
 .role-button-bg {
-    background: var(--button-color2);
-    border: solid var(--build-item-border) 2px;
+    background: var(--button-bg2);
+    border: solid var(--light-border) 2px;
     margin: 2px;
 }
 .role-img {
@@ -327,7 +319,7 @@ ul{
     height: 34px;
     padding: 1px;
     background: var(--dark-green);
-    border: solid var(--build-item-border) 1px;
+    border: solid var(--light-border) 1px;
     position: absolute;
     top: 0;
     left: 0;
@@ -354,14 +346,14 @@ ul{
 }
 .role-buttons {
     padding: 1rem;
-    border: solid var(--box-border) 3px;
+    border: solid var(--border) 3px;
     border-bottom: none;
     background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
 }
 .go-div {
     margin: 0 4rem;
     padding: 1rem 2rem;
-    border: solid var(--box-border) 3px;
+    border: solid var(--border) 3px;
     border-bottom: none;
     background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
 }
@@ -390,9 +382,9 @@ ul{
 /*================================================= Champion List ================================================*/
 
 .champion-list-bg {
-    background: var(--box-bg);
-    border: solid var(--box-border) 3px;
-    margin: 0 1rem 1rem;
+    background: var(--white15);
+    border: solid var(--border) 3px;
+    margin: 0 0 1rem;
     padding: 1rem;
 }
 #championList {
@@ -400,14 +392,14 @@ ul{
 }
 #championList li {
     display: block;
-    margin: 1px;
+    margin: 1px 2px;
 }
 
 .champion-img {
     width: 62px;
     height: 62px;
-    padding: 1px;
-    border: solid var(--build-item-border) 1px;
+    padding: 2px;
+    border: solid var(--light-border) 1px;
     background: black;
     position: relative;
     cursor: pointer;
@@ -429,14 +421,12 @@ ul{
     opacity: 0.2;
 }
 .champion-highlight {
-    border: solid var(--link-highlight) 2px;
-    width: 62px;
-    height: 62px;
-    padding: 0;
+    border: solid var(--blue2) 1px;
+    background: var(--highlight);
 }
 
 .champion-search-bg {
-    border: solid var(--build-border) 3px;
+    border: solid var(--border) 3px;
     border-bottom: 0;
     background-color: var(--light-green);
     transform: translateY(3px);
@@ -444,21 +434,15 @@ ul{
 }
 .champion-search {
     display: block;
-    margin: 20px auto;
+    margin: 20px 10px;
     padding: 8px;
     border: solid grey 1px;
 }
-.champion-reset {
-    color: var(--text-lighter);
-    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
-    border-color: var(--yellow);
+#championReset {
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
     padding: 0.5rem;
-    margin: 10px;
     width: 80px;
+    font-size: 14px;
 }
 
 
@@ -500,26 +484,23 @@ ul{
 /*============================================== Button Styling ==============================================*/
 
 .skewed-btn {
-    -ms-transform: skewX(-20deg); /* IE 9 */
-    -webkit-transform: skewX(-20deg); /* Safari */
     transform: skewX(-20deg);
     text-align: center;
     text-transform: uppercase;
     margin: 0;
     display: inline-block;
     position: relative;
+    cursor: pointer;
 }
 .skewed-btn-text {
-    -ms-transform: skewX(20deg); /* IE 9 */
-    -webkit-transform: skewX(20deg); /* Safari */
     transform: skewX(20deg);
     background: transparent;
     display: inline-block;
-    color: var(--text-lighter);
+    color: var(--white90);
 }
 .color-btn {
-    color: var(--text-lighter);
-    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
+    color: var(--white90);
+    background-image: linear-gradient(to right, var(--button-bg1) 0%, var(--button-bg2) 100%);
     border-color: var(--yellow);
     outline: none;
     padding: 5px 10px;
@@ -533,7 +514,7 @@ ul{
     transition: 50ms;
 }
 .color-link {
-    background-image: linear-gradient(to right, var(--link-color1) 0%, var(--link-color2) 100%);
+    background-image: linear-gradient(to right, var(--gray1) 0%, var(--gray2) 100%);
     outline: none;
     padding: 5px 10px;
     height: 100%;
@@ -563,25 +544,23 @@ ul{
     right: 0;
     margin: 0 auto;
     width: 0;
-    -webkit-transition: 0.2s;
     transition: 0.2s;
 }
 .link-button:hover:before {
-    border-bottom: 4px solid var(--link-highlight);
+    border-bottom: 4px solid var(--highlight);
     width: 100%;
     padding: 0;
 }
 .link-button:active {
     color: rgba(255, 255, 255, 1);
-    -webkit-transition: none;
     transition: none;
 }
 .login-buttons {
-    background: linear-gradient(to right, var(--login-btn-bg) 0, var(--login-btn-bg2) 100%);
-    border-color: var(--login-btn-border);
+    background: linear-gradient(to right, var(--blue1) 0, var(--blue2) 100%);
+    border-color: var(--blue-border);
     border-radius: 5px;
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
-    color: var(--text-lighter);
+    color: var(--white90);
     padding: 1rem;
     outline: none;
     cursor: pointer;
@@ -589,7 +568,8 @@ ul{
 #login {
 }
 #logout {
-    background: linear-gradient(to right, var(--button-color1) 0, var(--button-color2) 100%);
+    background: linear-gradient(to right, var(--button-bg1) 0, var(--button-bg2) 100%);
+    margin: 0 4px;
 }
 .btn-animation {
     -webkit-transform: scale(1.0);
@@ -603,6 +583,35 @@ ul{
     -webkit-transition-timing-function: ease;
     -webkit-transition-delay: 0s;
 }
+.green-button-bg {
+    background: linear-gradient(to right, var(--button-bg1) 0%,  var(--button-bg2) 100%);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.green-button {
+    width: 100%;
+    color: var(--white90);
+    background-color: transparent;
+    border-color: var(--border);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .6);
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bolder;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.2s ease;
+}
+.green-button:hover {
+    background-color: rgba(255, 255, 255, .07);
+    border-color: var(--light-border);
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
 
 /*============================================== Tabs ======================================================*/
 
@@ -627,14 +636,14 @@ ul{
     float: left;
     outline: none;
     cursor: pointer;
-    color: var(--text-lighter);
+    color: var(--white90);
     background-color: var(--dark-green);
-    border: solid var(--build-border) 3px;
+    border: solid var(--border) 3px;
     padding: 1rem 2rem;
     transition: 0.3s;
 }
 .tab-div button:hover {
-    background: linear-gradient(to bottom, var(--link-color1) 0%, var(--link-color2) 100%);
+    background: linear-gradient(to bottom, var(--gray1) 0%, var(--gray2) 100%);
 }
 .tab-div button.active {
     background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
@@ -645,7 +654,7 @@ ul{
     letter-spacing: 1px;
     font-size: 20px;
     text-decoration: none;
-    color: var(--text-lighter);
+    color: var(--white90);
     text-transform: uppercase;
 }
 .tab-content {
@@ -663,12 +672,12 @@ div.tab-div > button:first-child {
     padding: 1rem 0;
 }
 .build-sub-box-style {
-    border: solid var(--build-border) 3px;
-    background: var(--build-bg);
+    border: solid var(--border) 3px;
+    background: var(--green);
 }
 .build-square-background {
-    border: solid var(--build-item-border) 3px;
-    background: var(--build-item-bg);
+    border: solid var(--light-border) 3px;
+    background: var(--black);
     padding: 2px;
 }
 .build-role-div {
@@ -678,23 +687,23 @@ div.tab-div > button:first-child {
     transform: translate(-100%, -1px);
     height: 66px;
     width: 66px;
-    border: solid var(--build-border) 3px;
-    background: var(--build-bg);
+    border: solid var(--border) 3px;
+    background: var(--green);
 }
 .build-role-image {
     height: 50px;
     width: 50px;
 }
 .keystone-background {
-    border: solid var(--build-border) 3px;
+    border: solid var(--border) 3px;
     border-radius: 10em;
-    background: var(--build-item-bg);
+    background: var(--black);
     padding: 1rem;
 }
 .runes-background {
-    border: solid var(--runes-border) 2px;
+    border: solid var(--black) 2px;
     border-radius: 4em;
-    background: var(--runes-bg);
+    background: var(--dark-green);
     padding: 4px;
 }
 .selected-champion-image-size {
@@ -718,22 +727,22 @@ div.tab-div > button:first-child {
     height: 55px;
 }
 .runes-item-background {
-    border: solid var(--build-item-border) 3px;
+    border: solid var(--light-border) 3px;
     border-radius: 50%;
-    background: var(--build-item-bg);
+    background: var(--black);
     padding: 2px;
     margin: 2px;
 }
 .stat-buff-background {
-    border: solid var(--runes-border) 2px;
+    border: solid var(--black) 2px;
     border-radius: 2em;
-    background: var(--runes-bg);
+    background: var(--dark-green);
     padding: 6px;
 }
 .stat-buff-item-background {
     border: solid rgb(106, 93, 49) 2px;
     border-radius: 50%;
-    background: var(--build-item-bg);
+    background: var(--black);
     margin: 2px;
 }
 #buildFirstDiv {
@@ -832,8 +841,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     margin: 0;
 }
 .team-build-container {
-    border-top: solid var(--build-item-border) 1px;
-    border-bottom: solid var(--build-item-border) 1px;
+    border-top: solid var(--light-border) 1px;
+    border-bottom: solid var(--light-border) 1px;
     margin: 0 0 2px 0;
 }
 .team-build-container-background {
@@ -841,24 +850,11 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     width: 100%;
     height: 200px;
     background: linear-gradient(to right, var(--light-green) 0%, var(--dark-green) 50%, var(--light-green) 100%);
-    border-top: solid var(--box-border) 3px;
-    border-bottom: solid var(--box-border) 3px;
-}
-.add-build-button {
-    color: var(--text-lighter);
-    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
-    border-color: var(--yellow);
-    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .6);
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bolder;
-    text-decoration: none;
-    padding: 10px 15px;
+    border-top: solid var(--border) 3px;
+    border-bottom: solid var(--border) 3px;
 }
 .add-build-input {
-    margin-top: 4px;
+    margin-top: 8px;
     padding: 8px;
     border: solid grey 1px;
 }
@@ -873,7 +869,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     position: absolute;
     right: 8px;
     top: 0;
-    background: var(--login-btn-bg);
+    background: var(--blue1);
     box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, .75);
 }
 .team-build {
@@ -897,14 +893,12 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 .slide-in {
     animation: slide-in 0.5s forwards;
 }
-
 .slide-out {
     animation: slide-out 0.5s forwards;
 }
 .fade-in {
     animation: fade-in 1s forwards;
 }
-
 @keyframes slide-in {
     100% {
         transform: translate(0%);
@@ -943,8 +937,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 .team-build-button {
     width: 76px;
     height: 50px;
-    color: var(--text-lighter);
-    background-image: linear-gradient(to right, var(--button-color1) 0%, var(--button-color2) 100%);
+    color: var(--white90);
+    background-image: linear-gradient(to right, var(--button-bg1) 0%, var(--button-bg2) 100%);
     border-color: var(--yellow);
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     outline: none;
@@ -952,11 +946,11 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     cursor: pointer;
 }
 .team-build-button:hover {
-    background: linear-gradient(to bottom, var(--link-color1) 0%, var(--link-color2) 100%);
+    background: linear-gradient(to bottom, var(--gray1) 0%, var(--gray2) 100%);
 }
 .team-champion-box-style {
-    border: solid var(--build-border) 2px;
-    background: var(--build-bg);
+    border: solid var(--border) 2px;
+    background: var(--green);
     padding: 4px;
 }
 .name-skill-div {
@@ -974,8 +968,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 }
 .team-player-name {
     max-width: 220px;
-    border: solid var(--build-border) 2px;
-    background: var(--build-bg);
+    border: solid var(--border) 2px;
+    background: var(--green);
     padding: 4px 8px;
     white-space: nowrap;
     overflow: hidden;
@@ -986,8 +980,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     margin: 0 0 8px;
 }
 .team-build-name {
-    border: solid var(--build-border) 2px;
-    background: var(--build-bg);
+    border: solid var(--border) 2px;
+    background: var(--green);
     padding: 4px 8px;
     white-space: nowrap;
     overflow: hidden;
@@ -997,29 +991,29 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     font-size: 14px;
 }
 .team-skill-box-style {
-    border: solid var(--build-border) 2px;
-    background: var(--build-bg);
+    border: solid var(--border) 2px;
+    background: var(--green);
     padding: 4px 8px;
 }
 .team-square-icon {
     height: 56px;
     width: 56px;
     margin: 2px 0;
-    border: solid var(--build-item-border) 1px;
-    background: var(--build-item-bg);
+    border: solid var(--light-border) 1px;
+    background: var(--black);
     padding: 2px;
 }
 .team-keystone-background {
-    border: solid var(--build-item-border) 2px;
+    border: solid var(--light-border) 2px;
     border-radius: 10em;
-    background: var(--build-item-bg);
+    background: var(--black);
     padding: 6px;
     margin: 4px;
 }
 .team-role-div {
     align-self: center;
-    border: solid var(--build-border) 2px;
-    background: var(--build-bg);
+    border: solid var(--border) 2px;
+    background: var(--green);
 }
 .team-role-image {
     height: 42px;
@@ -1033,8 +1027,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     width: 36px;
     height: 36px;
     margin: 2px 0;
-    border: solid var(--build-item-border) 1px;
-    background: var(--build-item-bg);
+    border: solid var(--light-border) 1px;
+    background: var(--black);
     padding: 2px;
 }
 .team-keystone-image-size {
@@ -1044,9 +1038,9 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 .team-rune-image {
     height: 54px;
     width: 54px;
-    border: solid var(--build-item-border) 1px;
+    border: solid var(--light-border) 1px;
     border-radius: 50%;
-    background: var(--build-item-bg);
+    background: var(--black);
     padding: 1px;
     margin: 2px;
 }
@@ -1055,7 +1049,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     width: 28px;
     border: solid rgb(106, 93, 49) 1px;
     border-radius: 50%;
-    background: var(--build-item-bg);
+    background: var(--black);
     margin: 2px;
 }
 .team-champion-div {
@@ -1070,8 +1064,8 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 .team-item-div {
     align-self: center;
     margin: 0 0 0 6px;
-    border: solid var(--build-border) 2px;
-    background: var(--build-bg);
+    border: solid var(--border) 2px;
+    background: var(--green);
     padding: 8px;
 }
 .team-champion {
@@ -1083,17 +1077,17 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     margin: 2px;
 }
 .team-runes-background {
-    border: solid var(--build-border) 2px;
+    border: solid var(--border) 2px;
     border-radius: 4em;
-    background: var(--runes-bg);
+    background: var(--dark-green);
     padding: 3px;
     margin: 0 4px;
 
 }
 .team-stat-buff-background {
-    border: solid var(--build-border) 2px;
+    border: solid var(--border) 2px;
     border-radius: 2em;
-    background: var(--runes-bg);
+    background: var(--dark-green);
     padding: 4px;
     margin: 0 4px;
 
