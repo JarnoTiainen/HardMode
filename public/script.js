@@ -340,6 +340,61 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
   var passwordShort = true;
   var name;
   var password;
+    name = document.getElementById("registerInput").value;
+    console.log(name);
+    password = document.getElementById("registerPasswordInput").value;
+    console.log(password);
+    if  (password.length >= 6) {
+      passwordOK = true;
+      passwordShort = false;
+    }
+    else {
+      passwordShort = true;
+      passwordOK = false;
+    }
+    if (name.length >= 3) {
+      userNameShort = false;
+      if (!await checkUsername(name)) {
+        console.log("name ok");
+        userNameTaken = false;
+        userNameOK = true;
+      }
+      else {
+        userNameTaken = true;
+        passwordOK = false;
+      }
+    }
+    else {
+      userNameTaken = false;
+      userNameShort = true;
+      passwordOK = false;
+    }
+    if (passwordOK && userNameOK) {
+      userInfoOK = true;
+    }
+    else {
+      let errorString = "";
+      if (userNameTaken) {
+        errorString += "Username taken.\n";
+      }
+      if (userNameShort) {
+        errorString += "Username too short.\n";
+      }
+      if (passwordShort) {
+        errorString += "Password too short.";
+      }
+      alert(errorString);
+    }
+    if (userInfoOK) {
+      await createNewUser(password, name);
+      closeRegisterPopupFunction();
+      popupOpen = false;
+      bodyClicked = true;
+      activeUser = name;
+      userLoggedIn = true;
+      closeProfileDropdown();
+      await unCheckAllOwnedChampions();
+    }
   name = document.getElementById("registerInput").value;
   password = document.getElementById("registerPasswordInput").value;
   if  (password.length >= 6) {
@@ -470,7 +525,6 @@ async function updateChampionList(usernameTry, updatedChampionList) {
   const res = await fetch('/updateChampionList', options);
   const json = await res.json();
 }
-
 async function getChampionList(usernameTry) {
   const username = usernameTry;
   const data = {
@@ -487,7 +541,6 @@ async function getChampionList(usernameTry) {
   const json = await res.json();
   return json[0].championList;
 }
-
 async function checkUsername(usernameTry) {
   const username = usernameTry;
   const data = {
@@ -522,7 +575,6 @@ async function checkLogin(usernameTry, passwordTry) {
   const json = await res.json();
   return json.length > 0;
 }
-
 for (let i = 1; i < 6; i++) {
   document.getElementById(
       'build' + i.toString() + 'CopyButton').onclick = function() {
@@ -532,7 +584,6 @@ for (let i = 1; i < 6; i++) {
     alert('Build copied to clipboard.');
   };
 }
-
 async function createNewUser(userPassword, name) {
   const password = userPassword;
   const username = name;
@@ -553,7 +604,6 @@ async function createNewUser(userPassword, name) {
   const json = await res.json();
   return json.length > 0;
 }
-
 async function printChampionIcons() {
   const res = await fetch('/api');
   const data = await res.json();
@@ -844,7 +894,6 @@ async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, n
     document.getElementById("build"+(buildIndex+1).toString()+"Role").src = "/images/graphics/bot.png"
   }
 }
-
 function getRandomNumbersForRunes(numberOfNumbers) {
   const listOfNumbers = [];
   for (let i = 0; i < numberOfNumbers; i++) {
@@ -1207,7 +1256,6 @@ function scrollFunction(id) {
   document.getElementById(id).scrollIntoView(true);
 }
 
-
 // Page top
 
 let pageTopButton = document.getElementById('pageTopButton');
@@ -1230,13 +1278,10 @@ function pageTopFunction() {
 
 // Open login popups
 
-let popupOpen = false;
 document.getElementById('login').addEventListener('click', function() {
-  popupOpen = true;
   loginPopupFunction();
 });
 document.getElementById('register').addEventListener('click', function() {
-  popupOpen = true;
   registerPopupFunction();
 });
 
@@ -1436,7 +1481,6 @@ function closeBuild2() {
   let addBuild2 = document.querySelector('#addBuildDiv2');
   addBuild2.style.display = 'flex';
   addBuild2.setAttribute('class', 'flex-column fade-in');
-
   let build2 = document.querySelector('#build2');
   build2.setAttribute('class', 'team-build slide-out');
   build2Visible = false;
@@ -1460,7 +1504,6 @@ function closeBuild3(role) {
   let addBuild3 = document.querySelector('#addBuildDiv3');
   addBuild3.style.display = 'flex';
   addBuild3.setAttribute('class', 'flex-column fade-in');
-
   let build3 = document.querySelector('#build3');
   build3.setAttribute('class', 'team-build slide-out');
   build3Visible = false;
