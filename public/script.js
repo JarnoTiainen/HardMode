@@ -365,8 +365,11 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
     if (userInfoOK) {
       await createNewUser(password, name);
       closeRegisterPopupFunction();
+      popupOpen = false;
+      bodyClicked = true;
       activeUser = name;
       userLoggedIn = true;
+      closeProfileDropdown();
       await unCheckAllOwnedChampions();
     }
 
@@ -380,7 +383,10 @@ document.getElementById("loginPopupButton").addEventListener("click", async func
     console.log(username+ " logged in.");
     activeUser = username;
     closeLoginPopupFunction();
+    popupOpen = false;
+    bodyClicked = true;
     userLoggedIn = true;
+    closeProfileDropdown();
     await unCheckAllOwnedChampions();
   }
   else {
@@ -945,40 +951,33 @@ function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneTy
 
 //Rainer section begins
 
-/*===================== Navigation Buttons ===========================*/
+/*========================== Navigation Buttons ================================*/
 
 // Info
 
 document.getElementById('cornerPiece').addEventListener("click", function() {
-  infoScroll()
+  scrollFunction("info")
 });
 document.getElementById('infoButton').addEventListener("click", function() {
-  infoScroll();
+  scrollFunction("info");
 });
-function infoScroll() {
-  document.getElementById("info").scrollIntoView(true);
-}
-
 
 // Champion select
 
-document.getElementById('infoButton').addEventListener("click", function() {
-  champListScroll();
+document.getElementById('champListButton').addEventListener("click", function() {
+  scrollFunction("championSearchDiv");
 });
-function champListScroll() {
-  document.getElementById("championSearchDiv").scrollIntoView(true);
-}
-
 
 // Build
 
-document.getElementById('infoButton').addEventListener("click", function() {
-  buildScroll();
+document.getElementById('buildButton').addEventListener("click", function() {
+  scrollFunction("goDiv");
 });
-function buildScroll() {
-  document.getElementById("goDiv").scrollIntoView(true);
-}
 
+
+function scrollFunction(id) {
+  document.getElementById(id).scrollIntoView(true);
+}
 
 // Page top
 
@@ -1002,10 +1001,13 @@ function pageTopFunction() {
 
 // Open login popups
 
+let popupOpen = false;
 document.getElementById('login').addEventListener('click', function() {
+  popupOpen = true;
   loginPopupFunction();
 });
 document.getElementById('register').addEventListener('click', function() {
+  popupOpen = true;
   registerPopupFunction();
 });
 
@@ -1032,8 +1034,9 @@ function closeLoginPopupFunction() {
   document.querySelectorAll(".password-input").forEach(item => {
     item.value = "";
   });
+  popupOpen = false;
   passwordVisible = true;
-  togglePassword()
+  togglePassword();
 }
 
 function closeRegisterPopupFunction() {
@@ -1041,8 +1044,9 @@ function closeRegisterPopupFunction() {
   document.querySelectorAll(".password-input").forEach(item => {
     item.value = "";
   });
+  popupOpen = false;
   passwordVisible = true;
-  togglePassword()
+  togglePassword();
 }
 
 
@@ -1319,5 +1323,64 @@ function closeBuild5() {
     build5.style.display = 'none';
     build5.setAttribute("class", "team-build");
   }, 500);
+}
+
+
+
+
+/*======================================== Profile dropdown ======================================*/
+
+let bodyClicked, dropdownClicked = false;
+let dropdown = document.querySelector("#profileDropdown");
+let loginButton = document.querySelector("#login");
+let logoutButton = document.querySelector("#logout");
+document.querySelector("body").addEventListener("click", function() {
+  bodyClicked = true;
+  closeProfileDropdown();
+});
+document.getElementById("profileIcon").addEventListener("click", function() {
+  dropdownClicked = true;
+  profileDropdown();
+});
+document.getElementById("profileDropdown").addEventListener("click", function() {
+  dropdownClicked = true;
+});
+
+let dropdownVisible = false;
+function profileDropdown() {
+  if (!dropdownVisible) {
+    dropdown.style.display = "flex";
+    dropdown.setAttribute("class", "profile-dropdown flex-column drop-down");
+    dropdownVisible = true;
+    if (userLoggedIn) {
+      loginButton.style.display = "none";
+      logoutButton.style.display = "block";
+    }
+    else {
+      loginButton.style.display = "block";
+      logoutButton.style.display = "none";
+    }
+  }
+  else {
+    dropdown.setAttribute("class", "profile-dropdown");
+    dropdown.style.display = "none";
+    dropdownVisible = false;
+    bodyClicked = false;
+    dropdownClicked = false;
+  }
+}
+
+function closeProfileDropdown() {
+  if (bodyClicked && !dropdownClicked && !popupOpen) {
+    dropdown.setAttribute("class", "profile-dropdown");
+    dropdown.style.display = "none";
+    dropdownVisible = false;
+    bodyClicked = false;
+    dropdownClicked = false;
+  }
+  else {
+    bodyClicked = false;
+    dropdownClicked = false;
+  }
 }
 
