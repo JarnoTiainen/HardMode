@@ -5,6 +5,11 @@ let username2;
 let username3;
 let username4;
 let username5;
+let role1 = "undefined";
+let role2 = "undefined";
+let role3 = "undefined";
+let role4 = "undefined";
+let role5 = "undefined";
 let itemSetForJSON = [];
 let itemClasses = [
   {
@@ -254,6 +259,12 @@ let itemClasses = [
 let userLoggedIn = false;
 
 let availableTeamRoles = [0,1,2,3,4];
+let takenChampion1;
+let takenChampion2;
+let takenChampion3;
+let takenChampion4;
+let takenChampion5;
+let clickable = true;
 
 printChampionIcons();
 getNewSoloRandomBuild();
@@ -303,17 +314,25 @@ document.getElementById('teamTab').addEventListener('click', function() {
   solo = false;
   document.getElementById("spacer").style.display = "none"
 });
-document.getElementById('goButton').addEventListener('click', function() {
-  if (solo === true) {
-    itemSetForJSON = [];
-    getNewSoloRandomBuild();
-    formJSONforItemSet();
-  }
-  if (team === true) {
-    //getNewTeamBuilds();
+document.getElementById('goButton').addEventListener('click', async function() {
+  buildScrollFunction();
+  if (clickable) {
+    clickable = false;
+    if (solo === true) {
+      itemSetForJSON = [];
+      await getNewSoloRandomBuild();
+      formJSONforItemSet();
+    }
+    if (team === true) {
+      await rerollTeamBuilds();
+      console.log(availableTeamRoles);
+    }
+    clickable = true;
   }
 
+
 });
+
 document.getElementById("registerPopupButton").addEventListener("click",async function() {
   var passwordOK = false;
   var userNameOK = false;
@@ -324,9 +343,7 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
   var name;
   var password;
   name = document.getElementById("registerInput").value;
-  console.log(name);
   password = document.getElementById("registerPasswordInput").value;
-  console.log(password);
   if  (password.length >= 6) {
     passwordOK = true;
     passwordShort = false;
@@ -338,7 +355,6 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
   if (name.length >= 3) {
     userNameShort = false;
     if (!await checkUsername(name)) {
-      console.log("name ok");
       userNameTaken = false;
       userNameOK = true;
     }
@@ -383,7 +399,6 @@ document.getElementById("loginPopupButton").addEventListener("click", async func
   const username = document.getElementById("loginUsernameInput").value;
   const password = document.getElementById("loginPasswordInput").value;
   if (await checkLogin(username, password)) {
-    console.log(username+ " logged in.");
     activeUser = username;
     closeLoginPopupFunction();
     userLoggedIn = true;
@@ -413,7 +428,6 @@ document.getElementById("addBuild2").addEventListener("click", async function() 
   await getNewTeamBuilds(1);
 });
 document.getElementById("addBuild3").addEventListener("click", async function() {
-  console.log("clicked3");
   await getNewTeamBuilds(2);
 });
 document.getElementById("addBuild4").addEventListener("click", async function() {
@@ -455,7 +469,6 @@ async function updateChampionList(usernameTry, updatedChampionList) {
   const res = await fetch('/updateChampionList', options);
   const json = await res.json();
 }
-
 async function getChampionList(usernameTry) {
   const username = usernameTry;
   const data = {
@@ -470,10 +483,8 @@ async function getChampionList(usernameTry) {
   };
   const res = await fetch('/championList', options);
   const json = await res.json();
-  console.log(json +"username "+ usernameTry);
   return json[0].championList;
 }
-
 async function checkUsername(usernameTry) {
   const username = usernameTry;
   const data = {
@@ -508,7 +519,6 @@ async function checkLogin(usernameTry, passwordTry) {
   const json = await res.json();
   return json.length > 0;
 }
-
 for (let i = 1; i < 6; i++) {
   document.getElementById(
       'build' + i.toString() + 'CopyButton').onclick = function() {
@@ -518,7 +528,6 @@ for (let i = 1; i < 6; i++) {
     alert('Build copied to clipboard.');
   };
 }
-
 async function createNewUser(userPassword, name) {
   const password = userPassword;
   const username = name;
@@ -539,7 +548,6 @@ async function createNewUser(userPassword, name) {
   const json = await res.json();
   return json.length > 0;
 }
-
 async function printChampionIcons() {
   const res = await fetch('/api');
   const data = await res.json();
@@ -549,7 +557,6 @@ async function printChampionIcons() {
     championList.push(data[index].champion);
     index++;
   }
-  console.log(JSON.stringify(championList));
   championList.sort();
   for(let i = 0; i < championList.length; i++) {
     const toolTip = document.getElementsByClassName("champion-tooltip");
@@ -631,102 +638,163 @@ async function getNewSoloRandomBuild() {
 }
 async function getNewTeamBuilds(buildIndex) {
   let name;
-  if (buildIndex === 0) {
+  if(buildIndex === 0) {
     username1 = document.getElementById("addBuildInput1").value;
     name = username1;
-    let userChampionList;
-    userChampionList = await getChampionList(username1);
-    if (userChampionList.length > 0) {
-      addBuild1();
-      const role = availableTeamRoles[Math.floor(Math.random()*availableTeamRoles.length)];
-      for (let i = 0; i < availableTeamRoles.length; i++) {
-        console.log(availableTeamRoles[i]);
-        if (availableTeamRoles[i] === role) {
-          availableTeamRoles.splice(i,1);
+    if (await checkUsername(username1)) {
+      let userChampionList;
+      userChampionList = await getChampionList(username1);
+      if (userChampionList.length > 4) {
+        addBuild1();
+        const role = availableTeamRoles[Math.floor(
+            Math.random() * availableTeamRoles.length)];
+        role1 = role;
+        for (let i = 0; i < availableTeamRoles.length; i++) {
+          if (availableTeamRoles[i] === role) {
+            availableTeamRoles.splice(i, 1);
+          }
         }
+        await createOneNewTeamMemberBuild(userChampionList, buildIndex, role,
+            name);
+      } else {
+        alert("Added player's champion pool is less than required.");
       }
-      await createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name);
+    } else {
+      alert("Username doesn't exist.");
     }
   }
   if (buildIndex === 1) {
     username2 = document.getElementById("addBuildInput2").value;
     name = username2;
-    let userChampionList;
-    console.log(username2);
-    userChampionList = await getChampionList(username2);
-    if (userChampionList.length > 0) {
-      addBuild2();
-      const role = availableTeamRoles[Math.floor(Math.random()*availableTeamRoles.length)];
-      for (let i = 0; i < availableTeamRoles.length; i++) {
-        if (availableTeamRoles[i] === role) {
-          availableTeamRoles.splice(i,1);
+    if (await checkUsername(username2)) {
+      let userChampionList;
+      userChampionList = await getChampionList(username2);
+      if (userChampionList.length > 4) {
+        addBuild2();
+        const role = availableTeamRoles[Math.floor(
+            Math.random() * availableTeamRoles.length)];
+        console.log(role);
+        role2 = role;
+        for (let i = 0; i < availableTeamRoles.length; i++) {
+          if (availableTeamRoles[i] === role) {
+            availableTeamRoles.splice(i, 1);
+          }
         }
+        await createOneNewTeamMemberBuild(userChampionList, buildIndex, role,
+            name);
+      } else {
+        alert("Added player's champion pool is less than required.");
       }
-      await createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name);
+    } else {
+      alert("Username doesn't exist.");
     }
   }
   if (buildIndex === 2) {
     username3 = document.getElementById("addBuildInput3").value;
-    console.log(username3);
     name = username3;
-    let userChampionList;
-    console.log(username3);
-    userChampionList = await getChampionList(username3);
-    console.log(userChampionList);
-    if (userChampionList.length > 0) {
-      addBuild3();
-      const role = availableTeamRoles[Math.floor(Math.random()*availableTeamRoles.length)];
-      for (let i = 0; i < availableTeamRoles.length; i++) {
-        if (availableTeamRoles[i] === role) {
-          availableTeamRoles.splice(i,1);
+    if (await checkUsername(username3)) {
+      let userChampionList;
+      userChampionList = await getChampionList(username3);
+      if (userChampionList.length > 4) {
+        addBuild3();
+        const role = availableTeamRoles[Math.floor(
+            Math.random() * availableTeamRoles.length)];
+        role3 = role;
+        for (let i = 0; i < availableTeamRoles.length; i++) {
+          if (availableTeamRoles[i] === role) {
+            availableTeamRoles.splice(i, 1);
+          }
         }
+        await createOneNewTeamMemberBuild(userChampionList, buildIndex, role,
+            name);
+      } else {
+        alert("Added player's champion pool is less than required.");
       }
-      await createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name);
+    } else {
+      alert("Username doesn't exist.");
     }
   }
   if (buildIndex === 3) {
     username4 = document.getElementById("addBuildInput4").value;
     name = username4;
-    let userChampionList;
-    console.log(username4);
-    userChampionList = await getChampionList(username4);
-    if (userChampionList.length > 0) {
-      addBuild4();
-      const role = availableTeamRoles[Math.floor(Math.random()*availableTeamRoles.length)];
-      for (let i = 0; i < availableTeamRoles.length; i++) {
-        if (availableTeamRoles[i] === role) {
-          availableTeamRoles.splice(i,1);
+    if (await checkUsername(username4)) {
+      let userChampionList;
+      userChampionList = await getChampionList(username4);
+      if (userChampionList.length > 4) {
+        addBuild4();
+        const role = availableTeamRoles[Math.floor(
+            Math.random() * availableTeamRoles.length)];
+        role4 = role;
+        for (let i = 0; i < availableTeamRoles.length; i++) {
+          if (availableTeamRoles[i] === role) {
+            availableTeamRoles.splice(i, 1);
+          }
         }
+        await createOneNewTeamMemberBuild(userChampionList, buildIndex, role,
+            name);
+      } else {
+        alert("Added player's champion pool is less than required.");
       }
-      await createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name);
+    } else {
+      alert("Username doesn't exist.");
     }
   }
   if (buildIndex === 4) {
     username5 = document.getElementById("addBuildInput5").value;
     name = username5;
-    let userChampionList;
-    console.log(username5);
-    userChampionList = await getChampionList(username5);
-    if (userChampionList.length > 0) {
-      addBuild5();
-      const role = availableTeamRoles[Math.floor(Math.random()*availableTeamRoles.length)];
-      for (let i = 0; i < availableTeamRoles.length; i++) {
-        if (availableTeamRoles[i] === role) {
-          availableTeamRoles.splice(i,1);
+    if (await checkUsername(username5)) {
+      let userChampionList;
+      userChampionList = await getChampionList(username5);
+      if (userChampionList.length > 4) {
+        addBuild5();
+        const role = availableTeamRoles[Math.floor(
+            Math.random() * availableTeamRoles.length)];
+        role5 = role;
+        for (let i = 0; i < availableTeamRoles.length; i++) {
+          if (availableTeamRoles[i] === role) {
+            availableTeamRoles.splice(i, 1);
+          }
         }
+        await createOneNewTeamMemberBuild(userChampionList, buildIndex, role,
+            name);
+      } else {
+        alert("Added player's champion pool is less than required.");
       }
-      await createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name);
+    } else {
+      alert("Username doesn't exist.");
     }
   }
 }
 async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name) {
-  console.log(role);
-  console.log(availableTeamRoles);
+  console.log("available roles "  + availableTeamRoles);
   itemSetForJSON = [];
-  console.log(userChampionList.length);
-  const championName = userChampionList[Math.floor(Math.random()*userChampionList.length)];
-  const buildNumber = await getRandomBuild(userChampionList[Math.floor(Math.random()*userChampionList.length)]);
-  const allPossibleItems = await buildAllPossibleItemsList(buildNumber, championName, name);
+  let championName;
+  let done = false;
+  while (done === false) {
+    championName = userChampionList[Math.floor(Math.random() * userChampionList.length)];
+    if (takenChampion1 !== championName && takenChampion2 !== championName && takenChampion3 !== championName && takenChampion4 !== championName && takenChampion5 !== championName) {
+      if(buildIndex === 0) {
+        takenChampion1 = championName;
+      }
+      if(buildIndex === 1) {
+        takenChampion2 = championName;
+      }
+      if(buildIndex === 2) {
+        takenChampion3 = championName;
+      }
+      if(buildIndex === 3) {
+        takenChampion4 = championName;
+      }
+      if(buildIndex === 4) {
+        takenChampion5 = championName;
+      }
+      done = true;
+    }
+  }
+  const buildNumber = await getRandomBuild(
+      userChampionList[Math.floor(Math.random() * userChampionList.length)]);
+  const allPossibleItems = await buildAllPossibleItemsList(buildNumber,
+      championName, name);
   let remainingItems = 6;
   const boots = itemClasses[buildNumber].boots[Math.floor(
       Math.random() * (itemClasses[buildNumber].boots.length - 1))];
@@ -738,8 +806,7 @@ async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, n
     remainingItems--;
     itemSetForJSON.push(jungleItem);
     itemSetForJSON.push(boots);
-  }
-  else if (role === 3) {
+  } else if (role === 3) {
     itemSetForJSON.push(supportItem);
   }
   setTeamSummonerSpells(buildIndex, role, buildNumber);
@@ -747,12 +814,14 @@ async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, n
   printSelectedItemsForTeam(buildIndex);
   const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
   const runeList = buildRunes(keyStone);
-  printRunesForTeam(role, runeList[0], runeList[1], runeList[2], runeList[3], runeList[4], runeList[5]);
+  printRunesForTeam(buildIndex, runeList[0], runeList[1], runeList[2], runeList[3], runeList[4], runeList[5]);
   document.getElementById('build' + (buildIndex + 1).toString() + 'Name').innerHTML = itemClasses[buildNumber].name +" "+ championName;
   document.getElementById("build"+(buildIndex+1).toString()+"Player").innerHTML = name;
   const itemSet = formJSONforItemSet();
   document.getElementById('build' + (buildIndex + 1).toString() + 'Input').value = JSON.stringify(itemSet);
   document.getElementById("champion"+(buildIndex + 1).toString()).src = "/images/champion/"+championName+".png";
+  const possibleSpells = ["Q","W","E"];
+  document.getElementById("teamSkill"+(buildIndex+1).toString()).src = "/images/spell/"+championName+possibleSpells[Math.floor(Math.random()*3)] +".png";
   if (role === 0) {
     document.getElementById("build"+(buildIndex+1).toString()+"Role").src = "/images/graphics/top.png"
   }
@@ -769,7 +838,6 @@ async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, n
     document.getElementById("build"+(buildIndex+1).toString()+"Role").src = "/images/graphics/bot.png"
   }
 }
-
 function getRandomNumbersForRunes(numberOfNumbers) {
   const listOfNumbers = [];
   for (let i = 0; i < numberOfNumbers; i++) {
@@ -886,7 +954,6 @@ async function getRandomBuild(championName) {
   return possibleBuilds[Math.floor((Math.random() * (possibleBuilds.length)))];
 }
 async function buildAllPossibleItemsList(buildSetNumber, championName) {
-  console.log(buildSetNumber +"  "+championName);
   const data = {
     champion: championName
   };
@@ -943,6 +1010,41 @@ function formJSONforItemSet() {
     itemSets[0].blocks[0].items.push({id: itemSetForJSON[i], count: 1});
   }
   return itemSets[0];
+}
+async function rerollTeamBuilds() {
+  takenChampion1 = "";
+  takenChampion2 = "";
+  takenChampion3 = "";
+  takenChampion4 = "";
+  takenChampion5 = "";
+  availableTeamRoles = [0,1,2,3,4];
+  console.log(role1);
+  if (role1 !== "undefined") {
+    await getNewTeamBuilds(0);
+    console.log("Rerolling 1");
+  }
+  console.log(role2);
+  if (role2 !== "undefined") {
+    console.log("Rerolling 2");
+    await getNewTeamBuilds(1);
+    console.log("Rerolling 2");
+  }
+  console.log(role3);
+  if (role3 !== "undefined") {
+    await getNewTeamBuilds(2);
+    console.log("Rerolling 3");
+  }
+  console.log(role4);
+  if (role4 !== "undefined") {
+    await getNewTeamBuilds(3);
+    console.log("Rerolling 4");
+  }
+  console.log(role5);
+  if (role5 !== "undefined") {
+    await getNewTeamBuilds(4);
+    console.log("Rerolling 5");
+  }
+
 }
 
 function soloRoleCheck() {
@@ -1256,9 +1358,6 @@ function openTab(evt, tabName) {
   }
 }
 
-document.getElementById('goButton').addEventListener('click', function() {
-  buildScrollFunction();
-});
 function buildScrollFunction() {
   if (team === true) {
     document.getElementById('goDiv').scrollIntoView();
@@ -1309,10 +1408,6 @@ function addBuild1() {
   build1.setAttribute('class', 'team-build slide-in');
   build1Visible = true;
 }
-
-document.getElementById('closeBuild1').addEventListener('click', function() {
-  closeBuild1();
-});
 function closeBuild1() {
   let addBuild1 = document.querySelector('#addBuildDiv1');
   addBuild1.style.display = 'flex';
@@ -1338,14 +1433,11 @@ function addBuild2() {
   build2Visible = true;
 }
 
-document.getElementById('closeBuild2').addEventListener('click', function() {
-  closeBuild2();
-});
+
 function closeBuild2() {
   let addBuild2 = document.querySelector('#addBuildDiv2');
   addBuild2.style.display = 'flex';
   addBuild2.setAttribute('class', 'flex-column fade-in');
-
   let build2 = document.querySelector('#build2');
   build2.setAttribute('class', 'team-build slide-out');
   build2Visible = false;
@@ -1365,14 +1457,10 @@ function addBuild3() {
   build3Visible = true;
 }
 
-document.getElementById('closeBuild3').addEventListener('click', function() {
-  closeBuild3();
-});
-function closeBuild3() {
+function closeBuild3(role) {
   let addBuild3 = document.querySelector('#addBuildDiv3');
   addBuild3.style.display = 'flex';
   addBuild3.setAttribute('class', 'flex-column fade-in');
-
   let build3 = document.querySelector('#build3');
   build3.setAttribute('class', 'team-build slide-out');
   build3Visible = false;
@@ -1393,10 +1481,8 @@ function addBuild4() {
   build4Visible = true;
 }
 
-document.getElementById('closeBuild4').addEventListener('click', function() {
-  closeBuild4();
-});
-function closeBuild4() {
+
+function closeBuild4(role) {
   let addBuild4 = document.querySelector('#addBuildDiv4');
   addBuild4.style.display = 'flex';
   addBuild4.setAttribute('class', 'flex-column fade-in');
@@ -1421,10 +1507,7 @@ function addBuild5() {
   build5Visible = true;
 }
 
-document.getElementById('closeBuild5').addEventListener('click', function() {
-  closeBuild5();
-});
-function closeBuild5() {
+function closeBuild5(role) {
   let addBuild5 = document.querySelector('#addBuildDiv5');
   addBuild5.style.display = 'flex';
   addBuild5.setAttribute('class', 'flex-column fade-in');
@@ -1437,3 +1520,33 @@ function closeBuild5() {
     build5.setAttribute("class", "team-build");
   }, 500);
 }
+document.getElementById('closeBuild1').addEventListener('click', function() {
+  takenChampion1 = "";
+  availableTeamRoles.push(role1);
+  role1 = "undefined";
+  closeBuild1();
+});
+document.getElementById('closeBuild2').addEventListener('click', function() {
+  takenChampion2 = "";
+  availableTeamRoles.push(role2);
+  role2 = "undefined";
+  closeBuild2();
+});
+document.getElementById('closeBuild3').addEventListener('click', function() {
+  takenChampion3 = "";
+  availableTeamRoles.push(role3);
+  role3 = "undefined";
+  closeBuild3();
+});
+document.getElementById('closeBuild4').addEventListener('click', function() {
+  takenChampion4 = "";
+  availableTeamRoles.push(role4);
+  role4 = "undefined";
+  closeBuild4();
+});
+document.getElementById('closeBuild5').addEventListener('click', function() {
+  takenChampion5 = "";
+  availableTeamRoles.push(role5);
+  role5 = "undefined";
+  closeBuild5();
+});
