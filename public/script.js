@@ -1,5 +1,10 @@
 const allChampionsList = ["Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","AurelionSol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","ChoGath","Corki","Darius","Diana","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan","Jax","Jayce","Jhin","Jinx","Kaisa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","KhaZix","Kindred","Kled","KogMaw","LeBlanc","LeeSin","Leona","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","MasterYi","MissFortune","Mordekaiser","Morgana","Mundo","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","RekSai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Senna","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","VelKoz","Vi","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","XinZhao","Yasuo","Yorick","Yuumi","Zac","Zed","Ziggs","Zilean","Zoe","Zyra"];
 let activeUser = {"password":"Salasana1","username":"KaarlaGD","championList":["Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","AurelionSol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","ChoGath","Corki","Darius","Diana","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan","Jax","Jayce","Jhin","Jinx","Kaisa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","KhaZix","Kindred","Kled","KogMaw","LeBlanc","LeeSin","Leona","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","MasterYi","MissFortune","Mordekaiser","Morgana","Mundo","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","RekSai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Senna","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","VelKoz","Vi","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","XinZhao","Yasuo","Yorick","Yuumi","Zac","Zed","Ziggs","Zilean","Zoe","Zyra"]};
+let username1;
+let username2;
+let username3;
+let username4;
+let username5;
 let itemSetForJSON = [];
 let itemClasses = [
   {
@@ -248,9 +253,11 @@ let itemClasses = [
   }];
 let userLoggedIn = false;
 
+let availableTeamRoles = [0,1,2,3,4];
+
 printChampionIcons();
 getNewSoloRandomBuild();
-//getNewTeamBuilds();
+getNewTeamBuilds();
 
 let solo = true;
 let team = false;
@@ -317,58 +324,58 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
   var passwordShort = true;
   var name;
   var password;
-    name = document.getElementById("registerInput").value;
-    console.log(name);
-    password = document.getElementById("registerPasswordInput").value;
-    console.log(password);
-    if  (password.length >= 6) {
-      passwordOK = true;
-      passwordShort = false;
-    }
-    else {
-      passwordShort = true;
-      passwordOK = false;
-    }
-    if (name.length >= 3) {
-      userNameShort = false;
-      if (!await checkUsername(name)) {
-        console.log("name ok");
-        userNameTaken = false;
-        userNameOK = true;
-      }
-      else {
-        userNameTaken = true;
-        passwordOK = false;
-      }
-    }
-    else {
+  name = document.getElementById("registerInput").value;
+  console.log(name);
+  password = document.getElementById("registerPasswordInput").value;
+  console.log(password);
+  if  (password.length >= 6) {
+    passwordOK = true;
+    passwordShort = false;
+  }
+  else {
+    passwordShort = true;
+    passwordOK = false;
+  }
+  if (name.length >= 3) {
+    userNameShort = false;
+    if (!await checkUsername(name)) {
+      console.log("name ok");
       userNameTaken = false;
-      userNameShort = true;
-      passwordOK = false;
-    }
-    if (passwordOK && userNameOK) {
-      userInfoOK = true;
+      userNameOK = true;
     }
     else {
-      let errorString = "";
-      if (userNameTaken) {
-        errorString += "Username taken.\n";
-      }
-      if (userNameShort) {
-        errorString += "Username too short.\n";
-      }
-      if (passwordShort) {
-        errorString += "Password too short.";
-      }
-      alert(errorString);
+      userNameTaken = true;
+      passwordOK = false;
     }
-    if (userInfoOK) {
-      await createNewUser(password, name);
-      closeRegisterPopupFunction();
-      activeUser = name;
-      userLoggedIn = true;
-      await unCheckAllOwnedChampions();
+  }
+  else {
+    userNameTaken = false;
+    userNameShort = true;
+    passwordOK = false;
+  }
+  if (passwordOK && userNameOK) {
+    userInfoOK = true;
+  }
+  else {
+    let errorString = "";
+    if (userNameTaken) {
+      errorString += "Username taken.\n";
     }
+    if (userNameShort) {
+      errorString += "Username too short.\n";
+    }
+    if (passwordShort) {
+      errorString += "Password too short.";
+    }
+    alert(errorString);
+  }
+  if (userInfoOK) {
+    await createNewUser(password, name);
+    closeRegisterPopupFunction();
+    activeUser = name;
+    userLoggedIn = true;
+    await unCheckAllOwnedChampions();
+  }
 
 
 
@@ -395,11 +402,17 @@ document.querySelectorAll(".champion-checkbox").forEach(async item=> {
     for (let i = 0; i < championCheckboxes.length; i++) {
       if (!championCheckboxes[i].checked) {
         newChampionList.push(allChampionsList[i]);
-        }
       }
+    }
     await updateChampionList(activeUser,newChampionList);
   })
 });
+document.getElementById("addBuild1").addEventListener("click", getNewTeamBuilds(0));
+document.getElementById("addBuild1").addEventListener("click", getNewTeamBuilds(1));
+document.getElementById("addBuild1").addEventListener("click", getNewTeamBuilds(2));
+document.getElementById("addBuild1").addEventListener("click", getNewTeamBuilds(3));
+document.getElementById("addBuild1").addEventListener("click", getNewTeamBuilds(4));
+
 async function unCheckAllOwnedChampions() {
   const championCheckboxes = document.querySelectorAll(".champion-checkbox");
   const champions = await getChampionList(activeUser);
@@ -602,40 +615,54 @@ async function getNewSoloRandomBuild() {
   const itemSet = formJSONforItemSet();
   document.getElementById('buildInput').value = JSON.stringify(itemSet);
 }
-/*async function getNewTeamBuilds() {
-  for (let i = 0; i < 5; i++) {
-    itemSetForJSON = [];
-    const buildNumber = await getRandomBuild('Aatrox');
-    const allPossibleItems = await buildAllPossibleItemsList(buildNumber, championName);
-    let remainingItems = 6;
-    const boots = itemClasses[buildNumber].boots[Math.floor(
-        Math.random() * (itemClasses[buildNumber].boots.length - 1))];
-    const jungleItem = itemClasses[buildNumber].jgItems[Math.floor(
-        Math.random() * (itemClasses[buildNumber].jgItems.length - 1))];
-    const supportItem = itemClasses[buildNumber].spItems[Math.floor(
-        Math.random() * (itemClasses[buildNumber].spItems.length - 1))];
-    if (i === 1) {
-      remainingItems--;
-      itemSetForJSON.push(jungleItem);
-      itemSetForJSON.push(boots);
-    } else if (i === 4) {
-      itemSetForJSON.push(supportItem);
+async function getNewTeamBuilds(buildIndex) {
+  let name;
+  if (buildIndex === 0) {
+    username1 = document.getElementById("addBuildInput1");
+    name = username1;
+    const userChampionList = await getChampionList(username1);
+    if (userChampionList.length() > 0) {
+      const role = availableTeamRoles[Math.floor(Math.random()*availableTeamRoles.length)];
+      for (let i = 0; i < availableTeamRoles; i++) {
+        if (availableTeamRoles[i] === role) {
+          availableTeamRoles.splice(i,1);
+        }
+      }
+      await createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name);
     }
-    setTeamSummonerSpells(i, buildNumber);
-    randomizeRestOfTheItems(allPossibleItems, (remainingItems - 1), boots);
-    printSelectedItemsForTeam(i);
-    const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
-    const runeList = buildRunes(keyStone);
-    printRunesForTeam(i, runeList[0], runeList[1], runeList[2], runeList[3],
-        runeList[4], runeList[5]);
-    document.getElementById('build' + (i + 1).toString() +
-        'Name').innerHTML = itemClasses[buildNumber].name + ' Jhin';
-    const itemSet = formJSONforItemSet();
-    document.getElementById(
-        'build' + (i + 1).toString() + 'Input').value = JSON.stringify(itemSet);
   }
-
-}*/
+}
+async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role) {
+  itemSetForJSON = [];
+  const championName = userChampionList[Math.floor(Math.random()*userChampionList.length())];
+  const buildNumber = await getRandomBuild(userChampionList[Math.floor(Math.random()*userChampionList.length())]);
+  const allPossibleItems = await buildAllPossibleItemsList(buildNumber, championName, name);
+  let remainingItems = 6;
+  const boots = itemClasses[buildNumber].boots[Math.floor(
+      Math.random() * (itemClasses[buildNumber].boots.length - 1))];
+  const jungleItem = itemClasses[buildNumber].jgItems[Math.floor(
+      Math.random() * (itemClasses[buildNumber].jgItems.length - 1))];
+  const supportItem = itemClasses[buildNumber].spItems[Math.floor(
+      Math.random() * (itemClasses[buildNumber].spItems.length - 1))];
+  if (role === 1) {
+    remainingItems--;
+    itemSetForJSON.push(jungleItem);
+    itemSetForJSON.push(boots);
+  }
+  else if (role === 3) {
+    itemSetForJSON.push(supportItem);
+  }
+  setTeamSummonerSpells(buildIndex, role, buildNumber);
+  randomizeRestOfTheItems(allPossibleItems, (remainingItems - 1), boots);
+  printSelectedItemsForTeam(buildIndex);
+  const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
+  const runeList = buildRunes(keyStone);
+  printRunesForTeam(role, runeList[0], runeList[1], runeList[2], runeList[3], runeList[4], runeList[5]);
+  document.getElementById('build' + (buildIndex + 1).toString() + 'Name').innerHTML = itemClasses[buildNumber].name + championName;
+  document.getElementById("build"+(buildIndex+1).toString+"Player").innerHTML = name;
+  const itemSet = formJSONforItemSet();
+  document.getElementById('build' + (buildIndex + 1).toString() + 'Input').value = JSON.stringify(itemSet);
+}
 
 function getRandomNumbersForRunes(numberOfNumbers) {
   const listOfNumbers = [];
@@ -874,40 +901,40 @@ function printSelectedItemsForTeam(roleNumber) {
   }
 
 }
-function setTeamSummonerSpells(roleNumber, buildNumber) {
-  if (roleNumber === 0) {
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+function setTeamSummonerSpells(buildIndex, role, buildNumber) {
+  if (role === 0) {
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '1').src = 'images/spell/summonerFlash.png';
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '2').src = 'images/spell/summonerTeleport.png';
   }
-  if (roleNumber === 1) {
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+  if (role === 1) {
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '1').src = 'images/spell/summonerFlash.png';
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '2').src = 'images/spell/summonerSmite.png';
   }
-  if (roleNumber === 2) {
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+  if (role === 2) {
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '1').src = 'images/spell/summonerFlash.png';
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '2').src = 'images/spell/summonerIgnite.png';
   }
 
-  if (roleNumber === 3) {
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+  if (role === 3) {
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '1').src = 'images/spell/summonerFlash.png';
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '2').src = 'images/spell/summonerHeal.png';
   }
-  if (roleNumber === 4) {
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+  if (role === 4) {
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '1').src = 'images/spell/summonerFlash.png';
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '2').src = 'images/spell/summonerIgnite.png';
   }
   if (buildNumber === 11) {
-    document.getElementById('teamSummonerSpell' + (roleNumber + 1).toString() +
+    document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
         '1').src = 'images/spell/summonerGhost.png';
   }
 
@@ -1320,4 +1347,3 @@ function closeBuild5() {
     build5.setAttribute("class", "team-build");
   }, 500);
 }
-
