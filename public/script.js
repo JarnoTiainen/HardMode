@@ -290,10 +290,12 @@ document.getElementById('supportInput').addEventListener('click', function() {
 document.getElementById('soloTab').addEventListener('click', function() {
   solo = true;
   team = false;
+  document.getElementById("spacer").style.display = "block"
 });
 document.getElementById('teamTab').addEventListener('click', function() {
   team = true;
   solo = false;
+  document.getElementById("spacer").style.display = "none"
 });
 document.getElementById('goButton').addEventListener('click', function() {
   if (solo === true) {
@@ -303,7 +305,6 @@ document.getElementById('goButton').addEventListener('click', function() {
   }
   if (team === true) {
     getNewTeamBuilds();
-
   }
 
 });
@@ -993,11 +994,55 @@ document.getElementById('registerClose').addEventListener('click', function() {
 
 function closeLoginPopupFunction() {
   document.querySelector('.login-popup').style.display = 'none';
+  document.querySelectorAll(".password-input").forEach(item => {
+    item.value = "";
+  });
+  passwordVisible = true;
+  togglePassword()
 }
 
 function closeRegisterPopupFunction() {
   document.querySelector('.register-popup').style.display = 'none';
+  document.querySelectorAll(".password-input").forEach(item => {
+    item.value = "";
+  });
+  passwordVisible = true;
+  togglePassword()
 }
+
+
+
+
+document.getElementById("loginPasswordToggle").addEventListener('click', function() {
+  togglePassword();
+});
+document.getElementById("registerPasswordToggle").addEventListener('click', function() {
+  togglePassword();
+});
+
+let passwordVisible = false;
+function togglePassword() {
+  if (passwordVisible === false) {
+    passwordVisible = true;
+    document.querySelectorAll(".eye-cross").forEach(item => {
+      item.setAttribute("style", "display: block")
+    });
+    document.querySelectorAll(".password-input").forEach(item => {
+      item.setAttribute("type", "text")
+    });
+  }
+  else {
+    passwordVisible = false;
+    document.querySelectorAll(".eye-cross").forEach(item => {
+      item.setAttribute("style", "display: none")
+    });
+    document.querySelectorAll(".password-input").forEach(item => {
+      item.setAttribute("type", "password")
+    });
+  }
+}
+
+
 
 /*========================= Build Tabs =============================*/
 
@@ -1029,6 +1074,7 @@ function openTab(evt, tabName) {
 
   if (tabName === "teamBox") {
     teamTabClicked = true;
+    document.getElementById("spacer").style.display = "none"
   }
   if (tabName === "buildBox" && teamTabClicked === true) {
     setBuild1Idle();
@@ -1043,7 +1089,9 @@ document.getElementById('goButton').addEventListener('click', function() {
   buildScrollFunction();
 });
 function buildScrollFunction() {
-  document.getElementById('goDiv').scrollIntoView();
+  if (team === true) {
+    document.getElementById('goDiv').scrollIntoView();
+  }
 }
 
 /*============================== Team Builds ====================================*/

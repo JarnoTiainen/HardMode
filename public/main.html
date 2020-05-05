@@ -53,22 +53,32 @@
         </nav>
 
         <div id="loginPopup" class="login-popup">
-            <div class="login-popup-content">
-                <input type="text" id="loginUsernameInput" class="popup-input" placeholder="Username">
-                <input type="password" id="loginPasswordInput" class="popup-input" placeholder="Password">
-                <button id="loginPopupButton" class="popup-button">Log In</button>
-                <div class="close-button-x-color flex-center">
-                    <img src="images/graphics/close-button.png" alt="" id="loginClose" class="close-button">
+            <div class="login-popup-bg flex-center">
+                <div class="login-popup-content flex-column">
+                    <input type="text" id="loginUsernameInput" class="popup-input" placeholder="Username">
+                    <div class="password-div flex-center">
+                        <input type="password" id="loginPasswordInput" class="popup-input password-input" placeholder="Password">
+                        <span id="loginPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png"><span class="eye-cross"></span></span>
+                    </div>
+                    <button id="loginPopupButton" class="popup-button">Log In</button>
+                    <div class="close-button-x-color flex-center">
+                        <img src="images/graphics/close-button.png" alt="" id="loginClose" class="close-button">
+                    </div>
                 </div>
             </div>
         </div>
         <div id="registerPopup" class="register-popup">
-            <div class="login-popup-content">
-                <input type="text" id="registerInput" class="popup-input" placeholder="Username">
-                <input type="password" id="registerPasswordInput" class="popup-input" placeholder="Password">
-                <button id="registerPopupButton" class="popup-button">Register</button>
-                <div class="close-button-x-color flex-center">
-                    <img src="images/graphics/close-button.png" alt="" id="registerClose" class="close-button">
+            <div class="login-popup-bg flex-center">
+                <div class="login-popup-content flex-column">
+                    <input type="text" id="registerInput" class="popup-input" placeholder="Username">
+                    <div class="password-div flex-center">
+                        <input type="password" id="registerPasswordInput" class="popup-input password-input" placeholder="Password">
+                        <span id="registerPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png"><span class="eye-cross"></span></span>
+                    </div>
+                    <button id="registerPopupButton" class="popup-button">Register</button>
+                    <div class="close-button-x-color flex-center">
+                        <img src="images/graphics/close-button.png" alt="" id="registerClose" class="close-button">
+                    </div>
                 </div>
             </div>
         </div>
@@ -1202,11 +1212,12 @@
                                         <label for="buildInput"></label>
                                         <input id="buildInput" type="text" class="build-input" readonly>
                                     </div>
-                                    <div class="build-role-div flex-center">
-                                        <img id="buildRole" src="images/graphics/bot.png" class="build-role-image">
-                                    </div>
+
                                     <div id="buildNameDiv" class="flex-center">
                                         <div id="buildNameBackground" class="build-sub-box-style">
+                                            <div class="build-role-div flex-center">
+                                                <img id="buildRole" src="images/graphics/bot.png" class="build-role-image">
+                                            </div>
                                             <h2 id="buildName">Build Name</h2>
                                         </div>
                                     </div>
@@ -1811,7 +1822,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="spacer" class="spacer"></div>
+                        <footer id="spacer" class="spacer"></footer>
                     </div>
                 </div>
             </div>
