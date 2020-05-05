@@ -16,36 +16,37 @@
             <div id="navigationDiv" class="navigation-div">
                 <div id="infoButton" class="skewed-btn nav-links-size">
                     <div class="link-button color-link">
-                        <a id="infoLink" href="#greenBox" class="center-link"><span class="skewed-btn-text">Info</span></a>
+                        <div class="center-link"><span class="skewed-btn-text">Info</span></div>
+                    </div>
+                </div>
+                <div id="champListButton" class="skewed-btn nav-links-size">
+                    <div class="link-button color-link">
+                        <div class="center-link"><span class="skewed-btn-text">Champion Select</span></div>
+                    </div>
+                </div>
+                <div id="buildButton" class="skewed-btn nav-links-size">
+                    <div class="link-button color-link">
+                        <div class="center-link"><span class="skewed-btn-text">Build</span></div>
                     </div>
                 </div>
                 <div class="skewed-btn nav-links-size">
                     <div class="link-button color-link">
-                        <a id="champListLink" href="#championSearchDiv" class="center-link"><span class="skewed-btn-text">Champion Select</span></a>
-                    </div>
-                </div>
-                <div class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
-                        <a id="buildLink" href="#goDiv" class="center-link"><span class="skewed-btn-text">Build</span></a>
-                    </div>
-                </div>
-                <div class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
-                        <a id="endLink" href="#spacer" class="center-link"><span class="skewed-btn-text">end</span></a>
+                        <a href="#spacer" class="center-link"><span class="skewed-btn-text">end</span></a>
                     </div>
                 </div>
             </div>
 
 
-            <ul class="nav-button-list">
-                <li>
-                    <button id="register" class="login-buttons btn-animation">Sign Up</button>
-                </li>
-                <li>
+            <div class="profile-container flex-center">
+                <div id="profileIconDiv" class="profile-icon-div flex-center">
+                    <img id="profileIcon" src="images/champion/Jhin.png" class="profile-icon">
+                </div>
+                <div id="profileDropdown" class="profile-dropdown">
+                    <button id="register" class="login-buttons btn-animation">Register</button>
                     <button id="login" class="login-buttons btn-animation">Log In</button>
                     <button id="logout" class="login-buttons btn-animation">Log out</button>
-                </li>
-            </ul>
+                </div>
+            </div>
         </nav>
 
         <div id="loginPopup" class="login-popup">
@@ -95,7 +96,13 @@
 
                     <div id="infoDiv" class="info-div flex-row">
                         <div class="flex-center" id="info">
-                            <h1>Info</h1>
+                            <h1>Welcome to HardMode!</h1>
+                            <p>HardMode is a website for hardcore and for-fun players alike, where you can register an
+                                account (for free!), insert your owned champions into said account and roll for builds
+                                that just don't quite work. You can also roll builds for up to five (5) people using their
+                                HardMode-account names to fetch their owned champions, so you can make sure that whatever
+                                you roll is possible to be built. After rolling your builds, copy them into your League
+                                of Legends -client and waste no time in trying them out!</p>
                         </div>
                     </div>
 
@@ -1338,10 +1345,10 @@
                                         <div class="name-skill-div">
                                             <div id="build1NameDiv" class="team-build-name-div flex-column">
                                                 <div class="flex-center">
-                                                    <h4 id="build1Player" class="team-player-name">Eighteencharacters</h4>
+                                                    <h4 id="build1Player" class="team-player-name">Player 1</h4>
                                                 </div>
                                                 <div class="flex-center">
-                                                    <h4 id="build1Name" class="team-build-name">Build Nameeeeeeee</h4>
+                                                    <h4 id="build1Name" class="team-build-name">Build Name</h4>
                                                 </div>
                                             </div>
                                             <div class="flex-center team-skill-div">
@@ -1445,10 +1452,10 @@
                                         <div class="name-skill-div">
                                             <div id="build2NameDiv" class="team-build-name-div flex-column">
                                                 <div class="flex-center">
-                                                    <h4 id="build2Player" class="team-player-name">Eighteencharacters</h4>
+                                                    <h4 id="build2Player" class="team-player-name">Player 2</h4>
                                                 </div>
                                                 <div class="flex-center">
-                                                    <h4 id="build2Name" class="team-build-name">Build Nameeeeeeee</h4>
+                                                    <h4 id="build2Name" class="team-build-name">Build Name</h4>
                                                 </div>
                                             </div>
                                             <div class="flex-center team-skill-div">
@@ -1551,10 +1558,10 @@
                                         <div class="name-skill-div">
                                             <div id="build3NameDiv" class="team-build-name-div flex-column">
                                                 <div class="flex-center">
-                                                    <h4 id="build3Player" class="team-player-name">Eighteencharacters</h4>
+                                                    <h4 id="build3Player" class="team-player-name">Player 3</h4>
                                                 </div>
                                                 <div class="flex-center">
-                                                    <h4 id="build3Name" class="team-build-name">Build Nameeeeeeee</h4>
+                                                    <h4 id="build3Name" class="team-build-name">Build Name</h4>
                                                 </div>
                                             </div>
                                             <div class="flex-center team-skill-div">
@@ -1657,10 +1664,10 @@
                                         <div class="name-skill-div">
                                             <div id="build4NameDiv" class="team-build-name-div flex-column">
                                                 <div class="flex-center">
-                                                    <h4 id="build4Player" class="team-player-name">Eighteencharacters</h4>
+                                                    <h4 id="build4Player" class="team-player-name">Player 4</h4>
                                                 </div>
                                                 <div class="flex-center">
-                                                    <h4 id="build4Name" class="team-build-name">Build Nameeeeeeee</h4>
+                                                    <h4 id="build4Name" class="team-build-name">Build Name</h4>
                                                 </div>
                                             </div>
                                             <div class="flex-center team-skill-div">
@@ -1763,10 +1770,10 @@
                                         <div class="name-skill-div">
                                             <div id="build5NameDiv" class="team-build-name-div flex-column">
                                                 <div class="flex-center">
-                                                    <h4 id="build5Player" class="team-player-name">Eighteencharacters</h4>
+                                                    <h4 id="build5Player" class="team-player-name">Player 5</h4>
                                                 </div>
                                                 <div class="flex-center">
-                                                    <h4 id="build5Name" class="team-build-name">Build Nameeeeeeee</h4>
+                                                    <h4 id="build5Name" class="team-build-name">Build Name</h4>
                                                 </div>
                                             </div>
                                             <div class="flex-center team-skill-div">

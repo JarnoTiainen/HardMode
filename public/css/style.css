@@ -78,20 +78,6 @@ ul{
     width: 9.5rem;
     min-width: 8rem;
 }
-
-.nav-button-list {
-    display: flex;
-    justify-content: space-around;
-    width: 20%;
-}
-.nav-button-list li{
-    list-style: none;
-}
-.nav-button-list a {
-    font-size: 20px;
-    color: var(--white90);
-    text-decoration: none;
-}
 .pageTopButton {
     display: none;
     position: fixed;
@@ -110,6 +96,44 @@ ul{
 }
 .pageTopButton:hover {
     background-color: var(--light-green);
+}
+
+.profile-container {
+    position: relative;
+    width: 20%;
+}
+.profile-icon-div {
+    cursor: pointer;
+}
+.profile-icon {
+    width: 64px;
+    height: 64px;
+}
+.profile-dropdown {
+    display: none;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 100%);
+    background: var(--gray1);
+    border: solid var(--border) 3px;
+    padding: 10px;
+}
+
+.drop-down {
+    animation: drop-down 0.2s linear;
+}
+@keyframes drop-down {
+    0%{
+        opacity: 0;
+        height: 80px;
+    }
+    100% {
+        opacity: 1;
+        height: 150px;
+    }
 }
 
 
@@ -515,6 +539,7 @@ ul{
 .center-link {
     position: absolute;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     padding: 0.5rem 1.5rem;
 }
@@ -554,15 +579,10 @@ ul{
     border-radius: 5px;
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     color: var(--white90);
-    padding: 1rem;
     outline: none;
     cursor: pointer;
-}
-#login {
-}
-#logout {
-    background: linear-gradient(to right, var(--button-bg1) 0, var(--button-bg2) 100%);
-    margin: 0 4px;
+    padding: 1rem;
+    margin: 4px;
 }
 .btn-animation {
     -webkit-transform: scale(1.0);
@@ -667,6 +687,7 @@ div.tab-div > button:first-child {
 .build-sub-box-style {
     border: solid var(--border) 3px;
     background: var(--green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
 }
 .build-square-background {
     border: solid var(--light-border) 3px;

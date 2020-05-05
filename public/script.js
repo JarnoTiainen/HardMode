@@ -330,9 +330,7 @@ document.getElementById('goButton').addEventListener('click', async function() {
     clickable = true;
   }
 
-
 });
-
 document.getElementById("registerPopupButton").addEventListener("click",async function() {
   var passwordOK = false;
   var userNameOK = false;
@@ -401,7 +399,10 @@ document.getElementById("loginPopupButton").addEventListener("click", async func
   if (await checkLogin(username, password)) {
     activeUser = username;
     closeLoginPopupFunction();
+    popupOpen = false;
+    bodyClicked = true;
     userLoggedIn = true;
+    closeProfileDropdown();
     await unCheckAllOwnedChampions();
   }
   else {
@@ -469,6 +470,7 @@ async function updateChampionList(usernameTry, updatedChampionList) {
   const res = await fetch('/updateChampionList', options);
   const json = await res.json();
 }
+
 async function getChampionList(usernameTry) {
   const username = usernameTry;
   const data = {
@@ -485,6 +487,7 @@ async function getChampionList(usernameTry) {
   const json = await res.json();
   return json[0].championList;
 }
+
 async function checkUsername(usernameTry) {
   const username = usernameTry;
   const data = {
@@ -519,6 +522,7 @@ async function checkLogin(usernameTry, passwordTry) {
   const json = await res.json();
   return json.length > 0;
 }
+
 for (let i = 1; i < 6; i++) {
   document.getElementById(
       'build' + i.toString() + 'CopyButton').onclick = function() {
@@ -528,6 +532,7 @@ for (let i = 1; i < 6; i++) {
     alert('Build copied to clipboard.');
   };
 }
+
 async function createNewUser(userPassword, name) {
   const password = userPassword;
   const username = name;
@@ -548,6 +553,7 @@ async function createNewUser(userPassword, name) {
   const json = await res.json();
   return json.length > 0;
 }
+
 async function printChampionIcons() {
   const res = await fetch('/api');
   const data = await res.json();
@@ -638,7 +644,7 @@ async function getNewSoloRandomBuild() {
 }
 async function getNewTeamBuilds(buildIndex) {
   let name;
-  if(buildIndex === 0) {
+  if (buildIndex === 0) {
     username1 = document.getElementById("addBuildInput1").value;
     name = username1;
     if (await checkUsername(username1)) {
@@ -838,6 +844,7 @@ async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, n
     document.getElementById("build"+(buildIndex+1).toString()+"Role").src = "/images/graphics/bot.png"
   }
 }
+
 function getRandomNumbersForRunes(numberOfNumbers) {
   const listOfNumbers = [];
   for (let i = 0; i < numberOfNumbers; i++) {
@@ -1180,38 +1187,24 @@ function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneTy
 
 //Rainer section begins
 
-/*===================== Navigation Buttons ===========================*/
+/*========================== Navigation Buttons ================================*/
 
-// Info
+// Links to site
 
 document.getElementById('cornerPiece').addEventListener("click", function() {
-  infoScroll()
+  scrollFunction("info")
 });
 document.getElementById('infoButton').addEventListener("click", function() {
-  infoScroll();
+  scrollFunction("info");
 });
-function infoScroll() {
-  document.getElementById("info").scrollIntoView(true);
-}
-
-
-// Champion select
-
-document.getElementById('infoButton').addEventListener("click", function() {
-  champListScroll();
+document.getElementById('champListButton').addEventListener("click", function() {
+  scrollFunction("championSearchDiv");
 });
-function champListScroll() {
-  document.getElementById("championSearchDiv").scrollIntoView(true);
-}
-
-
-// Build
-
-document.getElementById('infoButton').addEventListener("click", function() {
-  buildScroll();
+document.getElementById('buildButton').addEventListener("click", function() {
+  scrollFunction("goDiv");
 });
-function buildScroll() {
-  document.getElementById("goDiv").scrollIntoView(true);
+function scrollFunction(id) {
+  document.getElementById(id).scrollIntoView(true);
 }
 
 
@@ -1237,10 +1230,13 @@ function pageTopFunction() {
 
 // Open login popups
 
+let popupOpen = false;
 document.getElementById('login').addEventListener('click', function() {
+  popupOpen = true;
   loginPopupFunction();
 });
 document.getElementById('register').addEventListener('click', function() {
+  popupOpen = true;
   registerPopupFunction();
 });
 
@@ -1267,8 +1263,9 @@ function closeLoginPopupFunction() {
   document.querySelectorAll(".password-input").forEach(item => {
     item.value = "";
   });
+  popupOpen = false;
   passwordVisible = true;
-  togglePassword()
+  togglePassword();
 }
 
 function closeRegisterPopupFunction() {
@@ -1276,8 +1273,9 @@ function closeRegisterPopupFunction() {
   document.querySelectorAll(".password-input").forEach(item => {
     item.value = "";
   });
+  popupOpen = false;
   passwordVisible = true;
-  togglePassword()
+  togglePassword();
 }
 
 
@@ -1438,6 +1436,7 @@ function closeBuild2() {
   let addBuild2 = document.querySelector('#addBuildDiv2');
   addBuild2.style.display = 'flex';
   addBuild2.setAttribute('class', 'flex-column fade-in');
+
   let build2 = document.querySelector('#build2');
   build2.setAttribute('class', 'team-build slide-out');
   build2Visible = false;
@@ -1461,6 +1460,7 @@ function closeBuild3(role) {
   let addBuild3 = document.querySelector('#addBuildDiv3');
   addBuild3.style.display = 'flex';
   addBuild3.setAttribute('class', 'flex-column fade-in');
+
   let build3 = document.querySelector('#build3');
   build3.setAttribute('class', 'team-build slide-out');
   build3Visible = false;
@@ -1550,3 +1550,63 @@ document.getElementById('closeBuild5').addEventListener('click', function() {
   role5 = "undefined";
   closeBuild5();
 });
+
+
+
+
+/*======================================== Profile dropdown ======================================*/
+
+let bodyClicked, dropdownClicked = false;
+let dropdown = document.querySelector("#profileDropdown");
+let loginButton = document.querySelector("#login");
+let logoutButton = document.querySelector("#logout");
+document.querySelector("body").addEventListener("click", function() {
+  bodyClicked = true;
+  closeProfileDropdown();
+});
+document.getElementById("profileIcon").addEventListener("click", function() {
+  dropdownClicked = true;
+  profileDropdown();
+});
+document.getElementById("profileDropdown").addEventListener("click", function() {
+  dropdownClicked = true;
+});
+
+let dropdownVisible = false;
+function profileDropdown() {
+  if (!dropdownVisible) {
+    dropdown.style.display = "flex";
+    dropdown.setAttribute("class", "profile-dropdown flex-column drop-down");
+    dropdownVisible = true;
+    if (userLoggedIn) {
+      loginButton.style.display = "none";
+      logoutButton.style.display = "block";
+    }
+    else {
+      loginButton.style.display = "block";
+      logoutButton.style.display = "none";
+    }
+  }
+  else {
+    dropdown.setAttribute("class", "profile-dropdown");
+    dropdown.style.display = "none";
+    dropdownVisible = false;
+    bodyClicked = false;
+    dropdownClicked = false;
+  }
+}
+
+function closeProfileDropdown() {
+  if (bodyClicked && !dropdownClicked && !popupOpen) {
+    dropdown.setAttribute("class", "profile-dropdown");
+    dropdown.style.display = "none";
+    dropdownVisible = false;
+    bodyClicked = false;
+    dropdownClicked = false;
+  }
+  else {
+    bodyClicked = false;
+    dropdownClicked = false;
+  }
+}
+
