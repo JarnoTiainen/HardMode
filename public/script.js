@@ -1019,6 +1019,9 @@ document.getElementById("loginPasswordToggle").addEventListener('click', functio
 document.getElementById("registerPasswordToggle").addEventListener('click', function() {
   togglePassword();
 });
+document.getElementById("registerConfirmPasswordToggle").addEventListener('click', function() {
+  togglePassword();
+});
 
 let passwordVisible = false;
 function togglePassword() {

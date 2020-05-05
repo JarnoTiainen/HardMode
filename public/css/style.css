@@ -26,6 +26,7 @@
     --link-color2: #121212;
     --link-highlight: rgb(0,191,255);
     --login-btn-bg: rgb(14, 56, 107);
+    --login-btn-bg2: rgb(14, 40, 80);
     --login-btn-border: rgb(32, 181, 252);
     --build-border: rgb(80, 72, 38);
     --build-bg: rgb(19, 34, 37);
@@ -207,12 +208,13 @@ ul{
 }
 .eye-cross {
     display: none;
-    width: 3px;
+    width: 5px;
     height: 30px;
     position: absolute;
     top: 50%;
-    right: 16px;
+    right: 14px;
     background: black;
+    border-right: solid white 2px;
     content: "";
     cursor: pointer;
     transform: translate(-50%, -50%) rotate(45deg);
@@ -575,7 +577,7 @@ ul{
     transition: none;
 }
 .login-buttons {
-    background: var(--login-btn-bg);
+    background: linear-gradient(to right, var(--login-btn-bg) 0, var(--login-btn-bg2) 100%);
     border-color: var(--login-btn-border);
     border-radius: 5px;
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
@@ -585,10 +587,9 @@ ul{
     cursor: pointer;
 }
 #login {
-    background: linear-gradient(to right, var(--button-color1) 0, var(--button-color2) 100%);
 }
 #logout {
-    background: linear-gradient(to right, var(--login-btn-bg) 0, rgb(14, 40, 80) 100%);
+    background: linear-gradient(to right, var(--button-color1) 0, var(--button-color2) 100%);
 }
 .btn-animation {
     -webkit-transform: scale(1.0);
