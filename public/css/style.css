@@ -294,16 +294,9 @@ ul{
 .info {
     width: 100%;
 }
-.build-button {
-    color: var(--white90);
-    background-image: linear-gradient(to right, var(--button-bg1) 0%, var(--button-bg2) 100%);
-    border-color: var(--yellow);
+#buildBCopyButton {
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .6);
-    outline: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bolder;
 }
 .build-input {
     opacity: 0;
