@@ -1,5 +1,5 @@
-
-
+const allChampionsList = ["Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","AurelionSol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","ChoGath","Corki","Darius","Diana","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan","Jax","Jayce","Jhin","Jinx","Kaisa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","KhaZix","Kindred","Kled","KogMaw","LeBlanc","LeeSin","Leona","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","MasterYi","MissFortune","Mordekaiser","Morgana","Mundo","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","RekSai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Senna","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","VelKoz","Vi","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","XinZhao","Yasuo","Yorick","Yuumi","Zac","Zed","Ziggs","Zilean","Zoe","Zyra"];
+let activeUser = {"password":"Salasana1","username":"KaarlaGD","championList":["Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","AurelionSol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","ChoGath","Corki","Darius","Diana","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan","Jax","Jayce","Jhin","Jinx","Kaisa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","KhaZix","Kindred","Kled","KogMaw","LeBlanc","LeeSin","Leona","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","MasterYi","MissFortune","Mordekaiser","Morgana","Mundo","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","RekSai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Senna","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","VelKoz","Vi","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","XinZhao","Yasuo","Yorick","Yuumi","Zac","Zed","Ziggs","Zilean","Zoe","Zyra"]};
 let itemSetForJSON = [];
 let itemClasses = [
   {
@@ -246,10 +246,11 @@ let itemClasses = [
       '3800'],
     keyStones: [4, 11, 12, 16, 17],
   }];
+let userLoggedIn = false;
 
 printChampionIcons();
 getNewSoloRandomBuild();
-getNewTeamBuilds();
+//getNewTeamBuilds();
 
 let solo = true;
 let team = false;
@@ -363,11 +364,90 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
     }
     if (userInfoOK) {
       await createNewUser(password, name);
+      closeRegisterPopupFunction();
+      activeUser = name;
+      userLoggedIn = true;
+      await unCheckAllOwnedChampions();
     }
 
 
 
 });
+document.getElementById("loginPopupButton").addEventListener("click", async function() {
+  const username = document.getElementById("loginUsernameInput").value;
+  const password = document.getElementById("loginPasswordInput").value;
+  if (await checkLogin(username, password)) {
+    console.log(username+ " logged in.");
+    activeUser = username;
+    closeLoginPopupFunction();
+    userLoggedIn = true;
+    await unCheckAllOwnedChampions();
+  }
+  else {
+    alert("No account found with login credentials.");
+  }
+
+});
+document.querySelectorAll(".champion-checkbox").forEach(async item=> {
+  item.addEventListener('click', async event => {
+    const championCheckboxes = document.querySelectorAll(".champion-checkbox");
+    let newChampionList = [];
+    for (let i = 0; i < championCheckboxes.length; i++) {
+      if (!championCheckboxes[i].checked) {
+        newChampionList.push(allChampionsList[i]);
+        }
+      }
+    await updateChampionList(activeUser,newChampionList);
+  })
+});
+async function unCheckAllOwnedChampions() {
+  const championCheckboxes = document.querySelectorAll(".champion-checkbox");
+  const champions = await getChampionList(activeUser);
+  document.querySelectorAll(".champion-checkbox").forEach(item => {
+    item.checked = true;
+  });
+  for(let i= 0; i < allChampionsList.length; i++) {
+    for(let l = 0; l < champions.length; l++) {
+      if (champions[l] === allChampionsList[i]) {
+        championCheckboxes[i].checked = false;
+      }
+    }
+  }
+}
+async function updateChampionList(usernameTry, updatedChampionList) {
+  const username = usernameTry;
+  const championList = updatedChampionList;
+  const data = {
+    username,
+    championList
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  const res = await fetch('/updateChampionList', options);
+  const json = await res.json();
+}
+
+async function getChampionList(usernameTry) {
+  const username = usernameTry;
+  const data = {
+    username
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  const res = await fetch('/championList', options);
+  const json = await res.json();
+  return json[0].championList;
+}
 
 async function checkUsername(usernameTry) {
   const username = usernameTry;
@@ -383,7 +463,24 @@ async function checkUsername(usernameTry) {
   };
   const res = await fetch('/userCheck', options);
   const json = await res.json();
-  console.log(json);
+  return json.length > 0;
+}
+async function checkLogin(usernameTry, passwordTry) {
+  const username = usernameTry;
+  const password = passwordTry;
+  const data = {
+    username,
+    password
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  const res = await fetch('/loginCheck', options);
+  const json = await res.json();
   return json.length > 0;
 }
 
@@ -427,11 +524,9 @@ async function printChampionIcons() {
     championList.push(data[index].champion);
     index++;
   }
-  console.log(JSON.stringify(championList));
   championList.sort();
   for(let i = 0; i < championList.length; i++) {
     const toolTip = document.getElementsByClassName("champion-tooltip");
-    const championIcon = document.getElementsByClassName("champion-img");
 
     for(let i = 0; i < toolTip.length; i++){
       toolTip[i].innerText=championList[i];
@@ -440,7 +535,13 @@ async function printChampionIcons() {
   }
 }
 async function getNewSoloRandomBuild() {
-  const playerChampionPool = ["Aatrox", "Ahri", "VelKoz","Amumu","Nunu"];
+  let playerChampionPool;
+  if (userLoggedIn === true) {
+    playerChampionPool = await getChampionList(activeUser)
+  }
+  else {
+    playerChampionPool = allChampionsList;
+  }
   const championName = playerChampionPool[Math.floor(Math.random() * playerChampionPool.length)];
   const roleList = soloRoleCheck();
   const possibleRoles = [];
@@ -474,14 +575,7 @@ async function getNewSoloRandomBuild() {
   const buildNumber = await getRandomBuild(championName);
   document.getElementById("buildSelectedChampion").src = "images/champion/"+championName+".png";
 
-  const allPossibleItems = buildAllPossibleItemsList
-  (
-      buildNumber,
-      true,
-      true,
-      false,
-      false,
-  );
+  const allPossibleItems = await buildAllPossibleItemsList(buildNumber, championName);
   let remainingItems = 6;
   const boots = itemClasses[buildNumber].boots[Math.floor(
       Math.random() * (itemClasses[buildNumber].boots.length - 1))];
@@ -491,16 +585,14 @@ async function getNewSoloRandomBuild() {
       Math.random() * (itemClasses[buildNumber].spItems.length - 1))];
   if (selectedRole === 'jungle') {
     remainingItems--;
-    remainingItems--;
     itemSetForJSON.push(jungleItem);
     itemSetForJSON.push(boots);
   } else if (selectedRole === 'support') {
-    remainingItems--;
     itemSetForJSON.push(supportItem);
   }
   document.getElementById('buildRole').src = 'images/graphics/' + selectedRole +
       '.png';
-  randomizeRestOfTheItems(allPossibleItems, remainingItems, boots);
+  randomizeRestOfTheItems(allPossibleItems, (remainingItems-1), boots);
   printSelectedItems();
   const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
   const runeList = buildRunes(keyStone);
@@ -510,12 +602,11 @@ async function getNewSoloRandomBuild() {
   const itemSet = formJSONforItemSet();
   document.getElementById('buildInput').value = JSON.stringify(itemSet);
 }
-async function getNewTeamBuilds() {
+/*async function getNewTeamBuilds() {
   for (let i = 0; i < 5; i++) {
     itemSetForJSON = [];
     const buildNumber = await getRandomBuild('Aatrox');
-    const allPossibleItems = buildAllPossibleItemsList(buildNumber, true, true,
-        false, true, false);
+    const allPossibleItems = await buildAllPossibleItemsList(buildNumber, championName);
     let remainingItems = 6;
     const boots = itemClasses[buildNumber].boots[Math.floor(
         Math.random() * (itemClasses[buildNumber].boots.length - 1))];
@@ -544,7 +635,7 @@ async function getNewTeamBuilds() {
         'build' + (i + 1).toString() + 'Input').value = JSON.stringify(itemSet);
   }
 
-}
+}*/
 
 function getRandomNumbersForRunes(numberOfNumbers) {
   const listOfNumbers = [];
@@ -661,25 +752,39 @@ async function getRandomBuild(championName) {
   }
   return possibleBuilds[Math.floor((Math.random() * (possibleBuilds.length)))];
 }
-function buildAllPossibleItemsList(buildSetNumber, isMana, isMelee, isRanged, isHealer) {
+async function buildAllPossibleItemsList(buildSetNumber, championName) {
+  console.log(buildSetNumber +"  "+championName);
+  const data = {
+    champion: championName
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  const response = await fetch('/champ', options);
+  const champion = await response.json();
+
   let allPossibleItems = [];
   let combiner = [];
   combiner = itemClasses[buildSetNumber].mainItems;
-  if (isMana) {
+  if (champion[0].isMana === 1) {
     allPossibleItems = combiner.concat(itemClasses[buildSetNumber].manaItems);
     combiner = allPossibleItems;
   }
-  if (isMelee) {
+  if (champion[0].Melee === 1) {
     allPossibleItems = combiner.concat(itemClasses[buildSetNumber].meleeItems);
     combiner = allPossibleItems;
   }
-  if (isRanged) {
+  if (champion[0].Ranged) {
     allPossibleItems = combiner.concat(itemClasses[buildSetNumber].rangerItems);
     combiner = allPossibleItems;
   }
   allPossibleItems = combiner.concat(itemClasses[buildSetNumber].apItems);
   combiner = allPossibleItems;
-  if (isHealer) {
+  if (champion[0].Enchanter === 1) {
     allPossibleItems = combiner.concat(itemClasses[buildSetNumber].healItems);
   }
   return allPossibleItems;
