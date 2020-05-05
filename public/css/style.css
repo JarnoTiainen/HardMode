@@ -146,7 +146,7 @@ ul{
     width: 100%;
 }
 .spacer {
-    height: 500px;
+    height: 300px;
 }
 #logoDiv {
     height: 100%;
@@ -261,7 +261,7 @@ ul{
     background: var(--green);
     border: solid var(--box-border) 1px;
     border-bottom: none;
-
+    padding-bottom: 200px;
 }
 .green-box-borders {
     border: solid var(--build-item-border) 3px;

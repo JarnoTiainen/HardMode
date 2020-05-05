@@ -289,10 +289,12 @@ document.getElementById('supportInput').addEventListener('click', function() {
 document.getElementById('soloTab').addEventListener('click', function() {
   solo = true;
   team = false;
+  document.getElementById("spacer").style.display = "block"
 });
 document.getElementById('teamTab').addEventListener('click', function() {
   team = true;
   solo = false;
+  document.getElementById("spacer").style.display = "none"
 });
 document.getElementById('goButton').addEventListener('click', function() {
   if (solo === true) {
@@ -302,7 +304,6 @@ document.getElementById('goButton').addEventListener('click', function() {
   }
   if (team === true) {
     getNewTeamBuilds();
-
   }
 
 });
@@ -968,6 +969,7 @@ function openTab(evt, tabName) {
 
   if (tabName === "teamBox") {
     teamTabClicked = true;
+    document.getElementById("spacer").style.display = "none"
   }
   if (tabName === "buildBox" && teamTabClicked === true) {
     setBuild1Idle();
