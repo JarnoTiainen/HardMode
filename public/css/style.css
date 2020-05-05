@@ -398,32 +398,23 @@ ul{
 }
 #championList li {
     display: block;
-    padding: 0 1px;
+    margin: 1px;
 }
-#championList img {
-    width: 60px;
-    height: 60px;
+
+.champion-img {
+    width: 62px;
+    height: 62px;
     padding: 1px;
     border: solid var(--build-item-border) 1px;
     background: black;
-}
-.champion-img {
-    width: 60px;
-    height: 60px;
-    padding: 1px;
-    border: solid var(--build-item-border) 1px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
     cursor: pointer;
 }
 .champion-toggle {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 62px;
+    height: 62px;
     cursor: pointer;
 }
 .champion-checkbox {
@@ -435,6 +426,13 @@ ul{
 .champion-checkbox:checked + .champion-img {
     opacity: 0.2;
 }
+.champion-highlight {
+    border: solid var(--link-highlight) 2px;
+    width: 62px;
+    height: 62px;
+    padding: 0;
+}
+
 .champion-search-bg {
     border: solid var(--build-border) 3px;
     border-bottom: 0;
@@ -586,7 +584,12 @@ ul{
     outline: none;
     cursor: pointer;
 }
-
+#login {
+    background: linear-gradient(to right, var(--button-color1) 0, var(--button-color2) 100%);
+}
+#logout {
+    background: linear-gradient(to right, var(--login-btn-bg) 0, rgb(14, 40, 80) 100%);
+}
 .btn-animation {
     -webkit-transform: scale(1.0);
     -webkit-transition: 0.15s;
