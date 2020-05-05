@@ -83,3 +83,34 @@ app.post('/userCheck', (req, res) => {
     res.json(data);
   });
 });
+app.post('/loginCheck', (req, res) => {
+  console.log('Request received! (LoginCheck)');
+  dbUsers.find({username: req.body.username, password: req.body.password}, (err, data) => {
+    if(err) {
+      res.end();
+      return;
+    }
+    res.json(data);
+  });
+});
+app.post('/championList', (req, res) => {
+  console.log('Request received! (Fetch Champions)');
+  dbUsers.find({username: req.body.username}, (err, data) => {
+    if(err) {
+      res.end();
+      return;
+    }
+    res.json(data);
+  });
+});
+app.post('/updateChampionList', (req, res) => {
+  console.log('Request received! (Update Champions)');
+  dbUsers.update({username: req.body.username}, {$set:{championList: req.body.championList}}, (err, data) => {
+    if(err) {
+      res.end();
+      return;
+    }
+    dbUsers.persistence.compactDatafile();
+    res.json(data);
+  });
+});
