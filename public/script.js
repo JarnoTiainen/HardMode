@@ -807,17 +807,14 @@ function closeRegisterPopupFunction() {
 
 
 document.getElementById("loginPasswordToggle").addEventListener('click', function() {
-  console.log("login togglePassword");
   togglePassword();
 });
 document.getElementById("registerPasswordToggle").addEventListener('click', function() {
-  console.log("register togglePassword");
   togglePassword();
 });
 
 let passwordVisible = false;
 function togglePassword() {
-  console.log("togglePassword");
   if (passwordVisible === false) {
     passwordVisible = true;
     document.querySelectorAll(".eye-cross").forEach(item => {
