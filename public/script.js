@@ -393,6 +393,8 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
         errorString += "Password too short.";
       }
       alert(errorString);
+      console.log("Alerting");
+
     }
     if (userInfoOK) {
       await createNewUser(password, name);
@@ -404,59 +406,6 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
       closeProfileDropdown();
       await unCheckAllOwnedChampions();
     }
-  name = document.getElementById("registerInput").value;
-  password = document.getElementById("registerPasswordInput").value;
-  if  (password.length >= 6) {
-    passwordOK = true;
-    passwordShort = false;
-  }
-  else {
-    passwordShort = true;
-    passwordOK = false;
-  }
-  if (name.length >= 3) {
-    userNameShort = false;
-    if (!await checkUsername(name)) {
-      userNameTaken = false;
-      userNameOK = true;
-    }
-    else {
-      userNameTaken = true;
-      passwordOK = false;
-    }
-  }
-  else {
-    userNameTaken = false;
-    userNameShort = true;
-    passwordOK = false;
-  }
-  if (passwordOK && userNameOK) {
-    userInfoOK = true;
-  }
-  else {
-    let errorString = "";
-    if (userNameTaken) {
-      errorString += "Username taken.\n";
-    }
-    if (userNameShort) {
-      errorString += "Username too short.\n";
-    }
-    if (passwordShort) {
-      errorString += "Password too short.";
-    }
-    alert(errorString);
-  }
-  if (userInfoOK) {
-    await createNewUser(password, name);
-    closeRegisterPopupFunction();
-    activeUser = name;
-    profileName.innerHTML = name;
-    userLoggedIn = true;
-    await unCheckAllOwnedChampions();
-  }
-
-
-
 });
 document.getElementById("loginPopupButton").addEventListener("click", async function() {
   const username = document.getElementById("loginUsernameInput").value;
