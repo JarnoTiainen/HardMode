@@ -75,7 +75,7 @@ ul{
 }
 .nav-links-size {
     height: 6vh;
-    width: 9.5rem;
+    width: 200px;
     min-width: 8rem;
 }
 .pageTopButton {
@@ -100,9 +100,21 @@ ul{
 
 .profile-container {
     position: relative;
-    width: 20%;
+    width: 10%;
+}
+.profile-name-div {
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    transform: translate(-50%, -50%);
+}
+.profile-name {
+    color: var(--white90);
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bolder;
 }
 .profile-icon-div {
+    position: relative;
     cursor: pointer;
 }
 .profile-icon {
@@ -165,9 +177,7 @@ ul{
 .spacer {
     height: 300px;
 }
-#logoDiv {
-    height: 100%;
-}
+
 
 /*============================================= Login Popup =====================================================*/
 
@@ -301,6 +311,10 @@ ul{
     margin: 2rem;
     height: 200px;
 }
+#infoTitle {
+    margin: 0 0 2rem;
+}
+
 
 
 /*=================================== Buttons in Interactive Container ======================================*/
@@ -514,6 +528,7 @@ ul{
     background: transparent;
     display: inline-block;
     color: var(--white90);
+    font-size: 24px;
 }
 .color-btn {
     color: var(--white90);
@@ -715,7 +730,7 @@ div.tab-div > button:first-child {
     padding: 1rem;
 }
 .runes-background {
-    border: solid var(--black) 2px;
+    border: solid var(--border) 2px;
     border-radius: 4em;
     background: var(--dark-green);
     padding: 4px;
@@ -748,7 +763,7 @@ div.tab-div > button:first-child {
     margin: 2px;
 }
 .stat-buff-background {
-    border: solid var(--black) 2px;
+    border: solid var(--border) 2px;
     border-radius: 2em;
     background: var(--dark-green);
     padding: 6px;
@@ -911,7 +926,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     animation: slide-out 0.5s forwards;
 }
 .fade-in {
-    animation: fade-in 1s forwards;
+    animation: fade-in 0.5s forwards;
 }
 @keyframes slide-in {
     100% {
@@ -933,9 +948,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     0% {
         opacity: 0;
     }
-    50% {
-        opacity: 0;
-    }
+
     100% {
         opacity: 1;
     }
@@ -965,6 +978,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 .team-champion-box-style {
     border: solid var(--border) 2px;
     background: var(--green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 4px;
 }
 .name-skill-div {
@@ -984,6 +998,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     max-width: 220px;
     border: solid var(--border) 2px;
     background: var(--green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 4px 8px;
     white-space: nowrap;
     overflow: hidden;
@@ -996,6 +1011,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 .team-build-name {
     border: solid var(--border) 2px;
     background: var(--green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 4px 8px;
     white-space: nowrap;
     overflow: hidden;
@@ -1007,6 +1023,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 .team-skill-box-style {
     border: solid var(--border) 2px;
     background: var(--green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 4px 8px;
 }
 .team-square-icon {
@@ -1021,6 +1038,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     border: solid var(--light-border) 2px;
     border-radius: 10em;
     background: var(--black);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 6px;
     margin: 4px;
 }
@@ -1028,6 +1046,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     align-self: center;
     border: solid var(--border) 2px;
     background: var(--green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
 }
 .team-role-image {
     height: 42px;
@@ -1080,6 +1099,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     margin: 0 0 0 6px;
     border: solid var(--border) 2px;
     background: var(--green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 8px;
 }
 .team-champion {
@@ -1094,6 +1114,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     border: solid var(--border) 2px;
     border-radius: 4em;
     background: var(--dark-green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 3px;
     margin: 0 4px;
 
@@ -1102,6 +1123,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     border: solid var(--border) 2px;
     border-radius: 2em;
     background: var(--dark-green);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 4px;
     margin: 0 4px;
 

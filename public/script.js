@@ -442,6 +442,7 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
     await createNewUser(password, name);
     closeRegisterPopupFunction();
     activeUser = name;
+    document.getElementById("profileName").innerHTML = name;
     userLoggedIn = true;
     await unCheckAllOwnedChampions();
   }
@@ -454,6 +455,7 @@ document.getElementById("loginPopupButton").addEventListener("click", async func
   const password = document.getElementById("loginPasswordInput").value;
   if (await checkLogin(username, password)) {
     activeUser = username;
+    document.getElementById("profileName").innerHTML = username;
     closeLoginPopupFunction();
     popupOpen = false;
     bodyClicked = true;
@@ -1350,11 +1352,14 @@ function pageTopFunction() {
 /*================================ Login Popups ================================*/
 
 // Open login popups
+
 let popupOpen = false;
 document.getElementById('login').addEventListener('click', function() {
+  popupOpen = true;
   loginPopupFunction();
 });
 document.getElementById('register').addEventListener('click', function() {
+  popupOpen = true;
   registerPopupFunction();
 });
 
@@ -1526,15 +1531,14 @@ function addBuild1() {
 }
 function closeBuild1() {
   let addBuild1 = document.querySelector('#addBuildDiv1');
-  addBuild1.style.display = 'flex';
-  addBuild1.setAttribute('class', 'flex-column fade-in');
-
   let build1 = document.querySelector('#build1');
   build1.setAttribute('class', 'team-build slide-out');
   build1Visible = false;
   setTimeout(function() {
     build1.style.display = 'none';
     build1.setAttribute("class", "team-build");
+    addBuild1.style.display = 'flex';
+    addBuild1.setAttribute('class', 'flex-column fade-in');
   }, 500);
 }
 
@@ -1552,14 +1556,14 @@ function addBuild2() {
 
 function closeBuild2() {
   let addBuild2 = document.querySelector('#addBuildDiv2');
-  addBuild2.style.display = 'flex';
-  addBuild2.setAttribute('class', 'flex-column fade-in');
   let build2 = document.querySelector('#build2');
   build2.setAttribute('class', 'team-build slide-out');
   build2Visible = false;
   setTimeout(function() {
     build2.style.display = 'none';
     build2.setAttribute("class", "team-build");
+    addBuild2.style.display = 'flex';
+    addBuild2.setAttribute('class', 'flex-column fade-in');
   }, 500);
 }
 
@@ -1575,14 +1579,14 @@ function addBuild3() {
 
 function closeBuild3(role) {
   let addBuild3 = document.querySelector('#addBuildDiv3');
-  addBuild3.style.display = 'flex';
-  addBuild3.setAttribute('class', 'flex-column fade-in');
   let build3 = document.querySelector('#build3');
   build3.setAttribute('class', 'team-build slide-out');
   build3Visible = false;
   setTimeout(function() {
     build3.style.display = 'none';
     build3.setAttribute("class", "team-build");
+    addBuild3.style.display = 'flex';
+    addBuild3.setAttribute('class', 'flex-column fade-in');
   }, 500);
 }
 
@@ -1600,15 +1604,14 @@ function addBuild4() {
 
 function closeBuild4(role) {
   let addBuild4 = document.querySelector('#addBuildDiv4');
-  addBuild4.style.display = 'flex';
-  addBuild4.setAttribute('class', 'flex-column fade-in');
-
   let build4 = document.querySelector('#build4');
   build4.setAttribute('class', 'team-build slide-out');
   build4Visible = false;
   setTimeout(function() {
     build4.style.display = 'none';
     build4.setAttribute("class", "team-build");
+    addBuild4.style.display = 'flex';
+    addBuild4.setAttribute('class', 'flex-column fade-in');
   }, 500);
 }
 
@@ -1625,15 +1628,14 @@ function addBuild5() {
 
 function closeBuild5(role) {
   let addBuild5 = document.querySelector('#addBuildDiv5');
-  addBuild5.style.display = 'flex';
-  addBuild5.setAttribute('class', 'flex-column fade-in');
-
   let build5 = document.querySelector('#build5');
   build5.setAttribute('class', 'team-build slide-out');
   build5Visible = false;
   setTimeout(function() {
     build5.style.display = 'none';
     build5.setAttribute("class", "team-build");
+    addBuild5.style.display = 'flex';
+    addBuild5.setAttribute('class', 'flex-column fade-in');
   }, 500);
 }
 document.getElementById('closeBuild1').addEventListener('click', function() {
