@@ -1492,9 +1492,11 @@ function openTab(evt, tabName) {
 
   if (tabName === "teamBox") {
     teamTabClicked = true;
-    document.getElementById("spacer").style.display = "none"
+    document.getElementById("spacer").style.display = "none";
+    document.querySelector(".role-buttons-container").style.display = "none";
   }
   if (tabName === "buildBox" && teamTabClicked === true) {
+    document.querySelector(".role-buttons-container").style.display = "flex";
     setBuild1Idle();
     setBuild2Idle();
     setBuild3Idle();

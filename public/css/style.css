@@ -648,16 +648,28 @@ ul{
 
 
 .tab-row {
+    height: 200px;
+    position: relative;
     justify-content: center;
 }
-.tab-container-1 {
+.go-button-container {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%);
     width: 25%;
-    align-self: flex-end;
-
 }
-.tab-container-2 {
+.tab-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     width: 40%;
-    align-self: flex-end;
+}
+.role-buttons-container {
+    width: 40%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 .tab-div {
     background-color: var(--dark-green);
@@ -989,7 +1001,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     align-items: flex-end;
     height: 184px;
     position: relative;
-    margin: 0 1.5rem;
+    margin: 0 2rem;
 }
 .team-build-name-div {
     position: absolute;
