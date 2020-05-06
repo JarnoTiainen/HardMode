@@ -333,15 +333,15 @@ document.getElementById('goButton').addEventListener('click', async function() {
 
 });
 document.getElementById("registerPopupButton").addEventListener("click",async function() {
-  var passwordOK = false;
-  var userNameOK = false;
-  var userInfoOK = false;
-  var userNameShort = true;
-  var userNameTaken = true;
-  var passwordShort = true;
-  var name;
-  var password;
-    name = document.getElementById("registerInput").value;
+  let passwordOK;
+  let userNameOK = false;
+  let userInfoOK = false;
+  let userNameShort;
+  let userNameTaken;
+  let passwordShort;
+  let name;
+  let password;
+  name = document.getElementById("registerInput").value;
     console.log(name);
     password = document.getElementById("registerPasswordInput").value;
     console.log(password);
@@ -510,8 +510,10 @@ document.getElementById("addBuild4").addEventListener("click", async function() 
 document.getElementById("addBuild5").addEventListener("click", async function() {
   await getNewTeamBuilds(4);
 });
-document.getElementById("championInput").addEventListener("input", function() {
+document.getElementById("championInput").addEventListener("input", async function() {
   let text = document.getElementById("championInput").value;
+  let matchingChampions = 0;
+  let matchingChampionId;
   text = text.toLowerCase();
   console.log(text);
   const championList = document.querySelectorAll(".champion-img");
@@ -526,9 +528,32 @@ document.getElementById("championInput").addEventListener("input", function() {
     }
     if (champion.includes(text)) {
       championImg.setAttribute("class","champion-img champion-highlight");
+      matchingChampions++;
+      matchingChampionId = i;
     }
     else {
       championImg.setAttribute("class","champion-img");
+    }
+  }
+  if (matchingChampions === 1) {
+    let newChampionList;
+    if (userLoggedIn) {
+      newChampionList = await getChampionList(activeUser);
+    }
+    else {
+      newChampionList = activeUser.championList;
+    }
+    if (!newChampionList.includes(allChampionsList[matchingChampionId])) {
+      newChampionList.push(allChampionsList[matchingChampionId]);
+    }
+    console.log(newChampionList);
+    const championButtons = document.querySelectorAll(".champion-checkbox");
+    championButtons[matchingChampionId].checked = false;
+    if (userLoggedIn) {
+      await updateChampionList(activeUser,newChampionList);
+    }
+    else {
+      activeUser.championList = newChampionList;
     }
   }
 });
