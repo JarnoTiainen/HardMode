@@ -266,13 +266,11 @@ let takenChampion4;
 let takenChampion5;
 let clickable = true;
 let allChampionIconsUnselected = false;
-
 printChampionIcons();
 getNewSoloRandomBuild();
-
 let solo = true;
 let team = false;
-
+document.getElementById('soloTab').click();
 const copyBuildButton = document.getElementById('buildCopyButton');
 copyBuildButton.onclick = function() {
   let copyText = document.getElementById('buildInput');
@@ -515,11 +513,10 @@ document.getElementById("championInput").addEventListener("input", function() {
   const championList = document.querySelectorAll(".champion-img");
   for (let i = 0; i < allChampionsList.length; i++) {
     const championImg = championList[i];
-    let championImg2;
     let champion = allChampionsList[i];
     champion = champion.toLowerCase();
     if (text === "") {
-      for (let l = 0; l < allChampionsList.length; l++) {
+      for (let l = 0; l < (allChampionsList.length+1); l++) {
         championList[l].setAttribute("class","champion-img");
       }
     }
@@ -559,8 +556,80 @@ document.getElementById("championReset").addEventListener("click", async functio
   }
   console.log(activeUser.championList);
 });
-
-
+document.getElementById('cornerPiece').addEventListener("click", function() {
+  scrollFunction("info")
+});
+document.getElementById('infoButton').addEventListener("click", function() {
+  scrollFunction("info");
+});
+document.getElementById('champListButton').addEventListener("click", function() {
+  scrollFunction("championSearchDiv");
+});
+document.getElementById('buildButton').addEventListener("click", function() {
+  scrollFunction("goDiv");
+});
+document.getElementById('closeBuild1').addEventListener('click', function() {
+  takenChampion1 = "";
+  availableTeamRoles.push(role1);
+  role1 = "undefined";
+  closeBuild1();
+});
+document.getElementById('closeBuild2').addEventListener('click', function() {
+  takenChampion2 = "";
+  availableTeamRoles.push(role2);
+  role2 = "undefined";
+  closeBuild2();
+});
+document.getElementById('closeBuild3').addEventListener('click', function() {
+  takenChampion3 = "";
+  availableTeamRoles.push(role3);
+  role3 = "undefined";
+  closeBuild3();
+});
+document.getElementById('closeBuild4').addEventListener('click', function() {
+  takenChampion4 = "";
+  availableTeamRoles.push(role4);
+  role4 = "undefined";
+  closeBuild4();
+});
+document.getElementById('closeBuild5').addEventListener('click', function() {
+  takenChampion5 = "";
+  availableTeamRoles.push(role5);
+  role5 = "undefined";
+  closeBuild5();
+});
+document.getElementById("loginPasswordToggle").addEventListener('click', function() {
+  togglePassword();
+});
+document.getElementById("registerPasswordToggle").addEventListener('click', function() {
+  togglePassword();
+});
+document.getElementById("registerConfirmPasswordToggle").addEventListener('click', function() {
+  togglePassword();
+});
+document.getElementById('loginClose').addEventListener('click', function() {
+  closeLoginPopupFunction();
+});
+document.getElementById('registerClose').addEventListener('click', function() {
+  closeRegisterPopupFunction();
+});
+document.getElementById('login').addEventListener('click', function() {
+  loginPopupFunction();
+});
+document.getElementById('register').addEventListener('click', function() {
+  registerPopupFunction();
+});
+document.querySelector("body").addEventListener("click", function() {
+  bodyClicked = true;
+  closeProfileDropdown();
+});
+document.getElementById("profileIcon").addEventListener("click", function() {
+  dropdownClicked = true;
+  profileDropdown();
+});
+document.getElementById("profileDropdown").addEventListener("click", function() {
+  dropdownClicked = true;
+});
 async function unCheckAllOwnedChampions() {
   const championCheckboxes = document.querySelectorAll(".champion-checkbox");
   const champions = await getChampionList(activeUser);
@@ -1175,7 +1244,6 @@ async function rerollTeamBuilds() {
   }
 
 }
-
 function soloRoleCheck() {
   const roleList = [];
   roleList.push(document.getElementById('jungleInput').checked);
@@ -1230,7 +1298,6 @@ function printRunes(mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes,
   document.getElementById('buildRuneThirdStatBuff').src = 'images/runes/rune6' +
       '3' + statBonuses[2].toString() + '.png';
 }
-
 function printSelectedItemsForTeam(roleNumber) {
   for (let i = 0; i < 6; i++) {
     document.getElementById('item' + (roleNumber + 1).toString() +
@@ -1305,32 +1372,9 @@ function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneTy
       '3').src = 'images/runes/rune6' + '3' + statBonuses[2].toString() +
       '.png';
 }
-
-
-//Rainer section begins
-
-/*========================== Navigation Buttons ================================*/
-
-// Links to site
-
-document.getElementById('cornerPiece').addEventListener("click", function() {
-  scrollFunction("info")
-});
-document.getElementById('infoButton').addEventListener("click", function() {
-  scrollFunction("info");
-});
-document.getElementById('champListButton').addEventListener("click", function() {
-  scrollFunction("championSearchDiv");
-});
-document.getElementById('buildButton').addEventListener("click", function() {
-  scrollFunction("goDiv");
-});
 function scrollFunction(id) {
   document.getElementById(id).scrollIntoView(true);
 }
-
-// Page top
-
 let pageTopButton = document.getElementById('pageTopButton');
 window.onscroll = function() {
   toggleTopButton();
@@ -1346,36 +1390,13 @@ function pageTopFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-
-/*================================ Login Popups ================================*/
-
-// Open login popups
 let popupOpen = false;
-document.getElementById('login').addEventListener('click', function() {
-  loginPopupFunction();
-});
-document.getElementById('register').addEventListener('click', function() {
-  registerPopupFunction();
-});
-
 function loginPopupFunction() {
   document.querySelector('.login-popup').style.display = 'flex';
 }
-
 function registerPopupFunction() {
   document.querySelector('.register-popup').style.display = 'flex';
 }
-
-
-//Close login popups
-
-document.getElementById('loginClose').addEventListener('click', function() {
-  closeLoginPopupFunction();
-});
-document.getElementById('registerClose').addEventListener('click', function() {
-  closeRegisterPopupFunction();
-});
-
 function closeLoginPopupFunction() {
   document.querySelector('.login-popup').style.display = 'none';
   document.querySelectorAll(".password-input").forEach(item => {
@@ -1385,7 +1406,6 @@ function closeLoginPopupFunction() {
   passwordVisible = true;
   togglePassword();
 }
-
 function closeRegisterPopupFunction() {
   document.querySelector('.register-popup').style.display = 'none';
   document.querySelectorAll(".password-input").forEach(item => {
@@ -1395,20 +1415,6 @@ function closeRegisterPopupFunction() {
   passwordVisible = true;
   togglePassword();
 }
-
-
-// Show password toggle
-
-document.getElementById("loginPasswordToggle").addEventListener('click', function() {
-  togglePassword();
-});
-document.getElementById("registerPasswordToggle").addEventListener('click', function() {
-  togglePassword();
-});
-document.getElementById("registerConfirmPasswordToggle").addEventListener('click', function() {
-  togglePassword();
-});
-
 let passwordVisible = false;
 function togglePassword() {
   if (passwordVisible === false) {
@@ -1430,15 +1436,7 @@ function togglePassword() {
     });
   }
 }
-
-
-
-/*========================= Build Tabs =============================*/
-
 let teamTabClicked = false;
-
-document.getElementById('soloTab').click();
-
 function openTab(evt, tabName) {
   let i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName('tab-content');
@@ -1473,21 +1471,16 @@ function openTab(evt, tabName) {
     setBuild5Idle();
   }
 }
-
 function buildScrollFunction() {
   if (team === true) {
     document.getElementById('goDiv').scrollIntoView();
   }
 }
-
-/*============================== Team Builds ====================================*/
-
 let build1Visible = false;
 let build2Visible = false;
 let build3Visible = false;
 let build4Visible = false;
 let build5Visible = false;
-
 function setBuild1Idle() {
   if(build1Visible === true) {
     document.getElementById("build1").setAttribute("class", "team-build-idle")
@@ -1513,10 +1506,6 @@ function setBuild5Idle() {
     document.getElementById("build5").setAttribute("class", "team-build-idle")
   }
 }
-
-
-// Build 1
-
 function addBuild1() {
   document.querySelector('#addBuildDiv1').style.display = 'none';
   let build1 = document.querySelector('#build1');
@@ -1537,10 +1526,6 @@ function closeBuild1() {
     build1.setAttribute("class", "team-build");
   }, 500);
 }
-
-
-// Build 2
-
 function addBuild2() {
   document.querySelector('#addBuildDiv2').style.display = 'none';
   let build2 = document.querySelector('#build2');
@@ -1548,8 +1533,6 @@ function addBuild2() {
   build2.setAttribute('class', 'team-build slide-in');
   build2Visible = true;
 }
-
-
 function closeBuild2() {
   let addBuild2 = document.querySelector('#addBuildDiv2');
   addBuild2.style.display = 'flex';
@@ -1562,9 +1545,6 @@ function closeBuild2() {
     build2.setAttribute("class", "team-build");
   }, 500);
 }
-
-
-// Build 3
 function addBuild3() {
   document.querySelector('#addBuildDiv3').style.display = 'none';
   let build3 = document.querySelector('#build3');
@@ -1572,8 +1552,7 @@ function addBuild3() {
   build3.setAttribute('class', 'team-build slide-in');
   build3Visible = true;
 }
-
-function closeBuild3(role) {
+function closeBuild3() {
   let addBuild3 = document.querySelector('#addBuildDiv3');
   addBuild3.style.display = 'flex';
   addBuild3.setAttribute('class', 'flex-column fade-in');
@@ -1585,10 +1564,6 @@ function closeBuild3(role) {
     build3.setAttribute("class", "team-build");
   }, 500);
 }
-
-
-// Build 4
-
 function addBuild4() {
   document.querySelector('#addBuildDiv4').style.display = 'none';
   let build4 = document.querySelector('#build4');
@@ -1596,9 +1571,7 @@ function addBuild4() {
   build4.setAttribute('class', 'team-build slide-in');
   build4Visible = true;
 }
-
-
-function closeBuild4(role) {
+function closeBuild4() {
   let addBuild4 = document.querySelector('#addBuildDiv4');
   addBuild4.style.display = 'flex';
   addBuild4.setAttribute('class', 'flex-column fade-in');
@@ -1611,10 +1584,6 @@ function closeBuild4(role) {
     build4.setAttribute("class", "team-build");
   }, 500);
 }
-
-
-// Build 5
-
 function addBuild5() {
   document.querySelector('#addBuildDiv5').style.display = 'none';
   let build5 = document.querySelector('#build5');
@@ -1622,8 +1591,7 @@ function addBuild5() {
   build5.setAttribute('class', 'team-build slide-in');
   build5Visible = true;
 }
-
-function closeBuild5(role) {
+function closeBuild5() {
   let addBuild5 = document.querySelector('#addBuildDiv5');
   addBuild5.style.display = 'flex';
   addBuild5.setAttribute('class', 'flex-column fade-in');
@@ -1636,58 +1604,10 @@ function closeBuild5(role) {
     build5.setAttribute("class", "team-build");
   }, 500);
 }
-document.getElementById('closeBuild1').addEventListener('click', function() {
-  takenChampion1 = "";
-  availableTeamRoles.push(role1);
-  role1 = "undefined";
-  closeBuild1();
-});
-document.getElementById('closeBuild2').addEventListener('click', function() {
-  takenChampion2 = "";
-  availableTeamRoles.push(role2);
-  role2 = "undefined";
-  closeBuild2();
-});
-document.getElementById('closeBuild3').addEventListener('click', function() {
-  takenChampion3 = "";
-  availableTeamRoles.push(role3);
-  role3 = "undefined";
-  closeBuild3();
-});
-document.getElementById('closeBuild4').addEventListener('click', function() {
-  takenChampion4 = "";
-  availableTeamRoles.push(role4);
-  role4 = "undefined";
-  closeBuild4();
-});
-document.getElementById('closeBuild5').addEventListener('click', function() {
-  takenChampion5 = "";
-  availableTeamRoles.push(role5);
-  role5 = "undefined";
-  closeBuild5();
-});
-
-
-
-
-/*======================================== Profile dropdown ======================================*/
-
 let bodyClicked, dropdownClicked = false;
 let dropdown = document.querySelector("#profileDropdown");
 let loginButton = document.querySelector("#login");
 let logoutButton = document.querySelector("#logout");
-document.querySelector("body").addEventListener("click", function() {
-  bodyClicked = true;
-  closeProfileDropdown();
-});
-document.getElementById("profileIcon").addEventListener("click", function() {
-  dropdownClicked = true;
-  profileDropdown();
-});
-document.getElementById("profileDropdown").addEventListener("click", function() {
-  dropdownClicked = true;
-});
-
 let dropdownVisible = false;
 function profileDropdown() {
   if (!dropdownVisible) {
@@ -1711,7 +1631,6 @@ function profileDropdown() {
     dropdownClicked = false;
   }
 }
-
 function closeProfileDropdown() {
   if (bodyClicked && !dropdownClicked && !popupOpen) {
     dropdown.setAttribute("class", "profile-dropdown");
@@ -1725,4 +1644,3 @@ function closeProfileDropdown() {
     dropdownClicked = false;
   }
 }
-
