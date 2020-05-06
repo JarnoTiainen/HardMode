@@ -405,6 +405,7 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
       userLoggedIn = true;
       closeProfileDropdown();
       await unCheckAllOwnedChampions();
+      document.getElementById("profileName").innerHTML = name;
     }
 });
 document.getElementById("loginPopupButton").addEventListener("click", async function() {
@@ -600,6 +601,7 @@ document.getElementById('registerClose').addEventListener('click', function() {
   closeRegisterPopupFunction();
 });
 document.getElementById('login').addEventListener('click', function() {
+  popupOpen = true;
   loginPopupFunction();
 });
 document.getElementById('register').addEventListener('click', function() {
@@ -778,23 +780,18 @@ async function getNewSoloRandomBuild() {
     let mid = false;
     let adc = false;
     if (roleList[0] === false) {
-      jungler = true;
       possibleRoles.push('jungle');
     }
     if (roleList[1] === false) {
-      support = true;
       possibleRoles.push('support');
     }
     if (roleList[2] === false) {
-      top = true;
       possibleRoles.push('top');
     }
     if (roleList[3] === false) {
-      mid = true;
       possibleRoles.push('mid');
     }
     if (roleList[4] === false) {
-      adc = true;
       possibleRoles.push('bot');
     }
     const selectedRole = possibleRoles[Math.floor(
@@ -1421,10 +1418,6 @@ function pageTopFunction() {
   document.documentElement.scrollTop = 0;
 }
 let popupOpen = false;
-document.getElementById('login').addEventListener('click', function() {
-  popupOpen = true;
-  loginPopupFunction();
-});
 document.getElementById('register').addEventListener('click', function() {
   popupOpen = true;
   registerPopupFunction();
