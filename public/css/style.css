@@ -438,8 +438,8 @@ ul{
     opacity: 0.2;
 }
 .champion-highlight {
-    border: solid var(--blue2) 1px;
-    background: var(--highlight);
+    border: solid var(--highlight) 5px;
+    background: var(--blue2);
 }
 
 .champion-search-bg {

@@ -265,6 +265,7 @@ let takenChampion3;
 let takenChampion4;
 let takenChampion5;
 let clickable = true;
+let allChampionIconsUnselected = false;
 
 printChampionIcons();
 getNewSoloRandomBuild();
@@ -469,12 +470,27 @@ document.querySelectorAll(".champion-checkbox").forEach(async item=> {
   item.addEventListener('click', async event => {
     const championCheckboxes = document.querySelectorAll(".champion-checkbox");
     let newChampionList = [];
+    let toggledOffChampions = 0;
     for (let i = 0; i < championCheckboxes.length; i++) {
       if (!championCheckboxes[i].checked) {
         newChampionList.push(allChampionsList[i]);
+        allChampionIconsUnselected = false;
+        document.getElementById("championReset").innerHTML = "Unselect All";
+      }
+      else {
+        toggledOffChampions++
+      }
+      if (toggledOffChampions === allChampionsList.length) {
+        document.getElementById("championReset").innerHTML = "Select All";
+        allChampionIconsUnselected = true;
       }
     }
-    await updateChampionList(activeUser,newChampionList);
+    if (userLoggedIn) {
+      await updateChampionList(activeUser,newChampionList);
+    }
+    else {
+      activeUser.championList = newChampionList;
+    }
   })
 });
 document.getElementById("addBuild1").addEventListener("click", async function() {
@@ -514,6 +530,34 @@ document.getElementById("championInput").addEventListener("input", function() {
       championImg.setAttribute("class","champion-img");
     }
   }
+});
+document.getElementById("championReset").addEventListener("click", async function() {
+  const championButtons = document.querySelectorAll(".champion-checkbox");
+  let newChampionList = [];
+  if (allChampionIconsUnselected) {
+    for (let i = 0; i < championButtons.length; i++) {
+      championButtons[i].checked = false;
+      allChampionIconsUnselected = false;
+      document.getElementById("championReset").innerHTML = "Unselect All";
+    }
+    newChampionList = allChampionsList;
+  }
+  else {
+    for (let i = 0; i < championButtons.length; i++) {
+      championButtons[i].checked = true;
+      allChampionIconsUnselected = true;
+      document.getElementById("championReset").innerHTML = "Select All";
+    }
+    newChampionList = [];
+  }
+
+  if (userLoggedIn) {
+    await updateChampionList(activeUser,newChampionList);
+  }
+  else {
+    activeUser.championList = newChampionList;
+  }
+  console.log(activeUser.championList);
 });
 
 
@@ -653,67 +697,73 @@ async function getNewSoloRandomBuild() {
     playerChampionPool = await getChampionList(activeUser)
   }
   else {
-    playerChampionPool = allChampionsList;
+    playerChampionPool = activeUser.championList;
   }
-  const championName = playerChampionPool[Math.floor(Math.random() * playerChampionPool.length)];
-  const roleList = soloRoleCheck();
-  const possibleRoles = [];
-  let jungler = false;
-  let support = false;
-  let top = false;
-  let mid = false;
-  let adc = false;
-  if (roleList[0] === false) {
-    jungler = true;
-    possibleRoles.push('jungle');
-  }
-  if (roleList[1] === false) {
-    support = true;
-    possibleRoles.push('support');
-  }
-  if (roleList[2] === false) {
-    top = true;
-    possibleRoles.push('top');
-  }
-  if (roleList[3] === false) {
-    mid = true;
-    possibleRoles.push('mid');
-  }
-  if (roleList[4] === false) {
-    adc = true;
-    possibleRoles.push('bot');
-  }
-  const selectedRole = possibleRoles[Math.floor(
-      Math.random() * possibleRoles.length)];
-  const buildNumber = await getRandomBuild(championName);
-  document.getElementById("buildSelectedChampion").src = "images/champion/"+championName+".png";
+  if (playerChampionPool.length > 0) {
+    const championName = playerChampionPool[Math.floor(Math.random() * playerChampionPool.length)];
+    const roleList = soloRoleCheck();
+    const possibleRoles = [];
+    let jungler = false;
+    let support = false;
+    let top = false;
+    let mid = false;
+    let adc = false;
+    if (roleList[0] === false) {
+      jungler = true;
+      possibleRoles.push('jungle');
+    }
+    if (roleList[1] === false) {
+      support = true;
+      possibleRoles.push('support');
+    }
+    if (roleList[2] === false) {
+      top = true;
+      possibleRoles.push('top');
+    }
+    if (roleList[3] === false) {
+      mid = true;
+      possibleRoles.push('mid');
+    }
+    if (roleList[4] === false) {
+      adc = true;
+      possibleRoles.push('bot');
+    }
+    const selectedRole = possibleRoles[Math.floor(
+        Math.random() * possibleRoles.length)];
+    const buildNumber = await getRandomBuild(championName);
+    document.getElementById("buildSelectedChampion").src = "images/champion/"+championName+".png";
 
-  const allPossibleItems = await buildAllPossibleItemsList(buildNumber, championName);
-  let remainingItems = 6;
-  const boots = itemClasses[buildNumber].boots[Math.floor(
-      Math.random() * (itemClasses[buildNumber].boots.length - 1))];
-  const jungleItem = itemClasses[buildNumber].jgItems[Math.floor(
-      Math.random() * (itemClasses[buildNumber].jgItems.length - 1))];
-  const supportItem = itemClasses[buildNumber].spItems[Math.floor(
-      Math.random() * (itemClasses[buildNumber].spItems.length - 1))];
-  if (selectedRole === 'jungle') {
-    remainingItems--;
-    itemSetForJSON.push(jungleItem);
-    itemSetForJSON.push(boots);
-  } else if (selectedRole === 'support') {
-    itemSetForJSON.push(supportItem);
+    const allPossibleItems = await buildAllPossibleItemsList(buildNumber, championName);
+    let remainingItems = 6;
+    const boots = itemClasses[buildNumber].boots[Math.floor(
+        Math.random() * (itemClasses[buildNumber].boots.length - 1))];
+    const jungleItem = itemClasses[buildNumber].jgItems[Math.floor(
+        Math.random() * (itemClasses[buildNumber].jgItems.length - 1))];
+    const supportItem = itemClasses[buildNumber].spItems[Math.floor(
+        Math.random() * (itemClasses[buildNumber].spItems.length - 1))];
+    if (selectedRole === 'jungle') {
+      remainingItems--;
+      itemSetForJSON.push(jungleItem);
+      itemSetForJSON.push(boots);
+    } else if (selectedRole === 'support') {
+      itemSetForJSON.push(supportItem);
+    }
+    document.getElementById('buildRole').src = 'images/graphics/' + selectedRole +
+        '.png';
+    randomizeRestOfTheItems(allPossibleItems, (remainingItems-1), boots);
+    printSelectedItems();
+    const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
+    const runeList = buildRunes(keyStone);
+    printRunes(runeList[0], runeList[1], runeList[2], runeList[3], runeList[4],runeList[5]);
+    document.getElementById(
+        'buildName').innerHTML = itemClasses[buildNumber].name +" "+ championName;
+    const itemSet = formJSONforItemSet();
+    document.getElementById('buildInput').value = JSON.stringify(itemSet);
   }
-  document.getElementById('buildRole').src = 'images/graphics/' + selectedRole +
-      '.png';
-  randomizeRestOfTheItems(allPossibleItems, (remainingItems-1), boots);
-  printSelectedItems();
-  const keyStone = randomizeKeyStone(itemClasses[buildNumber].keyStones);
-  const runeList = buildRunes(keyStone);
-  printRunes(runeList[0], runeList[1], runeList[2], runeList[3], runeList[4],runeList[5]);
-  document.getElementById(
-      'buildName').innerHTML = itemClasses[buildNumber].name +" "+ championName;
-  const itemSet = formJSONforItemSet();
-  document.getElementById('buildInput').value = JSON.stringify(itemSet);
+  else {
+    alert("Select at least one champion.")
+  }
+
 }
 async function getNewTeamBuilds(buildIndex) {
   let name;
