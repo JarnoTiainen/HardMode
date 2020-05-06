@@ -341,15 +341,15 @@ document.getElementById('goButton').addEventListener('click', async function() {
 
 });
 document.getElementById("registerPopupButton").addEventListener("click",async function() {
-  var passwordOK = false;
-  var userNameOK = false;
-  var userInfoOK = false;
-  var userNameShort = true;
-  var userNameTaken = true;
-  var passwordShort = true;
-  var name;
-  var password;
-    name = document.getElementById("registerInput").value;
+  let passwordOK;
+  let userNameOK = false;
+  let userInfoOK = false;
+  let userNameShort;
+  let userNameTaken;
+  let passwordShort;
+  let name;
+  let password;
+  name = document.getElementById("registerInput").value;
     console.log(name);
     password = document.getElementById("registerPasswordInput").value;
     console.log(password);
@@ -393,6 +393,8 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
         errorString += "Password too short.";
       }
       alert(errorString);
+      console.log("Alerting");
+
     }
     if (userInfoOK) {
       await createNewUser(password, name);
@@ -404,59 +406,6 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
       closeProfileDropdown();
       await unCheckAllOwnedChampions();
     }
-  name = document.getElementById("registerInput").value;
-  password = document.getElementById("registerPasswordInput").value;
-  if  (password.length >= 6) {
-    passwordOK = true;
-    passwordShort = false;
-  }
-  else {
-    passwordShort = true;
-    passwordOK = false;
-  }
-  if (name.length >= 3) {
-    userNameShort = false;
-    if (!await checkUsername(name)) {
-      userNameTaken = false;
-      userNameOK = true;
-    }
-    else {
-      userNameTaken = true;
-      passwordOK = false;
-    }
-  }
-  else {
-    userNameTaken = false;
-    userNameShort = true;
-    passwordOK = false;
-  }
-  if (passwordOK && userNameOK) {
-    userInfoOK = true;
-  }
-  else {
-    let errorString = "";
-    if (userNameTaken) {
-      errorString += "Username taken.\n";
-    }
-    if (userNameShort) {
-      errorString += "Username too short.\n";
-    }
-    if (passwordShort) {
-      errorString += "Password too short.";
-    }
-    alert(errorString);
-  }
-  if (userInfoOK) {
-    await createNewUser(password, name);
-    closeRegisterPopupFunction();
-    activeUser = name;
-    profileName.innerHTML = name;
-    userLoggedIn = true;
-    await unCheckAllOwnedChampions();
-  }
-
-
-
 });
 document.getElementById("loginPopupButton").addEventListener("click", async function() {
   const username = document.getElementById("loginUsernameInput").value;
@@ -518,8 +467,10 @@ document.getElementById("addBuild4").addEventListener("click", async function() 
 document.getElementById("addBuild5").addEventListener("click", async function() {
   await getNewTeamBuilds(4);
 });
-document.getElementById("championInput").addEventListener("input", function() {
+document.getElementById("championInput").addEventListener("input", async function() {
   let text = document.getElementById("championInput").value;
+  let matchingChampions = 0;
+  let matchingChampionId;
   text = text.toLowerCase();
   console.log(text);
   const championList = document.querySelectorAll(".champion-img");
@@ -534,9 +485,32 @@ document.getElementById("championInput").addEventListener("input", function() {
     }
     if (champion.includes(text)) {
       championImg.setAttribute("class","champion-img champion-highlight");
+      matchingChampions++;
+      matchingChampionId = i;
     }
     else {
       championImg.setAttribute("class","champion-img");
+    }
+  }
+  if (matchingChampions === 1) {
+    let newChampionList;
+    if (userLoggedIn) {
+      newChampionList = await getChampionList(activeUser);
+    }
+    else {
+      newChampionList = activeUser.championList;
+    }
+    if (!newChampionList.includes(allChampionsList[matchingChampionId])) {
+      newChampionList.push(allChampionsList[matchingChampionId]);
+    }
+    console.log(newChampionList);
+    const championButtons = document.querySelectorAll(".champion-checkbox");
+    championButtons[matchingChampionId].checked = false;
+    if (userLoggedIn) {
+      await updateChampionList(activeUser,newChampionList);
+    }
+    else {
+      activeUser.championList = newChampionList;
     }
   }
 });
