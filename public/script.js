@@ -259,6 +259,14 @@ let itemClasses = [
     keyStones: [4, 11, 12, 16, 17],
   }];
 let userLoggedIn = false;
+let logoutClicked = false;
+let dropdownClicked = false;
+let bodyClicked = false;
+let dropdownVisible = false;
+let loginButton = document.querySelector("#login");
+let logoutButton = document.querySelector("#logout");
+let dropdown = document.querySelector("#profileDropdown");
+let profileName = document.querySelector("#profileName");
 
 let availableTeamRoles = [0,1,2,3,4];
 let takenChampion1;
@@ -442,7 +450,7 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
     await createNewUser(password, name);
     closeRegisterPopupFunction();
     activeUser = name;
-    document.getElementById("profileName").innerHTML = name;
+    profileName.innerHTML = name;
     userLoggedIn = true;
     await unCheckAllOwnedChampions();
   }
@@ -455,7 +463,7 @@ document.getElementById("loginPopupButton").addEventListener("click", async func
   const password = document.getElementById("loginPasswordInput").value;
   if (await checkLogin(username, password)) {
     activeUser = username;
-    document.getElementById("profileName").innerHTML = username;
+    profileName.innerHTML = username;
     closeLoginPopupFunction();
     popupOpen = false;
     bodyClicked = true;
@@ -640,7 +648,9 @@ document.getElementById("logout").addEventListener("click", async function() {
   const championCheckboxes = document.querySelectorAll(".champion-checkbox");
   for (let i= 0; i < allChampionsList.length; i++) {
         championCheckboxes[i].checked = false;
-      }
+  }
+  logoutClicked = true;
+  closeProfileDropdown();
 });
 async function unCheckAllOwnedChampions() {
   const championCheckboxes = document.querySelectorAll(".champion-checkbox");
@@ -1621,11 +1631,7 @@ function closeBuild5() {
     addBuild5.setAttribute('class', 'flex-column fade-in');
   }, 500);
 }
-let bodyClicked, dropdownClicked = false;
-let dropdown = document.querySelector("#profileDropdown");
-let loginButton = document.querySelector("#login");
-let logoutButton = document.querySelector("#logout");
-let dropdownVisible = false;
+
 function profileDropdown() {
   if (!dropdownVisible) {
     dropdown.style.display = "flex";
@@ -1649,12 +1655,19 @@ function profileDropdown() {
   }
 }
 function closeProfileDropdown() {
-  if (bodyClicked && !dropdownClicked && !popupOpen) {
+  if (bodyClicked && (!dropdownClicked || logoutClicked) && !popupOpen) {
+    if (logoutClicked) {
+      logoutButton.style.display = "none";
+      loginButton.style.display = "block";
+      userLoggedIn = false;
+      profileName.innerHTML = "Guest"
+    }
     dropdown.setAttribute("class", "profile-dropdown");
     dropdown.style.display = "none";
     dropdownVisible = false;
     bodyClicked = false;
     dropdownClicked = false;
+    logoutClicked = false;
   }
   else {
     bodyClicked = false;
