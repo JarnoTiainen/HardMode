@@ -452,8 +452,11 @@ ul{
     opacity: 0.2;
 }
 .champion-highlight {
-    border: solid var(--highlight) 5px;
-    background: var(--blue2);
+    border: solid var(--blue2) 1px;
+    background: var(--highlight);
+    padding: 4px;
+    filter: brightness(1.2);
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.9);
 }
 
 .champion-search-bg {
@@ -991,7 +994,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 .team-build-name-div {
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 4px;
     transform: translateX(-50%);
 }
 .team-player-name {
@@ -1006,7 +1009,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     text-decoration: none;
     font-weight: bolder;
     font-size: 16px;
-    margin: 0 0 8px;
+    margin: 0 0 6px;
 }
 .team-build-name {
     border: solid var(--border) 2px;
@@ -1089,7 +1092,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     margin: 0 1rem;
 }
 .team-skill-div {
-    margin: 12px;
+    margin: 8px;
 }
 .team-rune-div {
     margin: 0 0 0 0.5rem;
