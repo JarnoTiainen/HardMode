@@ -29,23 +29,22 @@
                         <div class="center-link"><span class="skewed-btn-text">Build</span></div>
                     </div>
                 </div>
-                <div class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
-                        <a href="#spacer" class="center-link"><span class="skewed-btn-text">end</span></a>
-                    </div>
-                </div>
             </div>
 
 
             <div class="profile-container flex-center">
+                <div class="profile-name-div">
+                    <h3 id="profileName" class="profile-name"></h3>
+                </div>
                 <div id="profileIconDiv" class="profile-icon-div flex-center">
                     <img id="profileIcon" src="images/champion/Jhin.png" class="profile-icon">
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <button id="register" class="login-buttons btn-animation">Register</button>
+                        <button id="login" class="login-buttons btn-animation">Log In</button>
+                        <button id="logout" class="login-buttons btn-animation">Log out</button>
+                    </div>
                 </div>
-                <div id="profileDropdown" class="profile-dropdown">
-                    <button id="register" class="login-buttons btn-animation">Register</button>
-                    <button id="login" class="login-buttons btn-animation">Log In</button>
-                    <button id="logout" class="login-buttons btn-animation">Log out</button>
-                </div>
+
             </div>
         </nav>
 
@@ -94,14 +93,16 @@
             <div class="green-box-borders">
                 <div id="greenBox" class="green-box">
 
-                    <div id="infoDiv" class="info-div flex-row">
-                        <div class="flex-center" id="info">
-                            <h1>Welcome to HardMode!</h1>
+                    <div id="infoDiv" class="info-div flex-center">
+                        <div class="flex-column" id="info">
+                            <div id="infoTitle" class="flex-center">
+                                <h1>Welcome to HardMode!</h1>
+                            </div>
                             <p>HardMode is a website for hardcore and for-fun players alike, where you can register an
-                                account (for free!), insert your owned champions into said account and roll for builds
+                                account (for free!), insert your owned champions into your account and roll for builds
                                 that just don't quite work. You can also roll builds for up to five (5) people using their
-                                HardMode-account names to fetch their owned champions, so you can make sure that whatever
-                                you roll is possible to be built. After rolling your builds, copy them into your League
+                                HardMode-account names to get their owned champions, so you can make sure that whatever
+                                you roll can actually be built. After rolling your builds, copy them into your League
                                 of Legends -client and waste no time in trying them out!</p>
                         </div>
                     </div>
