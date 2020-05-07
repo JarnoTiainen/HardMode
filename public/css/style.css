@@ -309,12 +309,14 @@ ul{
     color: var(--white90);
     margin: 1rem 0 3rem;
     font-size: 48px;
+    pointer-events: none;
 }
 .info-content {
     color: var(--white90);
     font-size: 24px;
     font-weight: bolder;
     letter-spacing: 1px;
+    pointer-events: none;
 }
 
 
