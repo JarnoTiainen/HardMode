@@ -19,6 +19,7 @@
     --white15: rgba(255, 255, 255, .15);
     --blue1: rgb(14, 56, 107);
     --blue2: rgb(14, 40, 80);
+    --blue-hover: rgb(14, 89, 141);
     --blue-border: rgb(32, 181, 252);
     --highlight: rgb(0, 191, 255);
     --border: rgb(80, 72, 38);
@@ -124,7 +125,7 @@ ul{
 .profile-dropdown {
     display: none;
     width: 200px;
-    height: 150px;
+    height: 160px;
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -144,9 +145,13 @@ ul{
     }
     100% {
         opacity: 1;
-        height: 150px;
+        height: 160px;
     }
 }
+.profile-dropdown div {
+    margin: 4px;
+}
+
 
 
     /*=============================================================================*/
@@ -245,24 +250,8 @@ ul{
     cursor: pointer;
     transform: translate(-50%, -50%) rotate(45deg);
 }
-.popup-button {
-    background: var(--blue1);
-    border-color: var(--blue-border);
-    border-radius: 5px;
-    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
-    color: var(--white90);
-    padding: 10px 15px;
+.popup-button-bg {
     margin-top: 40px;
-    font-size: 18px;
-    font-weight: bolder;
-    text-decoration: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.popup-button:hover {
-    background: white;
-    color: var(--blue1);
 }
 .close-button {
     width: 30px;
@@ -339,6 +328,8 @@ ul{
 .build-input {
     opacity: 0;
     position: absolute;
+    pointer-events: none;
+    z-index: -1;
 }
 .role-button-bg {
     background: var(--button-bg2);
@@ -591,8 +582,15 @@ ul{
     color: rgba(255, 255, 255, 1);
     transition: none;
 }
-.login-buttons {
+.blue-button-bg {
     background: linear-gradient(to right, var(--blue1) 0, var(--blue2) 100%);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blue-button {
+    background-color: transparent;
     border-color: var(--blue-border);
     border-radius: 5px;
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
@@ -600,7 +598,17 @@ ul{
     outline: none;
     cursor: pointer;
     padding: 1rem;
-    margin: 4px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bolder;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+.blue-button:hover {
+    background-color: rgba(255, 255, 255, .07);
+    border-color: var(--blue-border);
+    color: white;
+    transition: background-color 0.2s ease;
 }
 .btn-animation {
     -webkit-transform: scale(1.0);
@@ -915,6 +923,11 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     top: 0;
     background: var(--blue1);
     box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, .75);
+    transition: background-color 0.2s ease;
+}
+.build-close-button-x-color:hover {
+    background: var(--blue-hover);
+    transition: background-color 0.2s ease;
 }
 .team-build {
     display: none;
@@ -963,32 +976,20 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
 }
-
-
-.team-button-div {
+.team-copy-button-div {
     position: absolute;
     left: 0;
     top: 0;
     margin: 0 0.75rem;
 }
-.team-build-button {
+.team-build-copy-button {
     width: 76px;
     height: 50px;
-    color: var(--white90);
-    background-image: linear-gradient(to right, var(--button-bg1) 0%, var(--button-bg2) 100%);
-    border-color: var(--yellow);
-    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.team-build-button:hover {
-    background: linear-gradient(to bottom, var(--gray1) 0%, var(--gray2) 100%);
+    font-size: 12px;
 }
 .team-champion-box-style {
     border: solid var(--border) 2px;
@@ -1132,7 +1133,6 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 3px;
     margin: 0 4px;
-
 }
 .team-stat-buff-background {
     border: solid var(--border) 2px;
@@ -1141,7 +1141,6 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     padding: 4px;
     margin: 0 4px;
-
 }
 
 
