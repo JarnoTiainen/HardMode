@@ -113,6 +113,7 @@ ul{
     color: var(--white90);
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: bolder;
+    pointer-events: none;
 }
 .profile-icon-div {
     position: relative;
@@ -157,7 +158,6 @@ ul{
 
 .box {
     margin: auto;
-    min-width: 800px;
 }
 .flex-column {
     display: flex;
@@ -308,12 +308,14 @@ ul{
     color: var(--white90);
     margin: 1rem 0 3rem;
     font-size: 48px;
+    pointer-events: none;
 }
 .info-content {
     color: var(--white90);
     font-size: 24px;
     font-weight: bolder;
     letter-spacing: 1px;
+    pointer-events: none;
 }
 
 
@@ -474,7 +476,6 @@ ul{
     width: 80px;
     font-size: 14px;
 }
-
 
 
 /*============================================== Tooltips ====================================================*/
@@ -720,7 +721,7 @@ div.tab-div > button:first-child {
     border-right: none;
 }
 
-/*============================================ Build Box ===================================================*/
+/*============================================ Solo Box ===================================================*/
 
 #buildBox {
     background: linear-gradient(to right, var(--light-green) 0%, var(--dark-green) 40%, var(--dark-green) 60%, var(--light-green) 100%);
@@ -1149,7 +1150,149 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
 }
 
 
+/*============================================ Media Queries ==============================================*/
 
+@media only screen and (max-width: 1280px) {
+    #logo {
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+
+    .profile-dropdown {
+        transform: translate(-100%, 100%);
+    }
+    .green-box {
+        width: 100vw;
+    }
+    .interactive-container {
+        width: 95vw;
+    }
+    .build-options {
+        width: 90vw;
+    }
+    .tab-row {
+        width: 95vw;
+    }
+    .tab-container {
+        justify-content: initial;
+    }
+    .tab-div {
+        width: 25vw;
+        margin: 0 5vw;
+    }
+    .tab-div button {
+        width: 12.5vw;
+        height: 10vw;
+        position: relative;
+    }
+    .tab-links img {
+        width: 5vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .go-button-container {
+        width: 20vw;
+    }
+    .go-div {
+        padding: 2vw;
+    }
+    #goButton {
+        width: 14vw;
+        height: 10vw;
+    }
+    #goButton img {
+        width: 6vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .role-buttons-container {
+        width: 20vw;
+    }
+    .role-div {
+        flex-wrap: wrap;
+        width: 16vw;
+        margin: 0;
+        padding: 0.5vw;
+    }
+    .role-div label {
+        margin: 0.5vw;
+    }
+    .role-img {
+        width: 100%;
+        height: 100%;
+    }
+    .role-div label:first-child {
+        margin: 0 0.5vw 0 0;
+    }
+    .role-div label:last-child {
+        margin: 0 0 0 0.5vw;
+    }
+    #buildBox {
+        width: 95vw;
+    }
+    #buildItemRowDiv {
+        width: 60vw;
+        flex-direction: initial;
+        align-items: center;
+        justify-content: center;
+        padding: 1.25vw;
+    }
+    #buildItemRowDiv img {
+        width: 7.5vw;
+        height: 7.5vw;
+        margin: auto 1.25vw;
+    }
+    #buildItemRowDiv img:first-child {
+        margin: auto 1.25vw auto 0;
+    }
+    #buildItemRowDiv img:last-child {
+        margin: auto 0 auto 1.25vw;
+    }
+    #buildItemRowDiv div {
+        display: none;
+    }
+    #buildRuneDiv {
+        width: 40vw;
+        padding: 1vw;
+    }
+    #buildRuneKeystoneDiv {
+        width: 13vw;
+        margin: 0;
+    }
+    #buildRuneKeystoneImage {
+        width: 12vw;
+        height: 12vw;
+        margin: 0.5vw;
+    }
+    #buildRuneMainRuneDiv {
+        width: 9vw;
+        margin: 0.5vw;
+    }
+    #buildRuneSecondaryRuneDiv {
+        width: 9vw;
+        margin: 0.5vw;
+    }
+    .rune-image-size {
+        width: 7vw;
+        height: 7vw;
+    }
+    #buildRuneStatBuffDiv {
+        width: 5vw;
+        margin: 0.5vw;
+        padding: 0;
+    }
+    .stat-buff-image-size {
+        width: 3vw;
+        height: 3vw;
+        margin: 2px 0;
+    }
+}
 
 
 

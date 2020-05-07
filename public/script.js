@@ -279,11 +279,11 @@ let build2Visible = false;
 let build3Visible = false;
 let build4Visible = false;
 let build5Visible = false;
-//Clobal variables for team builds ends
+//Global variables for team builds ends
 
-//Clobal variables for solo and team builds begins
+//Global variables for solo and team builds begins
 let itemSetForJSON = [];
-//Clobal variables for solo and team builds ends
+//Global variables for solo and team builds ends
 
 let dropdownClicked = false;
 let bodyClicked = false;
