@@ -990,8 +990,7 @@ async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, n
       done = true;
     }
   }
-  const buildNumber = await getRandomBuild(
-      userChampionList[Math.floor(Math.random() * userChampionList.length)]);
+  const buildNumber = await getRandomBuild(championName);
   const allPossibleItems = await buildAllPossibleItemsList(buildNumber,
       championName, name);
   let remainingItems = 6;
@@ -1095,6 +1094,7 @@ function randomizeRestOfTheItems(allPossibleItems, numberOfItems, boots) {
   }
 }
 async function getRandomBuild(championName) {
+  console.log(championName);
   const data = {
     champion: championName
   };
@@ -1110,6 +1110,7 @@ async function getRandomBuild(championName) {
   const response = await fetch('/champ', options);
   let possibleBuilds = [];
   champion = await response.json();
+  console.log(champion);
   if (champion[0].AP === 1) {
     possibleBuilds.push(0);
   }
