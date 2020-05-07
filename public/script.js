@@ -1,18 +1,6 @@
 const allChampionsList = ["Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","AurelionSol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","ChoGath","Corki","Darius","Diana","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan","Jax","Jayce","Jhin","Jinx","Kaisa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","KhaZix","Kindred","Kled","KogMaw","LeBlanc","LeeSin","Leona","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","MasterYi","MissFortune","Mordekaiser","Morgana","Mundo","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","RekSai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Senna","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","VelKoz","Vi","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","XinZhao","Yasuo","Yorick","Yuumi","Zac","Zed","Ziggs","Zilean","Zoe","Zyra"];
-let defaultUser =  {"championList":["Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","AurelionSol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","ChoGath","Corki","Darius","Diana","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan","Jax","Jayce","Jhin","Jinx","Kaisa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","KhaZix","Kindred","Kled","KogMaw","LeBlanc","LeeSin","Leona","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","MasterYi","MissFortune","Mordekaiser","Morgana","Mundo","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","RekSai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Senna","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","VelKoz","Vi","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","XinZhao","Yasuo","Yorick","Yuumi","Zac","Zed","Ziggs","Zilean","Zoe","Zyra"]};
+let defaultUser =  {"championList": allChampionsList};
 let activeUser = defaultUser;
-let username1;
-let username2;
-let username3;
-let username4;
-let username5;
-let teamTabClicked = false;
-let role1 = "undefined";
-let role2 = "undefined";
-let role3 = "undefined";
-let role4 = "undefined";
-let role5 = "undefined";
-let itemSetForJSON = [];
 let itemClasses = [
   {
     name: 'Wannabe Mage',
@@ -258,8 +246,43 @@ let itemClasses = [
       '3800'],
     keyStones: [4, 11, 12, 16, 17],
   }];
+
 let userLoggedIn = false;
 let logoutClicked = false;
+let teamTabClicked = false;
+let goButtonClickable = true;
+let allChampionIconsUnselected = false;
+
+
+
+//Clobal variables for team builds begins
+let availableTeamRoles = [0,1,2,3,4];
+let takenChampion1;
+let takenChampion2;
+let takenChampion3;
+let takenChampion4;
+let takenChampion5;
+let username1;
+let username2;
+let username3;
+let username4;
+let username5;
+let role1 = "undefined";
+let role2 = "undefined";
+let role3 = "undefined";
+let role4 = "undefined";
+let role5 = "undefined";
+let build1Visible = false;
+let build2Visible = false;
+let build3Visible = false;
+let build4Visible = false;
+let build5Visible = false;
+//Clobal variables for team builds ends
+
+//Clobal variables for solo and team builds begins
+let itemSetForJSON = [];
+//Clobal variables for solo and team builds ends
+
 let dropdownClicked = false;
 let bodyClicked = false;
 let dropdownVisible = false;
@@ -268,16 +291,8 @@ let logoutButton = document.querySelector("#logout");
 let dropdown = document.querySelector("#profileDropdown");
 let profileName = document.querySelector("#profileName");
 
-let availableTeamRoles = [0,1,2,3,4];
-let takenChampion1;
-let takenChampion2;
-let takenChampion3;
-let takenChampion4;
-let takenChampion5;
-let clickable = true;
-let allChampionIconsUnselected = false;
-printChampionIcons();
-getNewSoloRandomBuild();
+printChampionIcons().then();
+getNewSoloRandomBuild().then();
 let solo = true;
 let team = false;
 document.getElementById('soloTab').click();
@@ -325,8 +340,8 @@ document.getElementById('teamTab').addEventListener('click', function() {
 });
 document.getElementById('goButton').addEventListener('click', async function() {
   buildScrollFunction();
-  if (clickable) {
-    clickable = false;
+  if (goButtonClickable) {
+    goButtonClickable = false;
     if (solo === true) {
       itemSetForJSON = [];
       await getNewSoloRandomBuild();
@@ -334,9 +349,8 @@ document.getElementById('goButton').addEventListener('click', async function() {
     }
     if (team === true) {
       await rerollTeamBuilds();
-      console.log(availableTeamRoles);
     }
-    clickable = true;
+    goButtonClickable = true;
   }
 
 });
@@ -350,9 +364,7 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
   let name;
   let password;
   name = document.getElementById("registerInput").value;
-    console.log(name);
     password = document.getElementById("registerPasswordInput").value;
-    console.log(password);
     if  (password.length >= 6) {
       passwordOK = true;
       passwordShort = false;
@@ -364,7 +376,6 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
     if (name.length >= 3) {
       userNameShort = false;
       if (!await checkUsername(name)) {
-        console.log("name ok");
         userNameTaken = false;
         userNameOK = true;
       }
@@ -393,7 +404,6 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
         errorString += "Password too short.";
       }
       alert(errorString);
-      console.log("Alerting");
 
     }
     if (userInfoOK) {
@@ -427,7 +437,7 @@ document.getElementById("loginPopupButton").addEventListener("click", async func
 
 });
 document.querySelectorAll(".champion-checkbox").forEach(async item=> {
-  item.addEventListener('click', async event => {
+  item.addEventListener('click', async () => {
     const championCheckboxes = document.querySelectorAll(".champion-checkbox");
     let newChampionList = [];
     let toggledOffChampions = 0;
@@ -473,7 +483,6 @@ document.getElementById("championInput").addEventListener("input", async functio
   let matchingChampions = 0;
   let matchingChampionId;
   text = text.toLowerCase();
-  console.log(text);
   const championList = document.querySelectorAll(".champion-img");
   for (let i = 0; i < allChampionsList.length; i++) {
     const championImg = championList[i];
@@ -504,7 +513,6 @@ document.getElementById("championInput").addEventListener("input", async functio
     if (!newChampionList.includes(allChampionsList[matchingChampionId])) {
       newChampionList.push(allChampionsList[matchingChampionId]);
     }
-    console.log(newChampionList);
     const championButtons = document.querySelectorAll(".champion-checkbox");
     championButtons[matchingChampionId].checked = false;
     if (userLoggedIn) {
@@ -517,7 +525,7 @@ document.getElementById("championInput").addEventListener("input", async functio
 });
 document.getElementById("championReset").addEventListener("click", async function() {
   const championButtons = document.querySelectorAll(".champion-checkbox");
-  let newChampionList = [];
+  let newChampionList;
   if (allChampionIconsUnselected) {
     for (let i = 0; i < championButtons.length; i++) {
       championButtons[i].checked = false;
@@ -541,7 +549,6 @@ document.getElementById("championReset").addEventListener("click", async functio
   else {
     activeUser.championList = newChampionList;
   }
-  console.log(activeUser.championList);
 });
 document.getElementById('cornerPiece').addEventListener("click", function() {
   scrollFunction("info")
@@ -624,7 +631,6 @@ document.getElementById("logout").addEventListener("click", async function() {
   document.getElementById("profileName").innerHTML = "";
   userLoggedIn = false;
   activeUser = defaultUser;
-  console.log(activeUser.championList);
   const championCheckboxes = document.querySelectorAll(".champion-checkbox");
   for (let i= 0; i < allChampionsList.length; i++) {
         championCheckboxes[i].checked = false;
@@ -660,8 +666,7 @@ async function updateChampionList(usernameTry, updatedChampionList) {
     },
     body: JSON.stringify(data)
   };
-  const res = await fetch('/updateChampionList', options);
-  const json = await res.json();
+  await fetch('/updateChampionList', options);
 }
 async function getChampionList(usernameTry) {
   const username = usernameTry;
@@ -747,18 +752,15 @@ async function printChampionIcons() {
   const data = await res.json();
   const championList = [];
   let index = 0;
-  for (item in data) {
+  for (let item in data) {
     championList.push(data[index].champion);
     index++;
   }
   championList.sort();
   for(let i = 0; i < championList.length; i++) {
     const toolTip = document.getElementsByClassName("champion-tooltip");
-    const championIcon = document.getElementsByClassName("champion-img");
-
     for(let i = 0; i < toolTip.length; i++){
       toolTip[i].innerText=championList[i];
-
     }
   }
 }
@@ -774,11 +776,6 @@ async function getNewSoloRandomBuild() {
     const championName = playerChampionPool[Math.floor(Math.random() * playerChampionPool.length)];
     const roleList = soloRoleCheck();
     const possibleRoles = [];
-    let jungler = false;
-    let support = false;
-    let top = false;
-    let mid = false;
-    let adc = false;
     if (roleList[0] === false) {
       possibleRoles.push('jungle');
     }
@@ -870,7 +867,6 @@ async function getNewTeamBuilds(buildIndex) {
         addBuild2();
         const role = availableTeamRoles[Math.floor(
             Math.random() * availableTeamRoles.length)];
-        console.log(role);
         role2 = role;
         for (let i = 0; i < availableTeamRoles.length; i++) {
           if (availableTeamRoles[i] === role) {
@@ -963,7 +959,6 @@ async function getNewTeamBuilds(buildIndex) {
   }
 }
 async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name) {
-  console.log("available roles "  + availableTeamRoles);
   itemSetForJSON = [];
   let championName;
   let done = false;
@@ -1103,9 +1098,11 @@ async function getRandomBuild(championName) {
     },
     body: JSON.stringify(data)
   };
+  let champion = [{AP: 0,AS: 0, Crit:0, FS: 0, Hb:0,HP:0,HPAP:0,LS:0,Lt:0,Mana:0,MP:0,MS:0,OH:0,Res:0}];
+  champion.push({AP: 0,AS: 0, Crit:0, FS: 0, Hb:0,HP:0,HPAP:0,LS:0,Lt:0,Mana:0,MP:0,MS:0,OH:0,Res:0});
   const response = await fetch('/champ', options);
-  const champion = await response.json();
   let possibleBuilds = [];
+  champion = await response.json();
   if (champion[0].AP === 1) {
     possibleBuilds.push(0);
   }
@@ -1161,11 +1158,13 @@ async function buildAllPossibleItemsList(buildSetNumber, championName) {
     },
     body: JSON.stringify(data)
   };
+  let champion = [{isMana:0,Melee:0,Ranged:0,Enchanter:0}];
+  champion.push({isMana:0,Melee:0,Ranged:0,Enchanter:0});
   const response = await fetch('/champ', options);
-  const champion = await response.json();
+  champion = await response.json();
 
   let allPossibleItems = [];
-  let combiner = [];
+  let combiner;
   combiner = itemClasses[buildSetNumber].mainItems;
   if (champion[0].isMana === 1) {
     allPossibleItems = combiner.concat(itemClasses[buildSetNumber].manaItems);
@@ -1215,31 +1214,20 @@ async function rerollTeamBuilds() {
   takenChampion4 = "";
   takenChampion5 = "";
   availableTeamRoles = [0,1,2,3,4];
-  console.log(role1);
   if (role1 !== "undefined") {
     await getNewTeamBuilds(0);
-    console.log("Rerolling 1");
   }
-  console.log(role2);
   if (role2 !== "undefined") {
-    console.log("Rerolling 2");
     await getNewTeamBuilds(1);
-    console.log("Rerolling 2");
   }
-  console.log(role3);
   if (role3 !== "undefined") {
     await getNewTeamBuilds(2);
-    console.log("Rerolling 3");
   }
-  console.log(role4);
   if (role4 !== "undefined") {
     await getNewTeamBuilds(3);
-    console.log("Rerolling 4");
   }
-  console.log(role5);
   if (role5 !== "undefined") {
     await getNewTeamBuilds(4);
-    console.log("Rerolling 5");
   }
 
 }
@@ -1343,11 +1331,9 @@ function setTeamSummonerSpells(buildIndex, role, buildNumber) {
 
 }
 function setSoloSummonerSpells(buildNumber, role, buildIndex) {
-  console.log(role);
   if (role === "top") {
     document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
     document.getElementById("buildSecondSummonerSpell").src = 'images/spell/summonerTeleport.png';
-    console.log("top");
   }
   if (role === "jungle") {
     document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
@@ -1381,7 +1367,7 @@ function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneTy
       '2').src = 'images/runes/rune' + mainRune.toString() + '2' +
       mainLowerRunes[1].toString() + '.png';
   document.getElementById('teamMainRune' + (roleNumber + 1).toString() +
-      '1').src = 'images/runes/rune' + mainRune.toString() + '3' +
+      '3').src = 'images/runes/rune' + mainRune.toString() + '3' +
       mainLowerRunes[2].toString() + '.png';
   document.getElementById('teamSecondaryRune' + (roleNumber + 1).toString() +
       '1').src = 'images/runes/rune' + secondaryRuneType.toString() + '1' +
@@ -1509,11 +1495,7 @@ function buildScrollFunction() {
     document.getElementById('goDiv').scrollIntoView();
   }
 }
-let build1Visible = false;
-let build2Visible = false;
-let build3Visible = false;
-let build4Visible = false;
-let build5Visible = false;
+
 function setBuild1Idle() {
   if(build1Visible === true) {
     document.getElementById("build1").setAttribute("class", "team-build-idle")
@@ -1539,6 +1521,7 @@ function setBuild5Idle() {
     document.getElementById("build5").setAttribute("class", "team-build-idle")
   }
 }
+
 function addBuild1() {
   document.querySelector('#addBuildDiv1').style.display = 'none';
   let build1 = document.querySelector('#build1');
@@ -1546,6 +1529,35 @@ function addBuild1() {
   build1.setAttribute('class', 'team-build slide-in');
   build1Visible = true;
 }
+function addBuild2() {
+  document.querySelector('#addBuildDiv2').style.display = 'none';
+  let build2 = document.querySelector('#build2');
+  build2.style.display = 'flex';
+  build2.setAttribute('class', 'team-build slide-in');
+  build2Visible = true;
+}
+function addBuild3() {
+  document.querySelector('#addBuildDiv3').style.display = 'none';
+  let build3 = document.querySelector('#build3');
+  build3.style.display = 'flex';
+  build3.setAttribute('class', 'team-build slide-in');
+  build3Visible = true;
+}
+function addBuild4() {
+  document.querySelector('#addBuildDiv4').style.display = 'none';
+  let build4 = document.querySelector('#build4');
+  build4.style.display = 'flex';
+  build4.setAttribute('class', 'team-build slide-in');
+  build4Visible = true;
+}
+function addBuild5() {
+  document.querySelector('#addBuildDiv5').style.display = 'none';
+  let build5 = document.querySelector('#build5');
+  build5.style.display = 'flex';
+  build5.setAttribute('class', 'team-build slide-in');
+  build5Visible = true;
+}
+
 function closeBuild1() {
   let addBuild1 = document.querySelector('#addBuildDiv1');
   let build1 = document.querySelector('#build1');
@@ -1557,13 +1569,6 @@ function closeBuild1() {
     addBuild1.style.display = 'flex';
     addBuild1.setAttribute('class', 'flex-column fade-in');
   }, 500);
-}
-function addBuild2() {
-  document.querySelector('#addBuildDiv2').style.display = 'none';
-  let build2 = document.querySelector('#build2');
-  build2.style.display = 'flex';
-  build2.setAttribute('class', 'team-build slide-in');
-  build2Visible = true;
 }
 function closeBuild2() {
   let addBuild2 = document.querySelector('#addBuildDiv2');
@@ -1577,13 +1582,6 @@ function closeBuild2() {
     addBuild2.setAttribute('class', 'flex-column fade-in');
   }, 500);
 }
-function addBuild3() {
-  document.querySelector('#addBuildDiv3').style.display = 'none';
-  let build3 = document.querySelector('#build3');
-  build3.style.display = 'flex';
-  build3.setAttribute('class', 'team-build slide-in');
-  build3Visible = true;
-}
 function closeBuild3() {
   let addBuild3 = document.querySelector('#addBuildDiv3');
   let build3 = document.querySelector('#build3');
@@ -1596,13 +1594,6 @@ function closeBuild3() {
     addBuild3.setAttribute('class', 'flex-column fade-in');
   }, 500);
 }
-function addBuild4() {
-  document.querySelector('#addBuildDiv4').style.display = 'none';
-  let build4 = document.querySelector('#build4');
-  build4.style.display = 'flex';
-  build4.setAttribute('class', 'team-build slide-in');
-  build4Visible = true;
-}
 function closeBuild4() {
   let addBuild4 = document.querySelector('#addBuildDiv4');
   let build4 = document.querySelector('#build4');
@@ -1614,13 +1605,6 @@ function closeBuild4() {
     addBuild4.style.display = 'flex';
     addBuild4.setAttribute('class', 'flex-column fade-in');
   }, 500);
-}
-function addBuild5() {
-  document.querySelector('#addBuildDiv5').style.display = 'none';
-  let build5 = document.querySelector('#build5');
-  build5.style.display = 'flex';
-  build5.setAttribute('class', 'team-build slide-in');
-  build5Visible = true;
 }
 function closeBuild5() {
   let addBuild5 = document.querySelector('#addBuildDiv5');
