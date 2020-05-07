@@ -349,7 +349,6 @@ document.getElementById('goButton').addEventListener('click', async function() {
     }
     if (team === true) {
       await rerollTeamBuilds();
-      console.log(availableTeamRoles);
     }
     goButtonClickable = true;
   }
@@ -365,9 +364,7 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
   let name;
   let password;
   name = document.getElementById("registerInput").value;
-    console.log(name);
     password = document.getElementById("registerPasswordInput").value;
-    console.log(password);
     if  (password.length >= 6) {
       passwordOK = true;
       passwordShort = false;
@@ -379,7 +376,6 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
     if (name.length >= 3) {
       userNameShort = false;
       if (!await checkUsername(name)) {
-        console.log("name ok");
         userNameTaken = false;
         userNameOK = true;
       }
@@ -408,7 +404,6 @@ document.getElementById("registerPopupButton").addEventListener("click",async fu
         errorString += "Password too short.";
       }
       alert(errorString);
-      console.log("Alerting");
 
     }
     if (userInfoOK) {
@@ -488,7 +483,6 @@ document.getElementById("championInput").addEventListener("input", async functio
   let matchingChampions = 0;
   let matchingChampionId;
   text = text.toLowerCase();
-  console.log(text);
   const championList = document.querySelectorAll(".champion-img");
   for (let i = 0; i < allChampionsList.length; i++) {
     const championImg = championList[i];
@@ -519,7 +513,6 @@ document.getElementById("championInput").addEventListener("input", async functio
     if (!newChampionList.includes(allChampionsList[matchingChampionId])) {
       newChampionList.push(allChampionsList[matchingChampionId]);
     }
-    console.log(newChampionList);
     const championButtons = document.querySelectorAll(".champion-checkbox");
     championButtons[matchingChampionId].checked = false;
     if (userLoggedIn) {
@@ -556,7 +549,6 @@ document.getElementById("championReset").addEventListener("click", async functio
   else {
     activeUser.championList = newChampionList;
   }
-  console.log(activeUser.championList);
 });
 document.getElementById('cornerPiece').addEventListener("click", function() {
   scrollFunction("info")
@@ -639,7 +631,6 @@ document.getElementById("logout").addEventListener("click", async function() {
   document.getElementById("profileName").innerHTML = "";
   userLoggedIn = false;
   activeUser = defaultUser;
-  console.log(activeUser.championList);
   const championCheckboxes = document.querySelectorAll(".champion-checkbox");
   for (let i= 0; i < allChampionsList.length; i++) {
         championCheckboxes[i].checked = false;
@@ -876,7 +867,6 @@ async function getNewTeamBuilds(buildIndex) {
         addBuild2();
         const role = availableTeamRoles[Math.floor(
             Math.random() * availableTeamRoles.length)];
-        console.log(role);
         role2 = role;
         for (let i = 0; i < availableTeamRoles.length; i++) {
           if (availableTeamRoles[i] === role) {
@@ -969,7 +959,6 @@ async function getNewTeamBuilds(buildIndex) {
   }
 }
 async function createOneNewTeamMemberBuild(userChampionList, buildIndex, role, name) {
-  console.log("available roles "  + availableTeamRoles);
   itemSetForJSON = [];
   let championName;
   let done = false;
@@ -1225,31 +1214,20 @@ async function rerollTeamBuilds() {
   takenChampion4 = "";
   takenChampion5 = "";
   availableTeamRoles = [0,1,2,3,4];
-  console.log(role1);
   if (role1 !== "undefined") {
     await getNewTeamBuilds(0);
-    console.log("Rerolling 1");
   }
-  console.log(role2);
   if (role2 !== "undefined") {
-    console.log("Rerolling 2");
     await getNewTeamBuilds(1);
-    console.log("Rerolling 2");
   }
-  console.log(role3);
   if (role3 !== "undefined") {
     await getNewTeamBuilds(2);
-    console.log("Rerolling 3");
   }
-  console.log(role4);
   if (role4 !== "undefined") {
     await getNewTeamBuilds(3);
-    console.log("Rerolling 4");
   }
-  console.log(role5);
   if (role5 !== "undefined") {
     await getNewTeamBuilds(4);
-    console.log("Rerolling 5");
   }
 
 }
@@ -1353,11 +1331,9 @@ function setTeamSummonerSpells(buildIndex, role, buildNumber) {
 
 }
 function setSoloSummonerSpells(buildNumber, role, buildIndex) {
-  console.log(role);
   if (role === "top") {
     document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
     document.getElementById("buildSecondSummonerSpell").src = 'images/spell/summonerTeleport.png';
-    console.log("top");
   }
   if (role === "jungle") {
     document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
@@ -1390,8 +1366,6 @@ function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneTy
   document.getElementById('teamMainRune' + (roleNumber + 1).toString() +
       '2').src = 'images/runes/rune' + mainRune.toString() + '2' +
       mainLowerRunes[1].toString() + '.png';
-  console.log('images/runes/rune' + mainRune.toString() + '3' +
-      mainLowerRunes[2].toString() + '.png');
   document.getElementById('teamMainRune' + (roleNumber + 1).toString() +
       '3').src = 'images/runes/rune' + mainRune.toString() + '3' +
       mainLowerRunes[2].toString() + '.png';
