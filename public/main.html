@@ -37,7 +37,7 @@
                     <h3 id="profileName" class="profile-name">Guest</h3>
                 </div>
                 <div id="profileIconDiv" class="profile-icon-div flex-center">
-                    <img id="profileIcon" src="images/graphics/userButtonImage.png  " class="profile-icon">
+                    <img id="profileIcon" src="images/graphics/userButtonImage.png" class="profile-icon" alt="profile icon">
                     <div id="profileDropdown" class="profile-dropdown">
                         <div class="blue-button-bg">
                             <button id="register" class="blue-button">Register</button>
@@ -60,7 +60,7 @@
                     <input type="text" id="loginUsernameInput" class="popup-input" placeholder="Username">
                     <div class="password-div flex-center">
                         <input type="password" id="loginPasswordInput" class="popup-input password-input" placeholder="Password">
-                        <span id="loginPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png"><span class="eye-cross"></span></span>
+                        <span id="loginPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png" alt="pw toggle icon"><span class="eye-cross"></span></span>
                     </div>
                     <div class="popup-button-bg blue-button-bg">
                         <button id="loginPopupButton" class="popup-button blue-button">Log In</button>
@@ -77,11 +77,11 @@
                     <input type="text" id="registerInput" class="popup-input" placeholder="Username">
                     <div class="password-div flex-center">
                         <input type="password" id="registerPasswordInput" class="popup-input password-input" placeholder="Password">
-                        <span id="registerPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png"><span class="eye-cross"></span></span>
+                        <span id="registerPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png" alt="pw toggle icon"><span class="eye-cross"></span></span>
                     </div>
                     <div class="password-div flex-center">
                         <input type="password" id="registerConfirmPasswordInput" class="popup-input password-input" placeholder="Confirm Password">
-                        <span id="registerConfirmPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png"><span class="eye-cross"></span></span>
+                        <span id="registerConfirmPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png" alt="pw toggle icon"><span class="eye-cross"></span></span>
                     </div>
                     <div class="popup-button-bg blue-button-bg">
                         <button id="registerPopupButton" class="popup-button blue-button">Register</button>
@@ -1187,39 +1187,38 @@
                         <div class="flex-row tab-row">
                             <div class="tab-container flex-center">
                                 <div id="tabDiv" class="flex-row tab-div">
-                                    <button id="soloTab" class="tab-links" onclick="openTab(event, 'buildBox')"><img src="images/graphics/SoloModeImage.png"></button>
-                                    <button id="teamTab" class="tab-links" onclick="openTab(event, 'teamBox')"><img src="images/graphics/HardModeTeamModeIcon.png"></button>
+                                    <button id="soloTab" class="tab-links" onclick="openTab(event, 'buildBox')"><img src="images/graphics/SoloModeImage.png" alt="solo mode"></button>
+                                    <button id="teamTab" class="tab-links" onclick="openTab(event, 'teamBox')"><img src="images/graphics/HardModeTeamModeIcon.png" alt="team mode"></button>
                                 </div>
                             </div>
                             <div class="go-button-container flex-center">
                                 <div id="goDiv" class="btn go-div">
-                                    <button id="goButton" class="color-btn btn-animation"><div class="btn-text"><img src="images/graphics/rerollImage.png"></div></button>
+                                    <button id="goButton" class="color-btn btn-animation"><img src="images/graphics/rerollImage.png" alt="re-roll"></button>
                                 </div>
                             </div>
                             <div class="role-buttons-container flex-center">
-                                <div id="roleDiv" class="role-div flex-row role-buttons">
-                                    <div id="roleButtonRow" class="flex-center">
-                                        <label id="topButton" class="role-toggle">
-                                            <input id="topInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/top.png" title="Top" class="role-img" alt="top image">
-                                        </label>
-                                        <label id="jungleButton" class="role-toggle">
-                                            <input id="jungleInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/jungle.png" title="Jungle" class="role-img" alt="jungle image">
-                                        </label>
-                                        <label id="midButton" class="role-toggle">
-                                            <input id="midInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/mid.png" title="Mid" class="role-img" alt="mid image">
-                                        </label>
-                                        <label id="botButton" class="role-toggle">
-                                            <input id="botInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/bot.png" title="Bot" class="role-img" alt="bot image">
-                                        </label>
-                                        <label id="supportButton" class="role-toggle">
-                                            <input id="supportInput" type="checkbox" class="role-checkbox">
-                                            <img src="images/graphics/support.png" title="Support" class="role-img" alt="support image">
-                                        </label>
-                                    </div>
+                                <div id="roleDiv" class="role-div flex-center role-buttons">
+                                    <label id="topButton" class="role-toggle">
+                                        <input id="topInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/top.png" title="Top" class="role-img" alt="top image">
+                                    </label>
+                                    <label id="jungleButton" class="role-toggle">
+                                        <input id="jungleInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/jungle.png" title="Jungle" class="role-img" alt="jungle image">
+                                    </label>
+                                    <label id="midButton" class="role-toggle">
+                                        <input id="midInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/mid.png" title="Mid" class="role-img" alt="mid image">
+                                    </label>
+                                    <label id="botButton" class="role-toggle">
+                                        <input id="botInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/bot.png" title="Bot" class="role-img" alt="bot image">
+                                    </label>
+                                    <label id="supportButton" class="role-toggle">
+                                        <input id="supportInput" type="checkbox" class="role-checkbox">
+                                        <img src="images/graphics/support.png" title="Support" class="role-img" alt="support image">
+                                    </label>
+
                                 </div>
                             </div>
                         </div>
