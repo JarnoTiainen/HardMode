@@ -153,7 +153,6 @@ ul{
 }
 
 
-
     /*=============================================================================*/
 
 .box {
@@ -296,12 +295,25 @@ ul{
     border: solid var(--border) 3px;
     margin: 2rem auto 2rem;
 }
-#info {
-    margin: 2rem;
-    height: 200px;
+.info-div {
+    width: 90%;
+    background: var(--white15);
+    border: solid var(--border) 3px;
+    margin: 2rem auto;
 }
-#infoTitle {
-    margin: 0 0 2rem;
+.info {
+    margin: 3rem;
+}
+.info-title {
+    color: var(--white90);
+    margin: 1rem 0 3rem;
+    font-size: 48px;
+}
+.info-content {
+    color: var(--white90);
+    font-size: 24px;
+    font-weight: bolder;
+    letter-spacing: 1px;
 }
 
 
@@ -312,14 +324,6 @@ ul{
     width: 90%;
     margin: 1rem auto 0;
     align-items: center;
-}
-.info-div {
-    width: 90%;
-    background: var(--white15);
-    margin: 2rem auto;
-}
-.info {
-    width: 100%;
 }
 #buildBCopyButton {
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .6);
@@ -352,6 +356,7 @@ ul{
 .role-toggle {
     position: relative;
     display: inline-block;
+    box-shadow: 4px 4px 15px -1px rgba(0, 0, 0, .6);
     width: 34px;
     height: 34px;
     margin: 2px;
