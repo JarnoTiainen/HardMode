@@ -1,35 +1,52 @@
-//Instantiating express module
+/*
+* Calling Node.js-modules "Express" and "NeDB".
+*/
 const express = require('express');
-
-//Instantiating NeDB module
 const Datastore = require('nedb');
 
-//Instantiating the express server
+/*
+* Initiating constant "app" using Express.
+*/
 const app = express();
 
-//Starting server at port 3000
+/*
+* Initiating a server connection at port 4000.
+*/
 app.listen(4000, () => {
   console.log('Server listening at port 4000.');
 });
 
-//Telling the server to use the directory 'public' in project files
+/*
+* Telling the server to use files in the "public"-folder and to only accept
+* packages sent to it if their size is less than or equal to 1 MB.
+*/
 app.use(express.static('./public'));
-
-//Telling the server to not accept JSON-strings larger than 1.0MB
 app.use(express.json({
   limit: '1mb'
 }));
 
-//Telling the database what file to use as a Datastore or creating it if needed
+/*
+* Assigning files to be used as databases for Champion data and User data.
+*/
 const db = new Datastore('database.db');
 const dbUsers = new Datastore('users.db');
 
-//Loading the database file's contents for use
+/*
+* Loading database information on startup.
+*/
 db.loadDatabase();
 dbUsers.loadDatabase();
 
-//Receives the fetch req in index.html by querying the database
-//Checking for errors and if none occur, sending the query results back
+/*
+* Defining a unique index for "usernames" to avoid duplication.
+*/
+dbUsers.ensureIndex({fieldName: 'username', unique: true}, function (err) {
+});
+
+/*
+* Receives a request from a client and returns the data of every champion in
+* the database. Uses the /api -route.
+*/
 app.get('/api', (req, res) => {
   db.find({}, (err, data) => {
     if(err) {
@@ -39,6 +56,11 @@ app.get('/api', (req, res) => {
     res.json(data);
   });
 });
+
+/*
+* Receives a request from a client and returns the data of every user in
+* the database. Uses the /user -route.
+*/
 app.get('/user', (req, res) => {
   dbUsers.find({}, (err, data) => {
     if(err) {
@@ -48,21 +70,20 @@ app.get('/user', (req, res) => {
     res.json(data);
   });
 });
+
+/*
+* Receives a request from a client and inserts the data of a new user into the
+* database. Uses the /user -route.
+*/
 app.post('/user', (req, res) => {
-  console.log('Request received! (User)');
   dbUsers.insert(req.body);
   res.json(req.body);
 });
 
-//Sends a res to the fetch in index.html and receiving its' req data
-//Adding property 'timestamp' to the JSON-string and saving it in the database
-//Sending a response back with the modified JSON-string
-app.post('/api', (req, res) => {
-  console.log('Request received!');
-  req.body.timestamp = Date.now();
-  db.insert(req.body);
-  res.json(req.body);
-});
+/*
+* Receives a request from a client and returns the data of a champion in the
+* database that matches the given name. Uses the /champ -route.
+*/
 app.post('/champ', (req, res) => {
   db.find({champion: req.body.champion}, (err, data) => {
     if(err) {
@@ -72,19 +93,27 @@ app.post('/champ', (req, res) => {
     res.json(data);
   });
 });
+
+/*
+* Receives a request from a client and returns the data of a user in the
+* database that matches the given name. Uses the /userCheck -route.
+*/
 app.post('/userCheck', (req, res) => {
-  console.log(req.body.username);
   dbUsers.find({username: req.body.username}, (err, data) => {
     if(err) {
       res.end();
       return;
     }
-    console.log(data);
     res.json(data);
   });
 });
+
+/*
+* Receives a request from a client and returns the data of a user in the
+* database that matches the given name-username-combination. Uses the
+* /loginCheck -route.
+*/
 app.post('/loginCheck', (req, res) => {
-  console.log('Request received! (LoginCheck)');
   dbUsers.find({username: req.body.username, password: req.body.password}, (err, data) => {
     if(err) {
       res.end();
@@ -93,8 +122,12 @@ app.post('/loginCheck', (req, res) => {
     res.json(data);
   });
 });
+
+/*
+* Receives a request from a client and returns the data of a user in the
+* database that matches the given name. Uses the /championList -route.
+*/
 app.post('/championList', (req, res) => {
-  console.log('Request received! (Fetch Champions)');
   dbUsers.find({username: req.body.username}, (err, data) => {
     if(err) {
       res.end();
@@ -103,8 +136,13 @@ app.post('/championList', (req, res) => {
     res.json(data);
   });
 });
+
+/*
+* Receives a request from a client and updates the championList-data of a user
+* in the database that matches the given name. Uses the /userCheck -route.
+* Additionally compacts the users.db -file for viewing purposes.
+*/
 app.post('/updateChampionList', (req, res) => {
-  console.log('Request received! (Update Champions)');
   dbUsers.update({username: req.body.username}, {$set:{championList: req.body.championList}}, (err, data) => {
     if(err) {
       res.end();
