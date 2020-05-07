@@ -252,6 +252,8 @@ let logoutClicked = false;
 let teamTabClicked = false;
 let goButtonClickable = true;
 let allChampionIconsUnselected = false;
+let passwordVisible = false;
+let popupOpen = false;
 
 
 
@@ -290,6 +292,7 @@ let loginButton = document.querySelector("#login");
 let logoutButton = document.querySelector("#logout");
 let dropdown = document.querySelector("#profileDropdown");
 let profileName = document.querySelector("#profileName");
+let pageTopButton = document.getElementById('pageTopButton');
 
 printChampionIcons().then();
 getNewSoloRandomBuild().then();
@@ -638,6 +641,10 @@ document.getElementById("logout").addEventListener("click", async function() {
   logoutClicked = true;
   closeProfileDropdown();
 });
+window.onscroll = function() {
+  toggleTopButton();
+};
+
 async function unCheckAllOwnedChampions() {
   const championCheckboxes = document.querySelectorAll(".champion-checkbox");
   const champions = await getChampionList(activeUser);
@@ -1388,10 +1395,6 @@ function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneTy
 function scrollFunction(id) {
   document.getElementById(id).scrollIntoView(true);
 }
-let pageTopButton = document.getElementById('pageTopButton');
-window.onscroll = function() {
-  toggleTopButton();
-};
 function toggleTopButton() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     pageTopButton.style.display = 'block';
@@ -1403,11 +1406,6 @@ function pageTopFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-let popupOpen = false;
-document.getElementById('register').addEventListener('click', function() {
-  popupOpen = true;
-  registerPopupFunction();
-});
 
 function loginPopupFunction() {
   document.querySelector('.login-popup').style.display = 'flex';
@@ -1433,7 +1431,6 @@ function closeRegisterPopupFunction() {
   passwordVisible = true;
   togglePassword();
 }
-let passwordVisible = false;
 function togglePassword() {
   if (passwordVisible === false) {
     passwordVisible = true;
