@@ -113,6 +113,7 @@ ul{
     color: var(--white90);
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: bolder;
+    pointer-events: none;
 }
 .profile-icon-div {
     position: relative;
