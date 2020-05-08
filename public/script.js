@@ -1303,65 +1303,65 @@ function printSelectedItemsForTeam(roleNumber) {
 function setTeamSummonerSpells(buildIndex, role, buildNumber) {
   if (role === 0) {
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '1').src = 'images/spell/summonerFlash.png';
+        '1').src = 'images/spell/SummonerFlash.png';
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '2').src = 'images/spell/summonerTeleport.png';
+        '2').src = 'images/spell/SummonerTeleport.png';
   }
   if (role === 1) {
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '1').src = 'images/spell/summonerFlash.png';
+        '1').src = 'images/spell/SummonerFlash.png';
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '2').src = 'images/spell/summonerSmite.png';
+        '2').src = 'images/spell/SummonerSmite.png';
   }
   if (role === 2) {
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '1').src = 'images/spell/summonerFlash.png';
+        '1').src = 'images/spell/SummonerFlash.png';
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '2').src = 'images/spell/summonerIgnite.png';
+        '2').src = 'images/spell/SummonerIgnite.png';
   }
 
   if (role === 3) {
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '1').src = 'images/spell/summonerFlash.png';
+        '1').src = 'images/spell/SummonerFlash.png';
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '2').src = 'images/spell/summonerHeal.png';
+        '2').src = 'images/spell/SummonerHeal.png';
   }
   if (role === 4) {
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '1').src = 'images/spell/summonerFlash.png';
+        '1').src = 'images/spell/SummonerFlash.png';
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '2').src = 'images/spell/summonerIgnite.png';
+        '2').src = 'images/spell/SummonerIgnite.png';
   }
   if (buildNumber === 11) {
     document.getElementById('teamSummonerSpell' + (buildIndex + 1).toString() +
-        '1').src = 'images/spell/summonerGhost.png';
+        '1').src = 'images/spell/SummonerGhost.png';
   }
 
 }
 function setSoloSummonerSpells(buildNumber, role, buildIndex) {
   if (role === "top") {
-    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
-    document.getElementById("buildSecondSummonerSpell").src = 'images/spell/summonerTeleport.png';
+    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/SummonerFlash.png';
+    document.getElementById("buildSecondSummonerSpell").src = 'images/spell/SummonerTeleport.png';
   }
   if (role === "jungle") {
-    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
-    document.getElementById("buildSecondSummonerSpell").src = 'images/spell/summonerSmite.png';
+    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/SummonerFlash.png';
+    document.getElementById("buildSecondSummonerSpell").src = 'images/spell/SummonerSmite.png';
   }
   if (role === "mid") {
-    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
-    document.getElementById("buildSecondSummonerSpell").src = 'images/spell/summonerIgnite.png';
+    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/SummonerFlash.png';
+    document.getElementById("buildSecondSummonerSpell").src = 'images/spell/SummonerIgnite.png';
   }
 
   if (role === "bot") {
-    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
-    document.getElementById("buildSecondSummonerSpell").src = 'images/spell/summonerHeal.png';
+    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/SummonerFlash.png';
+    document.getElementById("buildSecondSummonerSpell").src = 'images/spell/SummonerHeal.png';
   }
   if (role === "support") {
-    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerFlash.png';
-    document.getElementById("buildSecondSummonerSpell").src = "images/spell/summoner"+["Exhaust","Ignite"][Math.floor(Math.random()*2)]+".png";
+    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/SummonerFlash.png';
+    document.getElementById("buildSecondSummonerSpell").src = "images/spell/Summoner"+["Exhaust","Ignite"][Math.floor(Math.random()*2)]+".png";
   }
   if (buildIndex === 11) {
-    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/summonerGhost.png';
+    document.getElementById("buildFirstSummonerSpell").src = 'images/spell/SummonerGhost.png';
   }
 }
 function printRunesForTeam(roleNumber, mainRune, mainLowerRunes, secondaryRuneType, secondaryRunes, statBonuses, keyStoneNumber) {
