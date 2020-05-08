@@ -8,24 +8,24 @@
 </head>
 <body>
 <div class="background">
-    <button onclick="pageTopFunction()" id="pageTopButton" class="pageTopButton" title="Return to top">Top</button>
+    <button onclick="pageTopFunction()" id="pageTopButton" class="page-top-button" title="Return to top">Top</button>
 
     <div>
         <nav>
             <div id="cornerPiece" class="corner-piece-style"></div>
             <div id="navigationDiv" class="navigation-div">
                 <div id="infoButton" class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
+                    <div class="link-btn link-color">
                         <div class="center-link"><span class="skewed-btn-text">Info</span></div>
                     </div>
                 </div>
                 <div id="champListButton" class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
+                    <div class="link-btn link-color">
                         <div class="center-link"><span class="skewed-btn-text">Champion Select</span></div>
                     </div>
                 </div>
                 <div id="buildButton" class="skewed-btn nav-links-size">
-                    <div class="link-button color-link">
+                    <div class="link-btn link-color">
                         <div class="center-link"><span class="skewed-btn-text">Build</span></div>
                     </div>
                 </div>
@@ -39,14 +39,14 @@
                 <div id="profileIconDiv" class="profile-icon-div flex-center">
                     <img id="profileIcon" src="images/graphics/userButtonImage.png" class="profile-icon" alt="profile icon">
                     <div id="profileDropdown" class="profile-dropdown">
-                        <div class="blue-button-bg">
-                            <button id="register" class="blue-button">Register</button>
+                        <div class="blue-btn-bg">
+                            <button id="register" class="blue-btn">Register</button>
                         </div>
-                        <div class="blue-button-bg">
-                            <button id="login" class="blue-button">Log In</button>
+                        <div class="blue-btn-bg">
+                            <button id="login" class="blue-btn">Log In</button>
                         </div>
-                        <div class="blue-button-bg">
-                            <button id="logout" class="blue-button">Log out</button>
+                        <div class="blue-btn-bg">
+                            <button id="logout" class="blue-btn">Log out</button>
                         </div>
                     </div>
                 </div>
@@ -62,8 +62,8 @@
                         <input type="password" id="loginPasswordInput" class="popup-input password-input" placeholder="Password">
                         <span id="loginPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png" alt="pw toggle icon"><span class="eye-cross"></span></span>
                     </div>
-                    <div class="popup-button-bg blue-button-bg">
-                        <button id="loginPopupButton" class="popup-button blue-button">Log In</button>
+                    <div class="popup-button-bg blue-btn-bg">
+                        <button id="loginPopupButton" class="popup-button blue-btn">Log In</button>
                     </div>
                     <div class="close-button-x-color flex-center">
                         <img src="images/graphics/close-button.png" alt="" id="loginClose" class="close-button">
@@ -83,8 +83,8 @@
                         <input type="password" id="registerConfirmPasswordInput" class="popup-input password-input" placeholder="Confirm Password">
                         <span id="registerConfirmPasswordToggle" class="password-toggle"><img src="images/graphics/pw-toggle.png" alt="pw toggle icon"><span class="eye-cross"></span></span>
                     </div>
-                    <div class="popup-button-bg blue-button-bg">
-                        <button id="registerPopupButton" class="popup-button blue-button">Register</button>
+                    <div class="popup-button-bg blue-btn-bg">
+                        <button id="registerPopupButton" class="popup-button blue-btn">Register</button>
                     </div>
                     <div class="close-button-x-color flex-center">
                         <img src="images/graphics/close-button.png" alt="" id="registerClose" class="close-button">
@@ -94,7 +94,7 @@
         </div>
 
         <div class="fill-screen flex-center">
-            <img id="logo" src="images/graphics/logoHardmode.png">
+            <img id="logo" src="images/graphics/logoHardmode.png" alt="logo">
         </div>
 
 
@@ -118,12 +118,12 @@
                     </div>
 
 
-                    <div class="interactive-container flex-column" id="interactiveContainer">    <!-- Container for Interactive Portion -->
-                        <div class="build-options flex-column">
+                    <div class="app-container flex-column" id="interactiveContainer">    <!-- Container for Interactive Portion -->
+                        <div class="champion-options flex-column">
                             <div id="championSearchDiv" class="champion-search-bg flex-center">
                                 <input type="text" id="championInput" class="champion-search" placeholder="Search for champions">
-                                <div class="green-button-bg">
-                                    <button id="championReset" class="green-button">Unselect All</button>
+                                <div class="green-btn-bg">
+                                    <button id="championReset" class="green-btn">Unselect All</button>
                                 </div>
 
                             </div>
@@ -1193,7 +1193,7 @@
                             </div>
                             <div class="go-button-container flex-center">
                                 <div id="goDiv" class="btn go-div">
-                                    <button id="goButton" class="color-btn btn-animation"><img src="images/graphics/rerollImage.png" alt="re-roll"></button>
+                                    <button id="goButton" class="go-btn-color btn-popout"><img src="images/graphics/rerollImage.png" alt="re-roll"></button>
                                 </div>
                             </div>
                             <div class="role-buttons-container flex-center">
@@ -1218,18 +1218,17 @@
                                         <input id="supportInput" type="checkbox" class="role-checkbox">
                                         <img src="images/graphics/support.png" title="Support" class="role-img" alt="support image">
                                     </label>
-
                                 </div>
                             </div>
                         </div>
 
 
-                        <div id="buildBox" class="boxInContainer tab-content">                                                 <!-- Build Window -->
+                        <div id="buildBox" class="box-in-container tab-content">                                                 <!-- Build Window -->
                             <div id="buildMainColumn" class="flex-column">
                                 <div id="buildFirstDiv" class="flex-row">
                                     <div id="buildButtonDiv">
-                                        <div class="green-button-bg">
-                                            <button id="buildCopyButton" class="green-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <div class="green-btn-bg">
+                                            <button id="buildCopyButton" class="green-btn" title="Click to copy build to clipboard">Copy Build</button>
                                         </div>
                                         <label for="buildInput"></label>
                                         <input id="buildInput" type="text" class="build-input" readonly>
@@ -1238,7 +1237,7 @@
                                     <div id="buildNameDiv" class="flex-center">
                                         <div id="buildNameBackground" class="build-sub-box-style">
                                             <div class="build-role-div flex-center">
-                                                <img id="buildRole" src="images/graphics/bot.png" class="build-role-image">
+                                                <img id="buildRole" src="images/graphics/bot.png" class="build-role-image" alt="solo role">
                                             </div>
                                             <h2 id="buildName">Build Name</h2>
                                         </div>
@@ -1250,67 +1249,67 @@
                                         <div id="buildLoadoutFirstRowDiv" class="flex-row">
                                             <div id="buildSelectedChampionDiv" class="flex-center">
                                                 <div id="buildSelectedChampionSecondDiv">
-                                                    <img id="buildSelectedChampion" src="images/champion/Jhin.png" class="build-sub-box-style selected-champion-image-size">
+                                                    <img id="buildSelectedChampion" src="images/champion/Jhin.png" class="build-sub-box-style selected-champion-image-size" alt="solo champion">
                                                 </div>
                                             </div>
                                             <div id="buildItemRowDiv" class="flex-row build-sub-box-style">
-                                                <img id="item1" src="images/items/1400.png" class="build-square-background square-icon-image-size">
+                                                <img id="item1" src="images/items/1400.png" class="build-square-background square-icon-image-size" alt="solo item 1">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item2" src="images/items/1401.png" class="build-square-background square-icon-image-size">
+                                                <img id="item2" src="images/items/1401.png" class="build-square-background square-icon-image-size" alt="solo item 2">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item3" src="images/items/1402.png" class="build-square-background square-icon-image-size">
+                                                <img id="item3" src="images/items/1402.png" class="build-square-background square-icon-image-size" alt="solo item 3">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item4" src="images/items/1413.png" class="build-square-background square-icon-image-size">
+                                                <img id="item4" src="images/items/1413.png" class="build-square-background square-icon-image-size" alt="solo item 4">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item5" src="images/items/1414.png" class="build-square-background square-icon-image-size">
+                                                <img id="item5" src="images/items/1414.png" class="build-square-background square-icon-image-size" alt="solo item 5">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item6" src="images/items/1414.png" class="build-square-background square-icon-image-size">
+                                                <img id="item6" src="images/items/1414.png" class="build-square-background square-icon-image-size" alt="solo item 6">
                                             </div>
                                         </div>
                                         <div id="buildLoadoutSecondRowDiv" class="flex-row">
                                             <div id="buildRuneDiv" class="flex-row build-sub-box-style">
                                                 <div id="buildRuneKeystoneDiv" class="flex-center">
                                                     <div id="buildRuneKeystoneCenter">
-                                                        <img id="buildRuneKeystoneImage" src="images/runes/keyStone12.png" class="keystone-background keystone-image-size">
+                                                        <img id="buildRuneKeystoneImage" src="images/runes/keyStone12.png" class="keystone-background keystone-image-size" alt="solo keystone">
                                                     </div>
                                                 </div>
                                                 <div id="buildRuneMainRuneDiv" class="flex-column">
                                                     <div class="runes-background flex-column">
-                                                        <img id="buildRuneFirstMainRuneImage" src="images/runes/rune111.png" class="runes-item-background rune-image-size">
-                                                        <img id="buildRuneSecondMainRuneImage" src="images/runes/rune112.png" class="runes-item-background rune-image-size">
-                                                        <img id="buildRuneThirdMainRuneImage" src="images/runes/rune113.png" class="runes-item-background rune-image-size">
+                                                        <img id="buildRuneFirstMainRuneImage" src="images/runes/rune111.png" class="runes-item-background rune-image-size" alt="solo main rune 1">
+                                                        <img id="buildRuneSecondMainRuneImage" src="images/runes/rune112.png" class="runes-item-background rune-image-size" alt="solo main rune 2">
+                                                        <img id="buildRuneThirdMainRuneImage" src="images/runes/rune113.png" class="runes-item-background rune-image-size" alt="solo main rune 3">
                                                     </div>
                                                 </div>
                                                 <div id="buildRuneSecondaryRuneDiv" class="flex-column">
                                                     <div class="runes-background flex-column">
-                                                        <img id="buildRuneFirstSecondaryRuneImage" src="images/runes/rune211.png" class="runes-item-background rune-image-size">
-                                                        <img id="buildRuneSecondSecondaryRuneImage" src="images/runes/rune212.png" class="runes-item-background rune-image-size">
+                                                        <img id="buildRuneFirstSecondaryRuneImage" src="images/runes/rune211.png" class="runes-item-background rune-image-size" alt="solo secondary rune 1">
+                                                        <img id="buildRuneSecondSecondaryRuneImage" src="images/runes/rune212.png" class="runes-item-background rune-image-size" alt="solo secondary rune 2">
                                                     </div>
                                                 </div>
                                                 <div id="buildRuneStatBuffDiv" class="flex-column">
                                                     <div class="stat-buff-background flex-column">
-                                                        <img id="buildRuneFirstStatBuff" src="images/runes/rune611.png" class="stat-buff-item-background stat-buff-image-size">
-                                                        <img id="buildRuneSecondStatBuff" src="images/runes/rune612.png" class="stat-buff-item-background stat-buff-image-size">
-                                                        <img id="buildRuneThirdStatBuff" src="images/runes/rune613.png" class="stat-buff-item-background stat-buff-image-size">
+                                                        <img id="buildRuneFirstStatBuff" src="images/runes/rune611.png" class="stat-buff-item-background stat-buff-image-size" alt="solo stat buff 1">
+                                                        <img id="buildRuneSecondStatBuff" src="images/runes/rune612.png" class="stat-buff-item-background stat-buff-image-size" alt="solo stat buff 2">
+                                                        <img id="buildRuneThirdStatBuff" src="images/runes/rune613.png" class="stat-buff-item-background stat-buff-image-size" alt="solo stat buff 3">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="buildSkillDiv" class="flex-center">
                                                 <div id="buildSkillSecondDiv" class="flex-center build-sub-box-style">
-                                                    <img id="buildSkill" src="images/spell/JhinQ.png" class="build-square-background square-icon-image-size">
+                                                    <img id="buildSkill" src="images/spell/JhinQ.png" class="build-square-background square-icon-image-size" alt="solo skill">
                                                     <div id="buildSummonerSpellsDiv">
-                                                        <img id="buildFirstSummonerSpell" src="images/spell/SummonerFlash.png" class="build-square-background summoner-spell-image-size">
-                                                        <img id="buildSecondSummonerSpell" src="images/spell/SummonerHeal.png" class="build-square-background summoner-spell-image-size">
+                                                        <img id="buildFirstSummonerSpell" src="images/spell/SummonerFlash.png" class="build-square-background summoner-spell-image-size" alt="solo summoner spell 1">
+                                                        <img id="buildSecondSummonerSpell" src="images/spell/SummonerHeal.png" class="build-square-background summoner-spell-image-size" alt="solo summoner spell 2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1318,38 +1317,35 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <p id ="itemSet"></p>
-                            </div>
                         </div>
 
 
-                        <div id="teamBox" class="boxInContainer tab-content flex-column team-box">
+                        <div id="teamBox" class="box-in-container tab-content flex-column team-box">
                             <div id="build1Container" class="team-build-container flex-center">
-                                <div id="build1Background" class="team-build-container-background flex-center">
+                                <div id="build1Background" class="team-build-container-bg flex-center">
 
                                     <div id="addBuildDiv1" class="flex-column">
-                                        <div class="green-button-bg">
-                                            <button id="addBuild1" class="green-button">Add Player</button>
+                                        <div class="green-btn-bg">
+                                            <button id="addBuild1" class="green-btn">Add Player</button>
                                         </div>
-                                        <input type="text" id="addBuildInput1" class="add-build-input" placeholder="Search for players">
+                                        <input type="text" id="addBuildInput1" class="player-search-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build1" class="team-build">
-                                        <div class="build-close-button-x-color flex-center">
-                                            <img src="images/graphics/square-close-button.png" alt="" id="closeBuild1" class="build-close-button">
+                                        <div class="build-close-btn-x-color flex-center">
+                                            <img src="images/graphics/square-close-button.png" alt="X" id="closeBuild1" class="build-close-btn">
                                         </div>
-                                        <div id="build1ButtonDiv" class="team-copy-button-div green-button-bg">
-                                            <button id="build1CopyButton" class="team-build-copy-button green-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <div id="build1ButtonDiv" class="team-copy-btn-div green-btn-bg">
+                                            <button id="build1CopyButton" class="team-build-copy-btn green-btn" title="Click to copy build to clipboard">Copy Build</button>
                                             <label for="build1Input"></label>
                                             <input id="build1Input" type="text" class="build-input" readonly>
                                         </div>
                                         <div class="team-role-div flex-center">
-                                            <img id="build1Role" src="images/graphics/top.png" class="team-role-image">
+                                            <img id="build1Role" src="images/graphics/top.png" class="team-role-image" alt="role 1">
                                         </div>
                                         <div class="flex-center team-champion-div">
                                             <div>
-                                                <img id="champion1" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
+                                                <img id="champion1" src="images/champion/Jhin.png" class="team-champion-box-style team-champion" alt="champion 1">
                                             </div>
                                         </div>
                                         <div class="name-skill-div">
@@ -1363,10 +1359,10 @@
                                             </div>
                                             <div class="flex-center team-skill-div">
                                                 <div class="flex-row team-skill-box-style">
-                                                    <img id="teamSkill1" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                    <img id="teamSkill1" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon" alt="skill 1">
                                                     <div class="flex-column team-summoner-spell-div">
-                                                        <img id="teamSummonerSpell11" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                        <img id="teamSummonerSpell12" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                        <img id="teamSummonerSpell11" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image" alt="summoner spell 11">
+                                                        <img id="teamSummonerSpell12" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image" alt="summoner spell 12">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1374,55 +1370,55 @@
                                         <div class="flex-row team-rune-div">
                                             <div class="flex-center">
                                                 <div>
-                                                    <img id="teamKeystone1" src="images/runes/keyStone12.png" class="team-keystone-background team-keystone-image-size">
+                                                    <img id="teamKeystone1" src="images/runes/keyStone12.png" class="team-keystone-bg team-keystone-image-size" alt="keystone 1">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamMainRune11" src="images/runes/rune111.png" class="team-rune-image">
-                                                    <img id="teamMainRune12" src="images/runes/rune112.png" class="team-rune-image">
-                                                    <img id="teamMainRune13" src="images/runes/rune113.png" class="team-rune-image">
+                                                    <img id="teamMainRune11" src="images/runes/rune111.png" class="team-rune-image" alt="main rune 11">
+                                                    <img id="teamMainRune12" src="images/runes/rune112.png" class="team-rune-image" alt="main rune 12">
+                                                    <img id="teamMainRune13" src="images/runes/rune113.png" class="team-rune-image" alt="main rune 13">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamSecondaryRune11" src="images/runes/rune211.png" class="team-rune-image">
-                                                    <img id="teamSecondaryRune12" src="images/runes/rune212.png" class="team-rune-image">
+                                                    <img id="teamSecondaryRune11" src="images/runes/rune211.png" class="team-rune-image" alt="secondary rune 11">
+                                                    <img id="teamSecondaryRune12" src="images/runes/rune212.png" class="team-rune-image" alt="secondary rune 12">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
-                                                <div class="team-stat-buff-background flex-column">
-                                                    <img id="teamStatBuff11" src="images/runes/rune611.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff12" src="images/runes/rune612.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff13" src="images/runes/rune613.png" class="team-stat-buff-image">
+                                                <div class="team-stat-buff-bg flex-column">
+                                                    <img id="teamStatBuff11" src="images/runes/rune611.png" class="team-stat-buff-image" alt="stat buff 11">
+                                                    <img id="teamStatBuff12" src="images/runes/rune612.png" class="team-stat-buff-image" alt="stat buff 12">
+                                                    <img id="teamStatBuff13" src="images/runes/rune613.png" class="team-stat-buff-image" alt="stat buff 13">
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="teamItems1" class="flex-column team-item-div">
                                             <div class="flex-row ">
-                                                <img id="item11" src="images/items/1400.png" class="team-square-icon">
+                                                <img id="item11" src="images/items/1400.png" class="team-square-icon" alt="item 11">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item12" src="images/items/1401.png" class="team-square-icon">
+                                                <img id="item12" src="images/items/1401.png" class="team-square-icon" alt="item 12">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item13" src="images/items/1402.png" class="team-square-icon">
+                                                <img id="item13" src="images/items/1402.png" class="team-square-icon" alt="item 13">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
                                             </div>
                                             <div class="flex-row">
-                                                <img id="item14" src="images/items/1413.png" class="team-square-icon">
+                                                <img id="item14" src="images/items/1413.png" class="team-square-icon" alt="item 14">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item15" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item15" src="images/items/1414.png" class="team-square-icon" alt="item 15">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item16" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item16" src="images/items/1414.png" class="team-square-icon" alt="item 16">
                                             </div>
                                         </div>
                                     </div>
@@ -1433,30 +1429,30 @@
 
 
                             <div id="build2Container" class="team-build-container flex-center">
-                                <div id="build2Background" class="team-build-container-background flex-center">
+                                <div id="build2Background" class="team-build-container-bg flex-center">
 
                                     <div id="addBuildDiv2" class="flex-column">
-                                        <div class="green-button-bg">
-                                            <button id="addBuild2" class="green-button">Add Player</button>
+                                        <div class="green-btn-bg">
+                                            <button id="addBuild2" class="green-btn">Add Player</button>
                                         </div>
-                                        <input type="text" id="addBuildInput2" class="add-build-input" placeholder="Search for players">
+                                        <input type="text" id="addBuildInput2" class="player-search-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build2" class="team-build build-animation">
-                                        <div class="build-close-button-x-color flex-center">
-                                            <img src="images/graphics/square-close-button.png" alt="" id="closeBuild2" class="build-close-button">
+                                        <div class="build-close-btn-x-color flex-center">
+                                            <img src="images/graphics/square-close-button.png" alt="X" id="closeBuild2" class="build-close-btn">
                                         </div>
-                                        <div id="build2ButtonDiv" class="team-copy-button-div green-button-bg">
-                                            <button id="build2CopyButton" class="team-build-copy-button green-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <div id="build2ButtonDiv" class="team-copy-btn-div green-btn-bg">
+                                            <button id="build2CopyButton" class="team-build-copy-btn green-btn" title="Click to copy build to clipboard">Copy Build</button>
                                             <label for="build2Input"></label>
                                             <input id="build2Input" type="text" class="build-input" readonly>
                                         </div>
                                         <div class="team-role-div flex-center">
-                                            <img id="build2Role" src="images/graphics/jungle.png" class="team-role-image">
+                                            <img id="build2Role" src="images/graphics/jungle.png" class="team-role-image" alt="role 2">
                                         </div>
                                         <div class="flex-center team-champion-div">
                                             <div>
-                                                <img id="champion2" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
+                                                <img id="champion2" src="images/champion/Jhin.png" class="team-champion-box-style team-champion" alt="champion 2">
                                             </div>
                                         </div>
                                         <div class="name-skill-div">
@@ -1470,10 +1466,10 @@
                                             </div>
                                             <div class="flex-center team-skill-div">
                                                 <div class="flex-row team-skill-box-style">
-                                                    <img id="teamSkill2" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                    <img id="teamSkill2" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon" alt="skill 2">
                                                     <div class="flex-column team-summoner-spell-div">
-                                                        <img id="teamSummonerSpell21" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                        <img id="teamSummonerSpell22" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                        <img id="teamSummonerSpell21" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image" alt="summoner spell 21">
+                                                        <img id="teamSummonerSpell22" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image" alt="summoner spell 22">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1481,55 +1477,55 @@
                                         <div class="flex-row team-rune-div">
                                             <div class="flex-center">
                                                 <div>
-                                                    <img id="teamKeystone2" src="images/runes/keyStone12.png" class="team-keystone-background team-keystone-image-size">
+                                                    <img id="teamKeystone2" src="images/runes/keyStone12.png" class="team-keystone-bg team-keystone-image-size" alt="keystone 2">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamMainRune21" src="images/runes/rune111.png" class="team-rune-image">
-                                                    <img id="teamMainRune22" src="images/runes/rune112.png" class="team-rune-image">
-                                                    <img id="teamMainRune23" src="images/runes/rune113.png" class="team-rune-image">
+                                                    <img id="teamMainRune21" src="images/runes/rune111.png" class="team-rune-image" alt="main rune 21">
+                                                    <img id="teamMainRune22" src="images/runes/rune112.png" class="team-rune-image" alt="main rune 22">
+                                                    <img id="teamMainRune23" src="images/runes/rune113.png" class="team-rune-image" alt="main rune 23">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamSecondaryRune21" src="images/runes/rune211.png" class="team-rune-image">
-                                                    <img id="teamSecondaryRune22" src="images/runes/rune212.png" class="team-rune-image">
+                                                    <img id="teamSecondaryRune21" src="images/runes/rune211.png" class="team-rune-image" alt="secondary rune 21">
+                                                    <img id="teamSecondaryRune22" src="images/runes/rune212.png" class="team-rune-image" alt="secondary rune 22">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
-                                                <div class="team-stat-buff-background flex-column">
-                                                    <img id="teamStatBuff21" src="images/runes/rune611.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff22" src="images/runes/rune612.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff23" src="images/runes/rune613.png" class="team-stat-buff-image">
+                                                <div class="team-stat-buff-bg flex-column">
+                                                    <img id="teamStatBuff21" src="images/runes/rune611.png" class="team-stat-buff-image" alt="stat buff 21">
+                                                    <img id="teamStatBuff22" src="images/runes/rune612.png" class="team-stat-buff-image" alt="stat buff 22">
+                                                    <img id="teamStatBuff23" src="images/runes/rune613.png" class="team-stat-buff-image" alt="stat buff 23">
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="teamItems2" class="flex-column team-item-div">
                                             <div class="flex-row ">
-                                                <img id="item21" src="images/items/1400.png" class="team-square-icon">
+                                                <img id="item21" src="images/items/1400.png" class="team-square-icon" alt="item 21">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item22" src="images/items/1401.png" class="team-square-icon">
+                                                <img id="item22" src="images/items/1401.png" class="team-square-icon" alt="item 22">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item23" src="images/items/1402.png" class="team-square-icon">
+                                                <img id="item23" src="images/items/1402.png" class="team-square-icon" alt="item 23">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
                                             </div>
                                             <div class="flex-row">
-                                                <img id="item24" src="images/items/1413.png" class="team-square-icon">
+                                                <img id="item24" src="images/items/1413.png" class="team-square-icon" alt="item 24">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item25" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item25" src="images/items/1414.png" class="team-square-icon" alt="item 25">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item26" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item26" src="images/items/1414.png" class="team-square-icon" alt="item 26">
                                             </div>
                                         </div>
                                     </div>
@@ -1539,30 +1535,30 @@
 
 
                             <div id="build3Container" class="team-build-container flex-center">
-                                <div id="build3Background" class="team-build-container-background flex-center">
+                                <div id="build3Background" class="team-build-container-bg flex-center">
 
                                     <div id="addBuildDiv3" class="flex-column">
-                                        <div class="green-button-bg">
-                                            <button id="addBuild3" class="green-button">Add Player</button>
+                                        <div class="green-btn-bg">
+                                            <button id="addBuild3" class="green-btn">Add Player</button>
                                         </div>
-                                        <input type="text" id="addBuildInput3" class="add-build-input" placeholder="Search for players">
+                                        <input type="text" id="addBuildInput3" class="player-search-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build3" class="team-build build-animation">
-                                        <div class="build-close-button-x-color flex-center">
-                                            <img src="images/graphics/square-close-button.png" alt="" id="closeBuild3" class="build-close-button">
+                                        <div class="build-close-btn-x-color flex-center">
+                                            <img src="images/graphics/square-close-button.png" alt="X" id="closeBuild3" class="build-close-btn">
                                         </div>
-                                        <div id="build3ButtonDiv" class="team-copy-button-div green-button-bg">
-                                            <button id="build3CopyButton" class="team-build-copy-button green-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <div id="build3ButtonDiv" class="team-copy-btn-div green-btn-bg">
+                                            <button id="build3CopyButton" class="team-build-copy-btn green-btn" title="Click to copy build to clipboard">Copy Build</button>
                                             <label for="build3Input"></label>
                                             <input id="build3Input" type="text" class="build-input" readonly>
                                         </div>
                                         <div class="team-role-div flex-center">
-                                            <img id="build3Role" src="images/graphics/mid.png" class="team-role-image">
+                                            <img id="build3Role" src="images/graphics/mid.png" class="team-role-image" alt="role 3">
                                         </div>
                                         <div class="flex-center team-champion-div">
                                             <div>
-                                                <img id="champion3" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
+                                                <img id="champion3" src="images/champion/Jhin.png" class="team-champion-box-style team-champion" alt="champion 3">
                                             </div>
                                         </div>
                                         <div class="name-skill-div">
@@ -1576,10 +1572,10 @@
                                             </div>
                                             <div class="flex-center team-skill-div">
                                                 <div class="flex-row team-skill-box-style">
-                                                    <img id="teamSkill3" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                    <img id="teamSkill3" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon" alt="skill 3">
                                                     <div class="flex-column team-summoner-spell-div">
-                                                        <img id="teamSummonerSpell31" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                        <img id="teamSummonerSpell32" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                        <img id="teamSummonerSpell31" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image" alt="summoner spell 31">
+                                                        <img id="teamSummonerSpell32" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image" alt="summoner spell 32">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1587,55 +1583,55 @@
                                         <div class="flex-row team-rune-div">
                                             <div class="flex-center">
                                                 <div>
-                                                    <img id="teamKeystone3" src="images/runes/keyStone12.png" class="team-keystone-background team-keystone-image-size">
+                                                    <img id="teamKeystone3" src="images/runes/keyStone12.png" class="team-keystone-bg team-keystone-image-size" alt="keystone 3">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamMainRune31" src="images/runes/rune111.png" class="team-rune-image">
-                                                    <img id="teamMainRune32" src="images/runes/rune112.png" class="team-rune-image">
-                                                    <img id="teamMainRune33" src="images/runes/rune113.png" class="team-rune-image">
+                                                    <img id="teamMainRune31" src="images/runes/rune111.png" class="team-rune-image" alt="main rune 31">
+                                                    <img id="teamMainRune32" src="images/runes/rune112.png" class="team-rune-image" alt="main rune 32">
+                                                    <img id="teamMainRune33" src="images/runes/rune113.png" class="team-rune-image" alt="main rune 33">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamSecondaryRune31" src="images/runes/rune211.png" class="team-rune-image">
-                                                    <img id="teamSecondaryRune32" src="images/runes/rune212.png" class="team-rune-image">
+                                                    <img id="teamSecondaryRune31" src="images/runes/rune211.png" class="team-rune-image" alt="secondary rune 31">
+                                                    <img id="teamSecondaryRune32" src="images/runes/rune212.png" class="team-rune-image" alt="secondary rune 32">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
-                                                <div class="team-stat-buff-background flex-column">
-                                                    <img id="teamStatBuff31" src="images/runes/rune611.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff32" src="images/runes/rune612.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff33" src="images/runes/rune613.png" class="team-stat-buff-image">
+                                                <div class="team-stat-buff-bg flex-column">
+                                                    <img id="teamStatBuff31" src="images/runes/rune611.png" class="team-stat-buff-image" alt="stat buff 31">
+                                                    <img id="teamStatBuff32" src="images/runes/rune612.png" class="team-stat-buff-image" alt="stat buff 32">
+                                                    <img id="teamStatBuff33" src="images/runes/rune613.png" class="team-stat-buff-image" alt="stat buff 33">
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="teamItems3" class="flex-column team-item-div">
                                             <div class="flex-row ">
-                                                <img id="item31" src="images/items/1400.png" class="team-square-icon">
+                                                <img id="item31" src="images/items/1400.png" class="team-square-icon" alt="item 31">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item32" src="images/items/1401.png" class="team-square-icon">
+                                                <img id="item32" src="images/items/1401.png" class="team-square-icon" alt="item 32">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item33" src="images/items/1402.png" class="team-square-icon">
+                                                <img id="item33" src="images/items/1402.png" class="team-square-icon" alt="item 33">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
                                             </div>
                                             <div class="flex-row">
-                                                <img id="item34" src="images/items/1413.png" class="team-square-icon">
+                                                <img id="item34" src="images/items/1413.png" class="team-square-icon" alt="item 34">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item35" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item35" src="images/items/1414.png" class="team-square-icon" alt="item 35">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item36" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item36" src="images/items/1414.png" class="team-square-icon" alt="item 36">
                                             </div>
                                         </div>
                                     </div>
@@ -1645,30 +1641,30 @@
 
 
                             <div id="build4Container" class="team-build-container flex-center">
-                                <div id="build4Background" class="team-build-container-background flex-center">
+                                <div id="build4Background" class="team-build-container-bg flex-center">
 
                                     <div id="addBuildDiv4" class="flex-column">
-                                        <div class="green-button-bg">
-                                            <button id="addBuild4" class="green-button">Add Player</button>
+                                        <div class="green-btn-bg">
+                                            <button id="addBuild4" class="green-btn">Add Player</button>
                                         </div>
-                                        <input type="text" id="addBuildInput4" class="add-build-input" placeholder="Search for players">
+                                        <input type="text" id="addBuildInput4" class="player-search-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build4" class="team-build build-animation">
-                                        <div class="build-close-button-x-color flex-center">
-                                            <img src="images/graphics/square-close-button.png" alt="" id="closeBuild4" class="build-close-button">
+                                        <div class="build-close-btn-x-color flex-center">
+                                            <img src="images/graphics/square-close-button.png" alt="X" id="closeBuild4" class="build-close-btn">
                                         </div>
-                                        <div id="build4ButtonDiv" class="team-copy-button-div green-button-bg">
-                                            <button id="build4CopyButton" class="team-build-copy-button green-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <div id="build4ButtonDiv" class="team-copy-btn-div green-btn-bg">
+                                            <button id="build4CopyButton" class="team-build-copy-btn green-btn" title="Click to copy build to clipboard">Copy Build</button>
                                             <label for="build4Input"></label>
                                             <input id="build4Input" type="text" class="build-input" readonly>
                                         </div>
                                         <div class="team-role-div flex-center">
-                                            <img id="build4Role" src="images/graphics/bot.png" class="team-role-image">
+                                            <img id="build4Role" src="images/graphics/bot.png" class="team-role-image" alt="role 4">
                                         </div>
                                         <div class="flex-center team-champion-div">
                                             <div>
-                                                <img id="champion4" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
+                                                <img id="champion4" src="images/champion/Jhin.png" class="team-champion-box-style team-champion" alt="champion 4">
                                             </div>
                                         </div>
                                         <div class="name-skill-div">
@@ -1682,10 +1678,10 @@
                                             </div>
                                             <div class="flex-center team-skill-div">
                                                 <div class="flex-row team-skill-box-style">
-                                                    <img id="teamSkill4" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                    <img id="teamSkill4" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon" alt="skill 4">
                                                     <div class="flex-column team-summoner-spell-div">
-                                                        <img id="teamSummonerSpell41" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                        <img id="teamSummonerSpell42" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                        <img id="teamSummonerSpell41" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image" alt="summoner spell 41">
+                                                        <img id="teamSummonerSpell42" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image" alt="summoner spell 42">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1693,55 +1689,55 @@
                                         <div class="flex-row team-rune-div">
                                             <div class="flex-center">
                                                 <div>
-                                                    <img id="teamKeystone4" src="images/runes/keyStone12.png" class="team-keystone-background team-keystone-image-size">
+                                                    <img id="teamKeystone4" src="images/runes/keyStone12.png" class="team-keystone-bg team-keystone-image-size" alt="keystone 4">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamMainRune41" src="images/runes/rune111.png" class="team-rune-image">
-                                                    <img id="teamMainRune42" src="images/runes/rune112.png" class="team-rune-image">
-                                                    <img id="teamMainRune43" src="images/runes/rune113.png" class="team-rune-image">
+                                                    <img id="teamMainRune41" src="images/runes/rune111.png" class="team-rune-image" alt="main rune 41">
+                                                    <img id="teamMainRune42" src="images/runes/rune112.png" class="team-rune-image" alt="main rune 42">
+                                                    <img id="teamMainRune43" src="images/runes/rune113.png" class="team-rune-image" alt="main rune 43">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamSecondaryRune41" src="images/runes/rune211.png" class="team-rune-image">
-                                                    <img id="teamSecondaryRune42" src="images/runes/rune212.png" class="team-rune-image">
+                                                    <img id="teamSecondaryRune41" src="images/runes/rune211.png" class="team-rune-image" alt="secondary rune 41">
+                                                    <img id="teamSecondaryRune42" src="images/runes/rune212.png" class="team-rune-image" alt="secondary rune 42">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
-                                                <div class="team-stat-buff-background flex-column">
-                                                    <img id="teamStatBuff41" src="images/runes/rune611.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff42" src="images/runes/rune612.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff43" src="images/runes/rune613.png" class="team-stat-buff-image">
+                                                <div class="team-stat-buff-bg flex-column">
+                                                    <img id="teamStatBuff41" src="images/runes/rune611.png" class="team-stat-buff-image" alt="stat buff 41">
+                                                    <img id="teamStatBuff42" src="images/runes/rune612.png" class="team-stat-buff-image" alt="stat buff 42">
+                                                    <img id="teamStatBuff43" src="images/runes/rune613.png" class="team-stat-buff-image" alt="stat buff 43">
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="teamItems4" class="flex-column team-item-div">
                                             <div class="flex-row ">
-                                                <img id="item41" src="images/items/1400.png" class="team-square-icon">
+                                                <img id="item41" src="images/items/1400.png" class="team-square-icon" alt="item 41">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item42" src="images/items/1401.png" class="team-square-icon">
+                                                <img id="item42" src="images/items/1401.png" class="team-square-icon" alt="item 42">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item43" src="images/items/1402.png" class="team-square-icon">
+                                                <img id="item43" src="images/items/1402.png" class="team-square-icon" alt="item 43">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
                                             </div>
                                             <div class="flex-row">
-                                                <img id="item44" src="images/items/1413.png" class="team-square-icon">
+                                                <img id="item44" src="images/items/1413.png" class="team-square-icon" alt="item 44">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item45" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item45" src="images/items/1414.png" class="team-square-icon" alt="item 45">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item46" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item46" src="images/items/1414.png" class="team-square-icon" alt="item 46">
                                             </div>
                                         </div>
                                     </div>
@@ -1751,30 +1747,30 @@
 
 
                             <div id="build5Container" class="team-build-container flex-center">
-                                <div id="build5Background" class="team-build-container-background flex-center">
+                                <div id="build5Background" class="team-build-container-bg flex-center">
 
                                     <div id="addBuildDiv5" class="flex-column">
-                                        <div class="green-button-bg">
-                                            <button id="addBuild5" class="green-button">Add Player</button>
+                                        <div class="green-btn-bg">
+                                            <button id="addBuild5" class="green-btn">Add Player</button>
                                         </div>
-                                        <input type="text" id="addBuildInput5" class="add-build-input" placeholder="Search for players">
+                                        <input type="text" id="addBuildInput5" class="player-search-input" placeholder="Search for players">
                                     </div>
 
                                     <div id="build5" class="team-build build-animation">
-                                        <div class="build-close-button-x-color flex-center">
-                                            <img src="images/graphics/square-close-button.png" alt="" id="closeBuild5" class="build-close-button">
+                                        <div class="build-close-btn-x-color flex-center">
+                                            <img src="images/graphics/square-close-button.png" alt="X" id="closeBuild5" class="build-close-btn">
                                         </div>
-                                        <div id="build5ButtonDiv" class="team-copy-button-div green-button-bg">
-                                            <button id="build5CopyButton" class="team-build-copy-button green-button" title="Click to copy build to clipboard">Copy Build</button>
+                                        <div id="build5ButtonDiv" class="team-copy-btn-div green-btn-bg">
+                                            <button id="build5CopyButton" class="team-build-copy-btn green-btn" title="Click to copy build to clipboard">Copy Build</button>
                                             <label for="build5Input"></label>
                                             <input id="build5Input" type="text" class="build-input" readonly>
                                         </div>
                                         <div class="team-role-div flex-center">
-                                            <img id="build5Role" src="images/graphics/support.png" class="team-role-image">
+                                            <img id="build5Role" src="images/graphics/support.png" class="team-role-image" alt="role 5">
                                         </div>
                                         <div class="flex-center team-champion-div">
                                             <div>
-                                                <img id="champion5" src="images/champion/Jhin.png" class="team-champion-box-style team-champion">
+                                                <img id="champion5" src="images/champion/Jhin.png" class="team-champion-box-style team-champion" alt="champion 5">
                                             </div>
                                         </div>
                                         <div class="name-skill-div">
@@ -1788,10 +1784,10 @@
                                             </div>
                                             <div class="flex-center team-skill-div">
                                                 <div class="flex-row team-skill-box-style">
-                                                    <img id="teamSkill5" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon">
+                                                    <img id="teamSkill5" src="images/spell/JhinQ.png" class="team-skill-img team-square-icon" alt="skill 5">
                                                     <div class="flex-column team-summoner-spell-div">
-                                                        <img id="teamSummonerSpell51" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image">
-                                                        <img id="teamSummonerSpell52" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image">
+                                                        <img id="teamSummonerSpell51" src="images/spell/SummonerFlash.png" class="team-summoner-spell-image" alt="summoner spell 51">
+                                                        <img id="teamSummonerSpell52" src="images/spell/SummonerHeal.png" class="team-summoner-spell-image" alt="summoner spell 52">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1799,55 +1795,55 @@
                                         <div class="flex-row team-rune-div">
                                             <div class="flex-center">
                                                 <div>
-                                                    <img id="teamKeystone5" src="images/runes/keyStone12.png" class="team-keystone-background team-keystone-image-size">
+                                                    <img id="teamKeystone5" src="images/runes/keyStone12.png" class="team-keystone-bg team-keystone-image-size" alt="keystone 5">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamMainRune51" src="images/runes/rune111.png" class="team-rune-image">
-                                                    <img id="teamMainRune52" src="images/runes/rune112.png" class="team-rune-image">
-                                                    <img id="teamMainRune53" src="images/runes/rune113.png" class="team-rune-image">
+                                                    <img id="teamMainRune51" src="images/runes/rune111.png" class="team-rune-image" alt="main rune 51">
+                                                    <img id="teamMainRune52" src="images/runes/rune112.png" class="team-rune-image" alt="main rune 52">
+                                                    <img id="teamMainRune53" src="images/runes/rune113.png" class="team-rune-image" alt="main rune 53">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
                                                 <div class="team-runes-background flex-column">
-                                                    <img id="teamSecondaryRune51" src="images/runes/rune211.png" class="team-rune-image">
-                                                    <img id="teamSecondaryRune52" src="images/runes/rune212.png" class="team-rune-image">
+                                                    <img id="teamSecondaryRune51" src="images/runes/rune211.png" class="team-rune-image" alt="secondary rune 51">
+                                                    <img id="teamSecondaryRune52" src="images/runes/rune212.png" class="team-rune-image" alt="secondary rune 52">
                                                 </div>
                                             </div>
                                             <div class="flex-column">
-                                                <div class="team-stat-buff-background flex-column">
-                                                    <img id="teamStatBuff51" src="images/runes/rune611.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff52" src="images/runes/rune612.png" class="team-stat-buff-image">
-                                                    <img id="teamStatBuff53" src="images/runes/rune613.png" class="team-stat-buff-image">
+                                                <div class="team-stat-buff-bg flex-column">
+                                                    <img id="teamStatBuff51" src="images/runes/rune611.png" class="team-stat-buff-image" alt="stat buff 51">
+                                                    <img id="teamStatBuff52" src="images/runes/rune612.png" class="team-stat-buff-image" alt="stat buff 52">
+                                                    <img id="teamStatBuff53" src="images/runes/rune613.png" class="team-stat-buff-image" alt="stat buff 53">
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="teamItems5" class="flex-column team-item-div">
                                             <div class="flex-row ">
-                                                <img id="item51" src="images/items/1400.png" class="team-square-icon">
+                                                <img id="item51" src="images/items/1400.png" class="team-square-icon" alt="item 51">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item52" src="images/items/1401.png" class="team-square-icon">
+                                                <img id="item52" src="images/items/1401.png" class="team-square-icon" alt="item 52">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item53" src="images/items/1402.png" class="team-square-icon">
+                                                <img id="item53" src="images/items/1402.png" class="team-square-icon" alt="item 53">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
                                             </div>
                                             <div class="flex-row">
-                                                <img id="item54" src="images/items/1413.png" class="team-square-icon">
+                                                <img id="item54" src="images/items/1413.png" class="team-square-icon" alt="item 54">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item55" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item55" src="images/items/1414.png" class="team-square-icon" alt="item 55">
                                                 <div class="flex-center">
-                                                    <img src="images/graphics/arrow.png">
+                                                    <img src="images/graphics/arrow.png" alt="arrow">
                                                 </div>
-                                                <img id="item56" src="images/items/1414.png" class="team-square-icon">
+                                                <img id="item56" src="images/items/1414.png" class="team-square-icon" alt="item 56">
                                             </div>
                                         </div>
                                     </div>

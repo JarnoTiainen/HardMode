@@ -58,9 +58,47 @@ ul{
     background-position: center center;
     background-repeat: no-repeat;
 }
+.box {
+    margin: auto;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fill-screen{
+    height: 106vh;
+    width: 100%;
+}
+.spacer {
+    height: 300px;
+}
+.green-box {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    background: var(--green);
+    border: solid var(--border) 1px;
+    border-bottom: none;
+    padding-bottom: 200px;
+}
+.green-box-borders {
+    border: solid var(--light-border) 3px;
+    border-bottom: none;
+}
 
 
-/*================================ Nav Bar =================================*/
+/*=============================================== Nav Bar =================================================*/
 
 .corner-piece-style {
     background: var(--gray1);
@@ -79,7 +117,7 @@ ul{
     width: 200px;
     min-width: 8rem;
 }
-.pageTopButton {
+.page-top-button {
     display: none;
     position: fixed;
     bottom: 20px;
@@ -95,7 +133,7 @@ ul{
     border-radius: 10px;
     font-size: 18px;
 }
-.pageTopButton:hover {
+.page-top-button:hover {
     background-color: var(--light-green);
 }
 
@@ -151,35 +189,6 @@ ul{
 }
 .profile-dropdown div {
     margin: 4px;
-}
-
-
-    /*=============================================================================*/
-
-.box {
-    margin: auto;
-}
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.flex-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.fill-screen{
-    height: 106vh;
-    width: 100%;
-}
-.spacer {
-    height: 300px;
 }
 
 
@@ -268,28 +277,15 @@ ul{
     background: var(--highlight);
 }
 
-/*========================================== Interactive Container =============================================*/
+/*========================================== App Container =============================================*/
 
-.green-box {
-    display: flex;
-    flex-direction: column;
-    width: 1200px;
-    background: var(--green);
-    border: solid var(--border) 1px;
-    border-bottom: none;
-    padding-bottom: 200px;
-}
-.green-box-borders {
-    border: solid var(--light-border) 3px;
-    border-bottom: none;
-}
-.interactive-container {
+.app-container {
     text-align: center;
     padding: 2rem 0;
     margin: auto;
     width: 1150px;
 }
-.boxInContainer {
+.box-in-container {
     width: 1100px;
     background: var(--white15);
     border: solid var(--border) 3px;
@@ -319,24 +315,8 @@ ul{
 }
 
 
+/*======================================= Buttons in Tab Row ===========================================*/
 
-/*=================================== Buttons in Interactive Container ======================================*/
-
-.build-options {
-    width: 90%;
-    margin: 1rem auto 0;
-    align-items: center;
-}
-#buildBCopyButton {
-    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .6);
-    padding: 0.75rem 1.5rem;
-}
-.build-input {
-    opacity: 0;
-    position: absolute;
-    pointer-events: none;
-    z-index: -1;
-}
 .role-button-bg {
     background: var(--button-bg2);
     border: solid var(--light-border) 2px;
@@ -386,12 +366,6 @@ ul{
     border-bottom: none;
     background: linear-gradient(to bottom, rgb(45,45,45) 0%, var(--light-green) 90%);
 }
-.selection-buttons {
-    margin: 0 0 1rem 0;
-}
-.reset-div {
-    margin: 0 0 0 0.5rem;
-}
 #goButton {
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
     border-radius: 8px;
@@ -399,13 +373,6 @@ ul{
     font-weight: bolder;
     padding: 1.5rem 3rem;
 }
-#resetButton {
-    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
-    border-radius: 5px;
-    padding: 0.5rem;
-    width: 80px;
-}
-
 
 
 /*================================================= Champion List ================================================*/
@@ -423,7 +390,6 @@ ul{
     display: block;
     margin: 1px 2px;
 }
-
 .champion-img {
     width: 62px;
     height: 62px;
@@ -456,7 +422,11 @@ ul{
     filter: brightness(1.2);
     box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.9);
 }
-
+.champion-options {
+    width: 90%;
+    margin: 1rem auto 0;
+    align-items: center;
+}
 .champion-search-bg {
     border: solid var(--border) 3px;
     border-bottom: 0;
@@ -530,7 +500,7 @@ ul{
     color: var(--white90);
     font-size: 24px;
 }
-.color-btn {
+.go-btn-color {
     color: var(--white90);
     background-image: linear-gradient(to right, var(--button-bg1) 0%, var(--button-bg2) 100%);
     border-color: var(--yellow);
@@ -538,14 +508,14 @@ ul{
     padding: 5px 10px;
     cursor: pointer;
 }
-.color-btn:hover {
+.go-btn-color:hover {
     background-position: right center;
 }
-.color-btn:active {
+.go-btn-color:active {
     border-color: var(--yellow);
     transition: 50ms;
 }
-.color-link {
+.link-color {
     background-image: linear-gradient(to right, var(--gray1) 0%, var(--gray2) 100%);
     outline: none;
     padding: 5px 10px;
@@ -558,7 +528,7 @@ ul{
     transform: translate(-50%, -50%);
     padding: 0.5rem 1.5rem;
 }
-.link-button {
+.link-btn {
     display: block;
     font-size: 20px;
     outline: none;
@@ -567,7 +537,7 @@ ul{
     transition: 0.2s;
     padding: 5px;
 }
-.link-button:before {
+.link-btn:before {
     content: '';
     border-bottom: 4px solid rgba(0, 0, 0, 0);
     padding: 5px;
@@ -579,23 +549,23 @@ ul{
     width: 0;
     transition: 0.2s;
 }
-.link-button:hover:before {
+.link-btn:hover:before {
     border-bottom: 4px solid var(--highlight);
     width: 100%;
     padding: 0;
 }
-.link-button:active {
+.link-btn:active {
     color: rgba(255, 255, 255, 1);
     transition: none;
 }
-.blue-button-bg {
+.blue-btn-bg {
     background: linear-gradient(to right, var(--blue1) 0, var(--blue2) 100%);
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.blue-button {
+.blue-btn {
     background-color: transparent;
     border-color: var(--blue-border);
     border-radius: 5px;
@@ -610,32 +580,32 @@ ul{
     text-decoration: none;
     transition: background-color 0.2s ease;
 }
-.blue-button:hover {
+.blue-btn:hover {
     background-color: rgba(255, 255, 255, .07);
     border-color: var(--blue-border);
     color: white;
     transition: background-color 0.2s ease;
 }
-.btn-animation {
+.btn-popout {
     -webkit-transform: scale(1.0);
     -webkit-transition: 0.15s;
     -webkit-transition-timing-function: ease;
     -webkit-transition-delay: 0.1s;
 }
-.btn-animation:hover {
+.btn-popout:hover {
     -webkit-transform: scale(1.05);
     -webkit-transition: 0.15s;
     -webkit-transition-timing-function: ease;
     -webkit-transition-delay: 0s;
 }
-.green-button-bg {
+.green-btn-bg {
     background: linear-gradient(to right, var(--button-bg1) 0%,  var(--button-bg2) 100%);
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.green-button {
+.green-btn {
     width: 100%;
     color: var(--white90);
     background-color: transparent;
@@ -650,7 +620,7 @@ ul{
     padding: 10px 15px;
     transition: background-color 0.2s ease;
 }
-.green-button:hover {
+.green-btn:hover {
     background-color: rgba(255, 255, 255, .07);
     border-color: var(--light-border);
     color: white;
@@ -721,7 +691,7 @@ div.tab-div > button:first-child {
     border-right: none;
 }
 
-/*============================================ Solo Box ===================================================*/
+/*============================================== Solo Build ===================================================*/
 
 #buildBox {
     background: linear-gradient(to right, var(--light-green) 0%, var(--dark-green) 40%, var(--dark-green) 60%, var(--light-green) 100%);
@@ -737,6 +707,16 @@ div.tab-div > button:first-child {
     border: solid var(--light-border) 3px;
     background: var(--black);
     padding: 2px;
+}
+#buildBCopyButton {
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .6);
+    padding: 0.75rem 1.5rem;
+}
+.build-input {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
 }
 .build-role-div {
     position: absolute;
@@ -885,16 +865,16 @@ div.tab-div > button:first-child {
     right: 0;
 }
 
-/*========================================== Team Box =======================================*/
+/*=============================================== Team Build =================================================*/
 
 .team-box {
     margin: 0 auto;
     padding: 0;
 }
-div.team-box > div.team-build-container:first-child, div.team-build-container:first-child > div.team-build-container-background {
+div.team-box > div.team-build-container:first-child, div.team-build-container:first-child > div.team-build-container-bg {
     border-top: none;
 }
-div.team-box > div.team-build-container:last-child, div.team-build-container:last-child > div.team-build-container-background {
+div.team-box > div.team-build-container:last-child, div.team-build-container:last-child > div.team-build-container-bg {
     border-bottom: none;
     margin: 0;
 }
@@ -903,7 +883,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     border-bottom: solid var(--light-border) 1px;
     margin: 0 0 2px 0;
 }
-.team-build-container-background {
+.team-build-container-bg {
     position: relative;
     width: 100%;
     height: 200px;
@@ -911,17 +891,17 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     border-top: solid var(--border) 3px;
     border-bottom: solid var(--border) 3px;
 }
-.add-build-input {
+.player-search-input {
     margin-top: 8px;
     padding: 8px;
     border: solid grey 1px;
 }
-.build-close-button {
+.build-close-btn {
     width: 36px;
     height: 36px;
     cursor: pointer;
 }
-.build-close-button-x-color {
+.build-close-btn-x-color {
     width: 28px;
     height: 28px;
     position: absolute;
@@ -931,7 +911,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     box-shadow: 3px 3px 15px -2px rgba(0, 0, 0, .75);
     transition: background-color 0.2s ease;
 }
-.build-close-button-x-color:hover {
+.build-close-btn-x-color:hover {
     background: var(--blue-hover);
     transition: background-color 0.2s ease;
 }
@@ -986,13 +966,13 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
         opacity: 1;
     }
 }
-.team-copy-button-div {
+.team-copy-btn-div {
     position: absolute;
     left: 0;
     top: 0;
     margin: 0 0.75rem;
 }
-.team-build-copy-button {
+.team-build-copy-btn {
     width: 76px;
     height: 50px;
     font-size: 12px;
@@ -1056,7 +1036,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     background: var(--black);
     padding: 2px;
 }
-.team-keystone-background {
+.team-keystone-bg {
     border: solid var(--light-border) 2px;
     border-radius: 10em;
     background: var(--black);
@@ -1140,7 +1120,7 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     padding: 3px;
     margin: 0 4px;
 }
-.team-stat-buff-background {
+.team-stat-buff-bg {
     border: solid var(--border) 2px;
     border-radius: 2em;
     background: var(--dark-green);
@@ -1157,7 +1137,6 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
         width: 100vw;
     }
 }
-
 @media only screen and (max-width: 1200px){
 
     .profile-dropdown {
@@ -1166,10 +1145,10 @@ div.team-box > div.team-build-container:last-child, div.team-build-container:las
     .green-box {
         width: 100vw;
     }
-    .interactive-container {
+    .app-container {
         width: 95vw;
     }
-    .build-options {
+    .champion-options {
         width: 90vw;
     }
     .tab-row {
