@@ -38,16 +38,11 @@ db.loadDatabase();
 dbUsers.loadDatabase();
 
 /*
-* Defining a unique index for "usernames" to avoid duplication.
-*/
-dbUsers.ensureIndex({fieldName: 'username', unique: true}, function (err) {
-});
-
-/*
 * Receives a request from a client and returns the data of every champion in
 * the database. Uses the /api -route.
 */
 app.get('/api', (req, res) => {
+  console.log('/api');
   db.find({}, (err, data) => {
     if(err) {
       res.end();
@@ -62,6 +57,7 @@ app.get('/api', (req, res) => {
 * the database. Uses the /user -route.
 */
 app.get('/user', (req, res) => {
+  console.log('/user');
   dbUsers.find({}, (err, data) => {
     if(err) {
       res.end();
@@ -76,6 +72,7 @@ app.get('/user', (req, res) => {
 * database. Uses the /user -route.
 */
 app.post('/user', (req, res) => {
+  console.log('/user POST');
   dbUsers.insert(req.body);
   res.json(req.body);
 });
@@ -85,6 +82,7 @@ app.post('/user', (req, res) => {
 * database that matches the given name. Uses the /champ -route.
 */
 app.post('/champ', (req, res) => {
+  console.log('/champ');
   db.find({champion: req.body.champion}, (err, data) => {
     if(err) {
       res.end();
@@ -99,6 +97,7 @@ app.post('/champ', (req, res) => {
 * database that matches the given name. Uses the /userCheck -route.
 */
 app.post('/userCheck', (req, res) => {
+  console.log('/userCheck');
   dbUsers.find({username: req.body.username}, (err, data) => {
     if(err) {
       res.end();
@@ -114,11 +113,15 @@ app.post('/userCheck', (req, res) => {
 * /loginCheck -route.
 */
 app.post('/loginCheck', (req, res) => {
+  console.log('/loginCheck');
+  console.log(req.body);
   dbUsers.find({username: req.body.username, password: req.body.password}, (err, data) => {
     if(err) {
+      console.log('ERROR: ' + err);
       res.end();
       return;
     }
+    console.log(data);
     res.json(data);
   });
 });
@@ -128,6 +131,7 @@ app.post('/loginCheck', (req, res) => {
 * database that matches the given name. Uses the /championList -route.
 */
 app.post('/championList', (req, res) => {
+  console.log('/championList');
   dbUsers.find({username: req.body.username}, (err, data) => {
     if(err) {
       res.end();
@@ -143,12 +147,12 @@ app.post('/championList', (req, res) => {
 * Additionally compacts the users.db -file for viewing purposes.
 */
 app.post('/updateChampionList', (req, res) => {
+  console.log('/updateChampionList');
   dbUsers.update({username: req.body.username}, {$set:{championList: req.body.championList}}, (err, data) => {
     if(err) {
       res.end();
       return;
     }
-    dbUsers.persistence.compactDatafile();
     res.json(data);
   });
 });

@@ -723,6 +723,7 @@ async function checkLogin(usernameTry, passwordTry) {
   };
   const res = await fetch('/loginCheck', options);
   const json = await res.json();
+  console.log(json);
   return json.length > 0;
 }
 for (let i = 1; i < 6; i++) {
