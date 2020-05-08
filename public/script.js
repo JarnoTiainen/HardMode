@@ -292,7 +292,7 @@ let loginButton = document.querySelector("#login");
 let logoutButton = document.querySelector("#logout");
 let dropdown = document.querySelector("#profileDropdown");
 let profileName = document.querySelector("#profileName");
-let pageTopButton = document.getElementById('page-top-button');
+let pageTopButton = document.getElementById('pageTopButton');
 
 printChampionIcons().then();
 getNewSoloRandomBuild().then();
